@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TzalemTmuna
+namespace TzalemTmuna.Forms
 {
-    public partial class Feed : Form
+    public partial class Login : Form
     {
-        public Feed()
+        //color palette - https://colorhunt.co/palette/158293
+        public Login()
         {
             InitializeComponent();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

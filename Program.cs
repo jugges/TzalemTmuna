@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TzalemTmuna.Forms;
 
 namespace TzalemTmuna
 {
@@ -16,7 +17,7 @@ namespace TzalemTmuna
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Feed());
+            Application.Run(new Login());
         }
     }
 }
