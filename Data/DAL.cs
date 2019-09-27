@@ -28,8 +28,8 @@ namespace TzalemTmuna.Data
             if (instance == null)
             {
                 string path = System.IO.Directory.GetCurrentDirectory();
-                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Data\\tzalemtmuna.accdb";
-                instance = new DAL(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source='" + path + "';Presist Security Info=True");
+                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Data\\tzalemtmuna.mdb";
+                instance = new DAL("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path);
             }
             return instance;
         }

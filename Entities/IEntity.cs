@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TzalemTmuna.Objects
+namespace TzalemTmuna.Entities
 {
-    class Comment
+    public interface IEntity
     {
-        string comment_text;
-        User owner;
+        void Populate(DataRow dr);
     }
 }

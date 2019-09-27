@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TzalemTmuna.DB;
+using System.Threading.Tasks;
 
-namespace TzalemTmuna.Objects
+namespace TzalemTmuna.Entities
 {
     public class User : IEntity
     {
@@ -84,6 +84,21 @@ namespace TzalemTmuna.Objects
             get
             {
                 return external_url;
+            }
+        }
+
+        public List<User> Following
+        {
+            get
+            {
+                if (following != null)
+                    return following;
+                else
+                {
+                    var fdb = new FollowingDB();
+                    following = fdb.GetFollowing(username);
+                    return following;
+                }
             }
         }
         public User(DataRow dr)

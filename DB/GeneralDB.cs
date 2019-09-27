@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
 
 namespace TzalemTmuna.DB

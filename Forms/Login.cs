@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TzalemTmuna.DB;
+using TzalemTmuna.Entities;
 
 namespace TzalemTmuna.Forms
 {
@@ -20,7 +22,13 @@ namespace TzalemTmuna.Forms
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            var udb = new UserDB();
+            if (udb.Find("nirgolan4"))
+            {
+                User nir = udb.GetCurrentRow();
+                List<User> l = nir.Following;
+                MessageBox.Show(nir.Following[0].Username);
+            }
         }
     }
 }
