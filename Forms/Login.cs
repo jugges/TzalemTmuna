@@ -23,7 +23,7 @@ namespace TzalemTmuna.Forms
         private void Login_Load(object sender, EventArgs e)
         {
             var udb = new UserDB();
-            if (udb.Find("nirgolan4"))
+            if (udb.Find("udirubin8"))
             {
                 User nir = udb.GetCurrentRow();
                 List<User> l = nir.Following;
