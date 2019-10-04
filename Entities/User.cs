@@ -12,6 +12,7 @@ namespace TzalemTmuna.Entities
     public class User : IEntity
     {
         private string username;
+        private string email;
         private string full_name;
         private string biography;
         private bool is_private;
@@ -31,6 +32,20 @@ namespace TzalemTmuna.Entities
             get
             {
                 return username;
+            }
+        }
+        public string Email
+        {
+            set
+            {
+                if (Regex.IsMatch(value, @"^[\d\w]+@[\d\w]+\.[\w]+$"))
+                    email = value;
+                else
+                    throw new Exception("You must enter a valid email address");
+            }
+            get
+            {
+                return email;
             }
         }
         public string Full_name
@@ -98,6 +113,20 @@ namespace TzalemTmuna.Entities
                     var fdb = new FollowingDB();
                     following = fdb.GetFollowing(username);
                     return following;
+                }
+            }
+        }
+        public List<User> Followers
+        {
+            get
+            {
+                if (followers != null)
+                    return followers;
+                else
+                {
+                    var fdb = new FollowersDB();
+                    followers = fdb.GetFollowers(username);
+                    return followers;
                 }
             }
         }

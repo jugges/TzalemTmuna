@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TzalemTmuna.DB;
@@ -20,20 +21,50 @@ namespace TzalemTmuna.Forms
             InitializeComponent();
         }
 
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(txtUsername.Text, @"^[a-zA-Z0-9_]+$") && txtUsername.Text.Length <= 12)
+            {
+                var edb = new EmailDB();
+                if (edb.Find(txtUsername.Text))
+                {
+                    DoLogin(edb.GetCurrentRow());
+                }
+                else
+                    throw new Exception("Username/Email and/or password is not valid");
+            }
+            else if (Regex.IsMatch(txtUsername.Text, @"^[\d\w]+@[\d\w]+\.[\w]+$"))
+            {
+                var udb = new UserDB();
+                if (udb.Find(txtUsername.Text))
+                {
+                    DoLogin(udb.GetCurrentRow());
+                }
+                else
+                    throw new Exception("Username/Email and/or password is not valid");
+            }
+            else
+                throw new Exception("Username/Email and/or password is not valid");
+        }
+
+        private void DoLogin(User user)
+        {
+            var pdb = new PasswordDB();
+            if (pdb.Match(user, txtPassword.Text))
+                MessageBox.Show("Connecting!");
+            else
+                throw new Exception("Username/Email and/or password is not valid");
+        }
+
         private void Login_Load(object sender, EventArgs e)
         {
             var udb = new UserDB();
-            if (udb.Find("udirubin8"))
+            if (udb.Find("nirgolan4"))
             {
                 User nir = udb.GetCurrentRow();
-                List<User> l = nir.Following;
-                MessageBox.Show(nir.Following[0].Username);
+                var pdb = new PasswordDB();
+                pdb.Set(nir, "gayboy");
             }
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

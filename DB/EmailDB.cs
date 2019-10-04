@@ -8,9 +8,9 @@ using TzalemTmuna.Entities;
 
 namespace TzalemTmuna.DB
 {
-    public class FollowedDB:GeneralDB
+    public class EmailDB:GeneralDB
     {
-        public FollowedDB(): base("following", "following") { }
+        public EmailDB(): base("users", "email") { }
         public new User GetCurrentRow()
         {
             return new User(base.GetCurrentRow());
