@@ -12,9 +12,9 @@ using TzalemTmuna.Entities;
 
 namespace TzalemTmuna.Forms
 {
-    public partial class Login : Form
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
-        //color palette - https://colorhunt.co/palette/158293
+		
         public Login()
         {
             InitializeComponent();
@@ -29,6 +29,11 @@ namespace TzalemTmuna.Forms
                 List<User> l = nir.Following;
                 MessageBox.Show(nir.Following[0].Username);
             }
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
