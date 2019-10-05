@@ -15,7 +15,7 @@ namespace TzalemTmuna.Forms
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-		
+
         public Login()
         {
             InitializeComponent();
@@ -23,7 +23,8 @@ namespace TzalemTmuna.Forms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtUsername.Text, @"^[a-zA-Z0-9_]+$") && txtUsername.Text.Length <= 12)
+
+            if (Regex.IsMatch(txtUsername.Text, @"^[\d\w]+@[\d\w]+\.[\w]+$"))
             {
                 var edb = new EmailDB();
                 if (edb.Find(txtUsername.Text))
@@ -33,7 +34,7 @@ namespace TzalemTmuna.Forms
                 else
                     throw new Exception("Username/Email and/or password is not valid");
             }
-            else if (Regex.IsMatch(txtUsername.Text, @"^[\d\w]+@[\d\w]+\.[\w]+$"))
+            else if (Regex.IsMatch(txtUsername.Text, @"^[a-zA-Z0-9_]+$") && txtUsername.Text.Length <= 12)
             {
                 var udb = new UserDB();
                 if (udb.Find(txtUsername.Text))
@@ -58,13 +59,8 @@ namespace TzalemTmuna.Forms
 
         private void Login_Load(object sender, EventArgs e)
         {
-            var udb = new UserDB();
-            if (udb.Find("nirgolan4"))
-            {
-                User nir = udb.GetCurrentRow();
-                var pdb = new PasswordDB();
-                pdb.Set(nir, "gayboy");
-            }
+            //    nirgolan4,gayboy
+            //    udirubin8,uduman
         }
     }
 }

@@ -40,6 +40,7 @@ namespace TzalemTmuna.DB
                 string hash = HashSha256(password, salt);
                 dr["salt"] = salt;
                 dr["password"] = hash;
+                Save();
             }
             else
                 throw new Exception("User was not found in database!");
