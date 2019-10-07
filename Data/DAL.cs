@@ -72,6 +72,11 @@ namespace TzalemTmuna.Data
             }
         }
 
+        public int ExecuteNonQuery(OleDbCommand command)
+        {
+            return command.ExecuteNonQuery();
+        }
+
         public int ExecuteNonQuery(string sqlQry)
         {
             OleDbCommand command = con.CreateCommand();

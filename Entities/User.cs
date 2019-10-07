@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using TzalemTmuna.DB;
 using System.Threading.Tasks;
+using TzalemTmuna.Utilities;
 
 namespace TzalemTmuna.Entities
 {
@@ -15,7 +16,8 @@ namespace TzalemTmuna.Entities
         private string email;
         private string full_name;
         private string biography;
-        private bool is_private;
+        public bool is_private;
+        public bool is_admin;
         private string external_url;
         private List<User> following;
         private List<User> followers;
@@ -24,7 +26,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (Regex.IsMatch(value, @"^[a-zA-Z0-9_]+$") && value.Length <= 12)
+                if (ValidateTools.IsUsername(value))
                     username = value;
                 else
                     throw new Exception("Username can only contain English letters, numbers and underscores");
@@ -38,7 +40,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (Regex.IsMatch(value, @"^[\d\w]+@[\d\w]+\.[\w]+$"))
+                if (ValidateTools.IsEmail(value))
                     email = value;
                 else
                     throw new Exception("You must enter a valid email address");
@@ -76,22 +78,11 @@ namespace TzalemTmuna.Entities
                 return biography;
             }
         }
-        public bool Is_private
-        {
-            set
-            {
-                is_private = value;
-            }
-            get
-            {
-                return is_private;
-            }
-        }
         public string External_url
         {
             set
             {
-                if (Regex.IsMatch(value, @"https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"))
+                if (ValidateTools.IsURL(value))
                     external_url = value;
                 else
                     throw new Exception("Link provided is not a valid url");
@@ -136,6 +127,7 @@ namespace TzalemTmuna.Entities
             full_name = dr["full_name"].ToString();
             biography = dr["biography"].ToString();
             is_private = Convert.ToBoolean(dr["is_private"]);
+            is_admin = Convert.ToBoolean(dr["is_admin"]);
             external_url = dr["external_url"].ToString();
         }
         public User()
@@ -148,6 +140,7 @@ namespace TzalemTmuna.Entities
             dr["full_name"] = full_name;
             dr["biography"] = biography;
             dr["is_private"] = is_private;
+            dr["is_admin"] = is_admin;
             dr["external_url"] = external_url;
         }
     }

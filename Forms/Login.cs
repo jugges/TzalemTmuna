@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TzalemTmuna.DB;
+using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 
 namespace TzalemTmuna.Forms
@@ -21,10 +22,14 @@ namespace TzalemTmuna.Forms
             InitializeComponent();
         }
 
+        private void LoginError()
+        {
+            MetroFramework.MetroMessageBox.Show(this, "Username/Email and/or password is not valid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            if (Regex.IsMatch(txtUsername.Text, @"^[\d\w]+@[\d\w]+\.[\w]+$"))
+            if (ValidateTools.IsEmail(txtUsername.Text))
             {
                 var edb = new EmailDB();
                 if (edb.Find(txtUsername.Text))
@@ -32,9 +37,9 @@ namespace TzalemTmuna.Forms
                     DoLogin(edb.GetCurrentRow());
                 }
                 else
-                    throw new Exception("Username/Email and/or password is not valid");
+                    LoginError();
             }
-            else if (Regex.IsMatch(txtUsername.Text, @"^[a-zA-Z0-9_]+$") && txtUsername.Text.Length <= 12)
+            else if (ValidateTools.IsUsername(txtUsername.Text))
             {
                 var udb = new UserDB();
                 if (udb.Find(txtUsername.Text))
@@ -42,10 +47,10 @@ namespace TzalemTmuna.Forms
                     DoLogin(udb.GetCurrentRow());
                 }
                 else
-                    throw new Exception("Username/Email and/or password is not valid");
+                    LoginError();
             }
             else
-                throw new Exception("Username/Email and/or password is not valid");
+                LoginError();
         }
 
         private void DoLogin(User user)
@@ -54,13 +59,22 @@ namespace TzalemTmuna.Forms
             if (pdb.Match(user, txtPassword.Text))
                 MessageBox.Show("Connecting!");
             else
-                throw new Exception("Username/Email and/or password is not valid");
+                LoginError();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             //    nirgolan4,gayboy
             //    udirubin8,uduman
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            var register = new Register();
+            register.Location = Location;
+            register.Show();
+            Hide();
+            register.Closed += (s, args) => Show();
         }
     }
 }
