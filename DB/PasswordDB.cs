@@ -27,25 +27,25 @@ namespace TzalemTmuna.DB
             else
                 throw new Exception("User was not found in database!");
         }
-        public void Set(User user, string password)
-        {
-            if (Find(user.Username))
-            {
-                var dr = GetCurrentRow();
-                string salt = string.Empty;
-                foreach (byte x in GetSalt())
-                {
-                    salt += x.ToString("X2");
-                }
-                string hash = HashSha256(password, salt);
-                dr["salt"] = salt;
-                dr["password"] = hash;
-                Save();
-            }
-            else
-                throw new Exception("User was not found in database!");
-        }
-        private string HashSha256(string password, string salt)
+        //public void Set(User user, string password)
+        //{
+        //    if (Find(user.Username))
+        //    {
+        //        var dr = GetCurrentRow();
+        //        string salt = string.Empty;
+        //        foreach (byte x in GetSalt())
+        //        {
+        //            salt += x.ToString("X2");
+        //        }
+        //        string hash = HashSha256(password, salt);
+        //        dr["salt"] = salt;
+        //        dr["password"] = hash;
+        //        Save();
+        //    }
+        //    else
+        //        throw new Exception("User was not found in database!");
+        //}
+        public string HashSha256(string password, string salt)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(salt+password);
             SHA256Managed hashstring = new SHA256Managed();
@@ -57,8 +57,8 @@ namespace TzalemTmuna.DB
             }
             return hashString;
         }
-        
-        private byte[] GetSalt()
+
+        public byte[] GetSalt()
         {
             return GetSalt(saltLengthLimit);
         }

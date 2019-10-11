@@ -71,10 +71,11 @@ namespace TzalemTmuna.Forms
         private void btnRegister_Click(object sender, EventArgs e)
         {
             var register = new Register();
-            register.Location = Location;
             register.Show();
             Hide();
+            register.Location = Location;
             register.Closed += (s, args) => Show();
+            register.Closed += (s, args) => Location=register.Location;
         }
     }
 }

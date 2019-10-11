@@ -34,20 +34,41 @@ namespace TzalemTmuna.Forms
                 {
                     if (ValidateTools.IsEmail(txtEmail.Text))
                     {
-                        if(!edp.Find(txtEmail.Text))
+                        if (!edp.Find(txtEmail.Text))
                         {
                             if (ValidateTools.IsPassword(txtPassword.Text))
                             {
-                                if(txtPassword.Text == txtPasswordValidate.Text)
+                                if (txtPassword.Text == txtPasswordValidate.Text)
                                 {
                                     var user = new User();
                                     user.Username = txtUsername.Text;
                                     user.Email = txtEmail.Text;
-                                    var register = new OleDbCommand();
-                                    register.s
 
-                                    DAL.GetInstance().ExecuteNonQuery();
-                                    udp.Save();
+                                    PasswordDB pdb = new PasswordDB();
+                                    string salt = string.Empty;
+                                    foreach (byte x in pdb.GetSalt())
+                                    {
+                                        salt += x.ToString("X2");
+                                    }
+                                    string hash = pdb.HashSha256(txtPassword.Text, salt);
+
+                                    using (OleDbCommand cmd = DAL.GetInstance().GetOleDbCommand())
+                                    {
+                                        cmd.CommandText =
+                                        "INSERT INTO users " +
+                                        "([username], [email],  [salt], [password]) " +
+                                        "VALUES(@username, @email, @salt, @password)";
+
+                                        cmd.Parameters.AddRange(new OleDbParameter[]
+                                        {
+                                    new OleDbParameter("@username", user.Username),
+                                    new OleDbParameter("@email", user.Email),
+                                    new OleDbParameter("@salt", salt),
+                                    new OleDbParameter("@password", hash),
+                                        });
+
+                                        cmd.ExecuteNonQuery();
+                                    }
                                 }
                                 else
                                     MetroFramework.MetroMessageBox.Show(this, "Passwords dont match!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
