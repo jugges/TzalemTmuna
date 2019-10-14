@@ -66,24 +66,34 @@ namespace TzalemTmuna.Data
 
         public void Update()
         {
-            foreach(DataTable table in ds.Tables)
+            foreach (DataTable table in ds.Tables)
             {
                 Update(table.TableName);
             }
         }
-
-        public OleDbCommand GetOleDbCommand()
-        {
-            return con.CreateCommand();
-        }
-
         public int ExecuteNonQuery(string sqlQry)
         {
-            OleDbCommand command = con.CreateCommand();
-            command.CommandText = sqlQry;
-            return command.ExecuteNonQuery();
+            using (OleDbCommand command = con.CreateCommand())
+            {
+                command.CommandText = sqlQry;
+                con.Open();
+                var x = command.ExecuteNonQuery();
+                con.Close();
+                return x;
+            }
         }
-
+        public int ExecuteNonQuery(string sqlQry, OleDbParameter[] parameters)
+        {
+            using (OleDbCommand command = con.CreateCommand())
+            {
+                command.CommandText = sqlQry;
+                command.Parameters.AddRange(parameters);
+                con.Open();
+                var x = command.ExecuteNonQuery();
+                con.Close();
+                return x;
+            }
+        }
         public object ExecuteScalarQuery(string sqlStr)
         {
             OleDbCommand command = con.CreateCommand();

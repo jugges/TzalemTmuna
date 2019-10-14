@@ -11,9 +11,9 @@ namespace TzalemTmuna.DB
     public class EmailDB:GeneralDB
     {
         public EmailDB(): base("users", "email") { }
-        public new User GetCurrentRow()
+        public new DataRow GetCurrentRow()
         {
-            return new User(base.GetCurrentRow());
+            return base.GetCurrentRow();
         }
     }
 }

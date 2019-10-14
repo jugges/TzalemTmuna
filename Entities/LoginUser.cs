@@ -10,10 +10,12 @@ using TzalemTmuna.Utilities;
 
 namespace TzalemTmuna.Entities
 {
-    public class User : IEntity
+    public class LoginUser : IEntity
     {
         private string username;
         private string email;
+        private string salt;
+        private string password;
         private string full_name;
         private string biography;
         public bool is_private;
@@ -48,6 +50,31 @@ namespace TzalemTmuna.Entities
             get
             {
                 return email;
+            }
+        }
+        public void NewSalt()
+        {
+            salt = PasswordTools.GetSalt();
+        }
+        public string Salt
+        {
+            get
+            {
+                return salt;
+            }
+        }
+        public string Password
+        {
+            set
+            {
+                if(ValidateTools.IsPassword(value))
+                    password = PasswordTools.HashSha256(value,salt);
+                else
+                    throw new Exception("You must enter a valid password");
+            }
+            get
+            {
+                return password;
             }
         }
         public string Full_name
@@ -121,17 +148,32 @@ namespace TzalemTmuna.Entities
                 }
             }
         }
-        public User(DataRow dr)
+        public LoginUser(DataRow dr)
         {
             username = dr["username"].ToString();
             email = dr["email"].ToString();
+            salt = dr["salt"].ToString();
+            password = dr["password"].ToString();
             full_name = dr["full_name"].ToString();
             biography = dr["biography"].ToString();
             is_private = Convert.ToBoolean(dr["is_private"]);
             is_admin = Convert.ToBoolean(dr["is_admin"]);
             external_url = dr["external_url"].ToString();
         }
-        public User()
+        public LoginUser(string username, string email, string password)
+        {
+            this.username = username;
+            this.email = email;
+            NewSalt();
+            if (ValidateTools.IsPassword(password))
+                this.password = PasswordTools.HashSha256(password, salt);
+            else
+                throw new Exception("You must enter a valid password");
+            full_name = username;
+            is_private = false;
+            is_admin = false;
+        }
+        public LoginUser()
         {
 
         }
@@ -139,6 +181,8 @@ namespace TzalemTmuna.Entities
         {
             dr["username"] = username;
             dr["email"] = email;
+            dr["salt"] = salt;
+            dr["password"] = password;
             dr["full_name"] = full_name;
             dr["biography"] = biography;
             dr["is_private"] = is_private;

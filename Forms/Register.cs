@@ -26,49 +26,44 @@ namespace TzalemTmuna.Forms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var udp = new UserDB();
-            var edp = new EmailDB();
             if (ValidateTools.IsUsername(txtUsername.Text))
             {
+                var udp = new UserDB();
                 if (!udp.Find(txtUsername.Text))
                 {
                     if (ValidateTools.IsEmail(txtEmail.Text))
                     {
+                        var edp = new EmailDB();
                         if (!edp.Find(txtEmail.Text))
                         {
                             if (ValidateTools.IsPassword(txtPassword.Text))
                             {
                                 if (txtPassword.Text == txtPasswordValidate.Text)
                                 {
-                                    var user = new User();
-                                    user.Username = txtUsername.Text;
-                                    user.Email = txtEmail.Text;
+                                    var user = new LoginUser(txtUsername.Text,txtEmail.Text,txtPassword.Text);
 
-                                    PasswordDB pdb = new PasswordDB();
-                                    string salt = string.Empty;
-                                    foreach (byte x in pdb.GetSalt())
-                                    {
-                                        salt += x.ToString("X2");
-                                    }
-                                    string hash = pdb.HashSha256(txtPassword.Text, salt);
-
-                                    using (OleDbCommand cmd = DAL.GetInstance().GetOleDbCommand())
-                                    {
-                                        cmd.CommandText =
-                                        "INSERT INTO users " +
+                                    //Add user to DataSet 
+                                    udp.AddRow(user);
+                                    //Add user to Database
+                                    DAL.GetInstance().ExecuteNonQuery("INSERT INTO users " +
                                         "([username], [email],  [salt], [password]) " +
-                                        "VALUES(@username, @email, @salt, @password)";
-
-                                        cmd.Parameters.AddRange(new OleDbParameter[]
+                                        "VALUES(@username, @email, @salt, @password)", new OleDbParameter[]
                                         {
                                     new OleDbParameter("@username", user.Username),
                                     new OleDbParameter("@email", user.Email),
-                                    new OleDbParameter("@salt", salt),
-                                    new OleDbParameter("@password", hash),
+                                    new OleDbParameter("@salt", user.Salt),
+                                    new OleDbParameter("@password", user.Password),
                                         });
 
-                                        cmd.ExecuteNonQuery();
-                                    }
+                                    var profile = new EditProfile(user);
+                                    profile.Location = Location;
+                                    profile.Show();
+                                    Hide();
+                                    profile.Closed += (s, args) => Location = profile.Location;
+                                    profile.Closed += (s, args) => Show();
+
+                                    //Create a new pictures folder for user
+                                    FileTools.CreateProfile(user.Username);
                                 }
                                 else
                                     MetroFramework.MetroMessageBox.Show(this, "Passwords dont match!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);

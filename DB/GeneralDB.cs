@@ -24,6 +24,16 @@ namespace TzalemTmuna.DB
             else
                 currentRow = 0;
         }
+        public GeneralDB(string tableName, string sqlStat, string primaryKey)
+        {
+            DAL.GetInstance().AddTable(tableName,sqlStat);
+            table = DAL.GetInstance().GetTable(tableName);
+            this.primaryKey = primaryKey;
+            if (IsEmpty())
+                currentRow = -1;
+            else
+                currentRow = 0;
+        }
         #region NAVIGATION
         public void GoToFirst()
         {

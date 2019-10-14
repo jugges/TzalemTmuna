@@ -20,7 +20,7 @@ namespace TzalemTmuna.DB
                 if (dr[primaryKey].Equals(username))
                 {
                     if (udb.Find(dr["following"]))
-                        following.Add(udb.GetCurrentRow());
+                        following.Add(new User(udb.GetCurrentRow()));
                     else
                         throw new Exception("Followed user was not found in users database!");
                 }

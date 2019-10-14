@@ -11,9 +11,9 @@ namespace TzalemTmuna.DB
     public class UserDB:GeneralDB
     {
         public UserDB(): base("users", "username") { }
-        public new User GetCurrentRow()
+        public new DataRow GetCurrentRow()
         {
-            return new User(base.GetCurrentRow());
+            return base.GetCurrentRow();
         }
     }
 }

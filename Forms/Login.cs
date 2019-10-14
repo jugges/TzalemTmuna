@@ -34,7 +34,7 @@ namespace TzalemTmuna.Forms
                 var edb = new EmailDB();
                 if (edb.Find(txtUsername.Text))
                 {
-                    DoLogin(edb.GetCurrentRow());
+                    DoLogin(new LoginUser(edb.GetCurrentRow()));
                 }
                 else
                     LoginError();
@@ -44,7 +44,7 @@ namespace TzalemTmuna.Forms
                 var udb = new UserDB();
                 if (udb.Find(txtUsername.Text))
                 {
-                    DoLogin(udb.GetCurrentRow());
+                    DoLogin(new LoginUser(udb.GetCurrentRow()));
                 }
                 else
                     LoginError();
@@ -53,11 +53,17 @@ namespace TzalemTmuna.Forms
                 LoginError();
         }
 
-        private void DoLogin(User user)
+        private void DoLogin(LoginUser user)
         {
-            var pdb = new PasswordDB();
-            if (pdb.Match(user, txtPassword.Text))
-                MessageBox.Show("Connecting!");
+            if (PasswordTools.Match(user, txtPassword.Text))
+            {
+                var profile = new EditProfile(user);
+                profile.Location = Location;
+                profile.Show();
+                Hide();
+                profile.Closed += (s, args) => Location = profile.Location;
+                profile.Closed += (s, args) => Show();
+            }
             else
                 LoginError();
         }
@@ -71,11 +77,11 @@ namespace TzalemTmuna.Forms
         private void btnRegister_Click(object sender, EventArgs e)
         {
             var register = new Register();
+            register.Location = Location;
             register.Show();
             Hide();
-            register.Location = Location;
+            register.Closed += (s, args) => Location = register.Location;
             register.Closed += (s, args) => Show();
-            register.Closed += (s, args) => Location=register.Location;
         }
     }
 }

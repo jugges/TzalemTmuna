@@ -75,7 +75,8 @@ namespace TzalemTmuna.Forms
             this.txtUsername.CustomButton.Visible = false;
             this.txtUsername.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtUsername.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-            this.txtUsername.Lines = new string[0];
+            this.txtUsername.Lines = new string[] {
+        "nirgolan4"};
             this.txtUsername.Location = new System.Drawing.Point(12, 163);
             this.txtUsername.MaxLength = 32767;
             this.txtUsername.Name = "txtUsername";
@@ -88,6 +89,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.ShortcutsEnabled = true;
             this.txtUsername.Size = new System.Drawing.Size(332, 47);
             this.txtUsername.TabIndex = 5;
+            this.txtUsername.Text = "nirgolan4";
             this.txtUsername.UseSelectable = true;
             this.txtUsername.UseStyleColors = true;
             this.txtUsername.WaterMark = "Enter Username or Email";
@@ -110,7 +112,8 @@ namespace TzalemTmuna.Forms
             this.txtPassword.CustomButton.Visible = false;
             this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtPassword.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-            this.txtPassword.Lines = new string[0];
+            this.txtPassword.Lines = new string[] {
+        "gayboy"};
             this.txtPassword.Location = new System.Drawing.Point(12, 216);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
@@ -123,6 +126,7 @@ namespace TzalemTmuna.Forms
             this.txtPassword.ShortcutsEnabled = true;
             this.txtPassword.Size = new System.Drawing.Size(332, 47);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.Text = "gayboy";
             this.txtPassword.UseSelectable = true;
             this.txtPassword.UseStyleColors = true;
             this.txtPassword.UseSystemPasswordChar = true;

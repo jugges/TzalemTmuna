@@ -220,6 +220,7 @@ namespace TzalemTmuna.Forms
             this.Name = "Register";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Register";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;

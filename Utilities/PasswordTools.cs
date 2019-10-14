@@ -4,28 +4,17 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TzalemTmuna.Entities;
 using System.Security.Cryptography;
+using TzalemTmuna.Entities;
 
-namespace TzalemTmuna.DB
+namespace TzalemTmuna.Utilities
 {
-    public class PasswordDB:GeneralDB
+    public static class PasswordTools
     {
-        private int saltLengthLimit = 32;
-        public PasswordDB() : base("users", "username") {}
-        public bool Match(User user, string password)
+        public static bool Match(LoginUser user, string password)
         {
-            if (Find(user.Username))
-            {
-                var dr = GetCurrentRow();
-                string hash = HashSha256(password, dr["salt"].ToString());
-                if (dr["password"].ToString().Equals(hash))
-                    return true;
-                else
-                    return false;
-            }
-            else
-                throw new Exception("User was not found in database!");
+            string hash = HashSha256(password, user.Salt);
+            return user.Password.Equals(hash);
         }
         //public void Set(User user, string password)
         //{
@@ -45,9 +34,9 @@ namespace TzalemTmuna.DB
         //    else
         //        throw new Exception("User was not found in database!");
         //}
-        public string HashSha256(string password, string salt)
+        public static string HashSha256(string password, string salt)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(salt+password);
+            byte[] bytes = Encoding.UTF8.GetBytes(salt + password);
             SHA256Managed hashstring = new SHA256Managed();
             byte[] hash = hashstring.ComputeHash(bytes);
             string hashString = string.Empty;
@@ -58,11 +47,16 @@ namespace TzalemTmuna.DB
             return hashString;
         }
 
-        public byte[] GetSalt()
+        public static string GetSalt()
         {
-            return GetSalt(saltLengthLimit);
+            string salt = string.Empty;
+            foreach (byte x in GetSalt(32))
+            {
+                salt += x.ToString("X2");
+            }
+            return salt;
         }
-        private byte[] GetSalt(int maximumSaltLength)
+        private static byte[] GetSalt(int maximumSaltLength)
         {
             var salt = new byte[maximumSaltLength];
             using (var random = new RNGCryptoServiceProvider())
