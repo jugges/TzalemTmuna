@@ -58,7 +58,6 @@ namespace TzalemTmuna.Forms
             this.txtUsername.MaxLength = 12;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
-            this.txtUsername.PromptText = "Username, can only contain english letters and underscores";
             this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUsername.SelectedText = "";
             this.txtUsername.SelectionLength = 0;
@@ -93,7 +92,6 @@ namespace TzalemTmuna.Forms
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.PromptText = "Password, minimum length must be 5 characters";
             this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtPassword.SelectedText = "";
             this.txtPassword.SelectionLength = 0;
@@ -129,7 +127,6 @@ namespace TzalemTmuna.Forms
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.PromptText = "Email Address";
             this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtEmail.SelectedText = "";
             this.txtEmail.SelectionLength = 0;
@@ -189,7 +186,6 @@ namespace TzalemTmuna.Forms
             this.txtPasswordValidate.MaxLength = 32767;
             this.txtPasswordValidate.Name = "txtPasswordValidate";
             this.txtPasswordValidate.PasswordChar = '●';
-            this.txtPasswordValidate.PromptText = "Type Password again";
             this.txtPasswordValidate.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtPasswordValidate.SelectedText = "";
             this.txtPasswordValidate.SelectionLength = 0;

@@ -57,7 +57,7 @@ namespace TzalemTmuna.Forms
         {
             if (PasswordTools.Match(user, txtPassword.Text))
             {
-                var profile = new EditProfile(user);
+                var profile = new Profile(user);
                 profile.Location = Location;
                 profile.Show();
                 Hide();

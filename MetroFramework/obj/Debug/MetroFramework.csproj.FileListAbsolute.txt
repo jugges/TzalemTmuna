@@ -1,0 +1,10 @@
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\bin\Debug\MetroFramework.dll
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\bin\Debug\MetroFramework.pdb
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.Controls.MetroGrid.resources
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.Controls.MetroTextBox.resources
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.MetroMessageBoxControl.resources
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.cache
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.dll
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.pdb
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework\obj\Debug\MetroFramework.csprojAssemblyReference.cache

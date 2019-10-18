@@ -54,6 +54,12 @@
     <Compile Include="DB\FollowingDB.cs" />
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="Entities\LoginUser.cs" />
+    <Compile Include="Forms\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
     <Compile Include="Utilities\ValidateTools.cs" />
+    <EmbeddedResource Include="Forms\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,15 +133,16 @@
     <None Include="Resources\tzalemtmuna.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MetroModernUI">
-      <Version>1.4.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\emptyprofilepicture.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetroFramework\MetroFramework.csproj">
+      <Project>{bb41ac8b-cbed-4387-a7e0-4567edb3f57f}</Project>
+      <Name>MetroFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

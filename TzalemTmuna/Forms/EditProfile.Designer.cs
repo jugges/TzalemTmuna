@@ -222,7 +222,6 @@ namespace TzalemTmuna.Forms
             this.txtUsername.MaxLength = 12;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
-            this.txtUsername.PromptText = "can only contain english letters and underscores";
             this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUsername.SelectedText = "";
             this.txtUsername.SelectionLength = 0;
