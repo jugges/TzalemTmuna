@@ -30,35 +30,32 @@ namespace TzalemTmuna.Forms
         private void InitializeComponent()
         {
             this.btnSubmit = new MetroFramework.Controls.MetroButton();
-            this.btnProfilePicture = new MetroFramework.Controls.MetroLink();
             this.txtFullName = new MetroFramework.Controls.MetroTextBox();
             this.txtBiography = new MetroFramework.Controls.MetroTextBox();
-            this.profilePicture1 = new TzalemTmuna.Forms.ProfilePicture();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture1)).BeginInit();
+            this.lblChangeProfilePicture = new MetroFramework.Controls.MetroLabel();
+            this.txtWebsite = new MetroFramework.Controls.MetroTextBox();
+            this.chkPrivateAccount = new MetroFramework.Controls.MetroCheckBox();
+            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.txtUsername = new MetroFramework.Controls.MetroTextBox();
+            this.txtEmail = new MetroFramework.Controls.MetroTextBox();
+            this.lblName = new MetroFramework.Controls.MetroLabel();
+            this.lblUsername = new MetroFramework.Controls.MetroLabel();
+            this.lblWebsite = new MetroFramework.Controls.MetroLabel();
+            this.lblBio = new MetroFramework.Controls.MetroLabel();
+            this.lblEmail = new MetroFramework.Controls.MetroLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSubmit.Location = new System.Drawing.Point(12, 426);
+            this.btnSubmit.Location = new System.Drawing.Point(111, 544);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(332, 47);
             this.btnSubmit.TabIndex = 12;
             this.btnSubmit.Text = "Save";
             this.btnSubmit.UseSelectable = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnProfilePicture
-            // 
-            this.btnProfilePicture.Location = new System.Drawing.Point(99, 230);
-            this.btnProfilePicture.Name = "btnProfilePicture";
-            this.btnProfilePicture.Size = new System.Drawing.Size(150, 15);
-            this.btnProfilePicture.TabIndex = 15;
-            this.btnProfilePicture.TabStop = false;
-            this.btnProfilePicture.Text = "Change Profile Picture";
-            this.btnProfilePicture.UseCustomBackColor = true;
-            this.btnProfilePicture.UseSelectable = true;
-            this.btnProfilePicture.Click += new System.EventHandler(this.btnProfilePicture_Click);
             // 
             // txtFullName
             // 
@@ -77,11 +74,10 @@ namespace TzalemTmuna.Forms
             this.txtFullName.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtFullName.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.txtFullName.Lines = new string[0];
-            this.txtFullName.Location = new System.Drawing.Point(12, 260);
+            this.txtFullName.Location = new System.Drawing.Point(111, 219);
             this.txtFullName.MaxLength = 0;
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.PasswordChar = '\0';
-            this.txtFullName.PromptText = "Full Name";
             this.txtFullName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtFullName.SelectedText = "";
             this.txtFullName.SelectionLength = 0;
@@ -91,7 +87,6 @@ namespace TzalemTmuna.Forms
             this.txtFullName.TabIndex = 16;
             this.txtFullName.UseSelectable = true;
             this.txtFullName.UseStyleColors = true;
-            this.txtFullName.WaterMark = "Full Name";
             this.txtFullName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFullName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -112,12 +107,11 @@ namespace TzalemTmuna.Forms
             this.txtBiography.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtBiography.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.txtBiography.Lines = new string[0];
-            this.txtBiography.Location = new System.Drawing.Point(12, 313);
+            this.txtBiography.Location = new System.Drawing.Point(111, 378);
             this.txtBiography.MaxLength = 255;
             this.txtBiography.Multiline = true;
             this.txtBiography.Name = "txtBiography";
             this.txtBiography.PasswordChar = '\0';
-            this.txtBiography.PromptText = "Biography";
             this.txtBiography.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBiography.SelectedText = "";
             this.txtBiography.SelectionLength = 0;
@@ -127,31 +121,249 @@ namespace TzalemTmuna.Forms
             this.txtBiography.TabIndex = 17;
             this.txtBiography.UseSelectable = true;
             this.txtBiography.UseStyleColors = true;
-            this.txtBiography.WaterMark = "Biography";
             this.txtBiography.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBiography.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // profilePicture1
+            // lblChangeProfilePicture
             // 
-            this.profilePicture1.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.profilePicture1.Location = new System.Drawing.Point(99, 63);
-            this.profilePicture1.Name = "profilePicture1";
-            this.profilePicture1.Size = new System.Drawing.Size(150, 150);
-            this.profilePicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture1.TabIndex = 14;
-            this.profilePicture1.TabStop = false;
+            this.lblChangeProfilePicture.AutoSize = true;
+            this.lblChangeProfilePicture.BackColor = System.Drawing.Color.Transparent;
+            this.lblChangeProfilePicture.Enabled = false;
+            this.lblChangeProfilePicture.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblChangeProfilePicture.Location = new System.Drawing.Point(207, 108);
+            this.lblChangeProfilePicture.Name = "lblChangeProfilePicture";
+            this.lblChangeProfilePicture.Size = new System.Drawing.Size(140, 19);
+            this.lblChangeProfilePicture.TabIndex = 18;
+            this.lblChangeProfilePicture.Text = "Change Profile Picture";
+            this.lblChangeProfilePicture.UseCustomBackColor = true;
+            this.lblChangeProfilePicture.UseCustomForeColor = true;
+            this.lblChangeProfilePicture.Visible = false;
+            // 
+            // txtWebsite
+            // 
+            // 
+            // 
+            // 
+            this.txtWebsite.CustomButton.Image = null;
+            this.txtWebsite.CustomButton.Location = new System.Drawing.Point(286, 1);
+            this.txtWebsite.CustomButton.Name = "";
+            this.txtWebsite.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtWebsite.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtWebsite.CustomButton.TabIndex = 1;
+            this.txtWebsite.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtWebsite.CustomButton.UseSelectable = true;
+            this.txtWebsite.CustomButton.Visible = false;
+            this.txtWebsite.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtWebsite.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.txtWebsite.Lines = new string[0];
+            this.txtWebsite.Location = new System.Drawing.Point(111, 325);
+            this.txtWebsite.MaxLength = 0;
+            this.txtWebsite.Name = "txtWebsite";
+            this.txtWebsite.PasswordChar = '\0';
+            this.txtWebsite.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtWebsite.SelectedText = "";
+            this.txtWebsite.SelectionLength = 0;
+            this.txtWebsite.SelectionStart = 0;
+            this.txtWebsite.ShortcutsEnabled = true;
+            this.txtWebsite.Size = new System.Drawing.Size(332, 47);
+            this.txtWebsite.TabIndex = 19;
+            this.txtWebsite.UseSelectable = true;
+            this.txtWebsite.UseStyleColors = true;
+            this.txtWebsite.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtWebsite.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // chkPrivateAccount
+            // 
+            this.chkPrivateAccount.AutoSize = true;
+            this.chkPrivateAccount.Checked = true;
+            this.chkPrivateAccount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPrivateAccount.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.chkPrivateAccount.Location = new System.Drawing.Point(111, 198);
+            this.chkPrivateAccount.Name = "chkPrivateAccount";
+            this.chkPrivateAccount.Size = new System.Drawing.Size(107, 15);
+            this.chkPrivateAccount.TabIndex = 20;
+            this.chkPrivateAccount.Text = "Private Account";
+            this.chkPrivateAccount.UseCustomBackColor = true;
+            this.chkPrivateAccount.UseCustomForeColor = true;
+            this.chkPrivateAccount.UseSelectable = true;
+            // 
+            // ProfilePicture
+            // 
+            this.ProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
+            this.ProfilePicture.Location = new System.Drawing.Point(202, 42);
+            this.ProfilePicture.Name = "ProfilePicture";
+            this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProfilePicture.TabIndex = 14;
+            this.ProfilePicture.TabStop = false;
+            this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);
+            this.ProfilePicture.MouseEnter += new System.EventHandler(this.ProfilePicture_MouseEnter);
+            this.ProfilePicture.MouseLeave += new System.EventHandler(this.ProfilePicture_MouseLeave);
+            // 
+            // txtUsername
+            // 
+            // 
+            // 
+            // 
+            this.txtUsername.CustomButton.Image = null;
+            this.txtUsername.CustomButton.Location = new System.Drawing.Point(286, 1);
+            this.txtUsername.CustomButton.Name = "";
+            this.txtUsername.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtUsername.CustomButton.TabIndex = 1;
+            this.txtUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtUsername.CustomButton.UseSelectable = true;
+            this.txtUsername.CustomButton.Visible = false;
+            this.txtUsername.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtUsername.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.txtUsername.Lines = new string[0];
+            this.txtUsername.Location = new System.Drawing.Point(111, 272);
+            this.txtUsername.MaxLength = 12;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PasswordChar = '\0';
+            this.txtUsername.PromptText = "can only contain english letters and underscores";
+            this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtUsername.SelectedText = "";
+            this.txtUsername.SelectionLength = 0;
+            this.txtUsername.SelectionStart = 0;
+            this.txtUsername.ShortcutsEnabled = true;
+            this.txtUsername.Size = new System.Drawing.Size(332, 47);
+            this.txtUsername.TabIndex = 21;
+            this.txtUsername.UseSelectable = true;
+            this.txtUsername.UseStyleColors = true;
+            this.txtUsername.WaterMark = "can only contain english letters and underscores";
+            this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // txtEmail
+            // 
+            // 
+            // 
+            // 
+            this.txtEmail.CustomButton.Image = null;
+            this.txtEmail.CustomButton.Location = new System.Drawing.Point(286, 1);
+            this.txtEmail.CustomButton.Name = "";
+            this.txtEmail.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtEmail.CustomButton.TabIndex = 1;
+            this.txtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtEmail.CustomButton.UseSelectable = true;
+            this.txtEmail.CustomButton.Visible = false;
+            this.txtEmail.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtEmail.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.txtEmail.Lines = new string[0];
+            this.txtEmail.Location = new System.Drawing.Point(111, 491);
+            this.txtEmail.MaxLength = 32767;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.SelectionLength = 0;
+            this.txtEmail.SelectionStart = 0;
+            this.txtEmail.ShortcutsEnabled = true;
+            this.txtEmail.Size = new System.Drawing.Size(332, 47);
+            this.txtEmail.TabIndex = 22;
+            this.txtEmail.UseSelectable = true;
+            this.txtEmail.UseStyleColors = true;
+            this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Enabled = false;
+            this.lblName.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblName.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblName.Location = new System.Drawing.Point(47, 229);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(58, 25);
+            this.lblName.TabIndex = 23;
+            this.lblName.Text = "Name";
+            this.lblName.UseCustomBackColor = true;
+            this.lblName.UseCustomForeColor = true;
+            this.lblName.UseStyleColors = true;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsername.Enabled = false;
+            this.lblUsername.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblUsername.Location = new System.Drawing.Point(16, 283);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(89, 25);
+            this.lblUsername.TabIndex = 24;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.UseCustomBackColor = true;
+            this.lblUsername.UseCustomForeColor = true;
+            // 
+            // lblWebsite
+            // 
+            this.lblWebsite.AutoSize = true;
+            this.lblWebsite.BackColor = System.Drawing.Color.Transparent;
+            this.lblWebsite.Enabled = false;
+            this.lblWebsite.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblWebsite.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblWebsite.Location = new System.Drawing.Point(34, 336);
+            this.lblWebsite.Name = "lblWebsite";
+            this.lblWebsite.Size = new System.Drawing.Size(71, 25);
+            this.lblWebsite.TabIndex = 25;
+            this.lblWebsite.Text = "Website";
+            this.lblWebsite.UseCustomBackColor = true;
+            this.lblWebsite.UseCustomForeColor = true;
+            // 
+            // lblBio
+            // 
+            this.lblBio.AutoSize = true;
+            this.lblBio.BackColor = System.Drawing.Color.Transparent;
+            this.lblBio.Enabled = false;
+            this.lblBio.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblBio.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblBio.Location = new System.Drawing.Point(69, 419);
+            this.lblBio.Name = "lblBio";
+            this.lblBio.Size = new System.Drawing.Size(36, 25);
+            this.lblBio.TabIndex = 26;
+            this.lblBio.Text = "Bio";
+            this.lblBio.UseCustomBackColor = true;
+            this.lblBio.UseCustomForeColor = true;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmail.Enabled = false;
+            this.lblEmail.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblEmail.Location = new System.Drawing.Point(52, 502);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(53, 25);
+            this.lblEmail.TabIndex = 27;
+            this.lblEmail.Text = "Email";
+            this.lblEmail.UseCustomBackColor = true;
+            this.lblEmail.UseCustomForeColor = true;
             // 
             // EditProfile
             // 
-            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 490);
+            this.ClientSize = new System.Drawing.Size(464, 613);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblBio);
+            this.Controls.Add(this.lblWebsite);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.chkPrivateAccount);
+            this.Controls.Add(this.txtWebsite);
             this.Controls.Add(this.txtBiography);
             this.Controls.Add(this.txtFullName);
-            this.Controls.Add(this.btnProfilePicture);
-            this.Controls.Add(this.profilePicture1);
             this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.lblChangeProfilePicture);
+            this.Controls.Add(this.ProfilePicture);
             this.MaximizeBox = false;
             this.Name = "EditProfile";
             this.Resizable = false;
@@ -161,16 +373,27 @@ namespace TzalemTmuna.Forms
             this.Text = "Edit Profile";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture1)).EndInit();
+            this.Load += new System.EventHandler(this.EditProfile_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private ProfilePicture profilePicture1;
+        private ProfilePicture ProfilePicture;
         private MetroFramework.Controls.MetroButton btnSubmit;
-        private MetroFramework.Controls.MetroLink btnProfilePicture;
         private MetroFramework.Controls.MetroTextBox txtFullName;
         private MetroFramework.Controls.MetroTextBox txtBiography;
+        private MetroFramework.Controls.MetroLabel lblChangeProfilePicture;
+        private MetroFramework.Controls.MetroTextBox txtWebsite;
+        private MetroFramework.Controls.MetroCheckBox chkPrivateAccount;
+        private MetroFramework.Controls.MetroTextBox txtUsername;
+        private MetroFramework.Controls.MetroTextBox txtEmail;
+        private MetroFramework.Controls.MetroLabel lblName;
+        private MetroFramework.Controls.MetroLabel lblUsername;
+        private MetroFramework.Controls.MetroLabel lblWebsite;
+        private MetroFramework.Controls.MetroLabel lblBio;
+        private MetroFramework.Controls.MetroLabel lblEmail;
     }
 }

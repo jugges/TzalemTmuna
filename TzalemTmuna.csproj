@@ -86,6 +86,7 @@
     <Compile Include="ColorPallet.cs" />
     <Compile Include="Utilities\FileTools.cs" />
     <Compile Include="Utilities\PasswordTools.cs" />
+    <Compile Include="Utilities\ImageTools.cs" />
     <Compile Include="Utilities\ValidateTools.cs" />
     <EmbeddedResource Include="Forms\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
