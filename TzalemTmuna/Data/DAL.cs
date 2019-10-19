@@ -94,6 +94,18 @@ namespace TzalemTmuna.Data
                 return x;
             }
         }
+        public int ExecuteNonQuery(string sqlQry, List<OleDbParameter> parameters)
+        {
+            using (OleDbCommand command = con.CreateCommand())
+            {
+                command.CommandText = sqlQry;
+                command.Parameters.AddRange(parameters.ToArray());
+                con.Open();
+                var x = command.ExecuteNonQuery();
+                con.Close();
+                return x;
+            }
+        }
         public object ExecuteScalarQuery(string sqlStr)
         {
             OleDbCommand command = con.CreateCommand();

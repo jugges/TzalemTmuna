@@ -46,8 +46,8 @@ namespace TzalemTmuna.Forms
                                     udp.AddRow(user);
                                     //Add user to Database
                                     DAL.GetInstance().ExecuteNonQuery("INSERT INTO users " +
-                                        "([username], [email],  [salt], [password]) " +
-                                        "VALUES(@username, @email, @salt, @password)", new OleDbParameter[]
+                                        "([username], [email], [salt], [password], [full_name]) " +
+                                        "VALUES(@username, @email, @salt, @password, @username)", new OleDbParameter[]
                                         {
                                     new OleDbParameter("@username", user.Username),
                                     new OleDbParameter("@email", user.Email),

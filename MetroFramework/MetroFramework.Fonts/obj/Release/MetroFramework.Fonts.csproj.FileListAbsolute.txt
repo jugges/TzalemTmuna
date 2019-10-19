@@ -1,0 +1,14 @@
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.dll
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.pdb
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\bin\Release\MetroFramework.dll
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csprojAssemblyReference.cache
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csproj.CopyComplete
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.dll
+C:\Users\yuval\Desktop\metroframework-modern-ui-master\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.pdb
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.dll
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.pdb
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\bin\Release\MetroFramework.dll
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csprojAssemblyReference.cache
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csproj.CopyComplete
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.dll
+C:\Users\yuval\Desktop\TzalemTmuna\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.pdb

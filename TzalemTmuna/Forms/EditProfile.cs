@@ -43,7 +43,7 @@ namespace TzalemTmuna.Forms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool flagSave = false;
+            bool[] flagSave = new bool[6];
             bool flagError = false;
             FileTools.saveProfilePicture(user.Username, pic);
             var udp = new UserDB();
@@ -52,10 +52,7 @@ namespace TzalemTmuna.Forms
                 {
                     if (!udp.Find(txtUsername.Text))
                     {
-                        FileTools.ChangeUsername(user.Username, txtUsername.Text);
-                        user.Username = txtUsername.Text;
-                        udp.UpdateRow(user);
-                        flagSave = true;
+                        flagSave[0] = true;
                     }
                     else
                     {
@@ -75,9 +72,7 @@ namespace TzalemTmuna.Forms
                     var edp = new EmailDB();
                     if (!edp.Find(txtEmail.Text))
                     {
-                        user.Email = txtEmail.Text;
-                        udp.UpdateRow(user);
-                        flagSave = true;
+                        flagSave[1] = true;
                     }
                     else
                     {
@@ -91,12 +86,10 @@ namespace TzalemTmuna.Forms
                     flagError = true;
                 }
 
-            if (!txtWebsite.Text.Equals(user.External_url))
+            if (!txtWebsite.Text.Equals(user.External_url) && txtWebsite.Text != string.Empty)
                 if (ValidateTools.IsURL(txtWebsite.Text))
                 {
-                    user.External_url = txtWebsite.Text;
-                    udp.UpdateRow(user);
-                    flagSave = true;
+                    flagSave[2] = true;
                 }
                 else
                 {
@@ -104,31 +97,110 @@ namespace TzalemTmuna.Forms
                     flagError = true;
                 }
 
-            if (!txtBiography.Text.Equals(user.Biography))
+            if (!txtBiography.Text.Equals(user.Biography) && txtBiography.Text != string.Empty)
             {
-                user.External_url = txtWebsite.Text;
-                udp.UpdateRow(user);
-                flagSave = true;
+                flagSave[3] = true;
             }
 
             if (!txtFullName.Text.Equals(user.Full_name))
             {
-                user.Full_name = txtFullName.Text;
-                udp.UpdateRow(user);
-                flagSave = true;
+                flagSave[4] = true;
             }
 
             if (chkPrivateAccount.Checked ^ user.is_private)
             {
-                user.is_private = chkPrivateAccount.Checked;
-                udp.UpdateRow(user);
-                flagSave = true;
+                flagSave[5] = true;
             }
 
             if (!flagError)
             {
-                if (flagSave)
-                    udp.Save();
+                if (flagSave.Contains(true))
+                {
+                    var instance = DAL.GetInstance();
+                    string statement = "UPDATE users SET";
+                    List<OleDbParameter> parameters = new List<OleDbParameter>();
+                    bool flagFirst = true;
+                    if (flagSave[1])
+                    {
+                        statement += " [email]=@email";
+                        parameters.Add(new OleDbParameter("@email", txtEmail.Text));
+                        flagFirst = false;
+                        user.Email = txtEmail.Text;
+                    }
+                    if (flagSave[2])
+                    {
+                        if (flagFirst)
+                        {
+                            statement += " ";
+                            flagFirst = false;
+                        }
+                        else
+                            statement += ", ";
+                        statement += "[external_url]=@external_url";
+                        parameters.Add(new OleDbParameter("@external_url", txtWebsite.Text));
+                        user.External_url = txtWebsite.Text;
+                    }
+                    if (flagSave[3])
+                    {
+                        if (flagFirst)
+                        {
+                            statement += " ";
+                            flagFirst = false;
+                        }
+                        else
+                            statement += ", ";
+                        statement += "[biography]=@biography";
+                        parameters.Add(new OleDbParameter("@biography", txtBiography.Text));
+                        user.Biography = txtBiography.Text;
+                    }
+                    if (flagSave[4])
+                    {
+                        if (flagFirst)
+                        {
+                            statement += " ";
+                            flagFirst = false;
+                        }
+                        else
+                            statement += ", ";
+                        statement += "[full_name]=@full_name";
+                        parameters.Add(new OleDbParameter("@full_name", txtFullName.Text));
+                        user.Full_name = txtFullName.Text;
+                    }
+                    if (flagSave[5])
+                    {
+                        if (flagFirst)
+                        {
+                            statement += " ";
+                            flagFirst = false;
+                        }
+                        else
+                            statement += ", ";
+                        statement += "[is_private]=@is_private";
+                        parameters.Add(new OleDbParameter("@is_private", txtFullName.Text));
+                        user.is_private = chkPrivateAccount.Checked;
+                    }
+                    if (flagSave[0])
+                    {
+                        if (flagFirst)
+                            statement += " ";
+                        else
+                            statement += ", ";
+                        parameters.Add(new OleDbParameter("@username", txtUsername.Text));
+                        parameters.Add(new OleDbParameter("@oldusername", user.Username));
+                        instance.ExecuteNonQuery(statement +
+                            "[username]=@username WHERE [username]=@oldusername", parameters);
+                        FileTools.ChangeUsername(user.Username, txtUsername.Text);
+                        user.Username = txtUsername.Text;
+                    }
+                    else
+                    {
+                        parameters.Add(new OleDbParameter("@username", user.Username));
+                        instance.ExecuteNonQuery(statement +
+                                " WHERE [username]=@username",parameters);
+                    }
+                    udp.UpdateRow(user);
+                    //udp.Save();
+                }
                 Close();
             }
         }

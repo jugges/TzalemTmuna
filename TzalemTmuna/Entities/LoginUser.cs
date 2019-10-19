@@ -111,6 +111,8 @@ namespace TzalemTmuna.Entities
             {
                 if (ValidateTools.IsURL(value))
                     external_url = value;
+                else if (value == string.Empty)
+                { }
                 else
                     throw new Exception("Link provided is not a valid url");
             }
