@@ -16,7 +16,7 @@ namespace TzalemTmuna.Forms
     public partial class Follower : MetroFramework.Controls.MetroUserControl
     {
         MetroFramework.Components.MetroStyleManager styleManager;
-        LoginUser login;
+        Profile callingProfile;
         User user;
         bool isFollower;
         bool isMine;
@@ -25,19 +25,19 @@ namespace TzalemTmuna.Forms
             InitializeComponent();
         }
         //Not login's list, but login is the one on the list!
-        public Follower(MetroFramework.Components.MetroStyleManager styleManager, User user, LoginUser login, bool isFollower)
+        public Follower(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, User user, bool isFollower)
         {
             InitializeComponent();
             styleManager.Owner = this;
             StyleManager = styleManager;
             this.styleManager = styleManager;
-            this.login = login;
+            this.callingProfile = callingProfile;
             this.user = user;
-            this.isMine = false;
+            this.isMine = true;
             this.isFollower = isFollower;
-            lblUsername.Text = user.Username;
-            lblFullName.Text = user.Full_name;
-            var pic = FileTools.getProfilePicture(user.Username);
+            lblUsername.Text = callingProfile.login.Username;
+            lblFullName.Text = callingProfile.login.Full_name;
+            var pic = FileTools.getProfilePicture(callingProfile.login.Username);
             if (pic != null)
             {
                 ProfilePicture.Image = pic;
@@ -51,13 +51,13 @@ namespace TzalemTmuna.Forms
             }
         }
         //login is not the one on the list!
-        public Follower(MetroFramework.Components.MetroStyleManager styleManager, User user, LoginUser login, bool isFollower, bool isMine)
+        public Follower(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, User user, bool isFollower, bool isMine)
         {
             InitializeComponent();
             styleManager.Owner = this;
             StyleManager = styleManager;
             this.styleManager = styleManager;
-            this.login = login;
+            this.callingProfile = callingProfile;
             this.user = user;
             this.isMine = isMine;
             this.isFollower = isFollower;
@@ -68,7 +68,7 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
-            foreach (User x in login.Following)
+            foreach (User x in callingProfile.login.Following)
             {
                 if (x.Username == user.Username)
                 {
@@ -85,7 +85,7 @@ namespace TzalemTmuna.Forms
         private void Unfollow()
         {
             var fdb = new FollowingDB();
-            fdb.Unfollow(login, user);
+            fdb.Unfollow(callingProfile.login, user);
             if (isMine && !isFollower)
             {
                 this.Parent.Controls.Remove(this);
@@ -101,7 +101,7 @@ namespace TzalemTmuna.Forms
         private void Follow()
         {
             var fdb = new FollowingDB();
-            fdb.Follow(login, user);
+            fdb.Follow(callingProfile.login, user);
             btnOption.Text = "Following";
             if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                 btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -112,7 +112,7 @@ namespace TzalemTmuna.Forms
         private void Remove()
         {
             var fdb = new FollowingDB();
-            fdb.Unfollow(login, user);
+            fdb.Remove(callingProfile.login, user);
             this.Parent.Controls.Remove(this);
         }
 
@@ -130,6 +130,49 @@ namespace TzalemTmuna.Forms
                     Remove();
                     break;
             }
+        }
+
+        private int openProfile()
+        {
+            Followers followers = (Followers)Parent.Parent;
+            try
+            {
+                var father = (Profile)callingProfile.father;
+                if (father.isMine && isMine)
+                {
+                    father.RefreshFollowingAndFollowers();
+                    father.Show();
+                    callingProfile.Close();
+                    followers.Close();
+                    return 0;
+                }
+            }
+            catch
+            {
+
+            }
+            callingProfile.Hide();
+            Profile newProfile = new Profile(styleManager, callingProfile.login, user,callingProfile);
+            newProfile.Show();
+            followers.Close();
+            if (callingProfile.isMine)
+                newProfile.Closed += (s, args) => callingProfile.RefreshFollowingAndFollowers();
+            newProfile.Closed += (s, args) => callingProfile.Show();
+            return 1;
+        }
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+            openProfile();
+        }
+
+        private void lblFullName_Click(object sender, EventArgs e)
+        {
+            openProfile();
+        }
+
+        private void ProfilePicture_Click(object sender, EventArgs e)
+        {
+            openProfile();
         }
     }
 }

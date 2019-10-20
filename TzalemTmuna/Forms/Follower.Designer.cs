@@ -38,6 +38,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
+            this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
             this.lblUsername.Location = new System.Drawing.Point(60, 3);
@@ -46,6 +47,7 @@
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             this.lblUsername.UseCustomBackColor = true;
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // btnOption
             // 
@@ -61,6 +63,7 @@
             // lblFullName
             // 
             this.lblFullName.AutoSize = true;
+            this.lblFullName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFullName.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblFullName.ForeColor = System.Drawing.Color.White;
             this.lblFullName.Location = new System.Drawing.Point(60, 28);
@@ -69,9 +72,11 @@
             this.lblFullName.TabIndex = 3;
             this.lblFullName.Text = "Name";
             this.lblFullName.UseCustomBackColor = true;
+            this.lblFullName.Click += new System.EventHandler(this.lblFullName_Click);
             // 
             // ProfilePicture
             // 
+            this.ProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
             this.ProfilePicture.Location = new System.Drawing.Point(3, 3);
             this.ProfilePicture.Name = "ProfilePicture";
@@ -79,6 +84,7 @@
             this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProfilePicture.TabIndex = 0;
             this.ProfilePicture.TabStop = false;
+            this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);
             // 
             // Follower
             // 

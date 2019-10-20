@@ -19,26 +19,29 @@ namespace TzalemTmuna.Forms
     public partial class Followers : MetroFramework.Forms.MetroForm
     {
         //login's list!
-        public Followers(MetroFramework.Components.MetroStyleManager styleManager, bool isFollowers, LoginUser login)
+        public Followers(MetroFramework.Components.MetroStyleManager styleManager,Profile callingProfile, bool isFollowers)
         {
             InitializeComponent();
             styleManager.Owner = this;
             StyleManager = styleManager;
             List<User> follow;
             if (isFollowers)
-                follow = login.Followers;
+                follow = callingProfile.login.Followers;
             else
-                follow = login.Following;
+            {
+                follow = callingProfile.login.Following;
+                Text = "Following";
+            }
             foreach (User x in follow)
             {
                 //x is the follower/followed!
-                var y = new Follower(styleManager, x, login, isFollowers, true);
+                var y = new Follower(styleManager, callingProfile,x, isFollowers, true);
                 metroPanel.Controls.Add(y);
                 y.Dock = DockStyle.Top;
             }
         }
         //user's list!
-        public Followers(MetroFramework.Components.MetroStyleManager styleManager, bool isFollowers, LoginUser login, User user)
+        public Followers(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, bool isFollowers, User user)
         {
             InitializeComponent();
             styleManager.Owner = this;
@@ -47,19 +50,22 @@ namespace TzalemTmuna.Forms
             if (isFollowers)
                 follow = user.Followers;
             else
+            {
                 follow = user.Following;
+                Text = "Following";
+            }
             foreach (User x in follow)
             {
                 Follower y;
-                if (x.Username == login.Username)
+                if (x.Username == callingProfile.login.Username)
                 {
                     //login is the follower/followed!
-                    y = new Follower(styleManager,user,login,isFollowers);
+                    y = new Follower(styleManager,callingProfile,user, isFollowers);
                 }
                 else
                 {
                     //x is the follower/followed!
-                    y = new Follower(styleManager, x, login, isFollowers,false);
+                    y = new Follower(styleManager, callingProfile,x, isFollowers,false);
                 }
                 metroPanel.Controls.Add(y);
                 y.Dock = DockStyle.Top;

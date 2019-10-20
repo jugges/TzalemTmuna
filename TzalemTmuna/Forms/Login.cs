@@ -60,11 +60,12 @@ namespace TzalemTmuna.Forms
         {
             if (PasswordTools.Match(user, txtPassword.Text))
             {
-                var profile = new Profile(styleManager,user);
+                var profile = new Profile(styleManager,user,this);
                 profile.Show();
                 Hide();
-                profile.Closed += (s, args) => Location = profile.Location;
-                profile.Closed += (s, args) => Show();
+                //profile.Closed += (s, args) => Location = profile.Location;
+                //profile.Closed += (s, args) => Show();
+                profile.Closed += (s, args) => Close();
             }
             else
                 LoginError();

@@ -273,7 +273,7 @@ namespace TzalemTmuna.Forms
             this.btnOption.Size = new System.Drawing.Size(160, 30);
             this.btnOption.TabIndex = 25;
             this.btnOption.TabStop = false;
-            this.btnOption.Text = "metroButton1";
+            this.btnOption.Text = "Edit Profile";
             this.btnOption.UseSelectable = true;
             this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
