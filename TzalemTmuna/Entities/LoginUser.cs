@@ -23,6 +23,8 @@ namespace TzalemTmuna.Entities
         private string external_url;
         private List<User> following;
         private List<User> followers;
+        private List<User> receivedRequests;
+        private List<User> sentRequests;
 
         public string Username
         {
@@ -121,7 +123,34 @@ namespace TzalemTmuna.Entities
                 return external_url;
             }
         }
-
+        public List<User> ReceivedRequests
+        {
+            get
+            {
+                if (receivedRequests != null)
+                    return receivedRequests;
+                else
+                {
+                    var rdb = new RequestsDB();
+                    receivedRequests = rdb.GetReceivedRequests(username);
+                    return receivedRequests;
+                }
+            }
+        }
+        public List<User> SentRequests
+        {
+            get
+            {
+                if (sentRequests != null)
+                    return sentRequests;
+                else
+                {
+                    var rdb = new RequestsDB();
+                    sentRequests = rdb.GetSentRequests(username);
+                    return sentRequests;
+                }
+            }
+        }
         public List<User> Following
         {
             get

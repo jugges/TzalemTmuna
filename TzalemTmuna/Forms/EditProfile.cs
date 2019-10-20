@@ -180,7 +180,7 @@ namespace TzalemTmuna.Forms
                         else
                             statement += ", ";
                         statement += "[is_private]=@is_private";
-                        parameters.Add(new OleDbParameter("@is_private", txtFullName.Text));
+                        parameters.Add(new OleDbParameter("@is_private", chkPrivateAccount.Checked));
                         user.is_private = chkPrivateAccount.Checked;
                     }
                     if (flagSave[0])

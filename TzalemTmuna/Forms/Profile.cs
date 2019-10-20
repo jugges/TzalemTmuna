@@ -24,6 +24,7 @@ namespace TzalemTmuna.Forms
         public bool isMine;
         public MetroFramework.Forms.MetroForm father;
 
+        //login's profile
         public Profile(MetroFramework.Components.MetroStyleManager styleManager,LoginUser login, MetroFramework.Forms.MetroForm father)
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace TzalemTmuna.Forms
             lblFollowing.Text = login.Following.Count.ToString();
             btnOption.Text = "Edit Profile";
         }
+        //Edit Profile button - for login
         private void EditProfile()
         {
             new EditProfile(styleManager, login).ShowDialog();
@@ -53,6 +55,7 @@ namespace TzalemTmuna.Forms
             lblUsername.Text = login.Username;
             lblWebsite.Text = login.External_url;
         }
+        //user's profile
         public Profile(MetroFramework.Components.MetroStyleManager styleManager, LoginUser login, User user, MetroFramework.Forms.MetroForm father)
         {
             InitializeComponent();
@@ -96,15 +99,35 @@ namespace TzalemTmuna.Forms
         }
         private void Follow()
         {
-            var fdb = new FollowingDB();
-            fdb.Follow(login, user);
-            btnOption.Text = "Following";
-            if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
-                btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+            if (user.is_private)
+            {
+                var rdb = new RequestsDB();
+                rdb.SendRequest(login, user);
+                btnOption.Text = "Requested";
+                if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                else
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+            }
             else
-                btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
-            //Refresh followers
-            lblFollowers.Text = user.Followers.Count.ToString();
+            {
+                var fdb = new FollowingDB();
+                fdb.Follow(login, user);
+                btnOption.Text = "Following";
+                if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                else
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                //Refresh followers
+                lblFollowers.Text = user.Followers.Count.ToString();
+            }
+        }
+        private void RemoveRequest()
+        {
+            var rdb = new RequestsDB();
+            rdb.RemoveRequest(login, user);
+            btnOption.Text = "Follow";
+            btnOption.Theme = styleManager.Theme;
         }
         private void btnOption_Click(object sender, EventArgs e)
         {
@@ -118,7 +141,10 @@ namespace TzalemTmuna.Forms
                     break;
                 case "Edit Profile":
                     EditProfile();
-                    break;   
+                    break;
+                case "Requested":
+                    RemoveRequest();
+                    break;
             }
         }
 

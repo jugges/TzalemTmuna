@@ -81,6 +81,13 @@ namespace TzalemTmuna.DB
             table.Rows.Add(login.Username,user.Username);
             Save();
         }
+        public void ReverseFollow(LoginUser login, User user)
+        {
+            login.Followers.Add(user);
+            user.Following.Add(new User(login));
+            table.Rows.Add(user.Username, login.Username);
+            Save();
+        }
         public void Remove(LoginUser login, User user)
         {
             for (int i = 0; i < login.Followers.Count; i++)
