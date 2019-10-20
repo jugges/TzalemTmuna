@@ -17,7 +17,10 @@ namespace TzalemTmuna
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            var styleManager = new MetroFramework.Components.MetroStyleManager();
+            styleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
+            styleManager.Style = MetroFramework.MetroColorStyle.Teal;
+            Application.Run(new Login(styleManager));
         }
     }
 }

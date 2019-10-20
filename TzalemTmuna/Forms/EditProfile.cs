@@ -18,11 +18,15 @@ namespace TzalemTmuna.Forms
 {
     public partial class EditProfile : MetroFramework.Forms.MetroForm
     {
+        MetroFramework.Components.MetroStyleManager styleManager;
         LoginUser user;
         Image pic;
-        public EditProfile(LoginUser user)
+        public EditProfile(MetroFramework.Components.MetroStyleManager styleManager,LoginUser user)
         {
             InitializeComponent();
+            styleManager.Owner = this;
+            StyleManager = styleManager;
+            this.styleManager = styleManager;
             this.user = user;
             chkPrivateAccount.Checked = user.is_private;
             txtFullName.Text = user.Full_name;

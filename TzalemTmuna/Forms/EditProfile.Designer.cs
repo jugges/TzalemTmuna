@@ -35,7 +35,6 @@ namespace TzalemTmuna.Forms
             this.lblChangeProfilePicture = new MetroFramework.Controls.MetroLabel();
             this.txtWebsite = new MetroFramework.Controls.MetroTextBox();
             this.chkPrivateAccount = new MetroFramework.Controls.MetroCheckBox();
-            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.txtUsername = new MetroFramework.Controls.MetroTextBox();
             this.txtEmail = new MetroFramework.Controls.MetroTextBox();
             this.lblName = new MetroFramework.Controls.MetroLabel();
@@ -43,6 +42,7 @@ namespace TzalemTmuna.Forms
             this.lblWebsite = new MetroFramework.Controls.MetroLabel();
             this.lblBio = new MetroFramework.Controls.MetroLabel();
             this.lblEmail = new MetroFramework.Controls.MetroLabel();
+            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@ namespace TzalemTmuna.Forms
             this.btnSubmit.Location = new System.Drawing.Point(111, 544);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(332, 47);
-            this.btnSubmit.TabIndex = 12;
+            this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Save";
             this.btnSubmit.UseSelectable = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -84,7 +84,7 @@ namespace TzalemTmuna.Forms
             this.txtFullName.SelectionStart = 0;
             this.txtFullName.ShortcutsEnabled = true;
             this.txtFullName.Size = new System.Drawing.Size(332, 47);
-            this.txtFullName.TabIndex = 16;
+            this.txtFullName.TabIndex = 2;
             this.txtFullName.UseSelectable = true;
             this.txtFullName.UseStyleColors = true;
             this.txtFullName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -118,7 +118,7 @@ namespace TzalemTmuna.Forms
             this.txtBiography.SelectionStart = 0;
             this.txtBiography.ShortcutsEnabled = true;
             this.txtBiography.Size = new System.Drawing.Size(332, 107);
-            this.txtBiography.TabIndex = 17;
+            this.txtBiography.TabIndex = 5;
             this.txtBiography.UseSelectable = true;
             this.txtBiography.UseStyleColors = true;
             this.txtBiography.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -166,7 +166,7 @@ namespace TzalemTmuna.Forms
             this.txtWebsite.SelectionStart = 0;
             this.txtWebsite.ShortcutsEnabled = true;
             this.txtWebsite.Size = new System.Drawing.Size(332, 47);
-            this.txtWebsite.TabIndex = 19;
+            this.txtWebsite.TabIndex = 4;
             this.txtWebsite.UseSelectable = true;
             this.txtWebsite.UseStyleColors = true;
             this.txtWebsite.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -181,25 +181,11 @@ namespace TzalemTmuna.Forms
             this.chkPrivateAccount.Location = new System.Drawing.Point(111, 198);
             this.chkPrivateAccount.Name = "chkPrivateAccount";
             this.chkPrivateAccount.Size = new System.Drawing.Size(107, 15);
-            this.chkPrivateAccount.TabIndex = 20;
+            this.chkPrivateAccount.TabIndex = 1;
             this.chkPrivateAccount.Text = "Private Account";
             this.chkPrivateAccount.UseCustomBackColor = true;
-            this.chkPrivateAccount.UseCustomForeColor = true;
             this.chkPrivateAccount.UseSelectable = true;
-            // 
-            // ProfilePicture
-            // 
-            this.ProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.ProfilePicture.Location = new System.Drawing.Point(202, 42);
-            this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ProfilePicture.TabIndex = 14;
-            this.ProfilePicture.TabStop = false;
-            this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);
-            this.ProfilePicture.MouseEnter += new System.EventHandler(this.ProfilePicture_MouseEnter);
-            this.ProfilePicture.MouseLeave += new System.EventHandler(this.ProfilePicture_MouseLeave);
+            this.chkPrivateAccount.UseStyleColors = true;
             // 
             // txtUsername
             // 
@@ -228,7 +214,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
             this.txtUsername.Size = new System.Drawing.Size(332, 47);
-            this.txtUsername.TabIndex = 21;
+            this.txtUsername.TabIndex = 3;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.UseStyleColors = true;
             this.txtUsername.WaterMark = "can only contain english letters and underscores";
@@ -262,7 +248,7 @@ namespace TzalemTmuna.Forms
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
             this.txtEmail.Size = new System.Drawing.Size(332, 47);
-            this.txtEmail.TabIndex = 22;
+            this.txtEmail.TabIndex = 6;
             this.txtEmail.UseSelectable = true;
             this.txtEmail.UseStyleColors = true;
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -281,8 +267,6 @@ namespace TzalemTmuna.Forms
             this.lblName.TabIndex = 23;
             this.lblName.Text = "Name";
             this.lblName.UseCustomBackColor = true;
-            this.lblName.UseCustomForeColor = true;
-            this.lblName.UseStyleColors = true;
             // 
             // lblUsername
             // 
@@ -297,7 +281,6 @@ namespace TzalemTmuna.Forms
             this.lblUsername.TabIndex = 24;
             this.lblUsername.Text = "Username";
             this.lblUsername.UseCustomBackColor = true;
-            this.lblUsername.UseCustomForeColor = true;
             // 
             // lblWebsite
             // 
@@ -312,7 +295,6 @@ namespace TzalemTmuna.Forms
             this.lblWebsite.TabIndex = 25;
             this.lblWebsite.Text = "Website";
             this.lblWebsite.UseCustomBackColor = true;
-            this.lblWebsite.UseCustomForeColor = true;
             // 
             // lblBio
             // 
@@ -327,7 +309,6 @@ namespace TzalemTmuna.Forms
             this.lblBio.TabIndex = 26;
             this.lblBio.Text = "Bio";
             this.lblBio.UseCustomBackColor = true;
-            this.lblBio.UseCustomForeColor = true;
             // 
             // lblEmail
             // 
@@ -342,7 +323,20 @@ namespace TzalemTmuna.Forms
             this.lblEmail.TabIndex = 27;
             this.lblEmail.Text = "Email";
             this.lblEmail.UseCustomBackColor = true;
-            this.lblEmail.UseCustomForeColor = true;
+            // 
+            // ProfilePicture
+            // 
+            this.ProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
+            this.ProfilePicture.Location = new System.Drawing.Point(202, 42);
+            this.ProfilePicture.Name = "ProfilePicture";
+            this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProfilePicture.TabIndex = 14;
+            this.ProfilePicture.TabStop = false;
+            this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);
+            this.ProfilePicture.MouseEnter += new System.EventHandler(this.ProfilePicture_MouseEnter);
+            this.ProfilePicture.MouseLeave += new System.EventHandler(this.ProfilePicture_MouseLeave);
             // 
             // EditProfile
             // 
@@ -367,10 +361,9 @@ namespace TzalemTmuna.Forms
             this.Name = "EditProfile";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Style = MetroFramework.MetroColorStyle.Teal;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Edit Profile";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.EditProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();

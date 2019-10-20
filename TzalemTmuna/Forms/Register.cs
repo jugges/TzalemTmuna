@@ -18,10 +18,13 @@ namespace TzalemTmuna.Forms
 {
     public partial class Register : MetroFramework.Forms.MetroForm
     {
-
-        public Register()
+        MetroFramework.Components.MetroStyleManager styleManager;
+        public Register(MetroFramework.Components.MetroStyleManager styleManager)
         {
             InitializeComponent();
+            styleManager.Owner = this;
+            StyleManager = styleManager;
+            this.styleManager = styleManager;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -55,8 +58,7 @@ namespace TzalemTmuna.Forms
                                     new OleDbParameter("@password", user.Password),
                                         });
 
-                                    var profile = new EditProfile(user);
-                                    profile.Location = Location;
+                                    var profile = new EditProfile(styleManager,user);
                                     profile.Show();
                                     Hide();
                                     profile.Closed += (s, args) => Location = profile.Location;
@@ -83,6 +85,36 @@ namespace TzalemTmuna.Forms
             }
             else
                 MetroFramework.MetroMessageBox.Show(this, "Username is not valid!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPasswordValidate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkRememberMe_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

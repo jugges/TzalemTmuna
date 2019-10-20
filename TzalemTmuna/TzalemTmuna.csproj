@@ -62,10 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DAL.cs" />
-    <Compile Include="DB\FollowersDB.cs" />
     <Compile Include="DB\FollowingDB.cs" />
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="Entities\LoginUser.cs" />
+    <Compile Include="Forms\Follower.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Follower.Designer.cs">
+      <DependentUpon>Follower.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +85,12 @@
     </Compile>
     <Compile Include="Forms\ProfilePicture.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Followers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Followers.Designer.cs">
+      <DependentUpon>Followers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Register.cs">
       <SubType>Form</SubType>
@@ -106,11 +117,17 @@
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
     <Compile Include="Utilities\ValidateTools.cs" />
+    <EmbeddedResource Include="Forms\Follower.resx">
+      <DependentUpon>Follower.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Followers.resx">
+      <DependentUpon>Followers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>

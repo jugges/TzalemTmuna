@@ -29,13 +29,39 @@ namespace TzalemTmuna.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUsername = new MetroFramework.Controls.MetroTextBox();
-            this.txtPassword = new MetroFramework.Controls.MetroTextBox();
-            this.txtEmail = new MetroFramework.Controls.MetroTextBox();
             this.btnSubmit = new MetroFramework.Controls.MetroButton();
             this.chkRememberMe = new MetroFramework.Controls.MetroCheckBox();
+            this.txtUsername = new MetroFramework.Controls.MetroTextBox();
+            this.txtEmail = new MetroFramework.Controls.MetroTextBox();
+            this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.txtPasswordValidate = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSubmit.Location = new System.Drawing.Point(12, 275);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(332, 47);
+            this.btnSubmit.TabIndex = 6;
+            this.btnSubmit.Text = "Create Account";
+            this.btnSubmit.UseSelectable = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // chkRememberMe
+            // 
+            this.chkRememberMe.AutoSize = true;
+            this.chkRememberMe.Checked = true;
+            this.chkRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRememberMe.Location = new System.Drawing.Point(12, 328);
+            this.chkRememberMe.Name = "chkRememberMe";
+            this.chkRememberMe.Size = new System.Drawing.Size(101, 15);
+            this.chkRememberMe.TabIndex = 5;
+            this.chkRememberMe.Text = "Remember Me";
+            this.chkRememberMe.UseCustomBackColor = true;
+            this.chkRememberMe.UseSelectable = true;
+            this.chkRememberMe.UseStyleColors = true;
+            this.chkRememberMe.CheckedChanged += new System.EventHandler(this.chkRememberMe_CheckedChanged);
             // 
             // txtUsername
             // 
@@ -55,7 +81,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.txtUsername.Lines = new string[0];
             this.txtUsername.Location = new System.Drawing.Point(12, 63);
-            this.txtUsername.MaxLength = 12;
+            this.txtUsername.MaxLength = 32767;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -64,47 +90,12 @@ namespace TzalemTmuna.Forms
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
             this.txtUsername.Size = new System.Drawing.Size(332, 47);
-            this.txtUsername.TabIndex = 5;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.UseStyleColors = true;
             this.txtUsername.WaterMark = "Username, can only contain english letters and underscores";
             this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtPassword
-            // 
-            // 
-            // 
-            // 
-            this.txtPassword.CustomButton.Image = null;
-            this.txtPassword.CustomButton.Location = new System.Drawing.Point(286, 1);
-            this.txtPassword.CustomButton.Name = "";
-            this.txtPassword.CustomButton.Size = new System.Drawing.Size(45, 45);
-            this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPassword.CustomButton.TabIndex = 1;
-            this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtPassword.CustomButton.UseSelectable = true;
-            this.txtPassword.CustomButton.Visible = false;
-            this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtPassword.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-            this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(12, 169);
-            this.txtPassword.MaxLength = 32767;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPassword.SelectedText = "";
-            this.txtPassword.SelectionLength = 0;
-            this.txtPassword.SelectionStart = 0;
-            this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(332, 47);
-            this.txtPassword.TabIndex = 10;
-            this.txtPassword.UseSelectable = true;
-            this.txtPassword.UseStyleColors = true;
-            this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.WaterMark = "Password, minimum length must be 5 characters";
-            this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtEmail
             // 
@@ -133,37 +124,47 @@ namespace TzalemTmuna.Forms
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
             this.txtEmail.Size = new System.Drawing.Size(332, 47);
-            this.txtEmail.TabIndex = 9;
+            this.txtEmail.TabIndex = 2;
             this.txtEmail.UseSelectable = true;
             this.txtEmail.UseStyleColors = true;
             this.txtEmail.WaterMark = "Email Address";
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // btnSubmit
+            // txtPassword
             // 
-            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSubmit.Location = new System.Drawing.Point(12, 275);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(332, 47);
-            this.btnSubmit.TabIndex = 12;
-            this.btnSubmit.Text = "Create Account";
-            this.btnSubmit.UseSelectable = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // chkRememberMe
             // 
-            this.chkRememberMe.AutoSize = true;
-            this.chkRememberMe.Checked = true;
-            this.chkRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRememberMe.Location = new System.Drawing.Point(12, 328);
-            this.chkRememberMe.Name = "chkRememberMe";
-            this.chkRememberMe.Size = new System.Drawing.Size(101, 15);
-            this.chkRememberMe.TabIndex = 13;
-            this.chkRememberMe.Text = "Remember Me";
-            this.chkRememberMe.UseCustomBackColor = true;
-            this.chkRememberMe.UseSelectable = true;
-            this.chkRememberMe.UseStyleColors = true;
+            // 
+            this.txtPassword.CustomButton.Image = null;
+            this.txtPassword.CustomButton.Location = new System.Drawing.Point(286, 1);
+            this.txtPassword.CustomButton.Name = "";
+            this.txtPassword.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPassword.CustomButton.TabIndex = 1;
+            this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPassword.CustomButton.UseSelectable = true;
+            this.txtPassword.CustomButton.Visible = false;
+            this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtPassword.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.txtPassword.Lines = new string[0];
+            this.txtPassword.Location = new System.Drawing.Point(12, 169);
+            this.txtPassword.MaxLength = 32767;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 0;
+            this.txtPassword.ShortcutsEnabled = true;
+            this.txtPassword.Size = new System.Drawing.Size(332, 47);
+            this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSelectable = true;
+            this.txtPassword.UseStyleColors = true;
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.WaterMark = "Password, minimum length must be 5 characters";
+            this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtPasswordValidate
             // 
@@ -192,7 +193,7 @@ namespace TzalemTmuna.Forms
             this.txtPasswordValidate.SelectionStart = 0;
             this.txtPasswordValidate.ShortcutsEnabled = true;
             this.txtPasswordValidate.Size = new System.Drawing.Size(332, 47);
-            this.txtPasswordValidate.TabIndex = 11;
+            this.txtPasswordValidate.TabIndex = 4;
             this.txtPasswordValidate.UseSelectable = true;
             this.txtPasswordValidate.UseStyleColors = true;
             this.txtPasswordValidate.UseSystemPasswordChar = true;
@@ -207,31 +208,32 @@ namespace TzalemTmuna.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 354);
             this.Controls.Add(this.txtPasswordValidate);
-            this.Controls.Add(this.chkRememberMe);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.chkRememberMe);
+            this.Controls.Add(this.btnSubmit);
             this.MaximizeBox = false;
             this.Name = "Register";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Style = MetroFramework.MetroColorStyle.Teal;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Register";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTextBox txtUsername;
-        private MetroFramework.Controls.MetroTextBox txtPassword;
-        private MetroFramework.Controls.MetroTextBox txtEmail;
         private MetroFramework.Controls.MetroButton btnSubmit;
         private MetroFramework.Controls.MetroCheckBox chkRememberMe;
+        private MetroFramework.Controls.MetroTextBox txtUsername;
+        private MetroFramework.Controls.MetroTextBox txtEmail;
+        private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroTextBox txtPasswordValidate;
     }
 }

@@ -115,7 +115,7 @@ namespace TzalemTmuna.Entities
                     return followers;
                 else
                 {
-                    var fdb = new FollowersDB();
+                    var fdb = new FollowingDB();
                     followers = fdb.GetFollowers(username);
                     return followers;
                 }
@@ -130,6 +130,16 @@ namespace TzalemTmuna.Entities
             is_private = Convert.ToBoolean(dr["is_private"]);
             is_admin = Convert.ToBoolean(dr["is_admin"]);
             external_url = dr["external_url"].ToString();
+        }
+        public User(LoginUser login)
+        {
+            username = login.Username;
+            email = login.Email;
+            full_name = login.Full_name;
+            biography = login.Biography;
+            is_private = login.is_private;
+            is_admin = login.is_admin;
+            external_url = login.External_url;
         }
         public User()
         {

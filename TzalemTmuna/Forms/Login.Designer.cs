@@ -54,7 +54,7 @@ namespace TzalemTmuna.Forms
             this.btnSubmit.Location = new System.Drawing.Point(12, 269);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(332, 47);
-            this.btnSubmit.TabIndex = 7;
+            this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseSelectable = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -87,7 +87,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
             this.txtUsername.Size = new System.Drawing.Size(332, 47);
-            this.txtUsername.TabIndex = 5;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "nirgolan4";
             this.txtUsername.UseSelectable = true;
             this.txtUsername.UseStyleColors = true;
@@ -123,7 +123,7 @@ namespace TzalemTmuna.Forms
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
             this.txtPassword.Size = new System.Drawing.Size(332, 47);
-            this.txtPassword.TabIndex = 6;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "gayboy";
             this.txtPassword.UseSelectable = true;
             this.txtPassword.UseStyleColors = true;
@@ -137,7 +137,7 @@ namespace TzalemTmuna.Forms
             this.btnRegister.Location = new System.Drawing.Point(286, 322);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(58, 15);
-            this.btnRegister.TabIndex = 9;
+            this.btnRegister.TabIndex = 5;
             this.btnRegister.TabStop = false;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseCustomBackColor = true;
@@ -152,7 +152,7 @@ namespace TzalemTmuna.Forms
             this.chkRememberMe.Location = new System.Drawing.Point(12, 322);
             this.chkRememberMe.Name = "chkRememberMe";
             this.chkRememberMe.Size = new System.Drawing.Size(101, 15);
-            this.chkRememberMe.TabIndex = 8;
+            this.chkRememberMe.TabIndex = 4;
             this.chkRememberMe.Text = "Remember Me";
             this.chkRememberMe.UseCustomBackColor = true;
             this.chkRememberMe.UseSelectable = true;
@@ -174,9 +174,9 @@ namespace TzalemTmuna.Forms
             this.Name = "Login";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
-            this.Style = MetroFramework.MetroColorStyle.Teal;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Login";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

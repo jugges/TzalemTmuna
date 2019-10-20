@@ -16,10 +16,13 @@ namespace TzalemTmuna.Forms
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-
-        public Login()
+        MetroFramework.Components.MetroStyleManager styleManager;
+        public Login(MetroFramework.Components.MetroStyleManager styleManager)
         {
             InitializeComponent();
+            styleManager.Owner = this;
+            StyleManager = styleManager;
+            this.styleManager = styleManager;
         }
 
         private void LoginError()
@@ -57,8 +60,7 @@ namespace TzalemTmuna.Forms
         {
             if (PasswordTools.Match(user, txtPassword.Text))
             {
-                var profile = new Profile(user);
-                profile.Location = Location;
+                var profile = new Profile(styleManager,user);
                 profile.Show();
                 Hide();
                 profile.Closed += (s, args) => Location = profile.Location;
@@ -76,7 +78,7 @@ namespace TzalemTmuna.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            var register = new Register();
+            var register = new Register(styleManager);
             register.Location = Location;
             register.Show();
             Hide();

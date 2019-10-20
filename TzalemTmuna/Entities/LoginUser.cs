@@ -144,7 +144,7 @@ namespace TzalemTmuna.Entities
                     return followers;
                 else
                 {
-                    var fdb = new FollowersDB();
+                    var fdb = new FollowingDB();
                     followers = fdb.GetFollowers(username);
                     return followers;
                 }

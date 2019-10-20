@@ -113,7 +113,7 @@ namespace TzalemTmuna.DB
         }
         protected void DeleteRow(DataRow dr)
         {
-            table.Rows.Remove(dr);
+            dr.Delete();
         }
         #endregion CRUD
     }
