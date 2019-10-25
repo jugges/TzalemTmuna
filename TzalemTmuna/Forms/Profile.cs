@@ -74,6 +74,7 @@ namespace TzalemTmuna.Forms
             lblWebsite.Text = user.External_url;
             lblFollowers.Text = user.Followers.Count.ToString();
             lblFollowing.Text = user.Following.Count.ToString();
+            Controls.Remove(btnFollowRequests);
             btnOption.Text = "Follow";
             foreach (User x in login.Following)
             {
@@ -148,18 +149,18 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        private void ShowList(bool isFollowers)
+        private void ShowList(int Mode)
         {
             if (isMine)
             {
-                new Followers(styleManager,this, isFollowers).ShowDialog();
+                new Followers(styleManager,this, Mode).ShowDialog();
                 //Refresh following
                 lblFollowing.Text = login.Following.Count.ToString();
                 lblFollowers.Text = login.Followers.Count.ToString();
             }
             else
             {
-                new Followers(styleManager,this, isFollowers, user).ShowDialog();
+                new Followers(styleManager,this, Mode, user).ShowDialog();
                 //Refresh following
                 lblFollowing.Text = user.Following.Count.ToString();
                 lblFollowers.Text = user.Followers.Count.ToString();
@@ -182,22 +183,27 @@ namespace TzalemTmuna.Forms
 
         private void lblTextFollowers_Click(object sender, EventArgs e)
         {
-            ShowList(true);
+            ShowList(0);
         }
 
         private void lblFollowers_Click(object sender, EventArgs e)
         {
-            ShowList(true);
+            ShowList(0);
         }
 
         private void lblFollowingText_Click(object sender, EventArgs e)
         {
-            ShowList(false);
+            ShowList(1);
         }
 
         private void lblFollowing_Click(object sender, EventArgs e)
         {
-            ShowList(false);
+            ShowList(1);
+        }
+
+        private void btnFollowRequests_Click(object sender, EventArgs e)
+        {
+            ShowList(2);
         }
     }
 }

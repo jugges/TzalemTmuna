@@ -46,6 +46,7 @@ namespace TzalemTmuna.Forms
             this.btnOption = new MetroFramework.Controls.MetroButton();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.btnFollowRequests = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -241,6 +242,7 @@ namespace TzalemTmuna.Forms
             // 
             this.flowLayoutPanel1.Controls.Add(this.lblUsername);
             this.flowLayoutPanel1.Controls.Add(this.btnOption);
+            this.flowLayoutPanel1.Controls.Add(this.btnFollowRequests);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -295,6 +297,19 @@ namespace TzalemTmuna.Forms
             this.ProfilePicture.TabIndex = 14;
             this.ProfilePicture.TabStop = false;
             // 
+            // btnFollowRequests
+            // 
+            this.btnFollowRequests.AutoSize = true;
+            this.btnFollowRequests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFollowRequests.Location = new System.Drawing.Point(300, 3);
+            this.btnFollowRequests.Name = "btnFollowRequests";
+            this.btnFollowRequests.Size = new System.Drawing.Size(160, 30);
+            this.btnFollowRequests.TabIndex = 26;
+            this.btnFollowRequests.TabStop = false;
+            this.btnFollowRequests.Text = "Follow Requests";
+            this.btnFollowRequests.UseSelectable = true;
+            this.btnFollowRequests.Click += new System.EventHandler(this.btnFollowRequests_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +354,6 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroLink lblFollowers;
         private MetroFramework.Controls.MetroLink lblFollowing;
         private MetroFramework.Controls.MetroLink lblFollowingText;
+        private MetroFramework.Controls.MetroButton btnFollowRequests;
     }
 }

@@ -24,7 +24,6 @@ namespace TzalemTmuna.Forms
             StyleManager = styleManager;
             this.styleManager = styleManager;
         }
-
         private void LoginError()
         {
             MetroFramework.MetroMessageBox.Show(this, "Username/Email and/or password is not valid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,7 +59,13 @@ namespace TzalemTmuna.Forms
         {
             if (PasswordTools.Match(user, txtPassword.Text))
             {
-                var profile = new Profile(styleManager,user,this);
+                if (chkRememberMe.Checked)
+                {
+                    Properties.Settings.Default.username = user.Username;
+                    Properties.Settings.Default.password = user.Password;
+                    Properties.Settings.Default.Save();
+                }
+                var profile = new Profile(styleManager, user, this);
                 profile.Show();
                 Hide();
                 //profile.Closed += (s, args) => Location = profile.Location;
@@ -71,7 +76,7 @@ namespace TzalemTmuna.Forms
                 LoginError();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void Login_Shown(object sender, EventArgs e)
         {
             //    nirgolan4,gayboy
             //    udirubin8,uduman
