@@ -36,7 +36,10 @@ namespace TzalemTmuna.Forms
             this.father = father;
             ProfilePicture.BackColor = BackColor;
             ProfilePicture.Image = FileTools.getProfilePicture(login.Username);
-            lblBio.Text = login.Biography.Replace("\\n", Environment.NewLine);
+            if(login.Biography != null)
+                lblBio.Text = login.Biography.Replace("\\n", Environment.NewLine);
+            else
+                lblBio.Text = string.Empty;
             lblName.Text = login.Full_name;
             lblUsername.Text = login.Username;
             lblWebsite.Text = login.External_url;
@@ -50,7 +53,10 @@ namespace TzalemTmuna.Forms
             new EditProfile(styleManager, login).ShowDialog();
             //Refresh profile
             ProfilePicture.Image = FileTools.getProfilePicture(login.Username);
-            lblBio.Text = login.Biography.Replace("\\n", Environment.NewLine);
+            if (login.Biography != null)
+                lblBio.Text = login.Biography.Replace("\\n", Environment.NewLine);
+            else
+                lblBio.Text = string.Empty;
             lblName.Text = login.Full_name;
             lblUsername.Text = login.Username;
             lblWebsite.Text = login.External_url;
@@ -68,24 +74,50 @@ namespace TzalemTmuna.Forms
             this.father = father;
             ProfilePicture.BackColor = BackColor;
             ProfilePicture.Image = FileTools.getProfilePicture(user.Username);
-            lblBio.Text = user.Biography.Replace("\\n", Environment.NewLine);
+            if (login.Biography != null)
+                lblBio.Text = login.Biography.Replace("\\n", Environment.NewLine);
+            else
+                lblBio.Text = string.Empty;
             lblName.Text = user.Full_name;
             lblUsername.Text = user.Username;
             lblWebsite.Text = user.External_url;
             lblFollowers.Text = user.Followers.Count.ToString();
             lblFollowing.Text = user.Following.Count.ToString();
             Controls.Remove(btnFollowRequests);
+            btnFollowRequests.Dispose();
+            Controls.Remove(btnLogout);
+            btnLogout.Dispose();
             btnOption.Text = "Follow";
-            foreach (User x in login.Following)
+            bool flag = true;
+            if (user.is_private)
             {
-                if (x.Username == user.Username)
+                foreach (User x in login.SentRequests)
                 {
-                    btnOption.Text = "Following";
-                    if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
-                        btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
-                    else
-                        btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    break;
+                    if (x.Username == user.Username)
+                    {
+                        btnOption.Text = "Requested";
+                        flag = false;
+                        if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                        else
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                        break;
+                    }
+                }
+            }
+            if (flag)
+            {
+                foreach (User x in login.Following)
+                {
+                    if (x.Username == user.Username)
+                    {
+                        btnOption.Text = "Following";
+                        if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                        else
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                        break;
+                    }
                 }
             }
         }
@@ -204,6 +236,38 @@ namespace TzalemTmuna.Forms
         private void btnFollowRequests_Click(object sender, EventArgs e)
         {
             ShowList(2);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.username = string.Empty;
+            Properties.Settings.Default.password = string.Empty;
+            Properties.Settings.Default.Save();
+            if (father != null)
+            {
+                try
+                {
+                    Login login = (Login)father;
+                    Closed += (s, args) => father.Show();
+                }
+                catch
+                {
+                    Closed += (s, args) => new Login(styleManager).Show();
+                }
+            }
+            else
+                Closed += (s, args) => new Login(styleManager).Show();
+            Close();
+        }
+
+        private void Profile_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Closed += (s, args) => father.Close();
+        }
+
+        private void lblWebsite_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(lblWebsite.Text);
         }
     }
 }

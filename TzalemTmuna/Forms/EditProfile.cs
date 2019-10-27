@@ -209,6 +209,11 @@ namespace TzalemTmuna.Forms
             }
         }
 
+        public void openProfile()
+        {
+            new Profile(styleManager, user, null).Show();
+        }
+
         private void ProfilePicture_MouseLeave(object sender, EventArgs e)
         {
             ProfilePicture.Image = pic;

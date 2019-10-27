@@ -61,7 +61,6 @@ namespace TzalemTmuna.Forms
             this.chkRememberMe.UseCustomBackColor = true;
             this.chkRememberMe.UseSelectable = true;
             this.chkRememberMe.UseStyleColors = true;
-            this.chkRememberMe.CheckedChanged += new System.EventHandler(this.chkRememberMe_CheckedChanged);
             // 
             // txtUsername
             // 
@@ -81,7 +80,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.txtUsername.Lines = new string[0];
             this.txtUsername.Location = new System.Drawing.Point(12, 63);
-            this.txtUsername.MaxLength = 32767;
+            this.txtUsername.MaxLength = 32;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -93,7 +92,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.TabIndex = 1;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.UseStyleColors = true;
-            this.txtUsername.WaterMark = "Username, can only contain english letters and underscores";
+            this.txtUsername.WaterMark = "Username, can only contain english letters, underscores and .";
             this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -222,7 +221,6 @@ namespace TzalemTmuna.Forms
             this.Text = "Register";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,12 +11,20 @@ namespace TzalemTmuna.Utilities
     {
         public static bool IsEmail(string txt)
         {
-            return Regex.IsMatch(txt, @"^[\d\w]+@[\d\w]+\.[\w]+$");
+            try
+            {
+                var mailAddress = new System.Net.Mail.MailAddress(txt);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public static bool IsUsername(string txt)
         {
-            return Regex.IsMatch(txt, @"^[a-zA-Z0-9_]+$") && txt.Length <= 12;
+            return Regex.IsMatch(txt, @"^[a-zA-Z0-9_/.]+$") && txt.Length <= 32;
         }
 
         public static bool IsPassword(string txt)

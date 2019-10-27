@@ -70,7 +70,6 @@ namespace TzalemTmuna.Forms
                 Hide();
                 //profile.Closed += (s, args) => Location = profile.Location;
                 //profile.Closed += (s, args) => Show();
-                profile.Closed += (s, args) => Close();
             }
             else
                 LoginError();

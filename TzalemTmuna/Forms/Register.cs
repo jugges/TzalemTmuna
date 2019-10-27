@@ -58,11 +58,17 @@ namespace TzalemTmuna.Forms
                                     new OleDbParameter("@password", user.Password),
                                         });
 
-                                    var profile = new EditProfile(styleManager,user);
-                                    profile.Show();
+                                    if (chkRememberMe.Checked)
+                                    {
+                                        Properties.Settings.Default.username = user.Username;
+                                        Properties.Settings.Default.password = user.Password;
+                                        Properties.Settings.Default.Save();
+                                    }
+
+                                    var editProfile = new EditProfile(styleManager,user);
+                                    editProfile.Show();
                                     Hide();
-                                    profile.Closed += (s, args) => Location = profile.Location;
-                                    profile.Closed += (s, args) => Show();
+                                    editProfile.Closed += (s, args) => editProfile.openProfile();
 
                                     //Create a new pictures folder for user
                                     FileTools.CreateProfile(user.Username);
@@ -85,36 +91,6 @@ namespace TzalemTmuna.Forms
             }
             else
                 MetroFramework.MetroMessageBox.Show(this, "Username is not valid!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void Register_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPasswordValidate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkRememberMe_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

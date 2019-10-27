@@ -42,7 +42,7 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
-            if (Mode==0)
+            if (Mode == 0)
                 Controls.Remove(btnOption);
             else
             {
@@ -68,16 +68,47 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
-            foreach (User x in callingProfile.login.Following)
+            if (Mode == 2)
             {
-                if (x.Username == user.Username)
+                btnOption.Text = "Accept";
+                if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                else
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+            }
+            else
+            {
+                bool flag = true;
+                if (user.is_private)
                 {
-                    btnOption.Text = "Following";
-                    if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
-                        btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
-                    else
-                        btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    break;
+                    foreach (User x in callingProfile.login.SentRequests)
+                    {
+                        if (x.Username == user.Username)
+                        {
+                            btnOption.Text = "Requested";
+                            flag = false;
+                            if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                                btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                            else
+                                btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                            break;
+                        }
+                    }
+                }
+                if (flag)
+                {
+                    foreach (User x in callingProfile.login.Following)
+                    {
+                        if (x.Username == user.Username)
+                        {
+                            btnOption.Text = "Following";
+                            if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                                btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                            else
+                                btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -86,7 +117,7 @@ namespace TzalemTmuna.Forms
         {
             var fdb = new FollowingDB();
             fdb.Unfollow(callingProfile.login, user);
-            if (isMine && Mode==1)
+            if (isMine && Mode == 1)
             {
                 this.Parent.Controls.Remove(this);
             }
@@ -137,6 +168,13 @@ namespace TzalemTmuna.Forms
             btnOption.Theme = styleManager.Theme;
         }
 
+        private void AcceptRequest()
+        {
+            var rdb = new RequestsDB();
+            rdb.AcceptRequest(callingProfile.login, user);
+            this.Parent.Controls.Remove(this);
+        }
+
         private void btnOption_Click(object sender, EventArgs e)
         {
             switch (btnOption.Text)
@@ -152,6 +190,9 @@ namespace TzalemTmuna.Forms
                     break;
                 case "Requested":
                     RemoveRequest();
+                    break;
+                case "Accept":
+                    AcceptRequest();
                     break;
             }
         }
@@ -176,7 +217,7 @@ namespace TzalemTmuna.Forms
 
             }
             callingProfile.Hide();
-            Profile newProfile = new Profile(styleManager, callingProfile.login, user,callingProfile);
+            Profile newProfile = new Profile(styleManager, callingProfile.login, user, callingProfile);
             newProfile.Show();
             followers.Close();
             if (callingProfile.isMine)

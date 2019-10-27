@@ -205,7 +205,7 @@ namespace TzalemTmuna.Forms
             this.txtUsername.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.txtUsername.Lines = new string[0];
             this.txtUsername.Location = new System.Drawing.Point(111, 272);
-            this.txtUsername.MaxLength = 12;
+            this.txtUsername.MaxLength = 32;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;

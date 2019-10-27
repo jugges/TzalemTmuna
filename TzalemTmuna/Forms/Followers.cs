@@ -24,24 +24,38 @@ namespace TzalemTmuna.Forms
             InitializeComponent();
             styleManager.Owner = this;
             StyleManager = styleManager;
-            List<User> follow;
-            if (Mode==0)
-                follow = callingProfile.login.Followers;
-            else if(Mode==1)
+
+            if (Mode == 0)
             {
-                follow = callingProfile.login.Following;
-                Text = "Following";
-            }else
-            {
-                follow = callingProfile.login.ReceivedRequests;
-                Text = "Follow Requests";
+                foreach (User x in callingProfile.login.Followers)
+                {
+                    //x is the follower!
+                    var y = new Follower(styleManager, callingProfile, x, Mode, true);
+                    metroPanel.Controls.Add(y);
+                    y.Dock = DockStyle.Top;
+                }
             }
-            foreach (User x in follow)
+            else if (Mode == 1)
             {
-                //x is the follower/followed!
-                var y = new Follower(styleManager, callingProfile,x, Mode, true);
-                metroPanel.Controls.Add(y);
-                y.Dock = DockStyle.Top;
+                Text = "Following";
+                foreach (User x in callingProfile.login.Following)
+                {
+                    //x is the followed!
+                    var y = new Follower(styleManager, callingProfile, x, Mode, true);
+                    metroPanel.Controls.Add(y);
+                    y.Dock = DockStyle.Top;
+                }
+            }
+            else
+            {
+                Text = "Follow Requests";
+                foreach (User x in callingProfile.login.ReceivedRequests)
+                {
+                    //x is the requester!
+                    var y = new Request(styleManager, callingProfile, x);
+                    metroPanel.Controls.Add(y);
+                    y.Dock = DockStyle.Top;
+                }
             }
         }
         //user's list!

@@ -66,6 +66,12 @@
     <Compile Include="DB\FollowingDB.cs" />
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="Entities\LoginUser.cs" />
+    <Compile Include="Forms\Request.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Request.Designer.cs">
+      <DependentUpon>Request.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Follower.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
     <Compile Include="Utilities\ValidateTools.cs" />
+    <EmbeddedResource Include="Forms\Request.resx">
+      <DependentUpon>Request.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Follower.resx">
       <DependentUpon>Follower.cs</DependentUpon>
     </EmbeddedResource>

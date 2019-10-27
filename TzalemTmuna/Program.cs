@@ -46,6 +46,10 @@ namespace TzalemTmuna
                     Application.Run(new Login(styleManager));
                 }
             }
+            else
+            {
+                Application.Run(new Login(styleManager));
+            }
         }
 
         private static void DoLoginAuto(LoginUser user, string password, MetroFramework.Components.MetroStyleManager styleManager)
