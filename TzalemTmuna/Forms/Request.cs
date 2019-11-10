@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.DB;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
     public partial class Request : MetroFramework.Controls.MetroUserControl
     {
-        MetroFramework.Components.MetroStyleManager styleManager;
         Profile callingProfile;
         User user;
         public Request()
@@ -24,12 +24,10 @@ namespace TzalemTmuna.Forms
         }
 
         //login is not the one on the list!
-        public Request(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, User user)
+        public Request(Profile callingProfile, User user)
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-            this.styleManager = styleManager;
+            StyleManager.Theme = Statics.Theme.MetroThemeStyle;
             this.callingProfile = callingProfile;
             this.user = user;
             lblUsername.Text = user.Username;
@@ -40,7 +38,7 @@ namespace TzalemTmuna.Forms
                 ProfilePicture.Image = pic;
             }
 
-            if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+            if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                 btnAccept.Theme = MetroFramework.MetroThemeStyle.Light;
             else
                 btnAccept.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -49,29 +47,29 @@ namespace TzalemTmuna.Forms
         private void Remove()
         {
             var fdb = new FollowingDB();
-            fdb.Remove(callingProfile.login, user);
+            fdb.Remove(LoggedInUser.login, user);
             this.Parent.Controls.Remove(this);
         }
 
         private void RemoveRequest()
         {
             var rdb = new RequestsDB();
-            rdb.RemoveRequest(callingProfile.login, user);
+            rdb.RemoveRequest(LoggedInUser.login, user);
             btnDecline.Text = "Follow";
-            btnDecline.Theme = styleManager.Theme;
+            btnDecline.Theme = StyleManager.Theme;
         }
 
         private void AcceptRequest()
         {
             var rdb = new RequestsDB();
-            rdb.AcceptRequest(callingProfile.login, user);
+            rdb.AcceptRequest(LoggedInUser.login, user);
             this.Parent.Controls.Remove(this);
         }
 
         private void DeclineRequest()
         {
             var rdb = new RequestsDB();
-            rdb.DeclineRequest(callingProfile.login, user);
+            rdb.DeclineRequest(LoggedInUser.login, user);
             this.Parent.Controls.Remove(this);
         }
 
@@ -100,7 +98,7 @@ namespace TzalemTmuna.Forms
 
             }
             callingProfile.Hide();
-            Profile newProfile = new Profile(styleManager, callingProfile.login, user, callingProfile);
+            Profile newProfile = new Profile(user, callingProfile);
             newProfile.Show();
             followers.Close();
             if (callingProfile.isMine)

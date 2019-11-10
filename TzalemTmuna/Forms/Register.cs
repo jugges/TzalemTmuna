@@ -13,18 +13,20 @@ using TzalemTmuna.DB;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
     public partial class Register : MetroFramework.Forms.MetroForm
     {
-        MetroFramework.Components.MetroStyleManager styleManager;
-        public Register(MetroFramework.Components.MetroStyleManager styleManager)
+        public Register()
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-            this.styleManager = styleManager;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -64,14 +66,14 @@ namespace TzalemTmuna.Forms
                                         Properties.Settings.Default.password = user.Password;
                                         Properties.Settings.Default.Save();
                                     }
+                                    //Create a new pictures folder for user
+                                    FileTools.CreateProfile(user.Username);
 
-                                    var editProfile = new EditProfile(styleManager,user);
+                                    LoggedInUser.login = user;
+                                    var editProfile = new EditProfile();
                                     editProfile.Show();
                                     Hide();
                                     editProfile.Closed += (s, args) => editProfile.openProfile();
-
-                                    //Create a new pictures folder for user
-                                    FileTools.CreateProfile(user.Username);
                                 }
                                 else
                                     MetroFramework.MetroMessageBox.Show(this, "Passwords dont match!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -34,6 +34,7 @@ namespace TzalemTmuna.DB
             else
                 currentRow = 0;
         }
+
         #region NAVIGATION
         public void GoToFirst()
         {

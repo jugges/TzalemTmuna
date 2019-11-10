@@ -27,7 +27,48 @@ namespace TzalemTmuna.Utilities
             Directory.Move(path + oldUsername, path + newUsername);
         }
 
-        public static Image getProfilePicture(string username)
+        public static Bitmap getPost(string username, int post_number)
+        {
+            try
+            {
+                string path = Directory.GetCurrentDirectory();
+                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+                path += username + "\\" + post_number + ".jpg";
+                using (var bmpTemp = new Bitmap(path))
+                {
+                    return new Bitmap(bmpTemp);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static Bitmap setPost()
+        {
+            using (var openFile = new OpenFileDialog())
+            {
+                openFile.Filter = "Image Files(*.JPG;*.PNG;)|*.JPG;*.PNG;";
+                openFile.Title = "Select Photo";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (var bmpTemp = new Bitmap(openFile.FileName))
+                    {
+                        return new Bitmap(bmpTemp);
+                    }
+                }
+            }
+            return null;
+        }
+        public static void savePost(string username, int post_number, Bitmap pic)
+        {
+            string path = Directory.GetCurrentDirectory();
+            path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+            path += username + "\\" + post_number + ".jpg";
+            pic.Save(path);
+        }
+        public static Bitmap getProfilePicture(string username)
         {
             try
             {
@@ -45,7 +86,7 @@ namespace TzalemTmuna.Utilities
             }
         }
 
-        public static Image setProfilePicture(string username)
+        public static Bitmap setProfilePicture()
         {
             using (var openFile = new OpenFileDialog())
             {
@@ -61,7 +102,8 @@ namespace TzalemTmuna.Utilities
             }
             return null;
         }
-        public static void saveProfilePicture(string username, Image pic)
+
+        public static void saveProfilePicture(string username, Bitmap pic)
         {
             string path = Directory.GetCurrentDirectory();
             path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
