@@ -11,18 +11,20 @@ using System.Windows.Forms;
 using TzalemTmuna.DB;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-        MetroFramework.Components.MetroStyleManager styleManager;
-        public Login(MetroFramework.Components.MetroStyleManager styleManager)
+        public Login()
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-            this.styleManager = styleManager;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
         }
         private void LoginError()
         {
@@ -65,7 +67,8 @@ namespace TzalemTmuna.Forms
                     Properties.Settings.Default.password = user.Password;
                     Properties.Settings.Default.Save();
                 }
-                var profile = new Profile(styleManager, user, this);
+                LoggedInUser.login = user;
+                var profile = new Profile(this);
                 profile.Show();
                 Hide();
                 //profile.Closed += (s, args) => Location = profile.Location;
@@ -83,7 +86,7 @@ namespace TzalemTmuna.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            var register = new Register(styleManager);
+            var register = new Register();
             register.Location = Location;
             register.Show();
             Hide();

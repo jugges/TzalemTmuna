@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.DB;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
     public partial class Follower : MetroFramework.Controls.MetroUserControl
     {
-        MetroFramework.Components.MetroStyleManager styleManager;
         Profile callingProfile;
         User user;
         int Mode;
@@ -25,19 +25,21 @@ namespace TzalemTmuna.Forms
             InitializeComponent();
         }
         //Not login's list, but login is the one on the list!
-        public Follower(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, User user, int Mode)
+        public Follower(Profile callingProfile, User user, int Mode)
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-            this.styleManager = styleManager;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
             this.callingProfile = callingProfile;
             this.user = user;
             this.isMine = true;
             this.Mode = Mode;
-            lblUsername.Text = callingProfile.login.Username;
-            lblFullName.Text = callingProfile.login.Full_name;
-            var pic = FileTools.getProfilePicture(callingProfile.login.Username);
+            lblUsername.Text = LoggedInUser.login.Username;
+            lblFullName.Text = LoggedInUser.login.Full_name;
+            var pic = FileTools.getProfilePicture(LoggedInUser.login.Username);
             if (pic != null)
             {
                 ProfilePicture.Image = pic;
@@ -51,12 +53,14 @@ namespace TzalemTmuna.Forms
             }
         }
         //login is not the one on the list!
-        public Follower(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, User user, int Mode, bool isMine)
+        public Follower(Profile callingProfile, User user, int Mode, bool isMine)
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-            this.styleManager = styleManager;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
             this.callingProfile = callingProfile;
             this.user = user;
             this.isMine = isMine;
@@ -71,7 +75,7 @@ namespace TzalemTmuna.Forms
             if (Mode == 2)
             {
                 btnOption.Text = "Accept";
-                if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                 else
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -81,13 +85,13 @@ namespace TzalemTmuna.Forms
                 bool flag = true;
                 if (user.is_private)
                 {
-                    foreach (User x in callingProfile.login.SentRequests)
+                    foreach (User x in LoggedInUser.login.SentRequests)
                     {
                         if (x.Username == user.Username)
                         {
                             btnOption.Text = "Requested";
                             flag = false;
-                            if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                            if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                                 btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                             else
                                 btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -97,12 +101,12 @@ namespace TzalemTmuna.Forms
                 }
                 if (flag)
                 {
-                    foreach (User x in callingProfile.login.Following)
+                    foreach (User x in LoggedInUser.login.Following)
                     {
                         if (x.Username == user.Username)
                         {
                             btnOption.Text = "Following";
-                            if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                            if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                                 btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                             else
                                 btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -116,7 +120,7 @@ namespace TzalemTmuna.Forms
         private void Unfollow()
         {
             var fdb = new FollowingDB();
-            fdb.Unfollow(callingProfile.login, user);
+            fdb.Unfollow(LoggedInUser.login, user);
             if (isMine && Mode == 1)
             {
                 this.Parent.Controls.Remove(this);
@@ -124,7 +128,7 @@ namespace TzalemTmuna.Forms
             else
             {
                 btnOption.Text = "Follow";
-                btnOption.Theme = styleManager.Theme;
+                btnOption.Theme = StyleManager.Theme;
             }
 
         }
@@ -134,9 +138,9 @@ namespace TzalemTmuna.Forms
             if (user.is_private)
             {
                 var rdb = new RequestsDB();
-                rdb.SendRequest(callingProfile.login, user);
+                rdb.SendRequest(LoggedInUser.login, user);
                 btnOption.Text = "Requested";
-                if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                 else
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -144,9 +148,9 @@ namespace TzalemTmuna.Forms
             else
             {
                 var fdb = new FollowingDB();
-                fdb.Follow(callingProfile.login, user);
+                fdb.Follow(LoggedInUser.login, user);
                 btnOption.Text = "Following";
-                if (styleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                 else
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -156,22 +160,22 @@ namespace TzalemTmuna.Forms
         private void Remove()
         {
             var fdb = new FollowingDB();
-            fdb.Remove(callingProfile.login, user);
+            fdb.Remove(LoggedInUser.login, user);
             this.Parent.Controls.Remove(this);
         }
 
         private void RemoveRequest()
         {
             var rdb = new RequestsDB();
-            rdb.RemoveRequest(callingProfile.login, user);
+            rdb.RemoveRequest(LoggedInUser.login, user);
             btnOption.Text = "Follow";
-            btnOption.Theme = styleManager.Theme;
+            btnOption.Theme = StyleManager.Theme;
         }
 
         private void AcceptRequest()
         {
             var rdb = new RequestsDB();
-            rdb.AcceptRequest(callingProfile.login, user);
+            rdb.AcceptRequest(LoggedInUser.login, user);
             this.Parent.Controls.Remove(this);
         }
 
@@ -217,7 +221,7 @@ namespace TzalemTmuna.Forms
 
             }
             callingProfile.Hide();
-            Profile newProfile = new Profile(styleManager, callingProfile.login, user, callingProfile);
+            Profile newProfile = new Profile(user, callingProfile);
             newProfile.Show();
             followers.Close();
             if (callingProfile.isMine)

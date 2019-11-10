@@ -21,6 +21,7 @@ namespace TzalemTmuna.Entities
         private string external_url;
         private List<User> following;
         private List<User> followers;
+        private List<Post> posts;
 
         public string Username
         {
@@ -71,7 +72,7 @@ namespace TzalemTmuna.Entities
                 if (value.Length <= 150)
                     biography = value;
                 else
-                    throw new Exception("Biography can not surapss 150 characters");
+                    throw new Exception("Biography can not surpass 150 characters");
             }
             get
             {
@@ -118,6 +119,20 @@ namespace TzalemTmuna.Entities
                     var fdb = new FollowingDB();
                     followers = fdb.GetFollowers(username);
                     return followers;
+                }
+            }
+        }
+        public List<Post> Posts
+        {
+            get
+            {
+                if (posts != null)
+                    return posts;
+                else
+                {
+                    var pdb = new PostDB();
+                    posts = pdb.GetPosts(username);
+                    return posts;
                 }
             }
         }

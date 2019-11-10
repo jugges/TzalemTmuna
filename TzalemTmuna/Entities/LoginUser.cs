@@ -25,6 +25,7 @@ namespace TzalemTmuna.Entities
         private List<User> followers;
         private List<User> receivedRequests;
         private List<User> sentRequests;
+        private List<Post> posts;
 
         public string Username
         {
@@ -176,6 +177,20 @@ namespace TzalemTmuna.Entities
                     var fdb = new FollowingDB();
                     followers = fdb.GetFollowers(username);
                     return followers;
+                }
+            }
+        }
+        public List<Post> Posts
+        {
+            get
+            {
+                if (posts != null)
+                    return posts;
+                else
+                {
+                    var pdb = new PostDB();
+                    posts = pdb.GetPosts(username);
+                    return posts;
                 }
             }
         }

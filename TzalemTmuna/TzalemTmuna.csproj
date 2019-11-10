@@ -62,10 +62,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DAL.cs" />
+    <Compile Include="DB\LikeDB.cs" />
+    <Compile Include="DB\CommentDB.cs" />
+    <Compile Include="DB\PostDB.cs" />
     <Compile Include="DB\RequestsDB.cs" />
     <Compile Include="DB\FollowingDB.cs" />
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="Entities\LoginUser.cs" />
+    <Compile Include="Entities\Post.cs" />
+    <Compile Include="Statics\LoggedInUser.cs" />
+    <Compile Include="Statics\Theme.cs" />
+    <Compile Include="Forms\EditProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditProfile.Designer.cs">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewPost.Designer.cs">
+      <DependentUpon>ViewPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Request.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,11 +102,11 @@
     <Compile Include="Forms\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditProfile.cs">
+    <Compile Include="Forms\NewPost.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditProfile.Designer.cs">
-      <DependentUpon>EditProfile.cs</DependentUpon>
+    <Compile Include="Forms\NewPost.Designer.cs">
+      <DependentUpon>NewPost.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProfilePicture.cs">
       <SubType>Component</SubType>
@@ -115,7 +133,12 @@
     <Compile Include="DB\GeneralDB.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="DB\UserDB.cs" />
-    <Compile Include="Entities\Post.cs" />
+    <Compile Include="Forms\Thumbnail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Thumbnail.Designer.cs">
+      <DependentUpon>Thumbnail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\User.cs" />
@@ -124,6 +147,12 @@
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
     <Compile Include="Utilities\ValidateTools.cs" />
+    <EmbeddedResource Include="Forms\EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewPost.resx">
+      <DependentUpon>ViewPost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Request.resx">
       <DependentUpon>Request.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,8 +162,8 @@
     <EmbeddedResource Include="Forms\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditProfile.resx">
-      <DependentUpon>EditProfile.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NewPost.resx">
+      <DependentUpon>NewPost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Followers.resx">
       <DependentUpon>Followers.cs</DependentUpon>
@@ -144,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Thumbnail.resx">
+      <DependentUpon>Thumbnail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,6 +208,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\likewhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,45 +13,45 @@ using TzalemTmuna.DB;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
     public partial class EditProfile : MetroFramework.Forms.MetroForm
     {
-        MetroFramework.Components.MetroStyleManager styleManager;
-        LoginUser user;
-        Image pic;
-        public EditProfile(MetroFramework.Components.MetroStyleManager styleManager,LoginUser user)
+        Bitmap pic;
+        public EditProfile()
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-            this.styleManager = styleManager;
-            this.user = user;
-            chkPrivateAccount.Checked = user.is_private;
-            txtFullName.Text = user.Full_name;
-            txtWebsite.Text = user.External_url;
-            txtBiography.Text = user.Biography;
-            txtUsername.Text = user.Username;
-            txtEmail.Text = user.Email;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
+            chkPrivateAccount.Checked = LoggedInUser.login.is_private;
+            txtFullName.Text = LoggedInUser.login.Full_name;
+            txtWebsite.Text = LoggedInUser.login.External_url;
+            txtBiography.Text = LoggedInUser.login.Biography;
+            txtUsername.Text = LoggedInUser.login.Username;
+            txtEmail.Text = LoggedInUser.login.Email;
             ProfilePicture.BackColor = BackColor;
-            var pic = FileTools.getProfilePicture(user.Username);
+            var pic = FileTools.getProfilePicture(LoggedInUser.login.Username);
             if (pic != null)
             {
                 ProfilePicture.Image = pic;
             }
-            this.pic = ProfilePicture.Image;
-            lblChangeProfilePicture.Parent = ProfilePicture;
-            lblChangeProfilePicture.Location = new Point(ProfilePicture.Width / 2 - lblChangeProfilePicture.Width / 2, ProfilePicture.Height / 2);
+            this.pic = (Bitmap)ProfilePicture.Image;
+            //lblChangeProfilePicture.Parent = ProfilePicture;
+            //lblChangeProfilePicture.Location = new Point(ProfilePicture.Width / 2 - lblChangeProfilePicture.Width / 2, ProfilePicture.Height / 2);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             bool[] flagSave = new bool[6];
             bool flagError = false;
-            FileTools.saveProfilePicture(user.Username, pic);
+            FileTools.saveProfilePicture(LoggedInUser.login.Username, pic);
             var udp = new UserDB();
-            if (!txtUsername.Text.Equals(user.Username))
+            if (!txtUsername.Text.Equals(LoggedInUser.login.Username))
                 if (ValidateTools.IsUsername(txtUsername.Text))
                 {
                     if (!udp.Find(txtUsername.Text))
@@ -70,7 +70,7 @@ namespace TzalemTmuna.Forms
                     flagError = true;
                 }
 
-            if (!txtEmail.Text.Equals(user.Email))
+            if (!txtEmail.Text.Equals(LoggedInUser.login.Email))
                 if (ValidateTools.IsEmail(txtEmail.Text))
                 {
                     var edp = new EmailDB();
@@ -90,7 +90,7 @@ namespace TzalemTmuna.Forms
                     flagError = true;
                 }
 
-            if (!txtWebsite.Text.Equals(user.External_url) && txtWebsite.Text != string.Empty)
+            if (!txtWebsite.Text.Equals(LoggedInUser.login.External_url) && txtWebsite.Text != string.Empty)
                 if (ValidateTools.IsURL(txtWebsite.Text))
                 {
                     flagSave[2] = true;
@@ -101,17 +101,17 @@ namespace TzalemTmuna.Forms
                     flagError = true;
                 }
 
-            if (!txtBiography.Text.Equals(user.Biography) && txtBiography.Text != string.Empty)
+            if (!txtBiography.Text.Equals(LoggedInUser.login.Biography) && txtBiography.Text != string.Empty)
             {
                 flagSave[3] = true;
             }
 
-            if (!txtFullName.Text.Equals(user.Full_name))
+            if (!txtFullName.Text.Equals(LoggedInUser.login.Full_name))
             {
                 flagSave[4] = true;
             }
 
-            if (chkPrivateAccount.Checked ^ user.is_private)
+            if (chkPrivateAccount.Checked ^ LoggedInUser.login.is_private)
             {
                 flagSave[5] = true;
             }
@@ -129,7 +129,7 @@ namespace TzalemTmuna.Forms
                         statement += " [email]=@email";
                         parameters.Add(new OleDbParameter("@email", txtEmail.Text));
                         flagFirst = false;
-                        user.Email = txtEmail.Text;
+                        LoggedInUser.login.Email = txtEmail.Text;
                     }
                     if (flagSave[2])
                     {
@@ -142,7 +142,7 @@ namespace TzalemTmuna.Forms
                             statement += ", ";
                         statement += "[external_url]=@external_url";
                         parameters.Add(new OleDbParameter("@external_url", txtWebsite.Text));
-                        user.External_url = txtWebsite.Text;
+                        LoggedInUser.login.External_url = txtWebsite.Text;
                     }
                     if (flagSave[3])
                     {
@@ -155,7 +155,7 @@ namespace TzalemTmuna.Forms
                             statement += ", ";
                         statement += "[biography]=@biography";
                         parameters.Add(new OleDbParameter("@biography", txtBiography.Text));
-                        user.Biography = txtBiography.Text;
+                        LoggedInUser.login.Biography = txtBiography.Text;
                     }
                     if (flagSave[4])
                     {
@@ -168,7 +168,7 @@ namespace TzalemTmuna.Forms
                             statement += ", ";
                         statement += "[full_name]=@full_name";
                         parameters.Add(new OleDbParameter("@full_name", txtFullName.Text));
-                        user.Full_name = txtFullName.Text;
+                        LoggedInUser.login.Full_name = txtFullName.Text;
                     }
                     if (flagSave[5])
                     {
@@ -181,7 +181,7 @@ namespace TzalemTmuna.Forms
                             statement += ", ";
                         statement += "[is_private]=@is_private";
                         parameters.Add(new OleDbParameter("@is_private", chkPrivateAccount.Checked));
-                        user.is_private = chkPrivateAccount.Checked;
+                        LoggedInUser.login.is_private = chkPrivateAccount.Checked;
                     }
                     if (flagSave[0])
                     {
@@ -190,19 +190,19 @@ namespace TzalemTmuna.Forms
                         else
                             statement += ", ";
                         parameters.Add(new OleDbParameter("@username", txtUsername.Text));
-                        parameters.Add(new OleDbParameter("@oldusername", user.Username));
+                        parameters.Add(new OleDbParameter("@oldusername", LoggedInUser.login.Username));
                         instance.ExecuteNonQuery(statement +
                             "[username]=@username WHERE [username]=@oldusername", parameters);
-                        FileTools.ChangeUsername(user.Username, txtUsername.Text);
-                        user.Username = txtUsername.Text;
+                        FileTools.ChangeUsername(LoggedInUser.login.Username, txtUsername.Text);
+                        LoggedInUser.login.Username = txtUsername.Text;
                     }
                     else
                     {
-                        parameters.Add(new OleDbParameter("@username", user.Username));
+                        parameters.Add(new OleDbParameter("@username", LoggedInUser.login.Username));
                         instance.ExecuteNonQuery(statement +
                                 " WHERE [username]=@username",parameters);
                     }
-                    udp.UpdateRow(user);
+                    udp.UpdateRow(LoggedInUser.login);
                     //udp.Save();
                 }
                 Close();
@@ -211,7 +211,7 @@ namespace TzalemTmuna.Forms
 
         public void openProfile()
         {
-            new Profile(styleManager, user, null).Show();
+            new Profile(null).Show();
         }
 
         private void ProfilePicture_MouseLeave(object sender, EventArgs e)
@@ -222,7 +222,7 @@ namespace TzalemTmuna.Forms
 
         private void ProfilePicture_Click(object sender, EventArgs e)
         {
-            var pic = FileTools.setProfilePicture(user.Username);
+            var pic = FileTools.setProfilePicture();
             if (pic != null)
             {
                 ProfilePicture.Image = pic;

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TzalemTmuna.DB;
-using TzalemTmuna.Entities;
 using TzalemTmuna.Forms;
+using TzalemTmuna.Entities;
 
 namespace TzalemTmuna
 {
@@ -22,9 +22,7 @@ namespace TzalemTmuna
 
             //Theme
 
-            var styleManager = new MetroFramework.Components.MetroStyleManager();
-            styleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
-            styleManager.Style = MetroFramework.MetroColorStyle.Teal;
+            Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Dark;
 
             //Check Auto Login
 
@@ -35,7 +33,7 @@ namespace TzalemTmuna
                 var udb = new UserDB();
                 if (udb.Find(autoUsername))
                 {
-                    DoLoginAuto(new LoginUser(udb.GetCurrentRow()), autoPassword,styleManager);
+                    DoLoginAuto(new LoginUser(udb.GetCurrentRow()), autoPassword);
                 }
                 else
                 {
@@ -43,20 +41,21 @@ namespace TzalemTmuna
                     Properties.Settings.Default.username = string.Empty;
                     Properties.Settings.Default.password = string.Empty;
                     Properties.Settings.Default.Save();
-                    Application.Run(new Login(styleManager));
+                    Application.Run(new Login());
                 }
             }
             else
             {
-                Application.Run(new Login(styleManager));
+                Application.Run(new Login());
             }
         }
 
-        private static void DoLoginAuto(LoginUser user, string password, MetroFramework.Components.MetroStyleManager styleManager)
+        private static void DoLoginAuto(LoginUser user, string password)
         {
             if (user.Password.Equals(password))
             {
-                Application.Run(new Profile(styleManager, user, null));
+                Statics.LoggedInUser.login = user;
+                Application.Run(new Profile(null));
             }
             else
             {
@@ -64,8 +63,8 @@ namespace TzalemTmuna
                 Properties.Settings.Default.username = string.Empty;
                 Properties.Settings.Default.password = string.Empty;
                 Properties.Settings.Default.Save();
-                Application.Run(new Login(styleManager));
             }
+            Application.Run(new Login());
         }
     }
 }

@@ -106,11 +106,23 @@ namespace TzalemTmuna.Data
                 return x;
             }
         }
-        public object ExecuteScalarQuery(string sqlStr)
+        public object ExecuteScalarQuery(string sqlQry)
         {
             OleDbCommand command = con.CreateCommand();
-            command.CommandText = sqlStr;
+            command.CommandText = sqlQry;
             return command.ExecuteScalar();
+        }
+        public object ExecuteScalarQuery(string sqlQry, OleDbParameter[] parameters)
+        {
+            using (OleDbCommand command = con.CreateCommand())
+            {
+                command.CommandText = sqlQry;
+                command.Parameters.AddRange(parameters);
+                con.Open();
+                var x = command.ExecuteScalar();
+                con.Close();
+                return x;
+            }
         }
     }
 }

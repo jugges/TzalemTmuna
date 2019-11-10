@@ -13,24 +13,27 @@ using TzalemTmuna.DB;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
     public partial class Followers : MetroFramework.Forms.MetroForm
     {
         //login's list!
-        public Followers(MetroFramework.Components.MetroStyleManager styleManager,Profile callingProfile, int Mode)
+        public Followers(Profile callingProfile, int Mode)
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
-
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
             if (Mode == 0)
             {
-                foreach (User x in callingProfile.login.Followers)
+                foreach (User x in LoggedInUser.login.Followers)
                 {
                     //x is the follower!
-                    var y = new Follower(styleManager, callingProfile, x, Mode, true);
+                    var y = new Follower(callingProfile, x, Mode, true);
                     metroPanel.Controls.Add(y);
                     y.Dock = DockStyle.Top;
                 }
@@ -38,10 +41,10 @@ namespace TzalemTmuna.Forms
             else if (Mode == 1)
             {
                 Text = "Following";
-                foreach (User x in callingProfile.login.Following)
+                foreach (User x in LoggedInUser.login.Following)
                 {
                     //x is the followed!
-                    var y = new Follower(styleManager, callingProfile, x, Mode, true);
+                    var y = new Follower(callingProfile, x, Mode, true);
                     metroPanel.Controls.Add(y);
                     y.Dock = DockStyle.Top;
                 }
@@ -49,21 +52,24 @@ namespace TzalemTmuna.Forms
             else
             {
                 Text = "Follow Requests";
-                foreach (User x in callingProfile.login.ReceivedRequests)
+                foreach (User x in LoggedInUser.login.ReceivedRequests)
                 {
                     //x is the requester!
-                    var y = new Request(styleManager, callingProfile, x);
+                    var y = new Request(callingProfile, x);
                     metroPanel.Controls.Add(y);
                     y.Dock = DockStyle.Top;
                 }
             }
         }
         //user's list!
-        public Followers(MetroFramework.Components.MetroStyleManager styleManager, Profile callingProfile, int Mode, User user)
+        public Followers(Profile callingProfile, int Mode, User user)
         {
             InitializeComponent();
-            styleManager.Owner = this;
-            StyleManager = styleManager;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
             List<User> follow;
             if (Mode==0)
                 follow = user.Followers;
@@ -75,15 +81,15 @@ namespace TzalemTmuna.Forms
             foreach (User x in follow)
             {
                 Follower y;
-                if (x.Username == callingProfile.login.Username)
+                if (x.Username == LoggedInUser.login.Username)
                 {
                     //login is the follower/followed!
-                    y = new Follower(styleManager,callingProfile,user, Mode);
+                    y = new Follower(callingProfile,user, Mode);
                 }
                 else
                 {
                     //x is the follower/followed!
-                    y = new Follower(styleManager, callingProfile,x, Mode,false);
+                    y = new Follower(callingProfile,x, Mode,false);
                 }
                 metroPanel.Controls.Add(y);
                 y.Dock = DockStyle.Top;
