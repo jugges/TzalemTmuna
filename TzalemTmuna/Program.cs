@@ -55,7 +55,8 @@ namespace TzalemTmuna
             if (user.Password.Equals(password))
             {
                 Statics.LoggedInUser.login = user;
-                Application.Run(new Profile(null));
+                Statics.LoggedInUser.profile = new Profile();
+                Application.Run(Statics.LoggedInUser.profile);
             }
             else
             {

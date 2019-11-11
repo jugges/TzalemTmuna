@@ -211,7 +211,8 @@ namespace TzalemTmuna.Forms
 
         public void openProfile()
         {
-            new Profile(null).Show();
+            LoggedInUser.profile = new Profile();
+            LoggedInUser.profile.Show();
         }
 
         private void ProfilePicture_MouseLeave(object sender, EventArgs e)

@@ -34,12 +34,12 @@ namespace TzalemTmuna.Forms
 
         private void lblUsername_Click(object sender, EventArgs e)
         {
-            new Profile(post.Owner, null).Show();
+            new Profile(post.Owner).Show();
         }
 
         private void profilePicture_Click(object sender, EventArgs e)
         {
-            new Profile(post.Owner, null).Show();
+            new Profile(post.Owner).Show();
         }
 
         //public void openProfile()

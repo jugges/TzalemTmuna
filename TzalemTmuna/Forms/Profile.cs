@@ -19,12 +19,12 @@ namespace TzalemTmuna.Forms
 {
     public partial class Profile : MetroFramework.Forms.MetroForm
     {
+        public bool isMainProfile;
+        public bool redirectAfterClose;
         public User user;
-        public bool isMine;
-        public MetroFramework.Forms.MetroForm father;
 
         //login's profile
-        public Profile(MetroFramework.Forms.MetroForm father)
+        public Profile()
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -32,8 +32,7 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
-            isMine = true;
-            this.father = father;
+            isMainProfile = true;
             ProfilePicture.BackColor = BackColor;
             ProfilePicture.Image = FileTools.getProfilePicture(LoggedInUser.login.Username);
             if (LoggedInUser.login.Biography != null)
@@ -67,7 +66,7 @@ namespace TzalemTmuna.Forms
             lblWebsite.Text = LoggedInUser.login.External_url;
         }
         //user's profile
-        public Profile(User user, MetroFramework.Forms.MetroForm father)
+        public Profile(User user)
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -75,9 +74,8 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            isMainProfile = false;
             this.user = user;
-            isMine = false;
-            this.father = father;
             ProfilePicture.BackColor = BackColor;
             ProfilePicture.Image = FileTools.getProfilePicture(user.Username);
             if (user.Biography != null)
@@ -192,17 +190,15 @@ namespace TzalemTmuna.Forms
 
         private void ShowList(int Mode)
         {
-            if (isMine)
+            if (isMainProfile)
             {
-                new Followers(this, Mode).ShowDialog();
+                new Followers(Mode).ShowDialog();
                 //Refresh following
                 lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
                 lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
                 if (Mode == 2)
                     if (LoggedInUser.login.ReceivedRequests.Count == 0)
-                    {
                         btnFollowRequests.Hide();
-                    }
             }
             else
             {
@@ -213,9 +209,9 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        public void RefreshPage()
+        public void RefreshFollowRequests()
         {
-            if (isMine)
+            if (isMainProfile)
             {
                 if (!btnFollowRequests.Visible && LoggedInUser.login.ReceivedRequests.Count != 0)
                 {
@@ -226,7 +222,7 @@ namespace TzalemTmuna.Forms
 
         public void RefreshFollowingAndFollowers()
         {
-            if (isMine)
+            if (isMainProfile)
             {
                 //Refresh following
                 lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
@@ -240,7 +236,7 @@ namespace TzalemTmuna.Forms
 
         public void LoadPostThumbnails()
         {
-            if (isMine)
+            if (isMainProfile)
             {
                 foreach (Post x in LoggedInUser.login.Posts)
                 {
@@ -287,36 +283,17 @@ namespace TzalemTmuna.Forms
             Properties.Settings.Default.username = string.Empty;
             Properties.Settings.Default.password = string.Empty;
             Properties.Settings.Default.Save();
-            if (father != null)
-            {
-                try
-                {
-                    Login login = (Login)father;
-                    Closed += (s, args) => father.Show();
-                }
-                catch
-                {
-                }
-            }
-            //else
-            //    Closed += (s, args) => new Login(styleManager).Show();
+            if (LoggedInUser.loginPage == null)
+                LoggedInUser.loginPage = new Login();
+            Closed += (s, args) => LoggedInUser.loginPage.Show();
+            redirectAfterClose = true;
             Close();
         }
 
         private void Profile_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (ActiveControl.Text != "Logout")
+            if (!redirectAfterClose)
             {
-                try
-                {
-                    Login login = (Login)father;
-                    father = null;
-                }
-                catch
-                {
-
-                }
-                if (father == null)
                     Environment.Exit(0);
             }
         }
@@ -328,7 +305,6 @@ namespace TzalemTmuna.Forms
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
             if (new NewPost().ShowDialog() == DialogResult.OK)
             {
                 Thumbnail thumbnail = new Thumbnail(LoggedInUser.login.Posts.Last());

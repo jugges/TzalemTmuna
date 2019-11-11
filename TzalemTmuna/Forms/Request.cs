@@ -16,7 +16,6 @@ namespace TzalemTmuna.Forms
 {
     public partial class Request : MetroFramework.Controls.MetroUserControl
     {
-        Profile callingProfile;
         User user;
         public Request()
         {
@@ -24,7 +23,7 @@ namespace TzalemTmuna.Forms
         }
 
         //login is not the one on the list!
-        public Request(Profile callingProfile, User user)
+        public Request(User user)
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -32,7 +31,6 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
-            this.callingProfile = callingProfile;
             this.user = user;
             lblUsername.Text = user.Username;
             lblFullName.Text = user.Full_name;
@@ -82,33 +80,14 @@ namespace TzalemTmuna.Forms
             DeclineRequest();
         }
 
-        private int openProfile()
+        private void openProfile()
         {
             Followers followers = (Followers)Parent.Parent;
-            try
-            {
-                var father = (Profile)callingProfile.father;
-                if (father.isMine)
-                {
-                    father.RefreshFollowingAndFollowers();
-                    father.Show();
-                    callingProfile.Close();
-                    followers.Close();
-                    return 0;
-                }
-            }
-            catch
-            {
-
-            }
-            callingProfile.Hide();
-            Profile newProfile = new Profile(user, callingProfile);
+            LoggedInUser.profile.Hide();
+            Profile newProfile = new Profile(user);
             newProfile.Show();
             followers.Close();
-            if (callingProfile.isMine)
-                newProfile.Closed += (s, args) => callingProfile.RefreshFollowingAndFollowers();
-            newProfile.Closed += (s, args) => callingProfile.Show();
-            return 1;
+            newProfile.Closed += (s, args) => LoggedInUser.profile.Show();
         }
         private void lblUsername_Click(object sender, EventArgs e)
         {

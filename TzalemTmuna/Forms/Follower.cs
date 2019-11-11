@@ -16,16 +16,15 @@ namespace TzalemTmuna.Forms
 {
     public partial class Follower : MetroFramework.Controls.MetroUserControl
     {
-        Profile callingProfile;
         User user;
-        int Mode;
-        bool isMine;
+        int mode;
+        Profile callingProfile;
         public Follower()
         {
             InitializeComponent();
         }
         //Not login's list, but login is the one on the list!
-        public Follower(Profile callingProfile, User user, int Mode)
+        public Follower(Profile callingProfile, int mode)
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -33,10 +32,9 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            user = new User(LoggedInUser.login);
             this.callingProfile = callingProfile;
-            this.user = user;
-            this.isMine = true;
-            this.Mode = Mode;
+            this.mode = mode;
             lblUsername.Text = LoggedInUser.login.Username;
             lblFullName.Text = LoggedInUser.login.Full_name;
             var pic = FileTools.getProfilePicture(LoggedInUser.login.Username);
@@ -44,7 +42,7 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
-            if (Mode == 0)
+            if (mode == 0)
                 Controls.Remove(btnOption);
             else
             {
@@ -52,8 +50,8 @@ namespace TzalemTmuna.Forms
                 btnOption.UseStyleColors = true;
             }
         }
-        //login is not the one on the list!
-        public Follower(Profile callingProfile, User user, int Mode, bool isMine)
+        //Not login's list, and login is NOT the one on the list!
+        public Follower(Profile callingProfile, User user, int mode)
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -63,8 +61,7 @@ namespace TzalemTmuna.Forms
             };
             this.callingProfile = callingProfile;
             this.user = user;
-            this.isMine = isMine;
-            this.Mode = Mode;
+            this.mode = mode;
             lblUsername.Text = user.Username;
             lblFullName.Text = user.Full_name;
             var pic = FileTools.getProfilePicture(user.Username);
@@ -72,17 +69,61 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
-            if (Mode == 2)
+            bool flag = true;
+            if (user.is_private)
             {
-                btnOption.Text = "Accept";
-                if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
-                    btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
-                else
-                    btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                foreach (User x in LoggedInUser.login.SentRequests)
+                {
+                    if (x.Username == user.Username)
+                    {
+                        btnOption.Text = "Requested";
+                        flag = false;
+                        if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                        else
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                        break;
+                    }
+                }
             }
-            else
+            if (flag)
             {
-                bool flag = true;
+                foreach (User x in LoggedInUser.login.Following)
+                {
+                    if (x.Username == user.Username)
+                    {
+                        btnOption.Text = "Following";
+                        if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                        else
+                            btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                        break;
+                    }
+                }
+            }
+        }
+        //Login's list
+        public Follower(User user, int mode)
+        {
+            InitializeComponent();
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
+            this.callingProfile = LoggedInUser.profile;
+            this.user = user;
+            this.mode = mode;
+            lblUsername.Text = user.Username;
+            lblFullName.Text = user.Full_name;
+            var pic = FileTools.getProfilePicture(user.Username);
+            if (pic != null)
+            {
+                ProfilePicture.Image = pic;
+            }
+            bool flag = true;
+            if (mode == 0)
+            {
                 if (user.is_private)
                 {
                     foreach (User x in LoggedInUser.login.SentRequests)
@@ -115,13 +156,21 @@ namespace TzalemTmuna.Forms
                     }
                 }
             }
+            else
+            {
+                btnOption.Text = "Following";
+                if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
+                else
+                    btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+            }
         }
 
         private void Unfollow()
         {
             var fdb = new FollowingDB();
             fdb.Unfollow(LoggedInUser.login, user);
-            if (isMine && Mode == 1)
+            if (user.Username == LoggedInUser.login.Username && mode == 1)
             {
                 this.Parent.Controls.Remove(this);
             }
@@ -201,47 +250,41 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        private int openProfile()
+        private void openProfile()
         {
             Followers followers = (Followers)Parent.Parent;
-            try
+            if (user.Username == LoggedInUser.login.Username)
             {
-                var father = (Profile)callingProfile.father;
-                if (father.isMine && isMine)
-                {
-                    father.RefreshFollowingAndFollowers();
-                    father.Show();
-                    callingProfile.Close();
-                    followers.Close();
-                    return 0;
-                }
+                LoggedInUser.profile.RefreshFollowingAndFollowers();
+                LoggedInUser.profile.Show();
+                callingProfile.Close();
+                followers.Close();
             }
-            catch
+            else
             {
-
+                callingProfile.Hide();
+                Profile newProfile = new Profile(user);
+                newProfile.Show();
+                followers.Close();
+                if (callingProfile.isMainProfile)
+                    newProfile.Closed += (s, args) => callingProfile.RefreshFollowingAndFollowers();
+                newProfile.Closed += (s, args) => callingProfile.Show();
+                newProfile.redirectAfterClose = true;
             }
-            callingProfile.Hide();
-            Profile newProfile = new Profile(user, callingProfile);
-            newProfile.Show();
-            followers.Close();
-            if (callingProfile.isMine)
-                newProfile.Closed += (s, args) => callingProfile.RefreshFollowingAndFollowers();
-            newProfile.Closed += (s, args) => callingProfile.Show();
-            return 1;
         }
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void lblFullName_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void ProfilePicture_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
+    private void lblUsername_Click(object sender, EventArgs e)
+    {
+        openProfile();
     }
+
+    private void lblFullName_Click(object sender, EventArgs e)
+    {
+        openProfile();
+    }
+
+    private void ProfilePicture_Click(object sender, EventArgs e)
+    {
+        openProfile();
+    }
+}
 }
