@@ -19,7 +19,7 @@ namespace TzalemTmuna.Forms
     public partial class ViewPost : MetroFramework.Forms.MetroForm
     {
         Post post;
-        public ViewPost(Post post, MetroFramework.Forms.MetroForm father)
+        public ViewPost(Post post)
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -30,8 +30,16 @@ namespace TzalemTmuna.Forms
             this.post = post;
             lblText.Text = post.Post_text;
             pbPhoto.Image = FileTools.getPost(post.Owner.Username,post.Post_number);
-            if(father!=null)
-                Closed += (s, args) => father.Show();
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+            new Profile(post.Owner, null).Show();
+        }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+            new Profile(post.Owner, null).Show();
         }
 
         //public void openProfile()

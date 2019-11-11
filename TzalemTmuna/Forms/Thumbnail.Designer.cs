@@ -40,6 +40,7 @@
             // 
             // pbComment
             // 
+            this.pbComment.BackColor = System.Drawing.Color.Transparent;
             this.pbComment.Image = global::TzalemTmuna.Properties.Resources.chat;
             this.pbComment.Location = new System.Drawing.Point(124, 107);
             this.pbComment.Name = "pbComment";
@@ -51,6 +52,7 @@
             // 
             // pbLike
             // 
+            this.pbLike.BackColor = System.Drawing.Color.Transparent;
             this.pbLike.Image = global::TzalemTmuna.Properties.Resources.likewhite;
             this.pbLike.Location = new System.Drawing.Point(59, 107);
             this.pbLike.Name = "pbLike";
@@ -80,7 +82,7 @@
             this.lblLike.Enabled = false;
             this.lblLike.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblLike.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblLike.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblLike.ForeColor = System.Drawing.Color.White;
             this.lblLike.Location = new System.Drawing.Point(89, 106);
             this.lblLike.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblLike.Name = "lblLike";
@@ -89,6 +91,7 @@
             this.lblLike.Text = "15";
             this.lblLike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLike.UseCustomBackColor = true;
+            this.lblLike.UseCustomForeColor = true;
             this.lblLike.Visible = false;
             // 
             // lblComment
@@ -98,7 +101,7 @@
             this.lblComment.Enabled = false;
             this.lblComment.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblComment.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblComment.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblComment.ForeColor = System.Drawing.Color.White;
             this.lblComment.Location = new System.Drawing.Point(154, 107);
             this.lblComment.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblComment.Name = "lblComment";
@@ -107,6 +110,7 @@
             this.lblComment.Text = "15";
             this.lblComment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblComment.UseCustomBackColor = true;
+            this.lblComment.UseCustomForeColor = true;
             this.lblComment.Visible = false;
             // 
             // Thumbnail

@@ -50,6 +50,7 @@ namespace TzalemTmuna.Forms
                 btnFollowRequests.Hide();
             }
             btnOption.Text = "Edit Profile";
+            LoadPostThumbnails();
         }
         //Edit Profile button - for login
         private void EditProfile()
@@ -127,6 +128,7 @@ namespace TzalemTmuna.Forms
                     }
                 }
             }
+            LoadPostThumbnails();
         }
         private void Unfollow()
         {
@@ -236,6 +238,25 @@ namespace TzalemTmuna.Forms
             }
         }
 
+        public void LoadPostThumbnails()
+        {
+            if (isMine)
+            {
+                foreach (Post x in LoggedInUser.login.Posts)
+                {
+                    Thumbnail thumbnail = new Thumbnail(x);
+                    flowLayoutPanel4.Controls.Add(thumbnail);
+                }
+            }
+            else
+            {
+                foreach (Post x in user.Posts)
+                {
+                    Thumbnail thumbnail = new Thumbnail(x);
+                    flowLayoutPanel4.Controls.Add(thumbnail);
+                }
+            }
+        }
         private void lblTextFollowers_Click(object sender, EventArgs e)
         {
             ShowList(0);
@@ -295,7 +316,7 @@ namespace TzalemTmuna.Forms
                 {
 
                 }
-                if (father==null)
+                if (father == null)
                     Environment.Exit(0);
             }
         }
@@ -307,7 +328,12 @@ namespace TzalemTmuna.Forms
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            new NewPost(this).ShowDialog();
+            MessageBox.Show("test");
+            if (new NewPost().ShowDialog() == DialogResult.OK)
+            {
+                Thumbnail thumbnail = new Thumbnail(LoggedInUser.login.Posts.Last());
+                flowLayoutPanel4.Controls.Add(thumbnail);
+            }
         }
     }
 }

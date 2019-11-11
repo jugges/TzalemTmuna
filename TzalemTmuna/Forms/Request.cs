@@ -27,7 +27,11 @@ namespace TzalemTmuna.Forms
         public Request(Profile callingProfile, User user)
         {
             InitializeComponent();
-            StyleManager.Theme = Statics.Theme.MetroThemeStyle;
+            StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Owner = this,
+                Theme = Statics.Theme.MetroThemeStyle
+            };
             this.callingProfile = callingProfile;
             this.user = user;
             lblUsername.Text = user.Username;

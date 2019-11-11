@@ -90,6 +90,7 @@ namespace TzalemTmuna.Forms
             this.pbPhoto.Location = new System.Drawing.Point(108, 86);
             this.pbPhoto.Name = "pbPhoto";
             this.pbPhoto.Size = new System.Drawing.Size(320, 320);
+            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPhoto.TabIndex = 27;
             this.pbPhoto.TabStop = false;
             this.pbPhoto.Click += new System.EventHandler(this.pbPhoto_Click);

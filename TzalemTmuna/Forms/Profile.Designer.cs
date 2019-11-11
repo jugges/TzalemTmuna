@@ -100,7 +100,7 @@ namespace TzalemTmuna.Forms
             this.lblName.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblName.Location = new System.Drawing.Point(3, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(62, 25);
+            this.lblName.Size = new System.Drawing.Size(477, 25);
             this.lblName.TabIndex = 25;
             this.lblName.Text = "Name";
             this.lblName.UseCustomBackColor = true;
@@ -115,7 +115,7 @@ namespace TzalemTmuna.Forms
             this.lblBio.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblBio.Location = new System.Drawing.Point(3, 25);
             this.lblBio.Name = "lblBio";
-            this.lblBio.Size = new System.Drawing.Size(62, 19);
+            this.lblBio.Size = new System.Drawing.Size(477, 19);
             this.lblBio.TabIndex = 26;
             this.lblBio.Text = "Bio";
             this.lblBio.UseCustomBackColor = true;
@@ -123,10 +123,9 @@ namespace TzalemTmuna.Forms
             // lblWebsite
             // 
             this.lblWebsite.AutoSize = true;
-            this.lblWebsite.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblWebsite.Location = new System.Drawing.Point(3, 47);
             this.lblWebsite.Name = "lblWebsite";
-            this.lblWebsite.Size = new System.Drawing.Size(62, 42);
+            this.lblWebsite.Size = new System.Drawing.Size(477, 42);
             this.lblWebsite.TabIndex = 27;
             this.lblWebsite.Text = "Website";
             this.lblWebsite.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -320,25 +319,26 @@ namespace TzalemTmuna.Forms
             // 
             // flowLayoutPanel4
             // 
+            this.flowLayoutPanel4.AutoScroll = true;
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 273);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(728, 296);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(789, 562);
             this.flowLayoutPanel4.TabIndex = 16;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.34982F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.65018F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(734, 572);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(795, 838);
             this.tableLayoutPanel2.TabIndex = 17;
             // 
             // panel1
@@ -348,7 +348,7 @@ namespace TzalemTmuna.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 264);
+            this.panel1.Size = new System.Drawing.Size(789, 264);
             this.panel1.TabIndex = 18;
             // 
             // ProfilePicture
@@ -358,7 +358,7 @@ namespace TzalemTmuna.Forms
             this.ProfilePicture.Location = new System.Drawing.Point(20, 6);
             this.ProfilePicture.Name = "ProfilePicture";
             this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 14;
             this.ProfilePicture.TabStop = false;
             // 
@@ -366,9 +366,9 @@ namespace TzalemTmuna.Forms
             // 
             this.btnUpload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnUpload.Image = global::TzalemTmuna.Properties.Resources.upload;
-            this.btnUpload.Location = new System.Drawing.Point(20, 582);
+            this.btnUpload.Location = new System.Drawing.Point(20, 848);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(734, 50);
+            this.btnUpload.Size = new System.Drawing.Size(795, 50);
             this.btnUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnUpload.TabIndex = 18;
             this.btnUpload.TabStop = false;
@@ -378,7 +378,7 @@ namespace TzalemTmuna.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 652);
+            this.ClientSize = new System.Drawing.Size(835, 918);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.tableLayoutPanel2);
             this.MaximizeBox = false;

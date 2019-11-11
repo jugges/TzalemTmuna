@@ -20,7 +20,7 @@ namespace TzalemTmuna.DB
                 if (dr["post_id"].Equals(post_id))
                 {
                     if (udb.Find(dr["owner"]))
-                        likes.Add(new User(udb.GetCurrentRow()));
+                        likes.Add(new User(dr));
                     else
                         throw new Exception("Liker was not found in users database!");
                 }
