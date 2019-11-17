@@ -18,7 +18,7 @@ namespace TzalemTmuna.DB
             {
                 if (dr["owner"].Equals(username))
                 {
-                    posts.Add(new Post(GetCurrentRow()));
+                    posts.Add(new Post(dr));
                 }
             }
             return posts;
@@ -30,7 +30,7 @@ namespace TzalemTmuna.DB
                 if (dr["owner"].Equals(username))
                 {
                     if(dr["post_number"].Equals(post_number))
-                        return new Post(GetCurrentRow());
+                        return new Post(dr);
                 }
             }
             throw new Exception("post not found!");
@@ -41,7 +41,7 @@ namespace TzalemTmuna.DB
             {
                 if (dr[primaryKey].Equals(post_id))
                 {
-                    return new Post(GetCurrentRow());
+                    return new Post(dr);
                 }
             }
             throw new Exception("post_id not found!");

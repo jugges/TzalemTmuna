@@ -19,11 +19,10 @@ namespace TzalemTmuna.Forms
 {
     public partial class NewPost : MetroFramework.Forms.MetroForm
     {
-        const int SIZE = 320;
+        const int SIZE = 640;
         Bitmap pic;
         Bitmap picBackup;
-        MetroFramework.Forms.MetroForm father;
-        public NewPost(MetroFramework.Forms.MetroForm father)
+        public NewPost()
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -31,7 +30,6 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
-            this.father = father;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -60,9 +58,11 @@ namespace TzalemTmuna.Forms
             //Add post to login list
             LoggedInUser.login.Posts.Add(post);
             //View post
-            var viewPost = new ViewPost(post, father);
+            var viewPost = new ViewPost(post);
             viewPost.Show();
-            Hide();
+            //Return positive dialog result and close
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void pbPhoto_MouseLeave(object sender, EventArgs e)
@@ -110,6 +110,7 @@ namespace TzalemTmuna.Forms
         }
         private Bitmap Crop()
         {
+            GC.Collect();
             return ImageTools.CropImage(ImageTools.ResizeImage(picBackup, (picBackup.Width * tbCropZ.Value) / 100, (picBackup.Height * tbCropZ.Value) / 100), SIZE, SIZE, (picBackup.Width * tbCropX.Value) / 100, (picBackup.Height * tbCropY.Value) / 100, (SIZE * tbPosX.Value) / 100, (SIZE * tbPosY.Value) / 100);
         }
         private void CropRefresh()

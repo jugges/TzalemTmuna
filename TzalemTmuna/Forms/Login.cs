@@ -68,8 +68,8 @@ namespace TzalemTmuna.Forms
                     Properties.Settings.Default.Save();
                 }
                 LoggedInUser.login = user;
-                var profile = new Profile(this);
-                profile.Show();
+                LoggedInUser.profile = new Profile();
+                LoggedInUser.profile.Show();
                 Hide();
                 //profile.Closed += (s, args) => Location = profile.Location;
                 //profile.Closed += (s, args) => Show();

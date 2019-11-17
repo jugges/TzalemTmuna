@@ -35,7 +35,8 @@ namespace TzalemTmuna.Forms
 
         private void pb_Click(object sender, EventArgs e)
         {
-
+            var viewPost = new ViewPost(post);
+            viewPost.Show();
         }
 
         private void pb_MouseEnter(object sender, EventArgs e)
