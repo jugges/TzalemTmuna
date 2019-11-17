@@ -12,12 +12,12 @@ namespace TzalemTmuna.Entities
 {
     public class Post : IEntity
     {
-        private int post_id;
-        private int post_number;
-        private User owner;
-        private string post_text;
-        private List<Comment> comments;
-        private List<User> likes;
+        private int post_id; //Post number regarding all uploads
+        private int post_number; //Post number in count regarding specific user's uploads
+        private User owner; //Post creator
+        private string post_text; //Post description
+        private List<Comment> comments; //List of comments on post
+        private List<User> likes; //List of users that applied likes on post
 
         public string Post_text
         {

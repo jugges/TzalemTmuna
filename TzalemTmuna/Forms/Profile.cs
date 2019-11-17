@@ -44,6 +44,7 @@ namespace TzalemTmuna.Forms
             lblWebsite.Text = LoggedInUser.login.External_url;
             lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
+            lblPosts.Text = LoggedInUser.login.Posts.Count.ToString();
             if (LoggedInUser.login.ReceivedRequests.Count == 0)
             {
                 btnFollowRequests.Hide();
@@ -87,6 +88,7 @@ namespace TzalemTmuna.Forms
             lblWebsite.Text = user.External_url;
             lblFollowers.Text = user.Followers.Count.ToString();
             lblFollowing.Text = user.Following.Count.ToString();
+            lblPosts.Text = user.Posts.Count.ToString();
             Controls.Remove(btnFollowRequests);
             btnFollowRequests.Dispose();
             Controls.Remove(btnLogout);
@@ -240,7 +242,7 @@ namespace TzalemTmuna.Forms
             {
                 foreach (Post x in LoggedInUser.login.Posts)
                 {
-                    Thumbnail thumbnail = new Thumbnail(x);
+                    ProfileThumbnail thumbnail = new ProfileThumbnail(x);
                     flowLayoutPanel4.Controls.Add(thumbnail);
                 }
             }
@@ -248,7 +250,7 @@ namespace TzalemTmuna.Forms
             {
                 foreach (Post x in user.Posts)
                 {
-                    Thumbnail thumbnail = new Thumbnail(x);
+                    ProfileThumbnail thumbnail = new ProfileThumbnail(x);
                     flowLayoutPanel4.Controls.Add(thumbnail);
                 }
             }
@@ -307,7 +309,7 @@ namespace TzalemTmuna.Forms
         {
             if (new NewPost().ShowDialog() == DialogResult.OK)
             {
-                Thumbnail thumbnail = new Thumbnail(LoggedInUser.login.Posts.Last());
+                ProfileThumbnail thumbnail = new ProfileThumbnail(LoggedInUser.login.Posts.Last());
                 flowLayoutPanel4.Controls.Add(thumbnail);
             }
         }

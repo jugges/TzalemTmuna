@@ -18,7 +18,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (value.Length<=255)
+                if (value.Length <= 255)
                     comment_text = value;
                 else
                     throw new Exception("Comment cannot surpass 255 characters");
@@ -35,7 +35,6 @@ namespace TzalemTmuna.Entities
                 return comment_id;
             }
         }
-
         public int Post_id
         {
             get
@@ -43,7 +42,6 @@ namespace TzalemTmuna.Entities
                 return post_id;
             }
         }
-
         public User Owner
         {
             get

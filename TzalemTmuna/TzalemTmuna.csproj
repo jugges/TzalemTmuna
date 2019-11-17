@@ -70,6 +70,18 @@
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="Entities\LoginUser.cs" />
     <Compile Include="Entities\Post.cs" />
+    <Compile Include="Forms\Feed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Feed.Designer.cs">
+      <DependentUpon>Feed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FeedThumbnail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FeedThumbnail.Designer.cs">
+      <DependentUpon>FeedThumbnail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statics\LoggedInUser.cs" />
     <Compile Include="Statics\Theme.cs" />
     <Compile Include="Forms\EditProfile.cs">
@@ -133,11 +145,11 @@
     <Compile Include="DB\GeneralDB.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="DB\UserDB.cs" />
-    <Compile Include="Forms\Thumbnail.cs">
+    <Compile Include="Forms\ProfileThumbnail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Thumbnail.Designer.cs">
-      <DependentUpon>Thumbnail.cs</DependentUpon>
+    <Compile Include="Forms\ProfileThumbnail.Designer.cs">
+      <DependentUpon>ProfileThumbnail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +161,12 @@
     <Compile Include="Utilities\ValidateTools.cs" />
     <EmbeddedResource Include="Forms\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Feed.resx">
+      <DependentUpon>Feed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FeedThumbnail.resx">
+      <DependentUpon>FeedThumbnail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewPost.resx">
       <DependentUpon>ViewPost.cs</DependentUpon>
@@ -174,8 +192,8 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Thumbnail.resx">
-      <DependentUpon>Thumbnail.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ProfileThumbnail.resx">
+      <DependentUpon>ProfileThumbnail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -220,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\likewhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchusers.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

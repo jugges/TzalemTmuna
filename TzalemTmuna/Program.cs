@@ -41,12 +41,15 @@ namespace TzalemTmuna
                     Properties.Settings.Default.username = string.Empty;
                     Properties.Settings.Default.password = string.Empty;
                     Properties.Settings.Default.Save();
-                    Application.Run(new Login());
+
+                    Statics.LoggedInUser.loginPage = new Login();
+                    Application.Run(Statics.LoggedInUser.loginPage);
                 }
             }
             else
             {
-                Application.Run(new Login());
+                Statics.LoggedInUser.loginPage = new Login();
+                Application.Run(Statics.LoggedInUser.loginPage);
             }
         }
 
@@ -55,6 +58,10 @@ namespace TzalemTmuna
             if (user.Password.Equals(password))
             {
                 Statics.LoggedInUser.login = user;
+
+                //Feed feed = new Feed();
+                //Application.Run(feed);
+
                 Statics.LoggedInUser.profile = new Profile();
                 Application.Run(Statics.LoggedInUser.profile);
             }
@@ -64,8 +71,13 @@ namespace TzalemTmuna
                 Properties.Settings.Default.username = string.Empty;
                 Properties.Settings.Default.password = string.Empty;
                 Properties.Settings.Default.Save();
+
+                Statics.LoggedInUser.loginPage = new Login();
+                Application.Run(Statics.LoggedInUser.loginPage);
             }
-            Application.Run(new Login());
+            //DISABLED FOR FEED!!!
+            //Login after user closes window
+            //Application.Run(new Login());
         }
     }
 }

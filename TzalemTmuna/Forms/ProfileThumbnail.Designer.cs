@@ -1,6 +1,6 @@
 ﻿namespace TzalemTmuna.Forms
 {
-    partial class Thumbnail
+    partial class ProfileThumbnail
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,8 +31,8 @@
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.pb = new System.Windows.Forms.PictureBox();
-            this.lblLike = new MetroFramework.Controls.MetroLabel();
-            this.lblComment = new MetroFramework.Controls.MetroLabel();
+            this.lblLikes = new MetroFramework.Controls.MetroLabel();
+            this.lblComments = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
@@ -75,50 +75,50 @@
             this.pb.MouseEnter += new System.EventHandler(this.pb_MouseEnter);
             this.pb.MouseLeave += new System.EventHandler(this.pb_MouseLeave);
             // 
-            // lblLike
+            // lblLikes
             // 
-            this.lblLike.AutoSize = true;
-            this.lblLike.BackColor = System.Drawing.Color.Transparent;
-            this.lblLike.Enabled = false;
-            this.lblLike.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblLike.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblLike.ForeColor = System.Drawing.Color.White;
-            this.lblLike.Location = new System.Drawing.Point(89, 106);
-            this.lblLike.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblLike.Name = "lblLike";
-            this.lblLike.Size = new System.Drawing.Size(32, 25);
-            this.lblLike.TabIndex = 26;
-            this.lblLike.Text = "15";
-            this.lblLike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLike.UseCustomBackColor = true;
-            this.lblLike.UseCustomForeColor = true;
-            this.lblLike.Visible = false;
+            this.lblLikes.AutoSize = true;
+            this.lblLikes.BackColor = System.Drawing.Color.Transparent;
+            this.lblLikes.Enabled = false;
+            this.lblLikes.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblLikes.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblLikes.ForeColor = System.Drawing.Color.White;
+            this.lblLikes.Location = new System.Drawing.Point(89, 106);
+            this.lblLikes.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lblLikes.Name = "lblLikes";
+            this.lblLikes.Size = new System.Drawing.Size(32, 25);
+            this.lblLikes.TabIndex = 26;
+            this.lblLikes.Text = "15";
+            this.lblLikes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLikes.UseCustomBackColor = true;
+            this.lblLikes.UseCustomForeColor = true;
+            this.lblLikes.Visible = false;
             // 
-            // lblComment
+            // lblComments
             // 
-            this.lblComment.AutoSize = true;
-            this.lblComment.BackColor = System.Drawing.Color.Transparent;
-            this.lblComment.Enabled = false;
-            this.lblComment.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblComment.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblComment.ForeColor = System.Drawing.Color.White;
-            this.lblComment.Location = new System.Drawing.Point(154, 107);
-            this.lblComment.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(32, 25);
-            this.lblComment.TabIndex = 27;
-            this.lblComment.Text = "15";
-            this.lblComment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblComment.UseCustomBackColor = true;
-            this.lblComment.UseCustomForeColor = true;
-            this.lblComment.Visible = false;
+            this.lblComments.AutoSize = true;
+            this.lblComments.BackColor = System.Drawing.Color.Transparent;
+            this.lblComments.Enabled = false;
+            this.lblComments.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblComments.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblComments.ForeColor = System.Drawing.Color.White;
+            this.lblComments.Location = new System.Drawing.Point(154, 107);
+            this.lblComments.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lblComments.Name = "lblComments";
+            this.lblComments.Size = new System.Drawing.Size(32, 25);
+            this.lblComments.TabIndex = 27;
+            this.lblComments.Text = "15";
+            this.lblComments.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblComments.UseCustomBackColor = true;
+            this.lblComments.UseCustomForeColor = true;
+            this.lblComments.Visible = false;
             // 
             // Thumbnail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblComment);
-            this.Controls.Add(this.lblLike);
+            this.Controls.Add(this.lblComments);
+            this.Controls.Add(this.lblLikes);
             this.Controls.Add(this.pbComment);
             this.Controls.Add(this.pbLike);
             this.Controls.Add(this.pb);
@@ -137,7 +137,7 @@
         private System.Windows.Forms.PictureBox pb;
         private System.Windows.Forms.PictureBox pbLike;
         private System.Windows.Forms.PictureBox pbComment;
-        private MetroFramework.Controls.MetroLabel lblLike;
-        private MetroFramework.Controls.MetroLabel lblComment;
+        private MetroFramework.Controls.MetroLabel lblLikes;
+        private MetroFramework.Controls.MetroLabel lblComments;
     }
 }

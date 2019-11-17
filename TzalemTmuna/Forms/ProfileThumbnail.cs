@@ -12,23 +12,25 @@ using TzalemTmuna.Entities;
 
 namespace TzalemTmuna.Forms
 {
-    public partial class Thumbnail : UserControl
+    public partial class ProfileThumbnail : UserControl
     {
         Image pic;
         Post post;
-        public Thumbnail(Post post)
+        public ProfileThumbnail(Post post)
         {
             InitializeComponent();
             this.post = post;
             pic = FileTools.getPost(post.Owner.Username,post.Post_number);
             pb.Image = pic;
+            lblComments.Text = post.Comments.Count.ToString();
+            lblLikes.Text = post.Likes.Count.ToString();
         }
 
         private void pb_MouseLeave(object sender, EventArgs e)
         {
             pb.Image = pic;
-            lblComment.Hide();
-            lblLike.Hide();
+            lblComments.Hide();
+            lblLikes.Hide();
             pbComment.Hide();
             pbLike.Hide();
         }
@@ -42,8 +44,8 @@ namespace TzalemTmuna.Forms
         private void pb_MouseEnter(object sender, EventArgs e)
         {
             pb.Image = ImageTools.SetImageOpacity((Bitmap)pic, 0.2f);
-            lblComment.Show();
-            lblLike.Show();
+            lblComments.Show();
+            lblLikes.Show();
             pbComment.Show();
             pbLike.Show();
         }
