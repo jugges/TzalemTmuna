@@ -87,7 +87,8 @@ namespace TzalemTmuna.Forms
             Profile newProfile = new Profile(user);
             newProfile.Show();
             followers.Close();
-            newProfile.Closed += (s, args) => LoggedInUser.profile.Show();
+            newProfile.redirectHere += (s, args) => LoggedInUser.profile.Show();
+            newProfile.redirectAfterClose=true;
         }
         private void lblUsername_Click(object sender, EventArgs e)
         {

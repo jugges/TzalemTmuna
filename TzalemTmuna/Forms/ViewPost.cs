@@ -67,10 +67,23 @@ namespace TzalemTmuna.Forms
             {
                 senderProfile.Hide();
                 Profile openProfile = new Profile(post.Owner);
-                openProfile.Closed += (s, args) => senderProfile.Show();
+                openProfile.redirectHere += (s, args) => senderProfile.Show();
                 openProfile.redirectAfterClose = true;
             }
             Close();
+        }
+
+        private void ViewPost_Load(object sender, EventArgs e)
+        {
+            //Sometimes the post's description is bigger than form's size, so this fixes the issue
+            int resize = lblText.Size.Width - (Size.Width - lblText.Location.X);
+            if (resize > 0)
+            {
+                Size newSize = new Size(Size.Width+ resize, Size.Height);
+                Size = newSize;
+                Size newSizeTableLayout = new Size(tableLayoutPanel1.Size.Width + resize, tableLayoutPanel1.Size.Height);
+                tableLayoutPanel1.Size = newSizeTableLayout;
+            }
         }
     }
 }

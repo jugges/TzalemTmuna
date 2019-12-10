@@ -287,18 +287,35 @@ namespace TzalemTmuna.Forms
             Properties.Settings.Default.Save();
             if (LoggedInUser.loginPage == null)
                 LoggedInUser.loginPage = new Login();
-            Closed += (s, args) => LoggedInUser.loginPage.Show();
+            redirectHere += (s, args) => LoggedInUser.loginPage.Show();
             redirectAfterClose = true;
             Close();
         }
 
         private void Profile_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!redirectAfterClose)
+            if(redirectAfterClose)
+                redirectHere(sender,e);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // If login closes his window, then only hide it because we need it alive for static calls.
+            // THIS IS HIDE FOR LOGIN'S PROFILE!
+            if (isMainProfile)
             {
-                    Environment.Exit(0);
+                //Environment.Exit(0);
+                Hide();
+                e.Cancel = true;
             }
         }
+
+        //Ment to hold all redirections to previous open profiles and windows, depends on redirectAfterClose Boolean.
+        public event EventHandler redirectHere;
 
         private void lblWebsite_Click(object sender, EventArgs e)
         {

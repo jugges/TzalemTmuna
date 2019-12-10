@@ -58,12 +58,13 @@ namespace TzalemTmuna
             if (user.Password.Equals(password))
             {
                 Statics.LoggedInUser.login = user;
-
-                //Feed feed = new Feed();
-                //Application.Run(feed);
-
+                Statics.LoggedInUser.loginPage = new Login();
                 Statics.LoggedInUser.profile = new Profile();
-                Application.Run(Statics.LoggedInUser.profile);
+
+                Feed feed = new Feed();
+                Application.Run(feed);
+
+                //Application.Run(Statics.LoggedInUser.profile);
             }
             else
             {

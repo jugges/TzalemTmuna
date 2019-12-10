@@ -13,6 +13,7 @@ using TzalemTmuna.DB;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
@@ -27,6 +28,14 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.MetroThemeStyle
             };
             txtSearch.AutoCompleteCustomSource.Add("dvirderb");
+
+            foreach (Post post in LoggedInUser.login.Posts)
+            {
+                FeedThumbnail thumbnail = new FeedThumbnail(post);
+                thumbnail.Anchor = AnchorStyles.None;
+                flowLayoutPanel1.Controls.Add(thumbnail);
+            }
+
         }
     }
 }

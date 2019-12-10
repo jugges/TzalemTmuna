@@ -257,6 +257,7 @@ namespace TzalemTmuna.Forms
             {
                 LoggedInUser.profile.RefreshFollowingAndFollowers();
                 LoggedInUser.profile.Show();
+                callingProfile.redirectAfterClose = false;
                 callingProfile.Close();
                 followers.Close();
             }
@@ -267,8 +268,8 @@ namespace TzalemTmuna.Forms
                 newProfile.Show();
                 followers.Close();
                 if (callingProfile.isMainProfile)
-                    newProfile.Closed += (s, args) => callingProfile.RefreshFollowingAndFollowers();
-                newProfile.Closed += (s, args) => callingProfile.Show();
+                    newProfile.redirectHere += (s, args) => callingProfile.RefreshFollowingAndFollowers();
+                newProfile.redirectHere += (s, args) => callingProfile.Show();
                 newProfile.redirectAfterClose = true;
             }
         }
