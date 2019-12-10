@@ -96,7 +96,9 @@ namespace TzalemTmuna.Forms
             Controls.Remove(btnUpload);
             btnUpload.Dispose();
             btnOption.Text = "Follow";
-            bool flag = true;
+            bool searchIfLoginFollowsUser = true;
+            //Used to determine if Login can view User's pics
+            bool profileAccessGranted = false;
             if (user.is_private)
             {
                 foreach (User x in LoggedInUser.login.SentRequests)
@@ -104,7 +106,7 @@ namespace TzalemTmuna.Forms
                     if (x.Username == user.Username)
                     {
                         btnOption.Text = "Requested";
-                        flag = false;
+                        searchIfLoginFollowsUser = false;
                         if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                             btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                         else
@@ -113,13 +115,16 @@ namespace TzalemTmuna.Forms
                     }
                 }
             }
-            if (flag)
+            else
+                profileAccessGranted = true;
+            if (searchIfLoginFollowsUser)
             {
                 foreach (User x in LoggedInUser.login.Following)
                 {
                     if (x.Username == user.Username)
                     {
                         btnOption.Text = "Following";
+                        profileAccessGranted = true;
                         if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                             btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                         else
@@ -128,7 +133,8 @@ namespace TzalemTmuna.Forms
                     }
                 }
             }
-            LoadPostThumbnails();
+            if (profileAccessGranted)
+                LoadPostThumbnails();
         }
         private void Unfollow()
         {
