@@ -365,7 +365,7 @@ namespace TzalemTmuna.Forms
             // btnUpload
             // 
             this.btnUpload.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUpload.Image = global::TzalemTmuna.Properties.Resources.upload;
+            this.btnUpload.Image = global::TzalemTmuna.Properties.Resources.darkUpload;
             this.btnUpload.Location = new System.Drawing.Point(20, 848);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(795, 50);

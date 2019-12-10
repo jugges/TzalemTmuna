@@ -29,37 +29,32 @@ namespace TzalemTmuna.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbPhoto = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewPost));
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSubmit = new MetroFramework.Controls.MetroButton();
+            this.txtFullName = new MetroFramework.Controls.MetroTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
-            this.txtFullName = new MetroFramework.Controls.MetroTextBox();
-            this.btnSubmit = new MetroFramework.Controls.MetroButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
+            this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbPhoto
-            // 
-            this.pbPhoto.Location = new System.Drawing.Point(0, 0);
-            this.pbPhoto.Name = "pbPhoto";
-            this.pbPhoto.Size = new System.Drawing.Size(640, 640);
-            this.pbPhoto.TabIndex = 27;
-            this.pbPhoto.TabStop = false;
             // 
             // lblLikes
             // 
@@ -79,6 +74,7 @@ namespace TzalemTmuna.Forms
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.pbComment);
             this.panel3.Controls.Add(this.pbLike);
             this.panel3.Location = new System.Drawing.Point(0, 3);
             this.panel3.Name = "panel3";
@@ -86,18 +82,34 @@ namespace TzalemTmuna.Forms
             this.panel3.Size = new System.Drawing.Size(287, 24);
             this.panel3.TabIndex = 31;
             // 
+            // pbComment
+            // 
+            this.pbComment.BackColor = System.Drawing.Color.Transparent;
+            this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbComment.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbComment.Image = ((System.Drawing.Image)(resources.GetObject("pbComment.Image")));
+            this.pbComment.Location = new System.Drawing.Point(34, 0);
+            this.pbComment.Name = "pbComment";
+            this.pbComment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pbComment.Size = new System.Drawing.Size(34, 24);
+            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbComment.TabIndex = 31;
+            this.pbComment.TabStop = false;
+            this.pbComment.Click += new System.EventHandler(this.pbComment_Click);
+            // 
             // pbLike
             // 
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
             this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.likewhite;
+            this.pbLike.Image = ((System.Drawing.Image)(resources.GetObject("pbLike.Image")));
             this.pbLike.Location = new System.Drawing.Point(10, 0);
             this.pbLike.Name = "pbLike";
             this.pbLike.Size = new System.Drawing.Size(24, 24);
-            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLike.TabIndex = 29;
             this.pbLike.TabStop = false;
+            this.pbLike.Click += new System.EventHandler(this.pbLike_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -125,6 +137,67 @@ namespace TzalemTmuna.Forms
             this.panel2.Size = new System.Drawing.Size(290, 111);
             this.panel2.TabIndex = 1;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.btnSubmit, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtFullName, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(290, 111);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackgroundImage = global::TzalemTmuna.Properties.Resources.darkSend;
+            this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSubmit.Location = new System.Drawing.Point(235, 3);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(52, 105);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.UseSelectable = true;
+            // 
+            // txtFullName
+            // 
+            // 
+            // 
+            // 
+            this.txtFullName.CustomButton.Image = null;
+            this.txtFullName.CustomButton.Location = new System.Drawing.Point(122, 1);
+            this.txtFullName.CustomButton.Name = "";
+            this.txtFullName.CustomButton.Size = new System.Drawing.Size(103, 103);
+            this.txtFullName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFullName.CustomButton.TabIndex = 1;
+            this.txtFullName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFullName.CustomButton.UseSelectable = true;
+            this.txtFullName.CustomButton.Visible = false;
+            this.txtFullName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFullName.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtFullName.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.txtFullName.Lines = new string[0];
+            this.txtFullName.Location = new System.Drawing.Point(3, 3);
+            this.txtFullName.MaxLength = 0;
+            this.txtFullName.Multiline = true;
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.PasswordChar = '\0';
+            this.txtFullName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFullName.SelectedText = "";
+            this.txtFullName.SelectionLength = 0;
+            this.txtFullName.SelectionStart = 0;
+            this.txtFullName.ShortcutsEnabled = true;
+            this.txtFullName.Size = new System.Drawing.Size(226, 105);
+            this.txtFullName.TabIndex = 3;
+            this.txtFullName.UseSelectable = true;
+            this.txtFullName.UseStyleColors = true;
+            this.txtFullName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFullName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel3);
@@ -135,16 +208,13 @@ namespace TzalemTmuna.Forms
             this.panel4.Size = new System.Drawing.Size(290, 51);
             this.panel4.TabIndex = 2;
             // 
-            // profilePicture
+            // flowLayoutPanel1
             // 
-            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.profilePicture.Location = new System.Drawing.Point(646, 9);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(48, 48);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profilePicture.TabIndex = 28;
-            this.profilePicture.TabStop = false;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(290, 397);
+            this.flowLayoutPanel1.TabIndex = 3;
             // 
             // lblText
             // 
@@ -172,74 +242,28 @@ namespace TzalemTmuna.Forms
             this.lblUsername.TabIndex = 29;
             this.lblUsername.Text = "Username";
             this.lblUsername.UseCustomBackColor = true;
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
-            // txtFullName
+            // profilePicture
             // 
+            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
+            this.profilePicture.Location = new System.Drawing.Point(646, 9);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(48, 48);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profilePicture.TabIndex = 28;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
             // 
+            // pbPhoto
             // 
-            // 
-            this.txtFullName.CustomButton.Image = null;
-            this.txtFullName.CustomButton.Location = new System.Drawing.Point(121, 1);
-            this.txtFullName.CustomButton.Name = "";
-            this.txtFullName.CustomButton.Size = new System.Drawing.Size(109, 109);
-            this.txtFullName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtFullName.CustomButton.TabIndex = 1;
-            this.txtFullName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtFullName.CustomButton.UseSelectable = true;
-            this.txtFullName.CustomButton.Visible = false;
-            this.txtFullName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFullName.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtFullName.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-            this.txtFullName.Lines = new string[0];
-            this.txtFullName.Location = new System.Drawing.Point(3, 3);
-            this.txtFullName.MaxLength = 0;
-            this.txtFullName.Multiline = true;
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.PasswordChar = '\0';
-            this.txtFullName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtFullName.SelectedText = "";
-            this.txtFullName.SelectionLength = 0;
-            this.txtFullName.SelectionStart = 0;
-            this.txtFullName.ShortcutsEnabled = true;
-            this.txtFullName.Size = new System.Drawing.Size(226, 105);
-            this.txtFullName.TabIndex = 3;
-            this.txtFullName.UseSelectable = true;
-            this.txtFullName.UseStyleColors = true;
-            this.txtFullName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtFullName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSubmit.Location = new System.Drawing.Point(235, 3);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(52, 105);
-            this.btnSubmit.TabIndex = 8;
-            this.btnSubmit.Text = "Send";
-            this.btnSubmit.UseSelectable = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(290, 397);
-            this.flowLayoutPanel1.TabIndex = 3;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.btnSubmit, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txtFullName, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(290, 111);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.pbPhoto.Location = new System.Drawing.Point(0, 0);
+            this.pbPhoto.Name = "pbPhoto";
+            this.pbPhoto.Size = new System.Drawing.Size(640, 640);
+            this.pbPhoto.TabIndex = 27;
+            this.pbPhoto.TabStop = false;
+            this.pbPhoto.DoubleClick += new System.EventHandler(this.pbPhoto_DoubleClick);
             // 
             // ViewPost
             // 
@@ -259,15 +283,16 @@ namespace TzalemTmuna.Forms
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.ViewPost_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +313,6 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroButton btnSubmit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.PictureBox pbComment;
     }
 }

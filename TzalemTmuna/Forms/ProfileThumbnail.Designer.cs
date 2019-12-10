@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileThumbnail));
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.pb = new System.Windows.Forms.PictureBox();
@@ -41,11 +42,11 @@
             // pbComment
             // 
             this.pbComment.BackColor = System.Drawing.Color.Transparent;
-            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.chat;
+            this.pbComment.Image = ((System.Drawing.Image)(resources.GetObject("pbComment.Image")));
             this.pbComment.Location = new System.Drawing.Point(124, 107);
             this.pbComment.Name = "pbComment";
             this.pbComment.Size = new System.Drawing.Size(24, 24);
-            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbComment.TabIndex = 2;
             this.pbComment.TabStop = false;
             this.pbComment.Visible = false;
@@ -53,11 +54,11 @@
             // pbLike
             // 
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.likewhite;
+            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
             this.pbLike.Location = new System.Drawing.Point(59, 107);
             this.pbLike.Name = "pbLike";
             this.pbLike.Size = new System.Drawing.Size(24, 24);
-            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLike.TabIndex = 1;
             this.pbLike.TabStop = false;
             this.pbLike.Visible = false;
@@ -113,7 +114,7 @@
             this.lblComments.UseCustomForeColor = true;
             this.lblComments.Visible = false;
             // 
-            // Thumbnail
+            // ProfileThumbnail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -122,7 +123,7 @@
             this.Controls.Add(this.pbComment);
             this.Controls.Add(this.pbLike);
             this.Controls.Add(this.pb);
-            this.Name = "Thumbnail";
+            this.Name = "ProfileThumbnail";
             this.Size = new System.Drawing.Size(250, 250);
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();

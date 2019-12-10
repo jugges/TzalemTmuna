@@ -19,6 +19,7 @@ namespace TzalemTmuna.Forms
 {
     public partial class Feed : MetroFramework.Forms.MetroForm
     {
+        UserDB udb;
         public Feed()
         {
             InitializeComponent();
@@ -27,7 +28,9 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
-            txtSearch.AutoCompleteCustomSource.Add("dvirderb");
+            udb = new UserDB();
+            var usernameList = udb.GetUsernameList();
+            txtSearch.AutoCompleteCustomSource.AddRange(usernameList);
 
             foreach (Post post in LoggedInUser.login.Posts)
             {
@@ -36,6 +39,29 @@ namespace TzalemTmuna.Forms
                 flowLayoutPanel1.Controls.Add(thumbnail);
             }
 
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            LoggedInUser.profile.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (udb.Find(txtSearch.Text))
+            {
+                if (udb.GetCurrentRow()["username"].ToString() == LoggedInUser.login.Username)
+                {
+                    LoggedInUser.profile.Show();
+                }
+                else
+                {
+                    Profile newProfile = new Profile(new User(udb.GetCurrentRow()));
+                    newProfile.Show();
+                }
+            }
+            else
+                MessageBox.Show("User not found!");
         }
     }
 }

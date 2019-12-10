@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedThumbnail));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -35,12 +36,12 @@
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblLatestComment = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
-            this.lblLatestComment = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.panel1.SuspendLayout();
@@ -152,6 +153,23 @@
             this.panel2.Size = new System.Drawing.Size(514, 134);
             this.panel2.TabIndex = 5;
             // 
+            // lblLatestComment
+            // 
+            this.lblLatestComment.AutoSize = true;
+            this.lblLatestComment.BackColor = System.Drawing.Color.Transparent;
+            this.lblLatestComment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblLatestComment.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblLatestComment.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblLatestComment.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblLatestComment.Location = new System.Drawing.Point(24, 66);
+            this.lblLatestComment.Name = "lblLatestComment";
+            this.lblLatestComment.Size = new System.Drawing.Size(90, 15);
+            this.lblLatestComment.TabIndex = 31;
+            this.lblLatestComment.Text = "User: Comment";
+            this.lblLatestComment.UseCustomBackColor = true;
+            this.lblLatestComment.UseCustomForeColor = true;
+            this.lblLatestComment.Click += new System.EventHandler(this.lblLatestComment_Click);
+            // 
             // lblText
             // 
             this.lblText.AutoSize = true;
@@ -184,12 +202,12 @@
             this.pbComment.BackColor = System.Drawing.Color.Transparent;
             this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbComment.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.chat;
+            this.pbComment.Image = ((System.Drawing.Image)(resources.GetObject("pbComment.Image")));
             this.pbComment.Location = new System.Drawing.Point(34, 0);
             this.pbComment.Name = "pbComment";
             this.pbComment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.pbComment.Size = new System.Drawing.Size(34, 24);
-            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbComment.TabIndex = 30;
             this.pbComment.TabStop = false;
             this.pbComment.Click += new System.EventHandler(this.pbComment_Click);
@@ -199,11 +217,11 @@
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
             this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.likewhite;
+            this.pbLike.Image = ((System.Drawing.Image)(resources.GetObject("pbLike.Image")));
             this.pbLike.Location = new System.Drawing.Point(10, 0);
             this.pbLike.Name = "pbLike";
             this.pbLike.Size = new System.Drawing.Size(24, 24);
-            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLike.TabIndex = 29;
             this.pbLike.TabStop = false;
             this.pbLike.Click += new System.EventHandler(this.pbLike_Click);
@@ -223,23 +241,6 @@
             this.lblLikes.Text = "15 likes";
             this.lblLikes.UseCustomBackColor = true;
             this.lblLikes.UseCustomForeColor = true;
-            // 
-            // lblLatestComment
-            // 
-            this.lblLatestComment.AutoSize = true;
-            this.lblLatestComment.BackColor = System.Drawing.Color.Transparent;
-            this.lblLatestComment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblLatestComment.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblLatestComment.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblLatestComment.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLatestComment.Location = new System.Drawing.Point(24, 66);
-            this.lblLatestComment.Name = "lblLatestComment";
-            this.lblLatestComment.Size = new System.Drawing.Size(90, 15);
-            this.lblLatestComment.TabIndex = 31;
-            this.lblLatestComment.Text = "User: Comment";
-            this.lblLatestComment.UseCustomBackColor = true;
-            this.lblLatestComment.UseCustomForeColor = true;
-            this.lblLatestComment.Click += new System.EventHandler(this.lblLatestComment_Click);
             // 
             // FeedThumbnail
             // 

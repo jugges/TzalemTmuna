@@ -15,5 +15,15 @@ namespace TzalemTmuna.DB
         {
             return base.GetCurrentRow();
         }
+
+        public string[] GetUsernameList()
+        {
+            var list = new string[table.Rows.Count];
+            for(int i=0; i<table.Rows.Count; i++)
+            {
+                list[i]=table.Rows[i]["username"].ToString();
+            }
+            return list;
+        }
     }
 }

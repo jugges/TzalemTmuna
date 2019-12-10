@@ -31,6 +31,8 @@ namespace TzalemTmuna.Forms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //Lowercase username!
+            txtUsername.Text = txtUsername.Text.ToLower();
             if (ValidateTools.IsUsername(txtUsername.Text))
             {
                 var udp = new UserDB();

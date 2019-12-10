@@ -82,6 +82,11 @@
     <Compile Include="Forms\FeedThumbnail.Designer.cs">
       <DependentUpon>FeedThumbnail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Statics\LoggedInUser.cs" />
     <Compile Include="Statics\Theme.cs" />
     <Compile Include="Forms\EditProfile.cs">
@@ -197,14 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -228,19 +228,49 @@
     <Folder Include="Users\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\upload.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\like.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chat.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\likewhite.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\searchusers.png" />
+    <None Include="Resources\lightUpload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkUpload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkLike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightComment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightLike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkComment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkLikeFilled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightSend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkSend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkProfile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

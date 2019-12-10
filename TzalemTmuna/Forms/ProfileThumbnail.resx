@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pbComment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADSSURBVFhH7dZBCsIwEAXQevGiC1Hwmi505wHU+JN8ImZihNZM2pAHA7YzZD6lUIdu1YwxG9QO
+        dUGVZneMXJ2GgaMb1bXnegnNm59RdeZ6iQPa7lwvcUBbA4HYno3HxXqggMfF2nipt3+qlAfXSxwQ2J6N
+        x8UaCASpxz+lUiYFKqm/QwGPiy0u0JNtiQPaeqBfsoE0/tzHsoEOfkbV90AWBkbU1Y3qyAcqCcuTnw+2
+        68D+k4/xxlY9yPARirfrQo4QirfqQxYXipfLYEPxZ7dGw/ACzCIqBxr9YAgAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

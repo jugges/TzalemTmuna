@@ -16,7 +16,6 @@ namespace TzalemTmuna.Forms
 {
     public partial class FeedThumbnail : UserControl
     {
-        Image pic;
         Post post;
         bool liked;
         LikeDB likeDB;
@@ -28,19 +27,19 @@ namespace TzalemTmuna.Forms
             this.post = post;
             lblUsername.Text = post.Owner.Username;
             profilePicture.Image = FileTools.getProfilePicture(post.Owner.Username);
-            pic = FileTools.getPost(post.Owner.Username,post.Post_number);
-            pb.Image = pic;
+            pb.Image = FileTools.getPost(post.Owner.Username,post.Post_number);
 
             foreach(User x in post.Likes)
             {
                 if (x.Username == LoggedInUser.login.Username)
                 {
                     liked = true;
-                    pbLike.Image = Properties.Resources.like;
+                    pbLike.Image = Properties.Resources.darkLikeFilled;
                     break;
                 }
             }
 
+            //Display last comment
             try
             {
                 Comment lastComment = post.Comments.Last();
@@ -52,6 +51,7 @@ namespace TzalemTmuna.Forms
                 lblLatestComment.Dispose();
             }
 
+            //Likes count
             lblLikes.Text = post.Likes.Count+" likes";
             lblText.Text = post.Post_text;
         }
@@ -65,13 +65,13 @@ namespace TzalemTmuna.Forms
         {
             if (liked)
             {
-                pbLike.Image = Properties.Resources.likewhite;
+                pbLike.Image = Properties.Resources.darkLike;
                 likeDB.Unlike(post);
                 liked = false;
             }
             else
             {
-                pbLike.Image = Properties.Resources.like;
+                pbLike.Image = Properties.Resources.darkLikeFilled;
                 likeDB.Like(post);
                 liked = true;
             }
