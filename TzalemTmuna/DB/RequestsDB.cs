@@ -76,7 +76,7 @@ namespace TzalemTmuna.DB
         {
             DeclineRequest(login, user);
             var fdb = new FollowingDB();
-            fdb.ReverseFollow(login, user);
+            fdb.ReverseFollow(user);
         }
         public void DeclineRequest(LoginUser login, User user)
         {

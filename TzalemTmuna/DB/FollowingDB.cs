@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TzalemTmuna.Entities;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.DB
 {
@@ -43,19 +44,19 @@ namespace TzalemTmuna.DB
             }
             return followers;
         }
-        public void Unfollow(LoginUser login, User user)
+        public void Unfollow(User user)
         {
-            for(int i=0; i<login.Following.Count; i++)
+            for(int i=0; i< LoggedInUser.login.Following.Count; i++)
             {
-                if(login.Following[i].Username == user.Username)
+                if(LoggedInUser.login.Following[i].Username == user.Username)
                 {
-                    login.Following.RemoveAt(i);
+                    LoggedInUser.login.Following.RemoveAt(i);
                     break;
                 }
             }
             for (int i = 0; i < user.Followers.Count; i++)
             {
-                if (user.Followers[i].Username == login.Username)
+                if (user.Followers[i].Username == LoggedInUser.login.Username)
                 {
                     user.Followers.RemoveAt(i);
                     break;
@@ -63,7 +64,7 @@ namespace TzalemTmuna.DB
             }
             foreach (DataRow dr in table.Rows)
             {
-                if (dr[primaryKey].Equals(login.Username))
+                if (dr[primaryKey].Equals(LoggedInUser.login.Username))
                 {
                     if (dr["following"].Equals(user.Username))
                     {
@@ -74,33 +75,33 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
-        public void Follow(LoginUser login, User user)
+        public void Follow(User user)
         {
-            login.Following.Add(user);
-            user.Followers.Add(new User(login));
-            table.Rows.Add(login.Username,user.Username);
+            LoggedInUser.login.Following.Add(user);
+            user.Followers.Add(new User(LoggedInUser.login));
+            table.Rows.Add(LoggedInUser.login.Username,user.Username);
             Save();
         }
-        public void ReverseFollow(LoginUser login, User user)
+        public void ReverseFollow(User user)
         {
-            login.Followers.Add(user);
-            user.Following.Add(new User(login));
-            table.Rows.Add(user.Username, login.Username);
+            LoggedInUser.login.Followers.Add(user);
+            user.Following.Add(new User(LoggedInUser.login));
+            table.Rows.Add(user.Username, LoggedInUser.login.Username);
             Save();
         }
-        public void Remove(LoginUser login, User user)
+        public void Remove(User user)
         {
-            for (int i = 0; i < login.Followers.Count; i++)
+            for (int i = 0; i < LoggedInUser.login.Followers.Count; i++)
             {
-                if (login.Followers[i].Username == user.Username)
+                if (LoggedInUser.login.Followers[i].Username == user.Username)
                 {
-                    login.Followers.RemoveAt(i);
+                    LoggedInUser.login.Followers.RemoveAt(i);
                     break;
                 }
             }
             for (int i = 0; i < user.Following.Count; i++)
             {
-                if (user.Following[i].Username == login.Username)
+                if (user.Following[i].Username == LoggedInUser.login.Username)
                 {
                     user.Following.RemoveAt(i);
                     break;
@@ -110,7 +111,7 @@ namespace TzalemTmuna.DB
             {
                 if (dr[primaryKey].Equals(user.Username))
                 {
-                    if (dr["following"].Equals(login.Username))
+                    if (dr["following"].Equals(LoggedInUser.login.Username))
                     {
                         DeleteRow(dr);
                         break;

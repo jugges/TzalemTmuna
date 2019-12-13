@@ -69,8 +69,9 @@ namespace TzalemTmuna.Forms
                 }
                 LoggedInUser.login = user;
                 LoggedInUser.profile = new Profile();
-                LoggedInUser.profile.Show();
-                Hide();
+                LoggedInUser.feed.resetMe();
+                LoggedInUser.feed.Show();
+                Close();
                 //profile.Closed += (s, args) => Location = profile.Location;
                 //profile.Closed += (s, args) => Show();
             }

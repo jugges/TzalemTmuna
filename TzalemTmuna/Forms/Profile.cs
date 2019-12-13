@@ -22,6 +22,7 @@ namespace TzalemTmuna.Forms
         public bool isMainProfile;
         public bool redirectAfterClose;
         public User user;
+        private bool needsRefresh=false;
 
         //login's profile
         public Profile()
@@ -45,10 +46,16 @@ namespace TzalemTmuna.Forms
             lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
             lblPosts.Text = LoggedInUser.login.Posts.Count.ToString();
-            if (LoggedInUser.login.ReceivedRequests.Count == 0)
-            {
-                btnFollowRequests.Hide();
-            }
+            //
+            // REMOVED RECEIVED REQUESTS BUTTON FROM PROFILE BCZ LOOKS BETTER IN FEED
+            //
+            //if (LoggedInUser.login.ReceivedRequests.Count == 0)
+            //{
+            //    btnFollowRequests.Hide();
+            //}
+            Controls.Remove(btnFollowRequests);
+            btnFollowRequests.Dispose();
+
             btnOption.Text = "Edit Profile";
             LoadPostThumbnails();
         }
@@ -139,7 +146,7 @@ namespace TzalemTmuna.Forms
         private void Unfollow()
         {
             var fdb = new FollowingDB();
-            fdb.Unfollow(LoggedInUser.login, user);
+            fdb.Unfollow(user);
             btnOption.Text = "Follow";
             btnOption.Theme = StyleManager.Theme;
             //Refresh followers
@@ -160,7 +167,7 @@ namespace TzalemTmuna.Forms
             else
             {
                 var fdb = new FollowingDB();
-                fdb.Follow(LoggedInUser.login, user);
+                fdb.Follow(user);
                 btnOption.Text = "Following";
                 if (StyleManager.Theme == MetroFramework.MetroThemeStyle.Dark)
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -291,10 +298,10 @@ namespace TzalemTmuna.Forms
             Properties.Settings.Default.username = string.Empty;
             Properties.Settings.Default.password = string.Empty;
             Properties.Settings.Default.Save();
-            if (LoggedInUser.loginPage == null)
-                LoggedInUser.loginPage = new Login();
-            redirectHere += (s, args) => LoggedInUser.loginPage.Show();
-            redirectAfterClose = true;
+            LoggedInUser.loginPage = new Login();
+            LoggedInUser.loginPage.Show();
+            LoggedInUser.feed.Hide();
+            redirectAfterClose = false;
             Close();
         }
 
@@ -316,6 +323,7 @@ namespace TzalemTmuna.Forms
             {
                 //Environment.Exit(0);
                 Hide();
+                needsRefresh = true;
                 e.Cancel = true;
             }
         }
@@ -334,6 +342,17 @@ namespace TzalemTmuna.Forms
             {
                 ProfileThumbnail thumbnail = new ProfileThumbnail(LoggedInUser.login.Posts.Last());
                 flowLayoutPanel4.Controls.Add(thumbnail);
+            }
+        }
+
+        private void Profile_VisibleChanged(object sender, EventArgs e)
+        {
+            //Refresh followers every hide & show
+            if(needsRefresh)
+            {
+                needsRefresh = false;
+                lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
+                lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             }
         }
     }

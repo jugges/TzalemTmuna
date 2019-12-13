@@ -49,7 +49,7 @@ namespace TzalemTmuna.Forms
         private void Remove()
         {
             var fdb = new FollowingDB();
-            fdb.Remove(LoggedInUser.login, user);
+            fdb.Remove(user);
             this.Parent.Controls.Remove(this);
         }
 
