@@ -41,16 +41,22 @@ namespace TzalemTmuna
                     Properties.Settings.Default.username = string.Empty;
                     Properties.Settings.Default.password = string.Empty;
                     Properties.Settings.Default.Save();
-
-                    Statics.LoggedInUser.loginPage = new Login();
-                    Application.Run(Statics.LoggedInUser.loginPage);
+                    LoadLoginForm();
                 }
             }
             else
             {
-                Statics.LoggedInUser.loginPage = new Login();
-                Application.Run(Statics.LoggedInUser.loginPage);
+                LoadLoginForm();
             }
+        }
+
+        private static void LoadLoginForm()
+        {
+            Statics.LoggedInUser.loginPage = new Login();
+            Statics.LoggedInUser.feed = new Feed();
+            Statics.LoggedInUser.feed.Hide();
+            Statics.LoggedInUser.loginPage.Show();
+            Application.Run(Statics.LoggedInUser.feed);
         }
 
         private static void DoLoginAuto(LoginUser user, string password)
@@ -61,9 +67,9 @@ namespace TzalemTmuna
                 Statics.LoggedInUser.loginPage = new Login();
                 Statics.LoggedInUser.profile = new Profile();
 
-                Feed feed = new Feed();
-                feed.resetMe();
-                Application.Run(feed);
+                Statics.LoggedInUser.feed = new Feed();
+                Statics.LoggedInUser.feed.resetMe();
+                Application.Run(Statics.LoggedInUser.feed);
 
                 //Application.Run(Statics.LoggedInUser.profile);
             }
@@ -73,9 +79,7 @@ namespace TzalemTmuna
                 Properties.Settings.Default.username = string.Empty;
                 Properties.Settings.Default.password = string.Empty;
                 Properties.Settings.Default.Save();
-
-                Statics.LoggedInUser.loginPage = new Login();
-                Application.Run(Statics.LoggedInUser.loginPage);
+                LoadLoginForm();
             }
             //DISABLED FOR FEED!!!
             //Login after user closes window
