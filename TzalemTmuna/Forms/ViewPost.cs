@@ -129,5 +129,10 @@ namespace TzalemTmuna.Forms
         {
             Like();
         }
+
+        private void ViewPost_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoggedInUser.feed.refreshFeed();
+        }
     }
 }

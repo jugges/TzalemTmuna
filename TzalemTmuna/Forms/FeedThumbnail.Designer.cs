@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedThumbnail));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMenu = new MetroFramework.Controls.MetroLabel();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
-            this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblLatestComment = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
@@ -42,14 +42,19 @@
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
+            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblComments = new MetroFramework.Controls.MetroLabel();
+            this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
+            this.cmOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -72,7 +77,7 @@
             // pb
             // 
             this.pb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb.Image = global::TzalemTmuna.Properties.Resources.tzalemtmuna;
+            this.pb.Image = ((System.Drawing.Image)(resources.GetObject("pb.Image")));
             this.pb.Location = new System.Drawing.Point(3, 57);
             this.pb.Name = "pb";
             this.pb.Size = new System.Drawing.Size(514, 514);
@@ -97,6 +102,7 @@
             // 
             this.btnMenu.AutoSize = true;
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.ContextMenuStrip = this.cmOptions;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
@@ -127,22 +133,9 @@
             this.lblUsername.UseCustomForeColor = true;
             this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
-            // profilePicture
-            // 
-            this.profilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePicture.Dock = System.Windows.Forms.DockStyle.Left;
-            this.profilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.profilePicture.Location = new System.Drawing.Point(0, 0);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(48, 48);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profilePicture.TabIndex = 0;
-            this.profilePicture.TabStop = false;
-            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblComments);
             this.panel2.Controls.Add(this.lblLatestComment);
             this.panel2.Controls.Add(this.lblText);
             this.panel2.Controls.Add(this.panel3);
@@ -161,7 +154,7 @@
             this.lblLatestComment.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblLatestComment.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblLatestComment.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLatestComment.Location = new System.Drawing.Point(24, 66);
+            this.lblLatestComment.Location = new System.Drawing.Point(34, 82);
             this.lblLatestComment.Name = "lblLatestComment";
             this.lblLatestComment.Size = new System.Drawing.Size(90, 15);
             this.lblLatestComment.TabIndex = 31;
@@ -177,7 +170,7 @@
             this.lblText.Enabled = false;
             this.lblText.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblText.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblText.Location = new System.Drawing.Point(13, 42);
+            this.lblText.Location = new System.Drawing.Point(15, 57);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(78, 19);
             this.lblText.TabIndex = 30;
@@ -242,6 +235,50 @@
             this.lblLikes.UseCustomBackColor = true;
             this.lblLikes.UseCustomForeColor = true;
             // 
+            // cmOptions
+            // 
+            this.cmOptions.BackColor = System.Drawing.SystemColors.Control;
+            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportToolStripMenuItem});
+            this.cmOptions.Name = "cmOptions";
+            this.cmOptions.Size = new System.Drawing.Size(110, 26);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // lblComments
+            // 
+            this.lblComments.AutoSize = true;
+            this.lblComments.BackColor = System.Drawing.Color.Transparent;
+            this.lblComments.Enabled = false;
+            this.lblComments.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblComments.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblComments.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblComments.Location = new System.Drawing.Point(10, 42);
+            this.lblComments.Name = "lblComments";
+            this.lblComments.Size = new System.Drawing.Size(83, 15);
+            this.lblComments.TabIndex = 32;
+            this.lblComments.Text = "15 comments";
+            this.lblComments.UseCustomBackColor = true;
+            this.lblComments.UseCustomForeColor = true;
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profilePicture.Dock = System.Windows.Forms.DockStyle.Left;
+            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
+            this.profilePicture.Location = new System.Drawing.Point(0, 0);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(48, 48);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
+            // 
             // FeedThumbnail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,12 +290,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
+            this.cmOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +315,8 @@
         private MetroFramework.Controls.MetroLabel lblText;
         private MetroFramework.Controls.MetroLabel btnMenu;
         private MetroFramework.Controls.MetroLabel lblLatestComment;
+        private MetroFramework.Controls.MetroContextMenu cmOptions;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private MetroFramework.Controls.MetroLabel lblComments;
     }
 }

@@ -82,6 +82,12 @@
     <Compile Include="Forms\FeedThumbnail.Designer.cs">
       <DependentUpon>FeedThumbnail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CommentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CommentControl.Designer.cs">
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FeedThumbnail.resx">
       <DependentUpon>FeedThumbnail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommentControl.resx">
+      <DependentUpon>CommentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewPost.resx">
       <DependentUpon>ViewPost.cs</DependentUpon>

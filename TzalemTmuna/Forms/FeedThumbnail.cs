@@ -51,8 +51,15 @@ namespace TzalemTmuna.Forms
                 lblLatestComment.Dispose();
             }
 
-            //Likes count
-            lblLikes.Text = post.Likes.Count+" likes";
+            //Count comments and likes
+            if(post.Likes.Count==1)
+                lblLikes.Text = "1 like";
+            else
+                lblLikes.Text = post.Likes.Count + " likes";
+            if (post.Comments.Count == 1)
+                lblComments.Text = "1 comment";
+            else
+                lblComments.Text = post.Comments.Count + " comments";
             lblText.Text = post.Post_text;
         }
 
@@ -75,7 +82,10 @@ namespace TzalemTmuna.Forms
                 likeDB.Like(post);
                 liked = true;
             }
-            lblLikes.Text = post.Likes.Count + " likes";
+            if (post.Likes.Count == 1)
+                lblLikes.Text = "1 like";
+            else
+                lblLikes.Text = post.Likes.Count + " likes";
         }
 
         private void pb_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -90,7 +100,7 @@ namespace TzalemTmuna.Forms
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
+            btnMenu.ContextMenuStrip.Show(btnMenu,new Point(0,btnMenu.Height));
         }
 
         private void openProfile()

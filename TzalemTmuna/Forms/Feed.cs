@@ -49,7 +49,6 @@ namespace TzalemTmuna.Forms
             //    lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
 
         }
-
         public void resetMe()
         {
             Refresh();
@@ -80,8 +79,28 @@ namespace TzalemTmuna.Forms
                 lblNotifications.Show();
                 lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
             }
+        }
 
-            flowLayoutPanel1.AutoScrollPosition = new Point(0, 0);
+        public void refreshFeed()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            foreach (Post post in LoggedInUser.login.FeedPosts())
+            {
+                FeedThumbnail thumbnail = new FeedThumbnail(post);
+                thumbnail.Anchor = AnchorStyles.None;
+                flowLayoutPanel1.Controls.Add(thumbnail);
+                flowLayoutPanel1.VerticalScroll.Maximum += thumbnail.Height;
+            }
+
+            if (LoggedInUser.login.ReceivedRequests.Count == 0)
+            {
+                lblNotifications.Hide();
+            }
+            else
+            {
+                lblNotifications.Show();
+                lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
+            }
         }
         private void flowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -104,6 +123,7 @@ namespace TzalemTmuna.Forms
         private void btnProfile_Click(object sender, EventArgs e)
         {
             LoggedInUser.profile.Show();
+            refreshFeed();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -113,11 +133,13 @@ namespace TzalemTmuna.Forms
                 if (udb.GetCurrentRow()["username"].ToString() == LoggedInUser.login.Username)
                 {
                     LoggedInUser.profile.Show();
+                    refreshFeed();
                 }
                 else
                 {
                     Profile newProfile = new Profile(new User(udb.GetCurrentRow()));
                     newProfile.Show();
+                    refreshFeed();
                 }
             }
             else
@@ -127,13 +149,7 @@ namespace TzalemTmuna.Forms
         private void lblNotifications_Click(object sender, EventArgs e)
         {
             new Followers(2).ShowDialog();
-            //Refresh notifcation
-            if (LoggedInUser.login.ReceivedRequests.Count == 0)
-            {
-                lblNotifications.Hide();
-            }
-            else
-                lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
+            refreshFeed();
         }
     }
 }
