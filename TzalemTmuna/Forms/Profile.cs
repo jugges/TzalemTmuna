@@ -45,10 +45,16 @@ namespace TzalemTmuna.Forms
             lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
             lblPosts.Text = LoggedInUser.login.Posts.Count.ToString();
-            if (LoggedInUser.login.ReceivedRequests.Count == 0)
-            {
-                btnFollowRequests.Hide();
-            }
+            //
+            // REMOVED RECEIVED REQUESTS BUTTON FROM PROFILE BCZ LOOKS BETTER IN FEED
+            //
+            //if (LoggedInUser.login.ReceivedRequests.Count == 0)
+            //{
+            //    btnFollowRequests.Hide();
+            //}
+            Controls.Remove(btnFollowRequests);
+            btnFollowRequests.Dispose();
+
             btnOption.Text = "Edit Profile";
             LoadPostThumbnails();
         }
@@ -291,10 +297,10 @@ namespace TzalemTmuna.Forms
             Properties.Settings.Default.username = string.Empty;
             Properties.Settings.Default.password = string.Empty;
             Properties.Settings.Default.Save();
-            if (LoggedInUser.loginPage == null)
-                LoggedInUser.loginPage = new Login();
-            redirectHere += (s, args) => LoggedInUser.loginPage.Show();
-            redirectAfterClose = true;
+            LoggedInUser.loginPage = new Login();
+            LoggedInUser.loginPage.Show();
+            LoggedInUser.feed.Hide();
+            redirectAfterClose = false;
             Close();
         }
 
@@ -334,6 +340,16 @@ namespace TzalemTmuna.Forms
             {
                 ProfileThumbnail thumbnail = new ProfileThumbnail(LoggedInUser.login.Posts.Last());
                 flowLayoutPanel4.Controls.Add(thumbnail);
+            }
+        }
+
+        private void Profile_VisibleChanged(object sender, EventArgs e)
+        {
+            //Refresh followers every hide & show
+            if(Visible)
+            {
+                lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
+                lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             }
         }
     }

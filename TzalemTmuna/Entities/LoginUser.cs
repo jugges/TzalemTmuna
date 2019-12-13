@@ -194,6 +194,21 @@ namespace TzalemTmuna.Entities
                 }
             }
         }
+
+        public List<Post> FeedPosts()
+        {
+            var feedPosts = new List<Post>();
+
+            feedPosts.AddRange(Posts);
+            foreach(User x in Following)
+            {
+                feedPosts.AddRange(x.Posts);
+            }
+
+            feedPosts = feedPosts.OrderByDescending(post => post.Post_id).ToList();
+
+            return feedPosts;
+        }
         public LoginUser(DataRow dr)
         {
             username = dr["username"].ToString();

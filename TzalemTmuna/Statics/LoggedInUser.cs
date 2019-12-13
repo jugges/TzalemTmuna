@@ -13,5 +13,6 @@ namespace TzalemTmuna.Statics
         public static LoginUser login;
         public static Login loginPage;
         public static Profile profile;
+        public static Feed feed;
     }
 }

@@ -50,10 +50,6 @@ namespace TzalemTmuna.Forms
             //Likes count
             lblLikes.Text = post.Likes.Count + " likes";
             lblText.Text = post.Post_text;
-
-            //Hide adding comment panel by default
-            tableLayoutPanel1.RowStyles[2].Height = 0;
-            tableLayoutPanel1.RowStyles[0].Height = 90;
         }
 
         private void lblUsername_Click(object sender, EventArgs e)
