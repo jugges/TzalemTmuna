@@ -27,9 +27,9 @@ namespace TzalemTmuna.Forms
             this.post = post;
             lblUsername.Text = post.Owner.Username;
             profilePicture.Image = FileTools.getProfilePicture(post.Owner.Username);
-            pb.Image = FileTools.getPost(post.Owner.Username,post.Post_number);
+            pb.Image = FileTools.getPost(post.Owner.Username, post.Post_number);
 
-            foreach(User x in post.Likes)
+            foreach (User x in post.Likes)
             {
                 if (x.Username == LoggedInUser.login.Username)
                 {
@@ -52,7 +52,7 @@ namespace TzalemTmuna.Forms
             }
 
             //Count comments and likes
-            if(post.Likes.Count==1)
+            if (post.Likes.Count == 1)
                 lblLikes.Text = "1 like";
             else
                 lblLikes.Text = post.Likes.Count + " likes";
@@ -100,7 +100,7 @@ namespace TzalemTmuna.Forms
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            btnMenu.ContextMenuStrip.Show(btnMenu,new Point(0,btnMenu.Height));
+            btnMenu.ContextMenuStrip.Show(btnMenu, new Point(0, btnMenu.Height));
         }
 
         private void openProfile()
@@ -143,8 +143,16 @@ namespace TzalemTmuna.Forms
             try
             {
                 Comment lastComment = post.Comments.Last();
-                Profile newProfile = new Profile(lastComment.Owner);
-                newProfile.Show();
+                if (lastComment.Owner.Username == LoggedInUser.login.Username)
+                {
+                    LoggedInUser.profile.Show();
+                }
+                else
+                {
+                    //callingProfile.Hide();
+                    Profile newProfile = new Profile(lastComment.Owner);
+                    newProfile.Show();
+                }
             }
             catch
             {

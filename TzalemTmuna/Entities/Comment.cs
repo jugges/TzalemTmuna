@@ -58,12 +58,13 @@ namespace TzalemTmuna.Entities
             udb.Find(dr["owner"]);
             owner = new User(udb.GetCurrentRow());
         }
-        //public Comment(int post_id, string comment_text, LoginUser owner)
-        //{
-        //    this.post_id = post_id;
-        //    Comment_text = comment_text;
-        //    this.owner = new User(owner);
-        //}
+        public Comment(int comment_id,int post_id, string comment_text, User owner)
+        {
+            this.comment_id = comment_id;
+            this.post_id = post_id;
+            Comment_text = comment_text;
+            this.owner = owner;
+        }
         public void Populate(DataRow dr)
         {
             dr["comment_text"] = comment_text;

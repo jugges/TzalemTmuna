@@ -68,9 +68,9 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(173, 84);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(191, 84);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(557, 723);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(520, 723);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseWheel);
@@ -106,9 +106,9 @@ namespace TzalemTmuna.Forms
             this.btnProfile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProfile.BackgroundImage")));
             this.btnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProfile.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnProfile.Location = new System.Drawing.Point(733, 22);
+            this.btnProfile.Location = new System.Drawing.Point(714, 22);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(161, 45);
+            this.btnProfile.Size = new System.Drawing.Size(180, 45);
             this.btnProfile.TabIndex = 2;
             this.btnProfile.UseSelectable = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
@@ -128,7 +128,7 @@ namespace TzalemTmuna.Forms
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.Location = new System.Drawing.Point(663, 22);
+            this.btnSearch.Location = new System.Drawing.Point(644, 22);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(64, 45);
             this.btnSearch.TabIndex = 1;
@@ -144,7 +144,7 @@ namespace TzalemTmuna.Forms
             // 
             // 
             this.txtSearch.CustomButton.Image = null;
-            this.txtSearch.CustomButton.Location = new System.Drawing.Point(409, 1);
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(403, 1);
             this.txtSearch.CustomButton.Name = "";
             this.txtSearch.CustomButton.Size = new System.Drawing.Size(43, 43);
             this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -155,7 +155,7 @@ namespace TzalemTmuna.Forms
             this.txtSearch.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtSearch.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.txtSearch.Lines = new string[0];
-            this.txtSearch.Location = new System.Drawing.Point(204, 22);
+            this.txtSearch.Location = new System.Drawing.Point(191, 22);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -164,7 +164,7 @@ namespace TzalemTmuna.Forms
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(453, 45);
+            this.txtSearch.Size = new System.Drawing.Size(447, 45);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.UseStyleColors = true;

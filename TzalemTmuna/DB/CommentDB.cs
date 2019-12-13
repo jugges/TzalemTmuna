@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TzalemTmuna.Entities;
+using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.DB
 {
@@ -39,9 +40,9 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
-        public void AddComment(LoginUser login, string comment_text, int post_id)
+        public void AddComment(string comment_text, int post_id)
         {
-            table.Rows.Add(post_id,comment_text,login.Username);
+            table.Rows.Add(null,post_id,comment_text,LoggedInUser.login.Username);
             Save();
         }
         public void EditComment(string comment_text, int comment_id)

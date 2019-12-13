@@ -30,8 +30,8 @@
         {
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
-            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.btnMenu = new MetroFramework.Controls.MetroLabel();
+            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             this.lblUsername.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(64, 16);
+            this.lblUsername.Location = new System.Drawing.Point(48, 8);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(64, 15);
             this.lblUsername.TabIndex = 1;
@@ -53,17 +53,33 @@
             // lblText
             // 
             this.lblText.AutoSize = true;
-            this.lblText.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblText.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblText.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblText.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblText.ForeColor = System.Drawing.Color.White;
-            this.lblText.Location = new System.Drawing.Point(64, 31);
+            this.lblText.Location = new System.Drawing.Point(48, 23);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(28, 15);
             this.lblText.TabIndex = 3;
             this.lblText.Text = "Text";
             this.lblText.UseCustomBackColor = true;
-            this.lblText.Click += new System.EventHandler(this.lblFullName_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMenu.Location = new System.Drawing.Point(252, 0);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(38, 48);
+            this.btnMenu.TabIndex = 32;
+            this.btnMenu.Text = "☰";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenu.UseCustomBackColor = true;
+            this.btnMenu.UseCustomForeColor = true;
             // 
             // ProfilePicture
             // 
@@ -71,27 +87,11 @@
             this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
             this.ProfilePicture.Location = new System.Drawing.Point(10, 8);
             this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(48, 48);
+            this.ProfilePicture.Size = new System.Drawing.Size(32, 32);
             this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 0;
             this.ProfilePicture.TabStop = false;
             this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.AutoSize = true;
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnMenu.Location = new System.Drawing.Point(249, 10);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(38, 36);
-            this.btnMenu.TabIndex = 32;
-            this.btnMenu.Text = "☰";
-            this.btnMenu.UseCustomBackColor = true;
-            this.btnMenu.UseCustomForeColor = true;
             // 
             // CommentControl
             // 
@@ -102,7 +102,10 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.ProfilePicture);
             this.Name = "CommentControl";
-            this.Size = new System.Drawing.Size(290, 63);
+            this.Size = new System.Drawing.Size(290, 48);
+            this.MouseEnter += new System.EventHandler(this.CommentControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.CommentControl_MouseLeave);
+            this.ParentChanged += new System.EventHandler(this.CommentControl_ParentChanged);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
