@@ -24,6 +24,7 @@ namespace TzalemTmuna.Forms
         public CommentControl(Comment comment)
         {
             InitializeComponent();
+
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
@@ -38,6 +39,12 @@ namespace TzalemTmuna.Forms
                 ProfilePicture.Image = pic;
             }
         }
+
+        public void ToggleMenu()
+        {
+            btnMenu.Visible = !btnMenu.Visible;
+        }
+
         private void openProfile()
         {
             if (comment.Owner.Username == LoggedInUser.login.Username)
@@ -58,19 +65,6 @@ namespace TzalemTmuna.Forms
         private void ProfilePicture_Click(object sender, EventArgs e)
         {
             openProfile();
-        }
-
-        private void CommentControl_MouseEnter(object sender, EventArgs e)
-        {
-            btnMenu.Show();
-        }
-
-        private void CommentControl_MouseLeave(object sender, EventArgs e)
-        {
-            if (MousePosition.X < PointToScreen(Point.Empty).X || MousePosition.X > PointToScreen(Point.Empty).X + Size.Width || MousePosition.Y < PointToScreen(Point.Empty).Y || MousePosition.Y > PointToScreen(Point.Empty).Y + Size.Height)
-            {
-                btnMenu.Hide();
-            }
         }
 
         private void CommentControl_ParentChanged(object sender, EventArgs e)

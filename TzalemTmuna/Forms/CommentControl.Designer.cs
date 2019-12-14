@@ -80,6 +80,7 @@
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenu.UseCustomBackColor = true;
             this.btnMenu.UseCustomForeColor = true;
+            this.btnMenu.Visible = false;
             // 
             // ProfilePicture
             // 
@@ -103,8 +104,6 @@
             this.Controls.Add(this.ProfilePicture);
             this.Name = "CommentControl";
             this.Size = new System.Drawing.Size(290, 48);
-            this.MouseEnter += new System.EventHandler(this.CommentControl_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.CommentControl_MouseLeave);
             this.ParentChanged += new System.EventHandler(this.CommentControl_ParentChanged);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
