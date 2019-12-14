@@ -209,7 +209,7 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        public void openProfile()
+        public void OpenProfile()
         {
             LoggedInUser.profile = new Profile();
             LoggedInUser.profile.Show();
@@ -235,11 +235,6 @@ namespace TzalemTmuna.Forms
         {
             ProfilePicture.Image = ImageTools.SetImageOpacity(pic, 0.2f);
             lblChangeProfilePicture.Show();
-        }
-
-        private void EditProfile_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

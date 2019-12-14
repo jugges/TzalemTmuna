@@ -75,7 +75,7 @@ namespace TzalemTmuna.Forms
                                     var editProfile = new EditProfile();
                                     editProfile.Show();
                                     Hide();
-                                    editProfile.Closed += (s, args) => editProfile.openProfile();
+                                    editProfile.Closed += (s, args) => editProfile.OpenProfile();
                                 }
                                 else
                                     MetroFramework.MetroMessageBox.Show(this, "Passwords dont match!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);

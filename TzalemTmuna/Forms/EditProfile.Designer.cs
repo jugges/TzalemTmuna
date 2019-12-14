@@ -365,7 +365,6 @@ namespace TzalemTmuna.Forms
             this.Text = "Edit Profile";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.EditProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

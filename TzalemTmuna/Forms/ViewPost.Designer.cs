@@ -247,7 +247,7 @@ namespace TzalemTmuna.Forms
             this.lblUsername.TabIndex = 29;
             this.lblUsername.Text = "Username";
             this.lblUsername.UseCustomBackColor = true;
-            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
+            this.lblUsername.Click += new System.EventHandler(this.OpenProfile);
             // 
             // pbPhoto
             // 
@@ -268,7 +268,7 @@ namespace TzalemTmuna.Forms
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.profilePicture.TabIndex = 28;
             this.profilePicture.TabStop = false;
-            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
+            this.profilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
             // ViewPost
             // 

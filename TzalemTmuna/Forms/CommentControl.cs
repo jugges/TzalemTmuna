@@ -38,6 +38,11 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
+            if (comment.Owner.Username != LoggedInUser.login.Username)
+            {
+                Controls.Remove(btnMenu);
+                btnMenu.Dispose();
+            }
         }
 
         public void ToggleMenu()
@@ -45,7 +50,7 @@ namespace TzalemTmuna.Forms
             btnMenu.Visible = !btnMenu.Visible;
         }
 
-        private void openProfile()
+        private void OpenProfile(object sender, EventArgs e)
         {
             if (comment.Owner.Username == LoggedInUser.login.Username)
             {
@@ -57,19 +62,20 @@ namespace TzalemTmuna.Forms
                 newProfile.Show();
             }
         }
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void ProfilePicture_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
 
         private void CommentControl_ParentChanged(object sender, EventArgs e)
         {
             Width = Parent.Width;
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            btnMenu.ContextMenuStrip.Show(btnMenu, new Point(0, btnMenu.Height));
+        }
+
+        private void ProfilePicture_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

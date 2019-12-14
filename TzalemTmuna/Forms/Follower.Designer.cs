@@ -47,7 +47,7 @@
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             this.lblUsername.UseCustomBackColor = true;
-            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
+            this.lblUsername.Click += new System.EventHandler(this.OpenProfile);
             // 
             // btnOption
             // 
@@ -72,7 +72,7 @@
             this.lblFullName.TabIndex = 3;
             this.lblFullName.Text = "Name";
             this.lblFullName.UseCustomBackColor = true;
-            this.lblFullName.Click += new System.EventHandler(this.lblFullName_Click);
+            this.lblFullName.Click += new System.EventHandler(this.OpenProfile);
             // 
             // ProfilePicture
             // 
@@ -84,7 +84,7 @@
             this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 0;
             this.ProfilePicture.TabStop = false;
-            this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);
+            this.ProfilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
             // Follower
             // 

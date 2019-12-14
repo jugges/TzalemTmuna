@@ -250,7 +250,7 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        private void openProfile()
+        private void OpenProfile(object sender, EventArgs e)
         {
             Followers followers = (Followers)Parent.Parent;
             if (user.Username == LoggedInUser.login.Username)
@@ -273,19 +273,5 @@ namespace TzalemTmuna.Forms
                 newProfile.redirectAfterClose = true;
             }
         }
-    private void lblUsername_Click(object sender, EventArgs e)
-    {
-        openProfile();
-    }
-
-    private void lblFullName_Click(object sender, EventArgs e)
-    {
-        openProfile();
-    }
-
-    private void ProfilePicture_Click(object sender, EventArgs e)
-    {
-        openProfile();
-    }
 }
 }

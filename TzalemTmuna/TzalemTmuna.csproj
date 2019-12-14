@@ -70,17 +70,23 @@
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="Entities\LoginUser.cs" />
     <Compile Include="Entities\Post.cs" />
+    <Compile Include="Forms\FeedThumbnail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FeedThumbnail.Designer.cs">
+      <DependentUpon>FeedThumbnail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Feed.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Feed.Designer.cs">
       <DependentUpon>Feed.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FeedThumbnail.cs">
+    <Compile Include="Forms\OldFeedThumbnail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\FeedThumbnail.Designer.cs">
-      <DependentUpon>FeedThumbnail.cs</DependentUpon>
+    <Compile Include="Forms\OldFeedThumbnail.Designer.cs">
+      <DependentUpon>OldFeedThumbnail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CommentControl.cs">
       <SubType>UserControl</SubType>
@@ -170,14 +176,17 @@
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
     <Compile Include="Utilities\ValidateTools.cs" />
+    <EmbeddedResource Include="Forms\FeedThumbnail.resx">
+      <DependentUpon>FeedThumbnail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Feed.resx">
       <DependentUpon>Feed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FeedThumbnail.resx">
-      <DependentUpon>FeedThumbnail.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OldFeedThumbnail.resx">
+      <DependentUpon>OldFeedThumbnail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CommentControl.resx">
       <DependentUpon>CommentControl.cs</DependentUpon>

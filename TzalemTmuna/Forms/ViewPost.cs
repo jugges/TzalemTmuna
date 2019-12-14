@@ -23,6 +23,7 @@ namespace TzalemTmuna.Forms
         Post post;
         bool liked;
         LikeDB likeDB;
+        List<CommentControl> loginCommentControls;
         private MouseBounds mouseBounds;
         protected override void OnLoad(EventArgs e)
         {
@@ -72,10 +73,16 @@ namespace TzalemTmuna.Forms
                 }
             }
 
+            //List for CommentControls made by Login to pass MouseBounds
+            loginCommentControls = new List<CommentControl>();
+
             foreach (Comment x in post.Comments)
             {
                 var commentControl = new CommentControl(x);
                 flowLayoutPanel1.Controls.Add(commentControl);
+                //Is comment made by Login?
+                if (x.Owner.Username == LoggedInUser.login.Username)
+                    loginCommentControls.Add(commentControl);
             }
 
             //Likes count
@@ -83,23 +90,13 @@ namespace TzalemTmuna.Forms
             lblText.Text = post.Post_text;
 
             #region MouseBounds Handler
-
-            mouseBounds = new MouseBounds(flowLayoutPanel1.Controls);
+            if(loginCommentControls.Count!=0)
+                mouseBounds = new MouseBounds(loginCommentControls);
 
             #endregion
         }
 
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void profilePicture_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        public void openProfile()
+        public void OpenProfile(object sender, EventArgs e)
         {
             if (post.Owner.Username == LoggedInUser.login.Username)
             {
@@ -184,8 +181,13 @@ namespace TzalemTmuna.Forms
                 new CommentDB().AddRow(comment);
                 //Add comment to post's comment list
                 post.Comments.Add(comment);
+
+                var commentControl = new CommentControl(comment);
                 //Add comment to flowLayoutPanel
-                flowLayoutPanel1.Controls.Add(new CommentControl(comment));
+                flowLayoutPanel1.Controls.Add(commentControl);
+                //Add comment to loginCommentControls & refresh MouseBounds
+                loginCommentControls.Add(commentControl);
+                mouseBounds = new MouseBounds(loginCommentControls);
                 //Clean textbox
                 txtCommentText.Text = string.Empty;
             }
@@ -194,20 +196,19 @@ namespace TzalemTmuna.Forms
 
     public class MouseBounds : IMessageFilter
     {
-        private const int WM_NCMOUSEMOVE = 0x00A0;
+        //private const int WM_NCMOUSEMOVE = 0x00A0;
+        private int lastHovered=-1;
         private const int WM_MOUSEMOVE = 0x200;
-        private const int WM_NCMOUSELEAVE = 0x02A2;
-        private const int WM_MOUSELEAVE = 0x02A3;
+        //private const int WM_NCMOUSELEAVE = 0x02A2;
+        //private const int WM_MOUSELEAVE = 0x02A3;
 
         // http://netcode.ru/dotnet/?lang=&katID=30&skatID=283&artID=7862
         //private MetroFramework.Forms.MetroForm formFader;
-        private ControlCollection controls;
-        private bool[] controlsState;
+        private List<CommentControl> controls;
 
-        public MouseBounds(ControlCollection controls)
+        public MouseBounds(List<CommentControl> controls)
         {
             this.controls = controls;
-            this.controlsState = new bool[controls.Count];
         }
 
         public bool PreFilterMessage(ref Message m)
@@ -230,37 +231,38 @@ namespace TzalemTmuna.Forms
         /// <param name="mouseMove"></param>
         private void CheckMouseBounds()
         {
-            //Signifies the currently hovered control
-            int hoveredIndex=-1;
-            //Check each control in array if mouse is in its bounds
-            for(int i=0; i<controls.Count; i++)
+            //Check if last hovered control is not still hovered
+            if (!(lastHovered!=-1 && controls[lastHovered].ClientRectangle.Contains(controls[lastHovered].PointToClient(Cursor.Position))))
             {
-                if (controls[i].ClientRectangle.Contains(controls[i].PointToClient(Cursor.Position)))
+                //flag for checking if mouse is hovering a control or not
+                bool hovering = false;
+                //Check each control in array if mouse is in its bounds
+                for (int i = 0; i < controls.Count; i++)
                 {
-                    //Found the control mouse is hovering!
-                    //Check if it wasn't hovered before, in other words, if controlsState[i]!=true
-                    if (!controlsState[i])
+                    if (lastHovered != i && controls[i].ClientRectangle.Contains(controls[i].PointToClient(Cursor.Position)))
                     {
-                        hoveredIndex = i;
+                        //Found the control mouse is hovering!
+                        hovering = true;
+                        //Set hovered control's menu visibility
+                        controls[i].ToggleMenu();
+                        //Toggle off last hovered control
+                        if (lastHovered != -1)
+                        {
+                            controls[lastHovered].ToggleMenu();
+                        }
+                        //Set lastHovered to control hovered now
+                        lastHovered = i;
+                        //OLD: WE DON'T BREAK BECAUSE WE SCOUR THE CONTROLS FOR LAST HOVERED
+                        //Stop searching for hovered control because we already found it
+                        break;
                     }
-                    //EDIT: WE DON'T BREAK BECAUSE WE SCOUR THE CONTROLS FOR LAST HOVERED
-                    //OLD: Stop searching for hovered control because we already found it
-                    //break;
                 }
-                //If condition jumps here it means mouse isn't hovering this control but its state is true!
-                else if (controlsState[i])
+                //Toggle off last hovered control
+                if (lastHovered != -1 && !hovering)
                 {
-                    //So we need to set it off
-                    ((CommentControl)controls[i]).ToggleMenu();
-                    controlsState[i] = false;
+                    controls[lastHovered].ToggleMenu();
+                    lastHovered = -1;
                 }
-            }
-            //If hoveredIndex = -1 then no control is selected
-            if (hoveredIndex != -1)
-            {
-                //Set hovered control's menu visibility and state
-                controlsState[hoveredIndex] = true;
-                ((CommentControl)controls[hoveredIndex]).ToggleMenu();
             }
         }
     }

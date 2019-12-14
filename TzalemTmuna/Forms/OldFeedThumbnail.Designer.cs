@@ -1,6 +1,6 @@
 ﻿namespace TzalemTmuna.Forms
 {
-    partial class FeedThumbnail
+    partial class OldFeedThumbnail
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedThumbnail));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,6 +37,7 @@
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
+            this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblComments = new MetroFramework.Controls.MetroLabel();
             this.lblLatestComment = new MetroFramework.Controls.MetroLabel();
@@ -44,16 +46,15 @@
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
-            this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.panel1.SuspendLayout();
             this.cmOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -61,8 +62,8 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.pb, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -76,7 +77,7 @@
             // pb
             // 
             this.pb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb.Image = global::TzalemTmuna.Properties.Resources.tzalemtmuna;
+            this.pb.Image = ((System.Drawing.Image)(resources.GetObject("pb.Image")));
             this.pb.Location = new System.Drawing.Point(0, 54);
             this.pb.Margin = new System.Windows.Forms.Padding(0);
             this.pb.Name = "pb";
@@ -92,9 +93,10 @@
             this.panel1.Controls.Add(this.lblUsername);
             this.panel1.Controls.Add(this.profilePicture);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(16, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(514, 48);
+            this.panel1.Size = new System.Drawing.Size(501, 48);
             this.panel1.TabIndex = 4;
             // 
             // btnMenu
@@ -106,7 +108,7 @@
             this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnMenu.Location = new System.Drawing.Point(473, 6);
+            this.btnMenu.Location = new System.Drawing.Point(459, 6);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(38, 36);
             this.btnMenu.TabIndex = 31;
@@ -136,7 +138,7 @@
             this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(57, 12);
+            this.lblUsername.Location = new System.Drawing.Point(54, 14);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(71, 19);
             this.lblUsername.TabIndex = 30;
@@ -145,6 +147,20 @@
             this.lblUsername.UseCustomBackColor = true;
             this.lblUsername.UseCustomForeColor = true;
             this.lblUsername.Click += new System.EventHandler(this.OpenProfile);
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profilePicture.Dock = System.Windows.Forms.DockStyle.Left;
+            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
+            this.profilePicture.Location = new System.Drawing.Point(0, 0);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(48, 48);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
             // panel2
             // 
@@ -224,7 +240,7 @@
             this.pbComment.BackColor = System.Drawing.Color.Transparent;
             this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbComment.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.darkComment;
+            this.pbComment.Image = ((System.Drawing.Image)(resources.GetObject("pbComment.Image")));
             this.pbComment.Location = new System.Drawing.Point(34, 0);
             this.pbComment.Name = "pbComment";
             this.pbComment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -239,7 +255,7 @@
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
             this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
+            this.pbLike.Image = ((System.Drawing.Image)(resources.GetObject("pbLike.Image")));
             this.pbLike.Location = new System.Drawing.Point(10, 0);
             this.pbLike.Name = "pbLike";
             this.pbLike.Size = new System.Drawing.Size(24, 24);
@@ -264,19 +280,6 @@
             this.lblLikes.UseCustomBackColor = true;
             this.lblLikes.UseCustomForeColor = true;
             // 
-            // profilePicture
-            // 
-            this.profilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.profilePicture.Location = new System.Drawing.Point(3, 0);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(48, 48);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profilePicture.TabIndex = 0;
-            this.profilePicture.TabStop = false;
-            this.profilePicture.Click += new System.EventHandler(this.OpenProfile);
-            // 
             // FeedThumbnail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,12 +292,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.cmOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -61,7 +61,7 @@ namespace TzalemTmuna.Forms
             btnDecline.Theme = StyleManager.Theme;
         }
 
-        private void AcceptRequest()
+        private void AcceptRequest(object sender, EventArgs e)
         {
             var rdb = new RequestsDB();
             rdb.AcceptRequest(LoggedInUser.login, user);
@@ -80,7 +80,7 @@ namespace TzalemTmuna.Forms
             DeclineRequest();
         }
 
-        private void openProfile()
+        private void OpenProfile(object sender, EventArgs e)
         {
             Followers followers = (Followers)Parent.Parent;
             LoggedInUser.profile.Hide();
@@ -89,25 +89,6 @@ namespace TzalemTmuna.Forms
             followers.Close();
             newProfile.redirectHere += (s, args) => LoggedInUser.profile.Show();
             newProfile.redirectAfterClose=true;
-        }
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void lblFullName_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void ProfilePicture_Click(object sender, EventArgs e)
-        {
-            openProfile();
-        }
-
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            AcceptRequest();
         }
     }
 }

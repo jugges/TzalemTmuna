@@ -9,25 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
-using TzalemTmuna.DB;
 using TzalemTmuna.Statics;
+using TzalemTmuna.DB;
 
 namespace TzalemTmuna.Forms
 {
-    public partial class FeedThumbnail : MetroFramework.Controls.MetroUserControl
+    public partial class OldFeedThumbnail : UserControl
     {
         Post post;
         bool liked;
         LikeDB likeDB;
 
-        public FeedThumbnail(Post post)
+        public OldFeedThumbnail(Post post)
         {
             InitializeComponent();
-            StyleManager = new MetroFramework.Components.MetroStyleManager
-            {
-                Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
-            };
             likeDB = new LikeDB();
             this.post = post;
             lblUsername.Text = post.Owner.Username;
@@ -68,7 +63,7 @@ namespace TzalemTmuna.Forms
             lblText.Text = post.Post_text;
         }
 
-        public FeedThumbnail()
+        public OldFeedThumbnail()
         {
             InitializeComponent();
         }
