@@ -323,6 +323,7 @@ namespace TzalemTmuna.Forms
             {
                 //Environment.Exit(0);
                 Hide();
+                redirectAfterClose = false;
                 needsRefresh = true;
                 e.Cancel = true;
             }

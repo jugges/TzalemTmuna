@@ -133,13 +133,15 @@ namespace TzalemTmuna.Forms
                 if (udb.GetCurrentRow()["username"].ToString() == LoggedInUser.login.Username)
                 {
                     LoggedInUser.profile.Show();
-                    refreshFeed();
+                    LoggedInUser.profile.redirectAfterClose = true;
+                    LoggedInUser.profile.redirectHere += (s,args) => refreshFeed();
                 }
                 else
                 {
                     Profile newProfile = new Profile(new User(udb.GetCurrentRow()));
                     newProfile.Show();
-                    refreshFeed();
+                    newProfile.redirectAfterClose = true;
+                    newProfile.redirectHere += (s, args) => refreshFeed();
                 }
             }
             else
