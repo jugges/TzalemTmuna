@@ -220,6 +220,7 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel1.Size = new System.Drawing.Size(290, 400);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.WrapContents = false;
+            this.flowLayoutPanel1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseWheel);
             // 
             // lblText
             // 

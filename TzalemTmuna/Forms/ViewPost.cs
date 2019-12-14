@@ -25,6 +25,7 @@ namespace TzalemTmuna.Forms
         LikeDB likeDB;
         List<CommentControl> loginCommentControls;
         private MouseBounds mouseBounds;
+        int scrollLocation = 0;
         protected override void OnLoad(EventArgs e)
         {
             //Add mousebound check message filter on load
@@ -153,6 +154,24 @@ namespace TzalemTmuna.Forms
         private void pbPhoto_DoubleClick(object sender, EventArgs e)
         {
             Like();
+        }
+
+        private void flowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            scrollLocation -= e.Delta;
+
+            if (scrollLocation < flowLayoutPanel1.VerticalScroll.Minimum)
+            {
+                scrollLocation = flowLayoutPanel1.VerticalScroll.Minimum;
+            }
+            else if (scrollLocation > flowLayoutPanel1.VerticalScroll.Maximum)
+            {
+                scrollLocation = flowLayoutPanel1.VerticalScroll.Maximum;
+            }
+
+            flowLayoutPanel1.VerticalScroll.Value = scrollLocation;
+            flowLayoutPanel1.AutoScrollPosition = new Point(0, scrollLocation);
+            flowLayoutPanel1.PerformLayout();
         }
 
         private void ViewPost_FormClosed(object sender, FormClosedEventArgs e)
