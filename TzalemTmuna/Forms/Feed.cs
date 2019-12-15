@@ -49,7 +49,7 @@ namespace TzalemTmuna.Forms
             //    lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
 
         }
-        public void resetMe()
+        public void ResetMe()
         {
             Refresh();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -81,7 +81,7 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        public void refreshFeed()
+        public void RefreshFeed()
         {
             flowLayoutPanel1.Controls.Clear();
             foreach (Post post in LoggedInUser.login.FeedPosts())
@@ -123,7 +123,7 @@ namespace TzalemTmuna.Forms
         private void btnProfile_Click(object sender, EventArgs e)
         {
             LoggedInUser.profile.Show();
-            refreshFeed();
+            RefreshFeed();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -134,14 +134,14 @@ namespace TzalemTmuna.Forms
                 {
                     LoggedInUser.profile.Show();
                     LoggedInUser.profile.redirectAfterClose = true;
-                    LoggedInUser.profile.redirectHere += (s,args) => refreshFeed();
+                    LoggedInUser.profile.RedirectHere += (s,args) => RefreshFeed();
                 }
                 else
                 {
                     Profile newProfile = new Profile(new User(udb.GetCurrentRow()));
                     newProfile.Show();
                     newProfile.redirectAfterClose = true;
-                    newProfile.redirectHere += (s, args) => refreshFeed();
+                    newProfile.RedirectHere += (s, args) => RefreshFeed();
                 }
             }
             else
@@ -151,7 +151,7 @@ namespace TzalemTmuna.Forms
         private void lblNotifications_Click(object sender, EventArgs e)
         {
             new Followers(2).ShowDialog();
-            refreshFeed();
+            RefreshFeed();
         }
     }
 }

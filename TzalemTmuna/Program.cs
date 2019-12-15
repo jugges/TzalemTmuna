@@ -68,7 +68,7 @@ namespace TzalemTmuna
                 Statics.LoggedInUser.profile = new Profile();
 
                 Statics.LoggedInUser.feed = new Feed();
-                Statics.LoggedInUser.feed.resetMe();
+                Statics.LoggedInUser.feed.ResetMe();
                 Application.Run(Statics.LoggedInUser.feed);
 
                 //Application.Run(Statics.LoggedInUser.profile);

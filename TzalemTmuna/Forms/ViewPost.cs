@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TzalemTmuna.DB;
 using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
 using TzalemTmuna.Statics;
-using static System.Windows.Forms.Control;
 
 namespace TzalemTmuna.Forms
 {
@@ -211,7 +205,7 @@ namespace TzalemTmuna.Forms
 
         private void ViewPost_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoggedInUser.feed.refreshFeed();
+            LoggedInUser.feed.RefreshFeed();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

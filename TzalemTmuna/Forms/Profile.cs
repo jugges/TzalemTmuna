@@ -311,7 +311,7 @@ namespace TzalemTmuna.Forms
         private void Profile_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(redirectAfterClose)
-                redirectHere(sender,e);
+                RedirectHere(sender,e);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -333,7 +333,7 @@ namespace TzalemTmuna.Forms
         }
 
         //Ment to hold all redirections to previous open profiles and windows, depends on redirectAfterClose Boolean.
-        public event EventHandler redirectHere;
+        public event EventHandler RedirectHere;
 
         private void lblWebsite_Click(object sender, EventArgs e)
         {

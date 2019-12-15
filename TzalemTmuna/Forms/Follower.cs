@@ -268,8 +268,8 @@ namespace TzalemTmuna.Forms
                 newProfile.Show();
                 followers.Close();
                 if (callingProfile.isMainProfile)
-                    newProfile.redirectHere += (s, args) => callingProfile.RefreshFollowingAndFollowers();
-                newProfile.redirectHere += (s, args) => callingProfile.Show();
+                    newProfile.RedirectHere += (s, args) => callingProfile.RefreshFollowingAndFollowers();
+                newProfile.RedirectHere += (s, args) => callingProfile.Show();
                 newProfile.redirectAfterClose = true;
             }
         }
