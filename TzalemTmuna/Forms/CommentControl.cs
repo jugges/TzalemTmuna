@@ -43,6 +43,11 @@ namespace TzalemTmuna.Forms
                 Controls.Remove(btnMenu);
                 btnMenu.Dispose();
             }
+            int resize = lblText.Size.Height + 10 - (Size.Height - lblText.Location.Y);
+            if (resize > 0)
+            {
+                Size = new Size(Size.Width, Size.Height+ resize);
+            }
         }
 
         public void ToggleMenu()
@@ -65,7 +70,8 @@ namespace TzalemTmuna.Forms
 
         private void CommentControl_ParentChanged(object sender, EventArgs e)
         {
-            Width = Parent.Width;
+            if(Parent != null)
+                Width = Parent.Width;
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -73,9 +79,15 @@ namespace TzalemTmuna.Forms
             btnMenu.ContextMenuStrip.Show(btnMenu, new Point(0, btnMenu.Height));
         }
 
-        private void ProfilePicture_Click(object sender, EventArgs e)
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (MetroFramework.MetroMessageBox.Show(ParentForm, "Confirm deletion of comment \"" + comment.Comment_text + "\"", "Delete Comment", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                new CommentDB().RemoveComment(comment.Comment_id);
+                ((ViewPost)ParentForm).RemoveComment(comment.Comment_id, this);
+                Parent.Controls.Remove(this);
+                Dispose();
+            }
         }
     }
 }

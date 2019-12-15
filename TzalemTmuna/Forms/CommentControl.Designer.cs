@@ -32,12 +32,12 @@
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.btnMenu = new MetroFramework.Controls.MetroLabel();
-            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
+            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.cmOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -78,7 +78,7 @@
             this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnMenu.Location = new System.Drawing.Point(252, 0);
+            this.btnMenu.Location = new System.Drawing.Point(242, 0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(38, 48);
             this.btnMenu.TabIndex = 32;
@@ -88,18 +88,6 @@
             this.btnMenu.UseCustomForeColor = true;
             this.btnMenu.Visible = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // ProfilePicture
-            // 
-            this.ProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.ProfilePicture.Location = new System.Drawing.Point(10, 8);
-            this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(32, 32);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ProfilePicture.TabIndex = 0;
-            this.ProfilePicture.TabStop = false;
-            this.ProfilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
             // cmOptions
             // 
@@ -120,6 +108,19 @@
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // ProfilePicture
+            // 
+            this.ProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
+            this.ProfilePicture.Location = new System.Drawing.Point(10, 8);
+            this.ProfilePicture.Name = "ProfilePicture";
+            this.ProfilePicture.Size = new System.Drawing.Size(32, 32);
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProfilePicture.TabIndex = 0;
+            this.ProfilePicture.TabStop = false;
+            this.ProfilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
             // CommentControl
             // 
@@ -130,10 +131,11 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.ProfilePicture);
             this.Name = "CommentControl";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.Size = new System.Drawing.Size(290, 48);
             this.ParentChanged += new System.EventHandler(this.CommentControl_ParentChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.cmOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -202,7 +202,10 @@ namespace TzalemTmuna.Forms
                     break;
             }
         }
-
+        public void CleanThumbnailContainer()
+        {
+            flowLayoutPanel4.Controls.Clear();
+        }
         private void ShowList(int Mode)
         {
             if (isMainProfile)

@@ -290,5 +290,17 @@
   <ItemGroup>
     <None Include="Resources\darkProfile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkDelete.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

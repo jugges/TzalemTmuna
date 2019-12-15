@@ -28,6 +28,17 @@ namespace TzalemTmuna.DB
             }
             return comments;
         }
+        public void RemoveComments(int post_id)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["post_id"].Equals(post_id))
+                {
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
         public void RemoveComment(int comment_id)
         {
             foreach (DataRow dr in table.Rows)

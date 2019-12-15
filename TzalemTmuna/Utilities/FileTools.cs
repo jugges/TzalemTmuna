@@ -61,6 +61,22 @@ namespace TzalemTmuna.Utilities
             }
             return null;
         }
+
+        public static void deletePost(string username, int post_number)
+        {
+            try
+            {
+                string path = Directory.GetCurrentDirectory();
+                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+                path += username + "\\" + post_number + ".jpg";
+                File.Delete(path);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public static void savePost(string username, int post_number, Bitmap pic)
         {
             string path = Directory.GetCurrentDirectory();

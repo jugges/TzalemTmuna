@@ -21,6 +21,7 @@ namespace TzalemTmuna.Forms
     public partial class ViewPost : MetroFramework.Forms.MetroForm
     {
         Post post;
+        bool propertyOfLogin;
         bool liked;
         LikeDB likeDB;
         List<CommentControl> loginCommentControls;
@@ -49,6 +50,20 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            //Check if login's post
+            propertyOfLogin = post.Owner.Username == LoggedInUser.login.Username;
+            if (propertyOfLogin)
+            {
+                //Delete
+                pbOption.Click += new System.EventHandler(DeletePost);
+                pbOption.Image = Properties.Resources.darkDelete;
+            }
+            else
+            {
+                //Report
+                pbOption.Click += new System.EventHandler(ReportPost);
+            }
+
             likeDB = new LikeDB();
             this.post = post;
             lblText.Text = post.Post_text;
@@ -57,7 +72,8 @@ namespace TzalemTmuna.Forms
             lblUsername.Text = post.Owner.Username;
 
             //Sometimes the post's description is bigger than form's size, so this fixes the issue
-            int resize = lblText.Size.Width - (Size.Width - lblText.Location.X);
+            //Added padding of 10px, I know hardcoded is bad but not so important as of right now
+            int resize = lblText.Size.Width + 10 - (Size.Width - lblText.Location.X);
             if (resize > 0)
             {
                 Size = new Size(Size.Width + resize, Size.Height);
@@ -86,20 +102,45 @@ namespace TzalemTmuna.Forms
                     loginCommentControls.Add(commentControl);
             }
 
-            //Likes count
-            lblLikes.Text = post.Likes.Count + " likes";
-            lblText.Text = post.Post_text;
+            //Count comments and likes
+            if (post.Likes.Count == 1)
+                lblLikes.Text = "1 like";
+            else
+                lblLikes.Text = post.Likes.Count + " likes";
+            if (post.Comments.Count == 1)
+                lblComments.Text = "1 comment:";
+            else
+                lblComments.Text = post.Comments.Count + " comments:";
 
             #region MouseBounds Handler
-            if(loginCommentControls.Count!=0)
+            //if (loginCommentControls.Count != 0)
                 mouseBounds = new MouseBounds(loginCommentControls);
 
             #endregion
         }
 
-        public void OpenProfile(object sender, EventArgs e)
+        public void RemoveComment(int comment_id, CommentControl commentControl)
         {
-            if (post.Owner.Username == LoggedInUser.login.Username)
+            foreach (Comment x in post.Comments)
+            {
+                if (x.Comment_id == comment_id)
+                {
+                    post.Comments.Remove(x);
+                    loginCommentControls.Remove(commentControl);
+                    //Count comments
+                    if (post.Comments.Count == 1)
+                        lblComments.Text = "1 comment:";
+                    else
+                        lblComments.Text = post.Comments.Count + " comments:";
+                    //mouseBounds = new MouseBounds(loginCommentControls);
+                    break;
+                }
+            }
+        }
+
+        private void OpenProfile(object sender, EventArgs e)
+        {
+            if (propertyOfLogin)
             {
                 LoggedInUser.profile.Show();
             }
@@ -129,7 +170,7 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        private void Like()
+        private void Like(object sender, EventArgs e)
         {
             if (liked)
             {
@@ -143,17 +184,11 @@ namespace TzalemTmuna.Forms
                 likeDB.Like(post);
                 liked = true;
             }
-            lblLikes.Text = post.Likes.Count + " likes";
-        }
-
-        private void pbLike_Click(object sender, EventArgs e)
-        {
-            Like();
-        }
-
-        private void pbPhoto_DoubleClick(object sender, EventArgs e)
-        {
-            Like();
+            //Count likes
+            if (post.Likes.Count == 1)
+                lblLikes.Text = "1 like";
+            else
+                lblLikes.Text = post.Likes.Count + " likes";
         }
 
         private void flowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)
@@ -204,19 +239,40 @@ namespace TzalemTmuna.Forms
                 var commentControl = new CommentControl(comment);
                 //Add comment to flowLayoutPanel
                 flowLayoutPanel1.Controls.Add(commentControl);
-                //Add comment to loginCommentControls & refresh MouseBounds
+                //Add comment to loginCommentControls
                 loginCommentControls.Add(commentControl);
-                mouseBounds = new MouseBounds(loginCommentControls);
                 //Clean textbox
                 txtCommentText.Text = string.Empty;
+                //Count comments
+                if (post.Comments.Count == 1)
+                    lblComments.Text = "1 comment:";
+                else
+                    lblComments.Text = post.Comments.Count + " comments:";
             }
+        }
+
+        private void DeletePost(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Confirm deletion of post \"" + post.Post_text + "\"", "Delete Post", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                new PostDB().RemovePost(post.Post_id);
+                LoggedInUser.login.Posts.Remove(post);
+                LoggedInUser.profile.CleanThumbnailContainer();
+                LoggedInUser.profile.LoadPostThumbnails();
+                Close();
+            }
+        }
+
+        private void ReportPost(object sender, EventArgs e)
+        {
+
         }
     }
 
     public class MouseBounds : IMessageFilter
     {
         //private const int WM_NCMOUSEMOVE = 0x00A0;
-        private int lastHovered=-1;
+        private int lastHovered = -1;
         private const int WM_MOUSEMOVE = 0x200;
         //private const int WM_NCMOUSELEAVE = 0x02A2;
         //private const int WM_MOUSELEAVE = 0x02A3;
@@ -251,7 +307,7 @@ namespace TzalemTmuna.Forms
         private void CheckMouseBounds()
         {
             //Check if last hovered control is not still hovered
-            if (!(lastHovered!=-1 && controls[lastHovered].ClientRectangle.Contains(controls[lastHovered].PointToClient(Cursor.Position))))
+            if (!(lastHovered != -1 && controls[lastHovered].ClientRectangle.Contains(controls[lastHovered].PointToClient(Cursor.Position))))
             {
                 //flag for checking if mouse is hovering a control or not
                 bool hovering = false;

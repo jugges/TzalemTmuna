@@ -17,6 +17,7 @@ namespace TzalemTmuna.Forms
     public partial class FeedThumbnail : MetroFramework.Controls.MetroUserControl
     {
         Post post;
+        Comment lastComment;
         bool liked;
         LikeDB likeDB;
 
@@ -45,12 +46,12 @@ namespace TzalemTmuna.Forms
             }
 
             //Display last comment
-            try
+            if (post.Comments.Count != 0)
             {
-                Comment lastComment = post.Comments.Last();
+                lastComment = post.Comments.Last();
                 lblLatestComment.Text = lastComment.Owner.Username + ": " + lastComment.Comment_text;
             }
-            catch
+            else
             {
                 panel2.Controls.Remove(lblLatestComment);
                 lblLatestComment.Dispose();
@@ -129,22 +130,15 @@ namespace TzalemTmuna.Forms
 
         private void lblLatestComment_Click(object sender, EventArgs e)
         {
-            try
+            if (lastComment.Owner.Username == LoggedInUser.login.Username)
             {
-                Comment lastComment = post.Comments.Last();
-                if (lastComment.Owner.Username == LoggedInUser.login.Username)
-                {
-                    LoggedInUser.profile.Show();
-                }
-                else
-                {
-                    //callingProfile.Hide();
-                    Profile newProfile = new Profile(lastComment.Owner);
-                    newProfile.Show();
-                }
+                LoggedInUser.profile.Show();
             }
-            catch
+            else
             {
+                //callingProfile.Hide();
+                Profile newProfile = new Profile(lastComment.Owner);
+                newProfile.Show();
             }
         }
     }

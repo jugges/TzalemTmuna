@@ -73,6 +73,26 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap darkDelete {
+            get {
+                object obj = ResourceManager.GetObject("darkDelete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkFlag {
+            get {
+                object obj = ResourceManager.GetObject("darkFlag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap darkLike {
             get {
                 object obj = ResourceManager.GetObject("darkLike", resourceCulture);
@@ -146,6 +166,26 @@ namespace TzalemTmuna.Properties {
         internal static System.Drawing.Bitmap lightComment {
             get {
                 object obj = ResourceManager.GetObject("lightComment", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightDelete {
+            get {
+                object obj = ResourceManager.GetObject("lightDelete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightFlag {
+            get {
+                object obj = ResourceManager.GetObject("lightFlag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
