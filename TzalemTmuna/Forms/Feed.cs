@@ -123,7 +123,6 @@ namespace TzalemTmuna.Forms
         private void btnProfile_Click(object sender, EventArgs e)
         {
             LoggedInUser.profile.Show();
-            RefreshFeed();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

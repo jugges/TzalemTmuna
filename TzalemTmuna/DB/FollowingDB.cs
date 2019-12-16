@@ -75,6 +75,39 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
+
+        public void UnfollowForUser(User user)
+        {
+            for (int i = 0; i < LoggedInUser.login.Followers.Count; i++)
+            {
+                if (LoggedInUser.login.Followers[i].Username == user.Username)
+                {
+                    LoggedInUser.login.Followers.RemoveAt(i);
+                    break;
+                }
+            }
+            for (int i = 0; i < user.Following.Count; i++)
+            {
+                if (user.Following[i].Username == LoggedInUser.login.Username)
+                {
+                    user.Following.RemoveAt(i);
+                    break;
+                }
+            }
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr[primaryKey].Equals(user.Username))
+                {
+                    if (dr["following"].Equals(LoggedInUser.login.Username))
+                    {
+                        DeleteRow(dr);
+                        break;
+                    }
+                }
+            }
+            Save();
+        }
+
         public void Follow(User user)
         {
             LoggedInUser.login.Following.Add(user);

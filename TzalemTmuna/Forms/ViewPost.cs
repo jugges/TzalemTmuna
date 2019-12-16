@@ -151,14 +151,14 @@ namespace TzalemTmuna.Forms
             if (tableLayoutPanel1.RowStyles[2].Height == 0)
             {
                 tableLayoutPanel1.RowStyles[2].Height = 20;
-                tableLayoutPanel1.RowStyles[0].Height = 70;
+                tableLayoutPanel1.RowStyles[0].Height = 74;
                 txtCommentText.Enabled = true;
                 btnSubmit.Enabled = true;
             }
             else
             {
                 tableLayoutPanel1.RowStyles[2].Height = 0;
-                tableLayoutPanel1.RowStyles[0].Height = 90;
+                tableLayoutPanel1.RowStyles[0].Height = 94;
                 txtCommentText.Enabled = false;
                 btnSubmit.Enabled = false;
             }
@@ -282,14 +282,10 @@ namespace TzalemTmuna.Forms
 
         public bool PreFilterMessage(ref Message m)
         {
-            switch (m.Msg)
+            if (m.Msg==WM_MOUSEMOVE)
             {
-                case WM_MOUSEMOVE:
-                    //case WM_NCMOUSEMOVE:
                     CheckMouseBounds();
-                    break;
             }
-
             return false; // dont actually filter the message
         }
 

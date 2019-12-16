@@ -175,6 +175,8 @@ namespace TzalemTmuna.Forms
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
                 //Refresh followers
                 lblFollowers.Text = user.Followers.Count.ToString();
+                //Refresh feed
+                LoggedInUser.feed.RefreshFeed();
             }
         }
         private void RemoveRequest()

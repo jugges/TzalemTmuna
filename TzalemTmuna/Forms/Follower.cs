@@ -169,15 +169,19 @@ namespace TzalemTmuna.Forms
         private void Unfollow()
         {
             var fdb = new FollowingDB();
-            fdb.Unfollow(user);
+            
             if (user.Username == LoggedInUser.login.Username && mode == 1)
             {
-                this.Parent.Controls.Remove(this);
+                fdb.UnfollowForUser(user);
+                Parent.Controls.Remove(this);
             }
             else
             {
+                fdb.Unfollow(user);
                 btnOption.Text = "Follow";
                 btnOption.Theme = StyleManager.Theme;
+                //Refresh feed
+                LoggedInUser.feed.RefreshFeed();
             }
 
         }
@@ -203,6 +207,8 @@ namespace TzalemTmuna.Forms
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Light;
                 else
                     btnOption.Theme = MetroFramework.MetroThemeStyle.Dark;
+                //Refresh feed
+                LoggedInUser.feed.RefreshFeed();
             }
         }
 

@@ -62,12 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DAL.cs" />
+    <Compile Include="DB\ReportDB.cs" />
     <Compile Include="DB\LikeDB.cs" />
     <Compile Include="DB\CommentDB.cs" />
     <Compile Include="DB\PostDB.cs" />
     <Compile Include="DB\RequestsDB.cs" />
     <Compile Include="DB\FollowingDB.cs" />
     <Compile Include="DB\EmailDB.cs" />
+    <Compile Include="Entities\Report.cs" />
     <Compile Include="Entities\LoginUser.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Forms\FeedThumbnail.cs">
@@ -301,6 +303,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\darkDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkSettings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

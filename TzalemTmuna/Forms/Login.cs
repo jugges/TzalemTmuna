@@ -69,7 +69,7 @@ namespace TzalemTmuna.Forms
                 }
                 LoggedInUser.login = user;
                 LoggedInUser.profile = new Profile();
-                LoggedInUser.feed.resetMe();
+                LoggedInUser.feed.ResetMe();
                 LoggedInUser.feed.Show();
                 Close();
                 //profile.Closed += (s, args) => Location = profile.Location;
@@ -83,6 +83,8 @@ namespace TzalemTmuna.Forms
         {
             //    nirgolan4,gayboy
             //    udirubin8,uduman
+            //    dvir_derbi,12345dvir
+            //    
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

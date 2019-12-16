@@ -32,26 +32,26 @@ namespace TzalemTmuna.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewPost));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSubmit = new MetroFramework.Controls.MetroButton();
             this.txtCommentText = new MetroFramework.Controls.MetroTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbOption = new System.Windows.Forms.PictureBox();
+            this.pbComment = new System.Windows.Forms.PictureBox();
+            this.pbLike = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.lblComments = new MetroFramework.Controls.MetroLabel();
             this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
-            this.btnSubmit = new MetroFramework.Controls.MetroButton();
-            this.pbOption = new System.Windows.Forms.PictureBox();
-            this.pbComment = new System.Windows.Forms.PictureBox();
-            this.pbLike = new System.Windows.Forms.PictureBox();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,19 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(296, 102);
             this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackgroundImage = global::TzalemTmuna.Properties.Resources.darkSend;
+            this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSubmit.Location = new System.Drawing.Point(233, 3);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(50, 96);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.UseSelectable = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtCommentText
             // 
@@ -149,6 +162,47 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(296, 31);
             this.flowLayoutPanel2.TabIndex = 5;
+            // 
+            // pbOption
+            // 
+            this.pbOption.BackColor = System.Drawing.Color.Transparent;
+            this.pbOption.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbOption.Image = global::TzalemTmuna.Properties.Resources.darkFlag;
+            this.pbOption.Location = new System.Drawing.Point(13, 3);
+            this.pbOption.Name = "pbOption";
+            this.pbOption.Padding = new System.Windows.Forms.Padding(3);
+            this.pbOption.Size = new System.Drawing.Size(24, 24);
+            this.pbOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbOption.TabIndex = 39;
+            this.pbOption.TabStop = false;
+            // 
+            // pbComment
+            // 
+            this.pbComment.BackColor = System.Drawing.Color.Transparent;
+            this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.darkComment;
+            this.pbComment.Location = new System.Drawing.Point(43, 3);
+            this.pbComment.Name = "pbComment";
+            this.pbComment.Padding = new System.Windows.Forms.Padding(3);
+            this.pbComment.Size = new System.Drawing.Size(24, 24);
+            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbComment.TabIndex = 38;
+            this.pbComment.TabStop = false;
+            this.pbComment.Click += new System.EventHandler(this.pbComment_Click);
+            // 
+            // pbLike
+            // 
+            this.pbLike.BackColor = System.Drawing.Color.Transparent;
+            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
+            this.pbLike.Location = new System.Drawing.Point(73, 3);
+            this.pbLike.Name = "pbLike";
+            this.pbLike.Padding = new System.Windows.Forms.Padding(3);
+            this.pbLike.Size = new System.Drawing.Size(24, 24);
+            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLike.TabIndex = 37;
+            this.pbLike.TabStop = false;
+            this.pbLike.Click += new System.EventHandler(this.Like);
             // 
             // lblLikes
             // 
@@ -220,60 +274,6 @@ namespace TzalemTmuna.Forms
             this.profilePicture.TabStop = false;
             this.profilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.BackgroundImage = global::TzalemTmuna.Properties.Resources.darkSend;
-            this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSubmit.Location = new System.Drawing.Point(233, 3);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(50, 96);
-            this.btnSubmit.TabIndex = 8;
-            this.btnSubmit.UseSelectable = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // pbOption
-            // 
-            this.pbOption.BackColor = System.Drawing.Color.Transparent;
-            this.pbOption.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbOption.Image = global::TzalemTmuna.Properties.Resources.darkFlag;
-            this.pbOption.Location = new System.Drawing.Point(13, 3);
-            this.pbOption.Name = "pbOption";
-            this.pbOption.Padding = new System.Windows.Forms.Padding(3);
-            this.pbOption.Size = new System.Drawing.Size(24, 24);
-            this.pbOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbOption.TabIndex = 39;
-            this.pbOption.TabStop = false;
-            // 
-            // pbComment
-            // 
-            this.pbComment.BackColor = System.Drawing.Color.Transparent;
-            this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.darkComment;
-            this.pbComment.Location = new System.Drawing.Point(43, 3);
-            this.pbComment.Name = "pbComment";
-            this.pbComment.Padding = new System.Windows.Forms.Padding(3);
-            this.pbComment.Size = new System.Drawing.Size(24, 24);
-            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbComment.TabIndex = 38;
-            this.pbComment.TabStop = false;
-            this.pbComment.Click += new System.EventHandler(this.pbComment_Click);
-            // 
-            // pbLike
-            // 
-            this.pbLike.BackColor = System.Drawing.Color.Transparent;
-            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
-            this.pbLike.Location = new System.Drawing.Point(73, 3);
-            this.pbLike.Name = "pbLike";
-            this.pbLike.Padding = new System.Windows.Forms.Padding(3);
-            this.pbLike.Size = new System.Drawing.Size(24, 24);
-            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLike.TabIndex = 37;
-            this.pbLike.TabStop = false;
-            this.pbLike.Click += new System.EventHandler(this.Like);
-            // 
             // pbPhoto
             // 
             this.pbPhoto.Location = new System.Drawing.Point(0, 0);
@@ -306,10 +306,10 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

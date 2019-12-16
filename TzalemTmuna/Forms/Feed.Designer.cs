@@ -41,6 +41,7 @@ namespace TzalemTmuna.Forms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSearch = new MetroFramework.Controls.MetroButton();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
+            this.btnSettings = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,11 +79,12 @@ namespace TzalemTmuna.Forms
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.lblNotifications);
-            this.panel1.Controls.Add(this.btnProfile);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.lblNotifications);
+            this.panel1.Controls.Add(this.btnProfile);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(897, 75);
@@ -93,7 +95,7 @@ namespace TzalemTmuna.Forms
             this.lblNotifications.AutoSize = true;
             this.lblNotifications.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblNotifications.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblNotifications.Location = new System.Drawing.Point(878, 17);
+            this.lblNotifications.Location = new System.Drawing.Point(785, 17);
             this.lblNotifications.Name = "lblNotifications";
             this.lblNotifications.Size = new System.Drawing.Size(21, 25);
             this.lblNotifications.TabIndex = 3;
@@ -103,12 +105,13 @@ namespace TzalemTmuna.Forms
             // 
             // btnProfile
             // 
+            this.btnProfile.AccessibleName = "Profile";
             this.btnProfile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProfile.BackgroundImage")));
             this.btnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProfile.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnProfile.Location = new System.Drawing.Point(714, 22);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(180, 45);
+            this.btnProfile.Size = new System.Drawing.Size(87, 45);
             this.btnProfile.TabIndex = 2;
             this.btnProfile.UseSelectable = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
@@ -172,6 +175,17 @@ namespace TzalemTmuna.Forms
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.BackgroundImage = global::TzalemTmuna.Properties.Resources.darkSettings;
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSettings.Location = new System.Drawing.Point(807, 22);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(87, 45);
+            this.btnSettings.TabIndex = 13;
+            this.btnSettings.UseSelectable = true;
+            // 
             // Feed
             // 
             this.AcceptButton = this.btnSearch;
@@ -200,5 +214,6 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroButton btnSearch;
         private MetroFramework.Controls.MetroButton btnProfile;
         private MetroFramework.Controls.MetroLabel lblNotifications;
+        private MetroFramework.Controls.MetroButton btnSettings;
     }
 }
