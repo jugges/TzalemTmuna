@@ -36,6 +36,8 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.txtText = new MetroFramework.Controls.MetroTextBox();
+            this.btnEdit = new MetroFramework.Controls.MetroLabel();
             this.cmOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -100,13 +102,14 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -122,14 +125,73 @@
             this.ProfilePicture.TabStop = false;
             this.ProfilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
+            // txtText
+            // 
+            // 
+            // 
+            // 
+            this.txtText.CustomButton.Image = null;
+            this.txtText.CustomButton.Location = new System.Drawing.Point(81, 1);
+            this.txtText.CustomButton.Name = "";
+            this.txtText.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtText.CustomButton.TabIndex = 1;
+            this.txtText.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtText.CustomButton.UseSelectable = true;
+            this.txtText.CustomButton.Visible = false;
+            this.txtText.Lines = new string[] {
+        "Text"};
+            this.txtText.Location = new System.Drawing.Point(48, 23);
+            this.txtText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.txtText.MaxLength = 32767;
+            this.txtText.Multiline = true;
+            this.txtText.Name = "txtText";
+            this.txtText.PasswordChar = '\0';
+            this.txtText.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtText.SelectedText = "";
+            this.txtText.SelectionLength = 0;
+            this.txtText.SelectionStart = 0;
+            this.txtText.ShortcutsEnabled = true;
+            this.txtText.Size = new System.Drawing.Size(36, 23);
+            this.txtText.TabIndex = 34;
+            this.txtText.Text = "Text";
+            this.txtText.UseSelectable = true;
+            this.txtText.Visible = false;
+            this.txtText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEdit.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.btnEdit.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnEdit.Location = new System.Drawing.Point(199, 0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(43, 48);
+            this.btnEdit.TabIndex = 35;
+            this.btnEdit.Text = "✅";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.UseCustomBackColor = true;
+            this.btnEdit.UseCustomForeColor = true;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // CommentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.lblText);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.ProfilePicture);
+            this.Controls.Add(this.txtText);
+            this.Controls.Add(this.lblText);
+            this.MinimumSize = new System.Drawing.Size(290, 48);
             this.Name = "CommentControl";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.Size = new System.Drawing.Size(290, 48);
@@ -150,5 +212,7 @@
         private MetroFramework.Controls.MetroContextMenu cmOptions;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private MetroFramework.Controls.MetroTextBox txtText;
+        private MetroFramework.Controls.MetroLabel btnEdit;
     }
 }

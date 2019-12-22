@@ -209,10 +209,12 @@ namespace TzalemTmuna.Forms
             }
         }
 
-        public void OpenProfile()
+        public void OpenProfileAfterRegister()
         {
+            LoggedInUser.feed.ResetMe();
             LoggedInUser.profile = new Profile();
             LoggedInUser.profile.Show();
+            LoggedInUser.profile.FormClosing += (s, args) => LoggedInUser.feed.Show();
         }
 
         private void ProfilePicture_MouseLeave(object sender, EventArgs e)

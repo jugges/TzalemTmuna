@@ -11,7 +11,7 @@ namespace TzalemTmuna.DB
 {
     public class ReportDB : GeneralDB
     {
-        public ReportDB(): base("reports", "report_id") { }
+        public ReportDB() : base("reports", "report_id") { }
 
         public List<Report> GetReports(int post_id)
         {
@@ -47,41 +47,26 @@ namespace TzalemTmuna.DB
             return reports;
         }
 
-        public void RemoveComments(int post_id)
+        public void RemoveReport(int report_id)
         {
             foreach (DataRow dr in table.Rows)
             {
-                if (dr["post_id"].Equals(post_id))
+                if (dr[primaryKey].Equals(report_id))
                 {
                     DeleteRow(dr);
+                    break;
                 }
             }
             Save();
         }
-        public void RemoveComment(int comment_id)
+        public void CloseReport(int report_id)
         {
+            //A closed report means it was dealt with by an admin
             foreach (DataRow dr in table.Rows)
             {
-                if (dr[primaryKey].Equals(comment_id))
+                if (dr[primaryKey].Equals(report_id))
                 {
-                        DeleteRow(dr);
-                        break;
-                }
-            }
-            Save();
-        }
-        public void AddComment(string comment_text, int post_id)
-        {
-            table.Rows.Add(null,post_id,comment_text,LoggedInUser.login.Username);
-            Save();
-        }
-        public void EditComment(string comment_text, int comment_id)
-        {
-            foreach (DataRow dr in table.Rows)
-            {
-                if (dr[primaryKey].Equals(comment_id))
-                {
-                    dr["comment_text"] = comment_text;
+                    dr["closing_date"] = DateTime.Now;
                     break;
                 }
             }

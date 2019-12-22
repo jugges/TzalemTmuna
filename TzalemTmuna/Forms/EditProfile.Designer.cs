@@ -331,7 +331,7 @@ namespace TzalemTmuna.Forms
             this.ProfilePicture.Location = new System.Drawing.Point(202, 42);
             this.ProfilePicture.Name = "ProfilePicture";
             this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 14;
             this.ProfilePicture.TabStop = false;
             this.ProfilePicture.Click += new System.EventHandler(this.ProfilePicture_Click);

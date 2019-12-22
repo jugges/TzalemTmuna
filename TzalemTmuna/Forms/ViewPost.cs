@@ -49,13 +49,13 @@ namespace TzalemTmuna.Forms
             if (propertyOfLogin)
             {
                 //Delete
-                pbOption.Click += new System.EventHandler(DeletePost);
+                pbOption.Click += new EventHandler(DeletePost);
                 pbOption.Image = Properties.Resources.darkDelete;
             }
             else
             {
                 //Report
-                pbOption.Click += new System.EventHandler(ReportPost);
+                pbOption.Click += new EventHandler(ReportPost);
             }
 
             likeDB = new LikeDB();

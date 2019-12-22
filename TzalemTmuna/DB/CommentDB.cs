@@ -51,11 +51,12 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
-        public void AddComment(string comment_text, int post_id)
-        {
-            table.Rows.Add(null,post_id,comment_text,LoggedInUser.login.Username);
-            Save();
-        }
+        //DELETED: USING SQL QUERY WORKS BEST FOR AUTO FIELDS, REFER TO btnSubmit_Click() IN ViewPost.cs
+        //public void AddComment(string comment_text, int post_id)
+        //{
+        //    table.Rows.Add(null,post_id,comment_text,LoggedInUser.login.Username);
+        //    Save();
+        //}
         public void EditComment(string comment_text, int comment_id)
         {
             foreach (DataRow dr in table.Rows)

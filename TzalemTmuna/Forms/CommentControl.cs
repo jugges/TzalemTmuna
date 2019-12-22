@@ -43,11 +43,6 @@ namespace TzalemTmuna.Forms
                 Controls.Remove(btnMenu);
                 btnMenu.Dispose();
             }
-            int resize = lblText.Size.Height + 10 - (Size.Height - lblText.Location.Y);
-            if (resize > 0)
-            {
-                Size = new Size(Size.Width, Size.Height+ resize);
-            }
         }
 
         public void ToggleMenu()
@@ -70,8 +65,11 @@ namespace TzalemTmuna.Forms
 
         private void CommentControl_ParentChanged(object sender, EventArgs e)
         {
-            if(Parent != null)
+            if (Parent != null)
+            {
+                MinimumSize = new Size(Parent.Width, MinimumSize.Height);
                 Width = Parent.Width;
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -89,5 +87,51 @@ namespace TzalemTmuna.Forms
                 Dispose();
             }
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Show textbox
+            txtText.Text = comment.Comment_text;
+            //8 is the difference between default textbox and label sizee, makes the text clear and not cropped
+            txtText.Size = new Size(lblText.Width+8, lblText.Height+8);
+            txtText.Show();
+            //Show confirm edit button
+            btnEdit.Show();
+            //Disable options menu
+            btnMenu.Enabled = false;
+            //Hide text label
+            lblText.Hide();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //If new text is only whitespace or empty -> delete comment
+            if (System.Text.RegularExpressions.Regex.Replace(txtText.Text, @"\s+", "")==string.Empty)
+            {
+                removeToolStripMenuItem_Click(sender, e);
+            }
+            //If text is new -> update comment
+            else if (txtText.Text != comment.Comment_text)
+            {
+                new CommentDB().EditComment(txtText.Text, comment.Comment_id);
+                comment.Comment_text = txtText.Text;
+                lblText.Text = txtText.Text;
+            }
+            //If text is not changed or after change
+            btnMenu.Enabled = true;
+            txtText.Hide();
+            btnEdit.Hide();
+            lblText.Show();
+        }
+
+        //DELETED: Now using autoSize with minSize
+        //private void lblText_TextChanged(object sender, EventArgs e)
+        //{
+        //    int resize = lblText.Size.Height + lblText.Location.Y /**+ 10**/ - Size.Height;
+        //    if (resize > 0)
+        //    {
+        //        Size = new Size(Size.Width, Size.Height + resize);
+        //    }
+        //}
     }
 }

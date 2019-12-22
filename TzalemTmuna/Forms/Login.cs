@@ -84,7 +84,8 @@ namespace TzalemTmuna.Forms
             //    nirgolan4,gayboy
             //    udirubin8,uduman
             //    dvir_derbi,12345dvir
-            //    
+            //    yakubovkarina2002@gmail.com,kiki2002
+            //    eden_kaushansky_34,eden212616692
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
