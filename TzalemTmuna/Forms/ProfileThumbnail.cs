@@ -16,9 +16,23 @@ namespace TzalemTmuna.Forms
     {
         Image pic;
         Post post;
+        private void HandleTheme()
+        {
+            if (Statics.Theme.MetroThemeStyle == MetroFramework.MetroThemeStyle.Dark)
+            {
+                pbComment.Image = Properties.Dark.comment;
+                pbLike.Image = Properties.Dark.like;
+            }
+            else
+            {
+                pbComment.Image = Properties.Light.comment;
+                pbLike.Image = Properties.Light.like;
+            }
+        }
         public ProfileThumbnail(Post post)
         {
             InitializeComponent();
+            HandleTheme();
             this.post = post;
             pic = FileTools.getPost(post.Owner.Username,post.Post_number);
             pb.Image = pic;

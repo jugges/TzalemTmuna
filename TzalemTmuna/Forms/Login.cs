@@ -81,6 +81,7 @@ namespace TzalemTmuna.Forms
 
         private void Login_Shown(object sender, EventArgs e)
         {
+            Statics.LoggedInUser.feed.Hide();
             //    nirgolan4,gayboy
             //    udirubin8,uduman
             //    dvir_derbi,12345dvir

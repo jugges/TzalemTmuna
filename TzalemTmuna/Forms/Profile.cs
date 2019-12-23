@@ -24,6 +24,18 @@ namespace TzalemTmuna.Forms
         public User user;
         private bool needsRefresh=false;
 
+        private void HandleTheme()
+        {
+            if (Theme == MetroFramework.MetroThemeStyle.Dark)
+            {
+                btnUpload.Image = Properties.Dark.upload;
+            }
+            else
+            {
+                btnUpload.Image = Properties.Light.upload;
+            }
+        }
+
         //login's profile
         public Profile()
         {
@@ -33,6 +45,7 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            HandleTheme();
             isMainProfile = true;
             ProfilePicture.BackColor = BackColor;
             ProfilePicture.Image = FileTools.getProfilePicture(LoggedInUser.login.Username);
@@ -305,7 +318,6 @@ namespace TzalemTmuna.Forms
             Properties.Settings.Default.Save();
             LoggedInUser.loginPage = new Login();
             LoggedInUser.loginPage.Show();
-            LoggedInUser.feed.Hide();
             redirectAfterClose = false;
             Close();
         }

@@ -22,6 +22,7 @@ namespace TzalemTmuna.Entities
         private List<User> following;
         private List<User> followers;
         private List<Post> posts;
+        private List<Report> reports;
 
         public string Username
         {
@@ -136,6 +137,22 @@ namespace TzalemTmuna.Entities
                 }
             }
         }
+
+        public List<Report> Reports
+        {
+            get
+            {
+                if (reports != null)
+                    return reports;
+                else
+                {
+                    var rdb = new ReportDB();
+                    reports = rdb.GetReports(username);
+                    return reports;
+                }
+            }
+        }
+
         public User(DataRow dr)
         {
             username = dr["username"].ToString();

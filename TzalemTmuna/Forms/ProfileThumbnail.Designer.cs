@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileThumbnail));
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.pb = new System.Windows.Forms.PictureBox();
@@ -42,7 +41,6 @@
             // pbComment
             // 
             this.pbComment.BackColor = System.Drawing.Color.Transparent;
-            this.pbComment.Image = ((System.Drawing.Image)(resources.GetObject("pbComment.Image")));
             this.pbComment.Location = new System.Drawing.Point(124, 107);
             this.pbComment.Name = "pbComment";
             this.pbComment.Size = new System.Drawing.Size(24, 24);
@@ -54,7 +52,6 @@
             // pbLike
             // 
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
             this.pbLike.Location = new System.Drawing.Point(59, 107);
             this.pbLike.Name = "pbLike";
             this.pbLike.Size = new System.Drawing.Size(24, 24);

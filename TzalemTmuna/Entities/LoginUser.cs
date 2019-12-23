@@ -26,6 +26,7 @@ namespace TzalemTmuna.Entities
         private List<User> receivedRequests;
         private List<User> sentRequests;
         private List<Post> posts;
+        private List<Report> reports;
 
         public string Username
         {
@@ -191,6 +192,21 @@ namespace TzalemTmuna.Entities
                     var pdb = new PostDB();
                     posts = pdb.GetPosts(username);
                     return posts;
+                }
+            }
+        }
+
+        public List<Report> Reports
+        {
+            get
+            {
+                if (reports != null)
+                    return reports;
+                else
+                {
+                    var rdb = new ReportDB();
+                    reports = rdb.GetReports(username);
+                    return reports;
                 }
             }
         }

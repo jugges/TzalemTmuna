@@ -29,7 +29,6 @@ namespace TzalemTmuna.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewPost));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSubmit = new MetroFramework.Controls.MetroButton();
@@ -91,7 +90,6 @@ namespace TzalemTmuna.Forms
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackgroundImage = global::TzalemTmuna.Properties.Resources.darkSend;
             this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -167,7 +165,6 @@ namespace TzalemTmuna.Forms
             // 
             this.pbOption.BackColor = System.Drawing.Color.Transparent;
             this.pbOption.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbOption.Image = global::TzalemTmuna.Properties.Resources.darkFlag;
             this.pbOption.Location = new System.Drawing.Point(13, 3);
             this.pbOption.Name = "pbOption";
             this.pbOption.Padding = new System.Windows.Forms.Padding(3);
@@ -180,7 +177,6 @@ namespace TzalemTmuna.Forms
             // 
             this.pbComment.BackColor = System.Drawing.Color.Transparent;
             this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.darkComment;
             this.pbComment.Location = new System.Drawing.Point(43, 3);
             this.pbComment.Name = "pbComment";
             this.pbComment.Padding = new System.Windows.Forms.Padding(3);
@@ -194,7 +190,6 @@ namespace TzalemTmuna.Forms
             // 
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
             this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
             this.pbLike.Location = new System.Drawing.Point(73, 3);
             this.pbLike.Name = "pbLike";
             this.pbLike.Padding = new System.Windows.Forms.Padding(3);
@@ -265,7 +260,7 @@ namespace TzalemTmuna.Forms
             // profilePicture
             // 
             this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
+            this.profilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
             this.profilePicture.Location = new System.Drawing.Point(656, 25);
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.Size = new System.Drawing.Size(48, 48);

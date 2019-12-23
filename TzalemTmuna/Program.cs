@@ -21,8 +21,10 @@ namespace TzalemTmuna
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Theme
-
-            Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Dark;
+            if(Properties.Settings.Default.darkMode)
+                Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Dark;
+            else
+                Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Light;
 
             //Check Auto Login
 
@@ -54,7 +56,6 @@ namespace TzalemTmuna
         {
             Statics.LoggedInUser.loginPage = new Login();
             Statics.LoggedInUser.feed = new Feed();
-            Statics.LoggedInUser.feed.Hide();
             Statics.LoggedInUser.loginPage.Show();
             Application.Run(Statics.LoggedInUser.feed);
         }

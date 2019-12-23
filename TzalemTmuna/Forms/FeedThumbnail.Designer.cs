@@ -224,7 +224,6 @@
             this.pbComment.BackColor = System.Drawing.Color.Transparent;
             this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbComment.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbComment.Image = global::TzalemTmuna.Properties.Resources.darkComment;
             this.pbComment.Location = new System.Drawing.Point(34, 0);
             this.pbComment.Name = "pbComment";
             this.pbComment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -239,7 +238,6 @@
             this.pbLike.BackColor = System.Drawing.Color.Transparent;
             this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLike.Image = global::TzalemTmuna.Properties.Resources.darkLike;
             this.pbLike.Location = new System.Drawing.Point(10, 0);
             this.pbLike.Name = "pbLike";
             this.pbLike.Size = new System.Drawing.Size(24, 24);

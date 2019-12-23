@@ -24,31 +24,24 @@ namespace TzalemTmuna.Forms
         public Feed()
         {
             InitializeComponent();
-            //StyleManager = new MetroFramework.Components.MetroStyleManager
-            //{
-            //    Owner = this,
-            //    Theme = Statics.Theme.MetroThemeStyle
-            //};
-            //udb = new UserDB();
-            //var usernameList = udb.GetUsernameList();
-            //txtSearch.AutoCompleteCustomSource.AddRange(usernameList);
-
-            //foreach (Post post in LoggedInUser.login.Posts)
-            //{
-            //    FeedThumbnail thumbnail = new FeedThumbnail(post);
-            //    thumbnail.Anchor = AnchorStyles.None;
-            //    flowLayoutPanel1.Controls.Add(thumbnail);
-            //}
-
-            //if (LoggedInUser.login.ReceivedRequests.Count == 0)
-            //{
-            //    Controls.Remove(lblNotifications);
-            //    lblNotifications.Dispose();
-            //}
-            //else
-            //    lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
-
         }
+
+        private void HandleTheme()
+        {
+            if(Theme==MetroFramework.MetroThemeStyle.Dark)
+            {
+                btnSearch.BackgroundImage = Properties.Dark.search;
+                btnProfile.BackgroundImage = Properties.Dark.profile;
+                btnSettings.BackgroundImage = Properties.Dark.settings;
+            }
+            else
+            {
+                btnSearch.BackgroundImage = Properties.Light.search;
+                btnProfile.BackgroundImage = Properties.Light.profile;
+                btnSettings.BackgroundImage = Properties.Light.settings;
+            }
+        }
+
         public void ResetMe()
         {
             Refresh();
@@ -57,6 +50,7 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            HandleTheme();
             udb = new UserDB();
             var usernameList = udb.GetUsernameList();
             txtSearch.AutoCompleteCustomSource.AddRange(usernameList);
@@ -151,6 +145,11 @@ namespace TzalemTmuna.Forms
         {
             new Followers(2).ShowDialog();
             RefreshFeed();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            new Settings().ShowDialog();
         }
     }
 }

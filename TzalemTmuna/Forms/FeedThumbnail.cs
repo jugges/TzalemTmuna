@@ -20,7 +20,19 @@ namespace TzalemTmuna.Forms
         Comment lastComment;
         bool liked;
         LikeDB likeDB;
-
+        private void HandleTheme()
+        {
+            if (Theme == MetroFramework.MetroThemeStyle.Dark)
+            {
+                pbComment.Image = Properties.Dark.comment;
+                pbLike.Image = Properties.Dark.like;
+            }
+            else
+            {
+                pbComment.Image = Properties.Light.comment;
+                pbLike.Image = Properties.Light.like;
+            }
+        }
         public FeedThumbnail(Post post)
         {
             InitializeComponent();
@@ -29,6 +41,7 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            HandleTheme();
             likeDB = new LikeDB();
             this.post = post;
             lblUsername.Text = post.Owner.Username;
@@ -40,7 +53,14 @@ namespace TzalemTmuna.Forms
                 if (x.Username == LoggedInUser.login.Username)
                 {
                     liked = true;
-                    pbLike.Image = Properties.Resources.darkLikeFilled;
+                    if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                    {
+                        pbLike.Image = Properties.Dark.likeFilled;
+                    }
+                    else
+                    {
+                        pbLike.Image = Properties.Light.likeFilled;
+                    }
                     break;
                 }
             }
@@ -78,13 +98,27 @@ namespace TzalemTmuna.Forms
         {
             if (liked)
             {
-                pbLike.Image = Properties.Resources.darkLike;
+                if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                {
+                    pbLike.Image = Properties.Dark.like;
+                }
+                else
+                {
+                    pbLike.Image = Properties.Light.like;
+                }
                 likeDB.Unlike(post);
                 liked = false;
             }
             else
             {
-                pbLike.Image = Properties.Resources.darkLikeFilled;
+                if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                {
+                    pbLike.Image = Properties.Dark.likeFilled;
+                }
+                else
+                {
+                    pbLike.Image = Properties.Light.likeFilled;
+                }
                 likeDB.Like(post);
                 liked = true;
             }

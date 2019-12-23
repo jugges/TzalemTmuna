@@ -36,6 +36,23 @@ namespace TzalemTmuna.Forms
 
             base.OnClosing(e);
         }
+        private void HandleTheme()
+        {
+            if (Theme == MetroFramework.MetroThemeStyle.Dark)
+            {
+                btnSubmit.BackgroundImage = Properties.Dark.send;
+                pbComment.Image = Properties.Dark.comment;
+                pbLike.Image = Properties.Dark.like;
+                pbOption.Image = Properties.Dark.flag;
+            }
+            else
+            {
+                btnSubmit.BackgroundImage = Properties.Light.send;
+                pbComment.Image = Properties.Light.comment;
+                pbLike.Image = Properties.Light.like;
+                pbOption.Image = Properties.Light.flag;
+            }
+        }
         public ViewPost(Post post)
         {
             InitializeComponent();
@@ -44,13 +61,21 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            HandleTheme();
             //Check if login's post
             propertyOfLogin = post.Owner.Username == LoggedInUser.login.Username;
             if (propertyOfLogin)
             {
                 //Delete
                 pbOption.Click += new EventHandler(DeletePost);
-                pbOption.Image = Properties.Resources.darkDelete;
+                if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                {
+                    pbOption.Image = Properties.Dark.delete;
+                }
+                else
+                {
+                    pbOption.Image = Properties.Light.delete;
+                }
             }
             else
             {
@@ -79,7 +104,14 @@ namespace TzalemTmuna.Forms
                 if (x.Username == LoggedInUser.login.Username)
                 {
                     liked = true;
-                    pbLike.Image = Properties.Resources.darkLikeFilled;
+                    if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                    {
+                        pbLike.Image = Properties.Dark.likeFilled;
+                    }
+                    else
+                    {
+                        pbLike.Image = Properties.Light.likeFilled;
+                    }
                     break;
                 }
             }
@@ -168,13 +200,27 @@ namespace TzalemTmuna.Forms
         {
             if (liked)
             {
-                pbLike.Image = Properties.Resources.darkLike;
+                if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                {
+                    pbLike.Image = Properties.Dark.like;
+                }
+                else
+                {
+                    pbLike.Image = Properties.Light.like;
+                }
                 likeDB.Unlike(post);
                 liked = false;
             }
             else
             {
-                pbLike.Image = Properties.Resources.darkLikeFilled;
+                if (Theme == MetroFramework.MetroThemeStyle.Dark)
+                {
+                    pbLike.Image = Properties.Dark.likeFilled;
+                }
+                else
+                {
+                    pbLike.Image = Properties.Light.likeFilled;
+                }
                 likeDB.Like(post);
                 liked = true;
             }

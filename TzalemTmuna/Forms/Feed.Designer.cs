@@ -32,19 +32,18 @@ namespace TzalemTmuna.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Feed));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblNotifications = new MetroFramework.Controls.MetroLabel();
-            this.btnProfile = new MetroFramework.Controls.MetroButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnSearch = new MetroFramework.Controls.MetroButton();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.btnSettings = new MetroFramework.Controls.MetroButton();
+            this.lblNotifications = new MetroFramework.Controls.MetroLabel();
+            this.btnProfile = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,7 +78,7 @@ namespace TzalemTmuna.Forms
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbLogo);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSettings);
@@ -90,52 +89,24 @@ namespace TzalemTmuna.Forms
             this.panel1.Size = new System.Drawing.Size(897, 75);
             this.panel1.TabIndex = 6;
             // 
-            // lblNotifications
+            // pbLogo
             // 
-            this.lblNotifications.AutoSize = true;
-            this.lblNotifications.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblNotifications.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblNotifications.Location = new System.Drawing.Point(785, 17);
-            this.lblNotifications.Name = "lblNotifications";
-            this.lblNotifications.Size = new System.Drawing.Size(21, 25);
-            this.lblNotifications.TabIndex = 3;
-            this.lblNotifications.Text = "2";
-            this.lblNotifications.UseStyleColors = true;
-            this.lblNotifications.Click += new System.EventHandler(this.lblNotifications_Click);
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.AccessibleName = "Profile";
-            this.btnProfile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProfile.BackgroundImage")));
-            this.btnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProfile.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnProfile.Location = new System.Drawing.Point(714, 22);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(87, 45);
-            this.btnProfile.TabIndex = 2;
-            this.btnProfile.UseSelectable = true;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.pbLogo.Image = global::TzalemTmuna.Properties.Resources.tzalemtmuna;
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(186, 75);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 12;
+            this.pbLogo.TabStop = false;
             // 
             // btnSearch
             // 
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSearch.Location = new System.Drawing.Point(644, 22);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(64, 45);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.UseCustomBackColor = true;
             this.btnSearch.UseSelectable = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -177,7 +148,6 @@ namespace TzalemTmuna.Forms
             // 
             // btnSettings
             // 
-            this.btnSettings.BackgroundImage = global::TzalemTmuna.Properties.Resources.darkSettings;
             this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSettings.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSettings.Location = new System.Drawing.Point(807, 22);
@@ -185,6 +155,32 @@ namespace TzalemTmuna.Forms
             this.btnSettings.Size = new System.Drawing.Size(87, 45);
             this.btnSettings.TabIndex = 13;
             this.btnSettings.UseSelectable = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // lblNotifications
+            // 
+            this.lblNotifications.AutoSize = true;
+            this.lblNotifications.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblNotifications.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblNotifications.Location = new System.Drawing.Point(785, 17);
+            this.lblNotifications.Name = "lblNotifications";
+            this.lblNotifications.Size = new System.Drawing.Size(21, 25);
+            this.lblNotifications.TabIndex = 3;
+            this.lblNotifications.Text = "2";
+            this.lblNotifications.UseStyleColors = true;
+            this.lblNotifications.Click += new System.EventHandler(this.lblNotifications_Click);
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.AccessibleName = "Profile";
+            this.btnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProfile.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnProfile.Location = new System.Drawing.Point(714, 22);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(87, 45);
+            this.btnProfile.TabIndex = 2;
+            this.btnProfile.UseSelectable = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // Feed
             // 
@@ -200,7 +196,7 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,7 +205,7 @@ namespace TzalemTmuna.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroTextBox txtSearch;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MetroFramework.Controls.MetroButton btnSearch;
         private MetroFramework.Controls.MetroButton btnProfile;
