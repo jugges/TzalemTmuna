@@ -63,9 +63,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap comment {
+        internal static System.Drawing.Bitmap lightAdmin {
             get {
-                object obj = ResourceManager.GetObject("comment", resourceCulture);
+                object obj = ResourceManager.GetObject("lightAdmin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete {
+        internal static System.Drawing.Bitmap lightComment {
             get {
-                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                object obj = ResourceManager.GetObject("lightComment", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap flag {
+        internal static System.Drawing.Bitmap lightDelete {
             get {
-                object obj = ResourceManager.GetObject("flag", resourceCulture);
+                object obj = ResourceManager.GetObject("lightDelete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap like {
+        internal static System.Drawing.Bitmap lightFlag {
             get {
-                object obj = ResourceManager.GetObject("like", resourceCulture);
+                object obj = ResourceManager.GetObject("lightFlag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap likeFilled {
+        internal static System.Drawing.Bitmap lightLike {
             get {
-                object obj = ResourceManager.GetObject("likeFilled", resourceCulture);
+                object obj = ResourceManager.GetObject("lightLike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap profile {
+        internal static System.Drawing.Bitmap lightLikeFilled {
             get {
-                object obj = ResourceManager.GetObject("profile", resourceCulture);
+                object obj = ResourceManager.GetObject("lightLikeFilled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap search {
+        internal static System.Drawing.Bitmap lightProfile {
             get {
-                object obj = ResourceManager.GetObject("search", resourceCulture);
+                object obj = ResourceManager.GetObject("lightProfile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap send {
+        internal static System.Drawing.Bitmap lightSearch {
             get {
-                object obj = ResourceManager.GetObject("send", resourceCulture);
+                object obj = ResourceManager.GetObject("lightSearch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap settings {
+        internal static System.Drawing.Bitmap lightSend {
             get {
-                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                object obj = ResourceManager.GetObject("lightSend", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,19 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap upload {
+        internal static System.Drawing.Bitmap lightSettings {
             get {
-                object obj = ResourceManager.GetObject("upload", resourceCulture);
+                object obj = ResourceManager.GetObject("lightSettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightUpload {
+            get {
+                object obj = ResourceManager.GetObject("lightUpload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

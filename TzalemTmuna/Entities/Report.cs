@@ -66,12 +66,12 @@ namespace TzalemTmuna.Entities
             if (dr["closing_date"].ToString() != string.Empty)
                 closing_date = (DateTime)dr["closing_date"];
         }
-        public Report(int report_id, string report_text, User owner, DateTime creation_date, int post_id)
+        public Report(int report_id, string report_text, User owner, int post_id)
         {
             this.report_id = report_id;
             this.post_id = post_id;
             Report_text = report_text;
-            this.creation_date = creation_date;
+            creation_date = DateTime.Now;
             this.owner = owner;
         }
         public void Populate(DataRow dr)

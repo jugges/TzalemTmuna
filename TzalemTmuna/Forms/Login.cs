@@ -33,7 +33,7 @@ namespace TzalemTmuna.Forms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (ValidateTools.IsEmail(txtUsername.Text))
+            if (TextTools.IsEmail(txtUsername.Text))
             {
                 var edb = new EmailDB();
                 if (edb.Find(txtUsername.Text))
@@ -43,7 +43,7 @@ namespace TzalemTmuna.Forms
                 else
                     LoginError();
             }
-            else if (ValidateTools.IsUsername(txtUsername.Text))
+            else if (TextTools.IsUsername(txtUsername.Text))
             {
                 var udb = new UserDB();
                 if (udb.Find(txtUsername.Text))

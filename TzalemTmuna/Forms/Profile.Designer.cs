@@ -49,16 +49,18 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUpload = new System.Windows.Forms.PictureBox();
             this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.btnUpload = new System.Windows.Forms.PictureBox();
+            this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -248,6 +250,7 @@ namespace TzalemTmuna.Forms
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.pbAdmin);
             this.flowLayoutPanel1.Controls.Add(this.lblUsername);
             this.flowLayoutPanel1.Controls.Add(this.btnOption);
             this.flowLayoutPanel1.Controls.Add(this.btnFollowRequests);
@@ -267,9 +270,9 @@ namespace TzalemTmuna.Forms
             this.lblUsername.Enabled = false;
             this.lblUsername.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.lblUsername.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblUsername.Location = new System.Drawing.Point(3, 0);
+            this.lblUsername.Location = new System.Drawing.Point(30, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(125, 36);
+            this.lblUsername.Size = new System.Drawing.Size(125, 37);
             this.lblUsername.TabIndex = 24;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -280,9 +283,9 @@ namespace TzalemTmuna.Forms
             this.btnOption.AutoSize = true;
             this.btnOption.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnOption.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOption.Location = new System.Drawing.Point(134, 3);
+            this.btnOption.Location = new System.Drawing.Point(161, 3);
             this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(67, 30);
+            this.btnOption.Size = new System.Drawing.Size(67, 31);
             this.btnOption.TabIndex = 25;
             this.btnOption.TabStop = false;
             this.btnOption.Text = "Edit Profile";
@@ -294,9 +297,9 @@ namespace TzalemTmuna.Forms
             this.btnFollowRequests.AutoSize = true;
             this.btnFollowRequests.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnFollowRequests.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFollowRequests.Location = new System.Drawing.Point(207, 3);
+            this.btnFollowRequests.Location = new System.Drawing.Point(234, 3);
             this.btnFollowRequests.Name = "btnFollowRequests";
-            this.btnFollowRequests.Size = new System.Drawing.Size(95, 30);
+            this.btnFollowRequests.Size = new System.Drawing.Size(95, 31);
             this.btnFollowRequests.TabIndex = 26;
             this.btnFollowRequests.TabStop = false;
             this.btnFollowRequests.Text = "Follow Requests";
@@ -308,9 +311,9 @@ namespace TzalemTmuna.Forms
             this.btnLogout.AutoSize = true;
             this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLogout.Location = new System.Drawing.Point(308, 3);
+            this.btnLogout.Location = new System.Drawing.Point(335, 3);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(50, 30);
+            this.btnLogout.Size = new System.Drawing.Size(50, 31);
             this.btnLogout.TabIndex = 27;
             this.btnLogout.TabStop = false;
             this.btnLogout.Text = "Logout";
@@ -351,6 +354,17 @@ namespace TzalemTmuna.Forms
             this.panel1.Size = new System.Drawing.Size(789, 264);
             this.panel1.TabIndex = 18;
             // 
+            // ProfilePicture
+            // 
+            this.ProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
+            this.ProfilePicture.Location = new System.Drawing.Point(20, 6);
+            this.ProfilePicture.Name = "ProfilePicture";
+            this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProfilePicture.TabIndex = 14;
+            this.ProfilePicture.TabStop = false;
+            // 
             // btnUpload
             // 
             this.btnUpload.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -362,16 +376,19 @@ namespace TzalemTmuna.Forms
             this.btnUpload.TabStop = false;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
-            // ProfilePicture
+            // pbAdmin
             // 
-            this.ProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.ProfilePicture.Location = new System.Drawing.Point(20, 6);
-            this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(150, 150);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ProfilePicture.TabIndex = 14;
-            this.ProfilePicture.TabStop = false;
+            this.pbAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.pbAdmin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbAdmin.Location = new System.Drawing.Point(3, 10);
+            this.pbAdmin.Margin = new System.Windows.Forms.Padding(3, 10, 0, 3);
+            this.pbAdmin.Name = "pbAdmin";
+            this.pbAdmin.Padding = new System.Windows.Forms.Padding(3);
+            this.pbAdmin.Size = new System.Drawing.Size(24, 24);
+            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAdmin.TabIndex = 38;
+            this.pbAdmin.TabStop = false;
             // 
             // Profile
             // 
@@ -396,8 +413,9 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,5 +443,6 @@ namespace TzalemTmuna.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnUpload;
+        private System.Windows.Forms.PictureBox pbAdmin;
     }
 }

@@ -40,17 +40,17 @@ namespace TzalemTmuna.Forms
         {
             if (Theme == MetroFramework.MetroThemeStyle.Dark)
             {
-                btnSubmit.BackgroundImage = Properties.Dark.send;
-                pbComment.Image = Properties.Dark.comment;
-                pbLike.Image = Properties.Dark.like;
-                pbOption.Image = Properties.Dark.flag;
+                btnSubmit.BackgroundImage = Properties.Dark.darkSend;
+                pbComment.Image = Properties.Dark.darkComment;
+                pbLike.Image = Properties.Dark.darkLike;
+                pbOption.Image = Properties.Dark.darkFlag;
             }
             else
             {
-                btnSubmit.BackgroundImage = Properties.Light.send;
-                pbComment.Image = Properties.Light.comment;
-                pbLike.Image = Properties.Light.like;
-                pbOption.Image = Properties.Light.flag;
+                btnSubmit.BackgroundImage = Properties.Light.lightSend;
+                pbComment.Image = Properties.Light.lightComment;
+                pbLike.Image = Properties.Light.lightLike;
+                pbOption.Image = Properties.Light.lightFlag;
             }
         }
         public ViewPost(Post post)
@@ -70,11 +70,11 @@ namespace TzalemTmuna.Forms
                 pbOption.Click += new EventHandler(DeletePost);
                 if (Theme == MetroFramework.MetroThemeStyle.Dark)
                 {
-                    pbOption.Image = Properties.Dark.delete;
+                    pbOption.Image = Properties.Dark.darkDelete;
                 }
                 else
                 {
-                    pbOption.Image = Properties.Light.delete;
+                    pbOption.Image = Properties.Light.lightDelete;
                 }
             }
             else
@@ -106,11 +106,11 @@ namespace TzalemTmuna.Forms
                     liked = true;
                     if (Theme == MetroFramework.MetroThemeStyle.Dark)
                     {
-                        pbLike.Image = Properties.Dark.likeFilled;
+                        pbLike.Image = Properties.Dark.darkLikeFilled;
                     }
                     else
                     {
-                        pbLike.Image = Properties.Light.likeFilled;
+                        pbLike.Image = Properties.Light.lightLikeFilled;
                     }
                     break;
                 }
@@ -202,11 +202,11 @@ namespace TzalemTmuna.Forms
             {
                 if (Theme == MetroFramework.MetroThemeStyle.Dark)
                 {
-                    pbLike.Image = Properties.Dark.like;
+                    pbLike.Image = Properties.Dark.darkLike;
                 }
                 else
                 {
-                    pbLike.Image = Properties.Light.like;
+                    pbLike.Image = Properties.Light.lightLike;
                 }
                 likeDB.Unlike(post);
                 liked = false;
@@ -215,11 +215,11 @@ namespace TzalemTmuna.Forms
             {
                 if (Theme == MetroFramework.MetroThemeStyle.Dark)
                 {
-                    pbLike.Image = Properties.Dark.likeFilled;
+                    pbLike.Image = Properties.Dark.darkLikeFilled;
                 }
                 else
                 {
-                    pbLike.Image = Properties.Light.likeFilled;
+                    pbLike.Image = Properties.Light.lightLikeFilled;
                 }
                 likeDB.Like(post);
                 liked = true;
@@ -256,7 +256,7 @@ namespace TzalemTmuna.Forms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtCommentText.Text != string.Empty)
+            if (TextTools.StripWhitespace(txtCommentText.Text) != string.Empty)
             {
                 //Add Comment to Database
                 DAL.GetInstance().ExecuteNonQuery("INSERT INTO comments " +
@@ -293,7 +293,7 @@ namespace TzalemTmuna.Forms
 
         private void DeletePost(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Confirm deletion of post \"" + post.Post_text + "\"", "Delete Post", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Confirm deletion of post \"" + post.Post_text + "\"", "Delete Post", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 new PostDB().RemovePost(post.Post_id);
                 LoggedInUser.login.Posts.Remove(post);
@@ -305,7 +305,7 @@ namespace TzalemTmuna.Forms
 
         private void ReportPost(object sender, EventArgs e)
         {
-
+            new NewReport(post.Post_id).ShowDialog();
         }
     }
 
@@ -317,8 +317,9 @@ namespace TzalemTmuna.Forms
         //private const int WM_NCMOUSELEAVE = 0x02A2;
         //private const int WM_MOUSELEAVE = 0x02A3;
 
+        //Idea taken from:
         // http://netcode.ru/dotnet/?lang=&katID=30&skatID=283&artID=7862
-        //private MetroFramework.Forms.MetroForm formFader;
+        // └── private MetroFramework.Forms.MetroForm formFader;
         private List<CommentControl> controls;
 
         public MouseBounds(List<CommentControl> controls)

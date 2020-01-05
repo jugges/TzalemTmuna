@@ -33,17 +33,17 @@ namespace TzalemTmuna.Forms
         {
             //Lowercase username!
             txtUsername.Text = txtUsername.Text.ToLower();
-            if (ValidateTools.IsUsername(txtUsername.Text))
+            if (TextTools.IsUsername(txtUsername.Text))
             {
                 var udp = new UserDB();
                 if (!udp.Find(txtUsername.Text))
                 {
-                    if (ValidateTools.IsEmail(txtEmail.Text))
+                    if (TextTools.IsEmail(txtEmail.Text))
                     {
                         var edp = new EmailDB();
                         if (!edp.Find(txtEmail.Text))
                         {
-                            if (ValidateTools.IsPassword(txtPassword.Text))
+                            if (TextTools.IsPassword(txtPassword.Text))
                             {
                                 if (txtPassword.Text == txtPasswordValidate.Text)
                                 {

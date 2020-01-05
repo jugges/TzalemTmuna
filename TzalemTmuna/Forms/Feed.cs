@@ -30,15 +30,15 @@ namespace TzalemTmuna.Forms
         {
             if(Theme==MetroFramework.MetroThemeStyle.Dark)
             {
-                btnSearch.BackgroundImage = Properties.Dark.search;
-                btnProfile.BackgroundImage = Properties.Dark.profile;
-                btnSettings.BackgroundImage = Properties.Dark.settings;
+                btnSearch.BackgroundImage = Properties.Dark.darkSearch;
+                btnProfile.BackgroundImage = Properties.Dark.darkProfile;
+                btnSettings.BackgroundImage = Properties.Dark.darkSettings;
             }
             else
             {
-                btnSearch.BackgroundImage = Properties.Light.search;
-                btnProfile.BackgroundImage = Properties.Light.profile;
-                btnSettings.BackgroundImage = Properties.Light.settings;
+                btnSearch.BackgroundImage = Properties.Light.lightSearch;
+                btnProfile.BackgroundImage = Properties.Light.lightProfile;
+                btnSettings.BackgroundImage = Properties.Light.lightSettings;
             }
         }
 

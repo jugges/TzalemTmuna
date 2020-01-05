@@ -52,7 +52,7 @@ namespace TzalemTmuna.Forms
             FileTools.saveProfilePicture(LoggedInUser.login.Username, pic);
             var udp = new UserDB();
             if (!txtUsername.Text.Equals(LoggedInUser.login.Username))
-                if (ValidateTools.IsUsername(txtUsername.Text))
+                if (TextTools.IsUsername(txtUsername.Text))
                 {
                     if (!udp.Find(txtUsername.Text))
                     {
@@ -71,7 +71,7 @@ namespace TzalemTmuna.Forms
                 }
 
             if (!txtEmail.Text.Equals(LoggedInUser.login.Email))
-                if (ValidateTools.IsEmail(txtEmail.Text))
+                if (TextTools.IsEmail(txtEmail.Text))
                 {
                     var edp = new EmailDB();
                     if (!edp.Find(txtEmail.Text))
@@ -91,7 +91,7 @@ namespace TzalemTmuna.Forms
                 }
 
             if (!txtWebsite.Text.Equals(LoggedInUser.login.External_url) && txtWebsite.Text != string.Empty)
-                if (ValidateTools.IsURL(txtWebsite.Text))
+                if (TextTools.IsURL(txtWebsite.Text))
                 {
                     flagSave[2] = true;
                 }

@@ -73,26 +73,6 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap like {
-            get {
-                object obj = ResourceManager.GetObject("like", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap likewhite {
-            get {
-                object obj = ResourceManager.GetObject("likewhite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap tzalemtmuna {
             get {
                 object obj = ResourceManager.GetObject("tzalemtmuna", resourceCulture);

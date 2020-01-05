@@ -96,21 +96,27 @@
     <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewReport.Designer.cs">
+      <DependentUpon>NewReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ViewReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ViewReport.Designer.cs">
       <DependentUpon>ViewReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Light.Designer.cs">
-      <DependentUpon>Light.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Properties\Dark.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dark.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Light.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Light.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -193,7 +199,7 @@
     <Compile Include="Utilities\FileTools.cs" />
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
-    <Compile Include="Utilities\ValidateTools.cs" />
+    <Compile Include="Utilities\TextTools.cs" />
     <EmbeddedResource Include="Forms\FeedThumbnail.resx">
       <DependentUpon>FeedThumbnail.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewReport.resx">
+      <DependentUpon>NewReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewReport.resx">
       <DependentUpon>ViewReport.cs</DependentUpon>
@@ -241,6 +250,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Light.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Light.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Dark.resx">
@@ -273,12 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Users\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\like.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\likewhite.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lightUpload.png" />
@@ -338,61 +342,13 @@
     <None Include="Resources\darkSettings.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\darkComment1.png" />
+    <None Include="Resources\darkAdmin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\darkDelete1.png" />
+    <None Include="Resources\lightAdmin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\darkFlag1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkLike1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkLikeFilled1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkProfile1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkSearch1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkSend1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkSettings1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\darkUpload1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightComment1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightDelete1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightFlag1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightLike1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightProfile1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightSearch1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightSend1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightSettings1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightUpload1.png" />
+    <None Include="Resources\lightLikeFilled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

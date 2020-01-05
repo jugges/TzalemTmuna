@@ -27,22 +27,19 @@ namespace TzalemTmuna.Forms
 
             this.report = report;
             Text = "Report " + report.Report_id;
-            lblText.Text = report.Report_text;
+            txtText.Text = report.Report_text;
             lblUsername.Text = report.Owner.Username;
 
             //Check if login's report
             propertyOfLogin = report.Owner.Username == LoggedInUser.login.Username;
             if (propertyOfLogin)
             {
-
+                btnAction.Click += new EventHandler(DeleteReport);
+                btnAction.Text = "Delete";
             }
-
-            //Sometimes the post's description is bigger than form's size, so this fixes the issue
-            //Added padding of 10px, I know hardcoded is bad but not so important as of right now
-            int resize = lblText.Size.Width + 10 - (Size.Width - lblText.Location.X);
-            if (resize > 0)
+            else
             {
-                Size = new Size(Size.Width + resize, Size.Height);
+                btnAction.Click += new EventHandler(CloseReport);
             }
         }
 
@@ -65,6 +62,15 @@ namespace TzalemTmuna.Forms
             {
                 new ReportDB().RemoveReport(report.Report_id);
                 LoggedInUser.login.Reports.Remove(report);
+                Close();
+            }
+        }
+
+        private void CloseReport(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Confirm closing of report \"" + report.Report_text + "\"", "Close Report", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                new ReportDB().CloseReport(report.Report_id);
                 Close();
             }
         }

@@ -79,7 +79,7 @@ namespace TzalemTmuna.Forms
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(ParentForm, "Confirm deletion of comment \"" + comment.Comment_text + "\"", "Delete Comment", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(ParentForm, "Confirm deletion of comment \"" + comment.Comment_text + "\"", "Delete Comment", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 new CommentDB().RemoveComment(comment.Comment_id);
                 ((ViewPost)ParentForm).RemoveComment(comment.Comment_id, this);
@@ -106,7 +106,7 @@ namespace TzalemTmuna.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             //If new text is only whitespace or empty -> delete comment
-            if (System.Text.RegularExpressions.Regex.Replace(txtText.Text, @"\s+", "")==string.Empty)
+            if (TextTools.StripWhitespace(txtText.Text)==string.Empty)
             {
                 removeToolStripMenuItem_Click(sender, e);
             }

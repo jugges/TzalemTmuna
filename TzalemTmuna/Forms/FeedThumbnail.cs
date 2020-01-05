@@ -24,13 +24,13 @@ namespace TzalemTmuna.Forms
         {
             if (Theme == MetroFramework.MetroThemeStyle.Dark)
             {
-                pbComment.Image = Properties.Dark.comment;
-                pbLike.Image = Properties.Dark.like;
+                pbComment.Image = Properties.Dark.darkComment;
+                pbLike.Image = Properties.Dark.darkLike;
             }
             else
             {
-                pbComment.Image = Properties.Light.comment;
-                pbLike.Image = Properties.Light.like;
+                pbComment.Image = Properties.Light.lightComment;
+                pbLike.Image = Properties.Light.lightLike;
             }
         }
         public FeedThumbnail(Post post)
@@ -55,11 +55,11 @@ namespace TzalemTmuna.Forms
                     liked = true;
                     if (Theme == MetroFramework.MetroThemeStyle.Dark)
                     {
-                        pbLike.Image = Properties.Dark.likeFilled;
+                        pbLike.Image = Properties.Dark.darkLikeFilled;
                     }
                     else
                     {
-                        pbLike.Image = Properties.Light.likeFilled;
+                        pbLike.Image = Properties.Light.lightLikeFilled;
                     }
                     break;
                 }
@@ -100,11 +100,11 @@ namespace TzalemTmuna.Forms
             {
                 if (Theme == MetroFramework.MetroThemeStyle.Dark)
                 {
-                    pbLike.Image = Properties.Dark.like;
+                    pbLike.Image = Properties.Dark.darkLike;
                 }
                 else
                 {
-                    pbLike.Image = Properties.Light.like;
+                    pbLike.Image = Properties.Light.lightLike;
                 }
                 likeDB.Unlike(post);
                 liked = false;
@@ -113,11 +113,11 @@ namespace TzalemTmuna.Forms
             {
                 if (Theme == MetroFramework.MetroThemeStyle.Dark)
                 {
-                    pbLike.Image = Properties.Dark.likeFilled;
+                    pbLike.Image = Properties.Dark.darkLikeFilled;
                 }
                 else
                 {
-                    pbLike.Image = Properties.Light.likeFilled;
+                    pbLike.Image = Properties.Light.lightLikeFilled;
                 }
                 likeDB.Like(post);
                 liked = true;

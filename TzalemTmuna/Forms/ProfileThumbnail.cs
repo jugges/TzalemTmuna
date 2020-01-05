@@ -20,13 +20,13 @@ namespace TzalemTmuna.Forms
         {
             if (Statics.Theme.MetroThemeStyle == MetroFramework.MetroThemeStyle.Dark)
             {
-                pbComment.Image = Properties.Dark.comment;
-                pbLike.Image = Properties.Dark.like;
+                pbComment.Image = Properties.Dark.darkComment;
+                pbLike.Image = Properties.Dark.darkLike;
             }
             else
             {
-                pbComment.Image = Properties.Light.comment;
-                pbLike.Image = Properties.Light.like;
+                pbComment.Image = Properties.Light.lightComment;
+                pbLike.Image = Properties.Light.lightLike;
             }
         }
         public ProfileThumbnail(Post post)

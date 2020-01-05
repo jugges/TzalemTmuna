@@ -28,11 +28,13 @@ namespace TzalemTmuna.Forms
         {
             if (Theme == MetroFramework.MetroThemeStyle.Dark)
             {
-                btnUpload.Image = Properties.Dark.upload;
+                btnUpload.Image = Properties.Dark.darkUpload;
+                pbAdmin.Image = Properties.Dark.darkAdmin;
             }
             else
             {
-                btnUpload.Image = Properties.Light.upload;
+                btnUpload.Image = Properties.Light.lightUpload;
+                pbAdmin.Image = Properties.Light.lightAdmin;
             }
         }
 
@@ -46,6 +48,11 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.MetroThemeStyle
             };
             HandleTheme();
+            if (!LoggedInUser.login.is_admin)
+            {
+                Controls.Remove(pbAdmin);
+                pbAdmin.Dispose();
+            }
             isMainProfile = true;
             ProfilePicture.BackColor = BackColor;
             ProfilePicture.Image = FileTools.getProfilePicture(LoggedInUser.login.Username);
@@ -60,7 +67,7 @@ namespace TzalemTmuna.Forms
             lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
             lblPosts.Text = LoggedInUser.login.Posts.Count.ToString();
             //
-            // REMOVED RECEIVED REQUESTS BUTTON FROM PROFILE BCZ LOOKS BETTER IN FEED
+            // REMOVED RECEIVED REQUESTS BUTTON FROM THE PROFILE BCZ IT LOOKS BETTER IN THE FEED
             //
             //if (LoggedInUser.login.ReceivedRequests.Count == 0)
             //{
@@ -95,6 +102,12 @@ namespace TzalemTmuna.Forms
                 Owner = this,
                 Theme = Statics.Theme.MetroThemeStyle
             };
+            HandleTheme();
+            if (!user.is_admin)
+            {
+                Controls.Remove(pbAdmin);
+                pbAdmin.Dispose();
+            }
             isMainProfile = false;
             this.user = user;
             ProfilePicture.BackColor = BackColor;

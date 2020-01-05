@@ -236,6 +236,8 @@ namespace TzalemTmuna.Forms
 
         private void btnOption_Click(object sender, EventArgs e)
         {
+            //THIS IS SOME UGLY CODE!
+            //I should change it to something like ViewReport -> ViewReport(Report report) -> if (propertyOfLogin)
             switch (btnOption.Text)
             {
                 case "Follow":

@@ -32,7 +32,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (ValidateTools.IsUsername(value))
+                if (TextTools.IsUsername(value))
                     username = value;
                 else
                     throw new Exception("Username can only contain English letters, numbers and underscores");
@@ -46,7 +46,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (ValidateTools.IsEmail(value))
+                if (TextTools.IsEmail(value))
                     email = value;
                 else
                     throw new Exception("You must enter a valid email address");
@@ -71,7 +71,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if(ValidateTools.IsPassword(value))
+                if(TextTools.IsPassword(value))
                     password = PasswordTools.HashSha256(value,salt);
                 else
                     throw new Exception("You must enter a valid password");
@@ -113,7 +113,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (ValidateTools.IsURL(value))
+                if (TextTools.IsURL(value))
                     external_url = value;
                 else if (value == string.Empty)
                 { }
@@ -242,7 +242,7 @@ namespace TzalemTmuna.Entities
             this.username = username;
             this.email = email;
             NewSalt();
-            if (ValidateTools.IsPassword(password))
+            if (TextTools.IsPassword(password))
                 this.password = PasswordTools.HashSha256(password, salt);
             else
                 throw new Exception("You must enter a valid password");

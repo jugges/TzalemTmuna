@@ -28,7 +28,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (ValidateTools.IsUsername(value))
+                if (TextTools.IsUsername(value))
                     username = value;
                 else
                     throw new Exception("Username can only contain English letters, numbers and underscores");
@@ -42,7 +42,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (ValidateTools.IsEmail(value))
+                if (TextTools.IsEmail(value))
                     email = value;
                 else
                     throw new Exception("You must enter a valid email address");
@@ -84,7 +84,7 @@ namespace TzalemTmuna.Entities
         {
             set
             {
-                if (ValidateTools.IsURL(value))
+                if (TextTools.IsURL(value))
                     external_url = value;
                 else
                     throw new Exception("Link provided is not a valid url");

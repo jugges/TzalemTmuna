@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TzalemTmuna.Utilities
 {
-    public static class ValidateTools
+    public static class TextTools
     {
         public static bool IsEmail(string txt)
         {
@@ -35,6 +35,11 @@ namespace TzalemTmuna.Utilities
         public static bool IsURL(string txt)
         {
             return Regex.IsMatch(txt, @"https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)");
+        }
+
+        public static string StripWhitespace(string txt)
+        {
+            return Regex.Replace(txt, @"\s+", "");
         }
     }
 }
