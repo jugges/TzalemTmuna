@@ -61,19 +61,28 @@ namespace TzalemTmuna.Forms
         {
             if (PasswordTools.Match(user, txtPassword.Text))
             {
-                if (chkRememberMe.Checked)
+                //Verify user is not banned
+                if (user.GetBanText() == string.Empty)
                 {
-                    Properties.Settings.Default.username = user.Username;
-                    Properties.Settings.Default.password = user.Password;
-                    Properties.Settings.Default.Save();
+                    if (chkRememberMe.Checked)
+                    {
+                        Properties.Settings.Default.username = user.Username;
+                        Properties.Settings.Default.password = user.Password;
+                        Properties.Settings.Default.Save();
+                    }
+                    LoggedInUser.login = user;
+                    LoggedInUser.profile = new Profile();
+                    LoggedInUser.feed.ResetMe();
+                    LoggedInUser.feed.Show();
+                    Close();
+                    //profile.Closed += (s, args) => Location = profile.Location;
+                    //profile.Closed += (s, args) => Show();
                 }
-                LoggedInUser.login = user;
-                LoggedInUser.profile = new Profile();
-                LoggedInUser.feed.ResetMe();
-                LoggedInUser.feed.Show();
-                Close();
-                //profile.Closed += (s, args) => Location = profile.Location;
-                //profile.Closed += (s, args) => Show();
+                //User is banned -> represent user with ban text
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Sorry "+user.Username+",\rBut your account is banned.\r\rBan reason:\r"+user.GetBanText(), "User is banned", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
             else
                 LoginError();
@@ -81,7 +90,7 @@ namespace TzalemTmuna.Forms
 
         private void Login_Shown(object sender, EventArgs e)
         {
-            Statics.LoggedInUser.feed.Hide();
+            LoggedInUser.feed.Hide();
             //    nirgolan4,gayboy
             //    udirubin8,uduman
             //    dvir_derbi,12345dvir
@@ -97,6 +106,14 @@ namespace TzalemTmuna.Forms
             Hide();
             register.Closed += (s, args) => Location = register.Location;
             register.Closed += (s, args) => Show();
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (LoggedInUser.feed.Visible == false)
+            {
+                Application.Exit();
+            }
         }
     }
 }

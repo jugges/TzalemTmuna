@@ -21,7 +21,7 @@ namespace TzalemTmuna
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Theme
-            if(Properties.Settings.Default.darkMode)
+            if (Properties.Settings.Default.darkMode)
                 Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Dark;
             else
                 Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Light;
@@ -62,7 +62,7 @@ namespace TzalemTmuna
 
         private static void DoLoginAuto(LoginUser user, string password)
         {
-            if (user.Password.Equals(password))
+            if (user.Password.Equals(password) && user.GetBanText() == string.Empty)
             {
                 Statics.LoggedInUser.login = user;
                 Statics.LoggedInUser.loginPage = new Login();
@@ -80,6 +80,15 @@ namespace TzalemTmuna
                 Properties.Settings.Default.username = string.Empty;
                 Properties.Settings.Default.password = string.Empty;
                 Properties.Settings.Default.Save();
+                //Check if failed because banned
+                if (user.GetBanText() != string.Empty)
+                {
+                    var msg = new MetroFramework.Forms.MetroForm();
+                    msg.Size = new System.Drawing.Size(500, 150);
+                    msg.Show();
+                    MetroFramework.MetroMessageBox.Show(msg, "Sorry " + user.Username + ",\rBut your account is banned.\r\rBan reason:\r" + user.GetBanText(), "User is banned", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msg.Close();
+                }
                 LoadLoginForm();
             }
             //DISABLED FOR FEED!!!

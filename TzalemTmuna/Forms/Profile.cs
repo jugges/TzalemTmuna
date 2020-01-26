@@ -349,7 +349,8 @@ namespace TzalemTmuna.Forms
 
             // If login closes his window, then only hide it because we need it alive for static calls.
             // THIS IS HIDE FOR LOGIN'S PROFILE!
-            if (isMainProfile)
+            // check feed is visible tho, cause if feed is hidden then we need to terminate
+            if (isMainProfile && LoggedInUser.feed.Visible)
             {
                 //Environment.Exit(0);
                 Hide();

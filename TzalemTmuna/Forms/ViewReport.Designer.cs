@@ -32,6 +32,10 @@ namespace TzalemTmuna.Forms
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.btnAction = new MetroFramework.Controls.MetroButton();
             this.txtText = new MetroFramework.Controls.MetroTextBox();
+            this.lblClosingDate = new MetroFramework.Controls.MetroLabel();
+            this.lblOpeningDate = new MetroFramework.Controls.MetroLabel();
+            this.lblOpened = new MetroFramework.Controls.MetroLabel();
+            this.lblClosed = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -40,7 +44,7 @@ namespace TzalemTmuna.Forms
             this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(23, 63);
+            this.lblUsername.Location = new System.Drawing.Point(23, 60);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(71, 19);
             this.lblUsername.TabIndex = 29;
@@ -92,11 +96,67 @@ namespace TzalemTmuna.Forms
             this.txtText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // lblClosingDate
+            // 
+            this.lblClosingDate.AutoSize = true;
+            this.lblClosingDate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblClosingDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblClosingDate.ForeColor = System.Drawing.Color.White;
+            this.lblClosingDate.Location = new System.Drawing.Point(82, 41);
+            this.lblClosingDate.Name = "lblClosingDate";
+            this.lblClosingDate.Size = new System.Drawing.Size(141, 19);
+            this.lblClosingDate.TabIndex = 32;
+            this.lblClosingDate.Text = "01/05/2020 16:23:50";
+            this.lblClosingDate.UseCustomBackColor = true;
+            // 
+            // lblOpeningDate
+            // 
+            this.lblOpeningDate.AutoSize = true;
+            this.lblOpeningDate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblOpeningDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblOpeningDate.ForeColor = System.Drawing.Color.White;
+            this.lblOpeningDate.Location = new System.Drawing.Point(82, 22);
+            this.lblOpeningDate.Name = "lblOpeningDate";
+            this.lblOpeningDate.Size = new System.Drawing.Size(141, 19);
+            this.lblOpeningDate.TabIndex = 33;
+            this.lblOpeningDate.Text = "01/05/2020 16:23:50";
+            this.lblOpeningDate.UseCustomBackColor = true;
+            // 
+            // lblOpened
+            // 
+            this.lblOpened.AutoSize = true;
+            this.lblOpened.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblOpened.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblOpened.ForeColor = System.Drawing.Color.White;
+            this.lblOpened.Location = new System.Drawing.Point(23, 22);
+            this.lblOpened.Name = "lblOpened";
+            this.lblOpened.Size = new System.Drawing.Size(61, 19);
+            this.lblOpened.TabIndex = 34;
+            this.lblOpened.Text = "Opened:";
+            this.lblOpened.UseCustomBackColor = true;
+            // 
+            // lblClosed
+            // 
+            this.lblClosed.AutoSize = true;
+            this.lblClosed.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblClosed.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblClosed.ForeColor = System.Drawing.Color.White;
+            this.lblClosed.Location = new System.Drawing.Point(23, 41);
+            this.lblClosed.Name = "lblClosed";
+            this.lblClosed.Size = new System.Drawing.Size(53, 19);
+            this.lblClosed.TabIndex = 35;
+            this.lblClosed.Text = "Closed:";
+            this.lblClosed.UseCustomBackColor = true;
+            // 
             // ViewReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 323);
+            this.Controls.Add(this.lblClosed);
+            this.Controls.Add(this.lblOpened);
+            this.Controls.Add(this.lblOpeningDate);
+            this.Controls.Add(this.lblClosingDate);
             this.Controls.Add(this.btnAction);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtText);
@@ -115,5 +175,9 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroLabel lblUsername;
         private MetroFramework.Controls.MetroButton btnAction;
         private MetroFramework.Controls.MetroTextBox txtText;
+        private MetroFramework.Controls.MetroLabel lblClosingDate;
+        private MetroFramework.Controls.MetroLabel lblOpeningDate;
+        private MetroFramework.Controls.MetroLabel lblOpened;
+        private MetroFramework.Controls.MetroLabel lblClosed;
     }
 }

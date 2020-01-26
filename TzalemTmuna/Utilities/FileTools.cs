@@ -45,6 +45,21 @@ namespace TzalemTmuna.Utilities
             }
         }
 
+        public static Bitmap getPost(int post_id)
+        {
+            try
+            {
+                Post p = new DB.PostDB().GetPost(post_id);
+                string username = p.Owner.Username;
+                int post_number = p.Post_number;
+                return getPost(username, post_number);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public static Bitmap setPost()
         {
             using (var openFile = new OpenFileDialog())

@@ -84,7 +84,7 @@ namespace TzalemTmuna.Forms
             this.lblReportType.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblReportType.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblReportType.ForeColor = System.Drawing.Color.White;
-            this.lblReportType.Location = new System.Drawing.Point(23, 63);
+            this.lblReportType.Location = new System.Drawing.Point(23, 60);
             this.lblReportType.Name = "lblReportType";
             this.lblReportType.Size = new System.Drawing.Size(313, 19);
             this.lblReportType.TabIndex = 32;

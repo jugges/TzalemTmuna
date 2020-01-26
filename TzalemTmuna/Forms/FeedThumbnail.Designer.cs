@@ -31,29 +31,29 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMenu = new MetroFramework.Controls.MetroLabel();
-            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblComments = new MetroFramework.Controls.MetroLabel();
             this.lblLatestComment = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbComment = new System.Windows.Forms.PictureBox();
-            this.pbLike = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenu = new MetroFramework.Controls.MetroLabel();
+            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.pbLike = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.cmOptions.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.cmOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 520F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(520, 714);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(520, 719);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // pb
@@ -85,6 +85,110 @@
             this.pb.TabIndex = 3;
             this.pb.TabStop = false;
             this.pb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pb_MouseDoubleClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblComments);
+            this.panel2.Controls.Add(this.lblLatestComment);
+            this.panel2.Controls.Add(this.lblText);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.lblLikes);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 577);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(514, 139);
+            this.panel2.TabIndex = 5;
+            // 
+            // lblComments
+            // 
+            this.lblComments.AutoSize = true;
+            this.lblComments.BackColor = System.Drawing.Color.Transparent;
+            this.lblComments.Enabled = false;
+            this.lblComments.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblComments.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblComments.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblComments.Location = new System.Drawing.Point(10, 47);
+            this.lblComments.Name = "lblComments";
+            this.lblComments.Size = new System.Drawing.Size(83, 15);
+            this.lblComments.TabIndex = 32;
+            this.lblComments.Text = "15 comments";
+            this.lblComments.UseCustomBackColor = true;
+            this.lblComments.UseCustomForeColor = true;
+            // 
+            // lblLatestComment
+            // 
+            this.lblLatestComment.AutoSize = true;
+            this.lblLatestComment.BackColor = System.Drawing.Color.Transparent;
+            this.lblLatestComment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblLatestComment.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblLatestComment.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblLatestComment.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblLatestComment.Location = new System.Drawing.Point(34, 87);
+            this.lblLatestComment.Name = "lblLatestComment";
+            this.lblLatestComment.Size = new System.Drawing.Size(90, 15);
+            this.lblLatestComment.TabIndex = 31;
+            this.lblLatestComment.Text = "User: Comment";
+            this.lblLatestComment.UseCustomBackColor = true;
+            this.lblLatestComment.UseCustomForeColor = true;
+            this.lblLatestComment.Click += new System.EventHandler(this.lblLatestComment_Click);
+            // 
+            // lblText
+            // 
+            this.lblText.AutoSize = true;
+            this.lblText.BackColor = System.Drawing.Color.Transparent;
+            this.lblText.Enabled = false;
+            this.lblText.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblText.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblText.Location = new System.Drawing.Point(15, 62);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(78, 19);
+            this.lblText.TabIndex = 30;
+            this.lblText.Text = "Description";
+            this.lblText.UseCustomBackColor = true;
+            this.lblText.UseCustomForeColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.pbLike);
+            this.panel3.Controls.Add(this.pbComment);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.panel3.Size = new System.Drawing.Size(514, 24);
+            this.panel3.TabIndex = 28;
+            // 
+            // pbComment
+            // 
+            this.pbComment.BackColor = System.Drawing.Color.Transparent;
+            this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbComment.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbComment.Location = new System.Drawing.Point(10, 0);
+            this.pbComment.Name = "pbComment";
+            this.pbComment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pbComment.Size = new System.Drawing.Size(34, 24);
+            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbComment.TabIndex = 30;
+            this.pbComment.TabStop = false;
+            this.pbComment.Click += new System.EventHandler(this.pbComment_Click);
+            // 
+            // lblLikes
+            // 
+            this.lblLikes.AutoSize = true;
+            this.lblLikes.BackColor = System.Drawing.Color.Transparent;
+            this.lblLikes.Enabled = false;
+            this.lblLikes.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblLikes.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblLikes.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblLikes.Location = new System.Drawing.Point(10, 32);
+            this.lblLikes.Name = "lblLikes";
+            this.lblLikes.Size = new System.Drawing.Size(49, 15);
+            this.lblLikes.TabIndex = 29;
+            this.lblLikes.Text = "15 likes";
+            this.lblLikes.UseCustomBackColor = true;
+            this.lblLikes.UseCustomForeColor = true;
             // 
             // panel1
             // 
@@ -146,122 +250,6 @@
             this.lblUsername.UseCustomForeColor = true;
             this.lblUsername.Click += new System.EventHandler(this.OpenProfile);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblComments);
-            this.panel2.Controls.Add(this.lblLatestComment);
-            this.panel2.Controls.Add(this.lblText);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.lblLikes);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 577);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(514, 134);
-            this.panel2.TabIndex = 5;
-            // 
-            // lblComments
-            // 
-            this.lblComments.AutoSize = true;
-            this.lblComments.BackColor = System.Drawing.Color.Transparent;
-            this.lblComments.Enabled = false;
-            this.lblComments.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblComments.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblComments.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblComments.Location = new System.Drawing.Point(10, 42);
-            this.lblComments.Name = "lblComments";
-            this.lblComments.Size = new System.Drawing.Size(83, 15);
-            this.lblComments.TabIndex = 32;
-            this.lblComments.Text = "15 comments";
-            this.lblComments.UseCustomBackColor = true;
-            this.lblComments.UseCustomForeColor = true;
-            // 
-            // lblLatestComment
-            // 
-            this.lblLatestComment.AutoSize = true;
-            this.lblLatestComment.BackColor = System.Drawing.Color.Transparent;
-            this.lblLatestComment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblLatestComment.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblLatestComment.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblLatestComment.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLatestComment.Location = new System.Drawing.Point(34, 82);
-            this.lblLatestComment.Name = "lblLatestComment";
-            this.lblLatestComment.Size = new System.Drawing.Size(90, 15);
-            this.lblLatestComment.TabIndex = 31;
-            this.lblLatestComment.Text = "User: Comment";
-            this.lblLatestComment.UseCustomBackColor = true;
-            this.lblLatestComment.UseCustomForeColor = true;
-            this.lblLatestComment.Click += new System.EventHandler(this.lblLatestComment_Click);
-            // 
-            // lblText
-            // 
-            this.lblText.AutoSize = true;
-            this.lblText.BackColor = System.Drawing.Color.Transparent;
-            this.lblText.Enabled = false;
-            this.lblText.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblText.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblText.Location = new System.Drawing.Point(15, 57);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(78, 19);
-            this.lblText.TabIndex = 30;
-            this.lblText.Text = "Description";
-            this.lblText.UseCustomBackColor = true;
-            this.lblText.UseCustomForeColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.pbComment);
-            this.panel3.Controls.Add(this.pbLike);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.panel3.Size = new System.Drawing.Size(514, 24);
-            this.panel3.TabIndex = 28;
-            // 
-            // pbComment
-            // 
-            this.pbComment.BackColor = System.Drawing.Color.Transparent;
-            this.pbComment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbComment.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbComment.Location = new System.Drawing.Point(34, 0);
-            this.pbComment.Name = "pbComment";
-            this.pbComment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pbComment.Size = new System.Drawing.Size(34, 24);
-            this.pbComment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbComment.TabIndex = 30;
-            this.pbComment.TabStop = false;
-            this.pbComment.Click += new System.EventHandler(this.pbComment_Click);
-            // 
-            // pbLike
-            // 
-            this.pbLike.BackColor = System.Drawing.Color.Transparent;
-            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLike.Location = new System.Drawing.Point(10, 0);
-            this.pbLike.Name = "pbLike";
-            this.pbLike.Size = new System.Drawing.Size(24, 24);
-            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLike.TabIndex = 29;
-            this.pbLike.TabStop = false;
-            this.pbLike.Click += new System.EventHandler(this.pbLike_Click);
-            // 
-            // lblLikes
-            // 
-            this.lblLikes.AutoSize = true;
-            this.lblLikes.BackColor = System.Drawing.Color.Transparent;
-            this.lblLikes.Enabled = false;
-            this.lblLikes.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblLikes.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblLikes.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLikes.Location = new System.Drawing.Point(10, 27);
-            this.lblLikes.Name = "lblLikes";
-            this.lblLikes.Size = new System.Drawing.Size(49, 15);
-            this.lblLikes.TabIndex = 29;
-            this.lblLikes.Text = "15 likes";
-            this.lblLikes.UseCustomBackColor = true;
-            this.lblLikes.UseCustomForeColor = true;
-            // 
             // profilePicture
             // 
             this.profilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -275,24 +263,36 @@
             this.profilePicture.TabStop = false;
             this.profilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
+            // pbLike
+            // 
+            this.pbLike.BackColor = System.Drawing.Color.Transparent;
+            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbLike.Location = new System.Drawing.Point(44, 0);
+            this.pbLike.Name = "pbLike";
+            this.pbLike.Size = new System.Drawing.Size(24, 24);
+            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLike.TabIndex = 31;
+            this.pbLike.TabStop = false;
+            // 
             // FeedThumbnail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FeedThumbnail";
-            this.Size = new System.Drawing.Size(520, 714);
+            this.Size = new System.Drawing.Size(520, 719);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.cmOptions.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.cmOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,7 +306,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pbComment;
-        private System.Windows.Forms.PictureBox pbLike;
         private MetroFramework.Controls.MetroLabel lblLikes;
         private MetroFramework.Controls.MetroLabel lblText;
         private MetroFramework.Controls.MetroLabel btnMenu;
@@ -314,5 +313,6 @@
         private MetroFramework.Controls.MetroContextMenu cmOptions;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private MetroFramework.Controls.MetroLabel lblComments;
+        private System.Windows.Forms.PictureBox pbLike;
     }
 }

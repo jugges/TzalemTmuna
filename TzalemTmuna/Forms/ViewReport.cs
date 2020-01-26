@@ -26,9 +26,26 @@ namespace TzalemTmuna.Forms
             };
 
             this.report = report;
-            Text = "Report " + report.Report_id;
+            //Text = "Report " + report.Report_id;
             txtText.Text = report.Report_text;
             lblUsername.Text = report.Owner.Username;
+
+            lblOpeningDate.Text = report.Creation_date.ToString("MM/dd/yyyy HH:mm:ss");
+
+            if (report.Closing_date != DateTime.MinValue)
+            {
+                lblClosingDate.Text = report.Closing_date.ToString("MM/dd/yyyy HH:mm:ss");
+                Controls.Remove(btnAction);
+                btnAction.Dispose();
+                txtText.Size = new Size(334, 215);
+            }
+            else
+            {
+                Controls.Remove(lblClosingDate);
+                Controls.Remove(lblClosed);
+                lblClosed.Dispose();
+                lblClosingDate.Dispose();
+            }
 
             //Check if login's report
             propertyOfLogin = report.Owner.Username == LoggedInUser.login.Username;
@@ -62,6 +79,8 @@ namespace TzalemTmuna.Forms
             {
                 new ReportDB().RemoveReport(report.Report_id);
                 LoggedInUser.login.Reports.Remove(report);
+                //Report was deleted
+                DialogResult = DialogResult.OK;
                 Close();
             }
         }

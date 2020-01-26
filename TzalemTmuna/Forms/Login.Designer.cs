@@ -174,6 +174,7 @@ namespace TzalemTmuna.Forms
             this.Text = "Login";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Shown += new System.EventHandler(this.Login_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);

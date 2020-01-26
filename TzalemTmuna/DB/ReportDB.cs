@@ -47,6 +47,18 @@ namespace TzalemTmuna.DB
             return reports;
         }
 
+        public Report GetReport(int report_id)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr[primaryKey].Equals(report_id))
+                {
+                    return new Report(dr);
+                }
+            }
+            throw new Exception("report_id not found!");
+        }
+
         public void RemoveReport(int report_id)
         {
             foreach (DataRow dr in table.Rows)
@@ -66,7 +78,7 @@ namespace TzalemTmuna.DB
             {
                 if (dr[primaryKey].Equals(report_id))
                 {
-                    dr["closing_date"] = DateTime.Now;
+                    dr["closing_date"] = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
                     break;
                 }
             }

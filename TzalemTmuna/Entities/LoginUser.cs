@@ -225,6 +225,15 @@ namespace TzalemTmuna.Entities
 
             return feedPosts;
         }
+
+        public string GetBanText()
+        {
+            //Used to check if user is banned
+            var udb = new UserDB();
+            udb.Find(username);
+            return udb.GetCurrentRow()["ban_text"].ToString();
+        }
+
         public LoginUser(DataRow dr)
         {
             username = dr["username"].ToString();

@@ -54,6 +54,24 @@ namespace TzalemTmuna.Entities
                 return owner;
             }
         }
+        public DateTime Creation_date
+        {
+            get
+            {
+                return creation_date;
+            }
+        }
+        public DateTime Closing_date
+        {
+            get
+            {
+                return closing_date;
+            }
+            set
+            {
+                closing_date = value;
+            }
+        }
         public Report(DataRow dr)
         {
             UserDB udb = new UserDB();
@@ -66,12 +84,12 @@ namespace TzalemTmuna.Entities
             if (dr["closing_date"].ToString() != string.Empty)
                 closing_date = (DateTime)dr["closing_date"];
         }
-        public Report(int report_id, string report_text, User owner, int post_id)
+        public Report(int report_id, int post_id, string report_text, User owner, DateTime creation_date)
         {
             this.report_id = report_id;
             this.post_id = post_id;
             Report_text = report_text;
-            creation_date = DateTime.Now;
+            this.creation_date = creation_date;
             this.owner = owner;
         }
         public void Populate(DataRow dr)
