@@ -8,6 +8,7 @@ namespace TzalemTmuna.Statics
 {
     public static class Theme
     {
-        public static MetroFramework.MetroThemeStyle MetroThemeStyle;
+        public static MetroFramework.MetroThemeStyle metroThemeStyle;
+        public static MetroFramework.MetroColorStyle metroColorStyle;
     }
 }

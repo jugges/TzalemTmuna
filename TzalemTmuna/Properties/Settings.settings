@@ -11,5 +11,8 @@
     <Setting Name="darkMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="accentColor" Type="MetroFramework.MetroColorStyle" Scope="User">
+      <Value Profile="(Default)">Teal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

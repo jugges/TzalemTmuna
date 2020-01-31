@@ -30,15 +30,18 @@ namespace TzalemTmuna.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tpCustomize = new MetroFramework.Controls.MetroTabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDarkMode = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.cbAccentColor = new MetroFramework.Controls.MetroComboBox();
             this.tDarkMode = new MetroFramework.Controls.MetroToggle();
             this.tpPassword = new MetroFramework.Controls.MetroTabPage();
-            this.tpReports = new MetroFramework.Controls.MetroTabPage();
+            this.tpMyReports = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReport = new MetroFramework.Controls.MetroButton();
             this.lblMyReports = new MetroFramework.Controls.MetroLabel();
@@ -51,9 +54,11 @@ namespace TzalemTmuna.Forms
             this.closing_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tpAdmin = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl1.SuspendLayout();
             this.tpCustomize.SuspendLayout();
-            this.tpReports.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tpMyReports.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).BeginInit();
             this.cmOptions.SuspendLayout();
@@ -63,19 +68,19 @@ namespace TzalemTmuna.Forms
             // 
             this.metroTabControl1.Controls.Add(this.tpCustomize);
             this.metroTabControl1.Controls.Add(this.tpPassword);
-            this.metroTabControl1.Controls.Add(this.tpReports);
+            this.metroTabControl1.Controls.Add(this.tpMyReports);
+            this.metroTabControl1.Controls.Add(this.tpAdmin);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(795, 838);
             this.metroTabControl1.TabIndex = 19;
             this.metroTabControl1.UseSelectable = true;
             // 
             // tpCustomize
             // 
-            this.tpCustomize.Controls.Add(this.lblDarkMode);
-            this.tpCustomize.Controls.Add(this.tDarkMode);
+            this.tpCustomize.Controls.Add(this.tableLayoutPanel2);
             this.tpCustomize.HorizontalScrollbarBarColor = true;
             this.tpCustomize.HorizontalScrollbarHighlightOnWheel = false;
             this.tpCustomize.HorizontalScrollbarSize = 10;
@@ -88,25 +93,83 @@ namespace TzalemTmuna.Forms
             this.tpCustomize.VerticalScrollbarHighlightOnWheel = false;
             this.tpCustomize.VerticalScrollbarSize = 10;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.15863F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.84137F));
+            this.tableLayoutPanel2.Controls.Add(this.lblDarkMode, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.metroLabel2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbAccentColor, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tDarkMode, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(787, 796);
+            this.tableLayoutPanel2.TabIndex = 24;
+            // 
             // lblDarkMode
             // 
-            this.lblDarkMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDarkMode.AutoSize = true;
+            this.lblDarkMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDarkMode.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.lblDarkMode.Location = new System.Drawing.Point(3, 3);
             this.lblDarkMode.Margin = new System.Windows.Forms.Padding(3);
             this.lblDarkMode.Name = "lblDarkMode";
-            this.lblDarkMode.Size = new System.Drawing.Size(78, 19);
-            this.lblDarkMode.TabIndex = 21;
-            this.lblDarkMode.Text = "Dark Mode:";
+            this.lblDarkMode.Size = new System.Drawing.Size(672, 36);
+            this.lblDarkMode.TabIndex = 24;
+            this.lblDarkMode.Text = "Dark mode";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.metroLabel2.Location = new System.Drawing.Point(3, 45);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(672, 36);
+            this.metroLabel2.TabIndex = 22;
+            this.metroLabel2.Text = "Accent color";
+            // 
+            // cbAccentColor
+            // 
+            this.cbAccentColor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAccentColor.ForeColor = System.Drawing.Color.White;
+            this.cbAccentColor.FormattingEnabled = true;
+            this.cbAccentColor.IntegralHeight = false;
+            this.cbAccentColor.ItemHeight = 23;
+            this.cbAccentColor.Items.AddRange(new object[] {
+            "Blue",
+            "Lime",
+            "Magenta",
+            "Teal",
+            "Yellow"});
+            this.cbAccentColor.Location = new System.Drawing.Point(681, 48);
+            this.cbAccentColor.Name = "cbAccentColor";
+            this.cbAccentColor.Size = new System.Drawing.Size(103, 29);
+            this.cbAccentColor.TabIndex = 25;
+            this.cbAccentColor.UseCustomBackColor = true;
+            this.cbAccentColor.UseCustomForeColor = true;
+            this.cbAccentColor.UseSelectable = true;
+            this.cbAccentColor.SelectedIndexChanged += new System.EventHandler(this.cbAccentColor_SelectedIndexChanged);
             // 
             // tDarkMode
             // 
-            this.tDarkMode.AutoSize = true;
+            this.tDarkMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tDarkMode.Checked = true;
             this.tDarkMode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tDarkMode.Location = new System.Drawing.Point(87, 5);
+            this.tDarkMode.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.tDarkMode.Location = new System.Drawing.Point(681, 4);
+            this.tDarkMode.Margin = new System.Windows.Forms.Padding(1, 4, 1, 6);
             this.tDarkMode.Name = "tDarkMode";
-            this.tDarkMode.Size = new System.Drawing.Size(80, 17);
+            this.tDarkMode.Size = new System.Drawing.Size(103, 32);
             this.tDarkMode.TabIndex = 2;
             this.tDarkMode.Text = "On";
             this.tDarkMode.UseSelectable = true;
@@ -125,20 +188,20 @@ namespace TzalemTmuna.Forms
             this.tpPassword.VerticalScrollbarHighlightOnWheel = false;
             this.tpPassword.VerticalScrollbarSize = 10;
             // 
-            // tpReports
+            // tpMyReports
             // 
-            this.tpReports.Controls.Add(this.tableLayoutPanel1);
-            this.tpReports.HorizontalScrollbarBarColor = true;
-            this.tpReports.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpReports.HorizontalScrollbarSize = 10;
-            this.tpReports.Location = new System.Drawing.Point(4, 38);
-            this.tpReports.Name = "tpReports";
-            this.tpReports.Size = new System.Drawing.Size(787, 796);
-            this.tpReports.TabIndex = 1;
-            this.tpReports.Text = "Reports";
-            this.tpReports.VerticalScrollbarBarColor = true;
-            this.tpReports.VerticalScrollbarHighlightOnWheel = false;
-            this.tpReports.VerticalScrollbarSize = 10;
+            this.tpMyReports.Controls.Add(this.tableLayoutPanel1);
+            this.tpMyReports.HorizontalScrollbarBarColor = true;
+            this.tpMyReports.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpMyReports.HorizontalScrollbarSize = 10;
+            this.tpMyReports.Location = new System.Drawing.Point(4, 38);
+            this.tpMyReports.Name = "tpMyReports";
+            this.tpMyReports.Size = new System.Drawing.Size(787, 796);
+            this.tpMyReports.TabIndex = 1;
+            this.tpMyReports.Text = "My Reports";
+            this.tpMyReports.VerticalScrollbarBarColor = true;
+            this.tpMyReports.VerticalScrollbarHighlightOnWheel = false;
+            this.tpMyReports.VerticalScrollbarSize = 10;
             // 
             // tableLayoutPanel1
             // 
@@ -194,14 +257,14 @@ namespace TzalemTmuna.Forms
             this.grdMyReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdMyReports.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdMyReports.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdMyReports.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdMyReports.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grdMyReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdMyReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.report_id,
@@ -211,14 +274,14 @@ namespace TzalemTmuna.Forms
             this.creation_date,
             this.closing_date});
             this.grdMyReports.ContextMenuStrip = this.cmOptions;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdMyReports.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdMyReports.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdMyReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdMyReports.EnableHeadersVisualStyles = false;
             this.grdMyReports.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -228,14 +291,14 @@ namespace TzalemTmuna.Forms
             this.grdMyReports.Name = "grdMyReports";
             this.grdMyReports.ReadOnly = true;
             this.grdMyReports.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdMyReports.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdMyReports.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grdMyReports.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.grdMyReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdMyReports.Size = new System.Drawing.Size(781, 712);
@@ -300,6 +363,20 @@ namespace TzalemTmuna.Forms
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // tpAdmin
+            // 
+            this.tpAdmin.HorizontalScrollbarBarColor = true;
+            this.tpAdmin.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpAdmin.HorizontalScrollbarSize = 10;
+            this.tpAdmin.Location = new System.Drawing.Point(4, 38);
+            this.tpAdmin.Name = "tpAdmin";
+            this.tpAdmin.Size = new System.Drawing.Size(787, 796);
+            this.tpAdmin.TabIndex = 3;
+            this.tpAdmin.Text = "Admin";
+            this.tpAdmin.VerticalScrollbarBarColor = true;
+            this.tpAdmin.VerticalScrollbarHighlightOnWheel = false;
+            this.tpAdmin.VerticalScrollbarSize = 10;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,11 +389,13 @@ namespace TzalemTmuna.Forms
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Settings";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_FormClosing);
             this.Load += new System.EventHandler(this.Settings_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.tpCustomize.ResumeLayout(false);
-            this.tpCustomize.PerformLayout();
-            this.tpReports.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tpMyReports.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).EndInit();
@@ -328,13 +407,11 @@ namespace TzalemTmuna.Forms
         #endregion
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage tpPassword;
-        private MetroFramework.Controls.MetroTabPage tpReports;
+        private MetroFramework.Controls.MetroTabPage tpMyReports;
         private MetroFramework.Controls.MetroTabPage tpCustomize;
-        private MetroFramework.Controls.MetroToggle tDarkMode;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroLabel lblMyReports;
         private MetroFramework.Controls.MetroButton btnReport;
-        private MetroFramework.Controls.MetroLabel lblDarkMode;
         private MetroFramework.Controls.MetroGrid grdMyReports;
         private System.Windows.Forms.DataGridViewTextBoxColumn report_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn post_id;
@@ -344,5 +421,11 @@ namespace TzalemTmuna.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn closing_date;
         private MetroFramework.Controls.MetroContextMenu cmOptions;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private MetroFramework.Controls.MetroTabPage tpAdmin;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MetroFramework.Controls.MetroToggle tDarkMode;
+        private MetroFramework.Controls.MetroLabel lblDarkMode;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroComboBox cbAccentColor;
     }
 }

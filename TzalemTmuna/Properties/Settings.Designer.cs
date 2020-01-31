@@ -58,5 +58,17 @@ namespace TzalemTmuna.Properties {
                 this["darkMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Teal")]
+        public global::MetroFramework.MetroColorStyle accentColor {
+            get {
+                return ((global::MetroFramework.MetroColorStyle)(this["accentColor"]));
+            }
+            set {
+                this["accentColor"] = value;
+            }
+        }
     }
 }

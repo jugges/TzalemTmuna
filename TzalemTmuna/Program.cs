@@ -20,12 +20,13 @@ namespace TzalemTmuna
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Theme
+            //Applying Theme
             if (Properties.Settings.Default.darkMode)
-                Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Dark;
+                Statics.Theme.metroThemeStyle = MetroFramework.MetroThemeStyle.Dark;
             else
-                Statics.Theme.MetroThemeStyle = MetroFramework.MetroThemeStyle.Light;
+                Statics.Theme.metroThemeStyle = MetroFramework.MetroThemeStyle.Light;
 
+            Statics.Theme.metroColorStyle = Properties.Settings.Default.accentColor;
             //Check Auto Login
 
             string autoUsername = Properties.Settings.Default.username;

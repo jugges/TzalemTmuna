@@ -21,7 +21,8 @@ namespace TzalemTmuna.Forms
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
         }
         public NewReport(int postId)
@@ -30,7 +31,8 @@ namespace TzalemTmuna.Forms
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
 
             lblReportType.Text = "Describe what's inappropriate about this post:";

@@ -18,7 +18,7 @@ namespace TzalemTmuna.Forms
         Post post;
         private void HandleTheme()
         {
-            if (Statics.Theme.MetroThemeStyle == MetroFramework.MetroThemeStyle.Dark)
+            if (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Dark)
             {
                 pbComment.Image = Properties.Dark.darkComment;
                 pbLike.Image = Properties.Dark.darkLike;

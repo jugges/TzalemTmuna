@@ -26,7 +26,8 @@ namespace TzalemTmuna.Forms
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
             if (mode == 0)
             {
@@ -68,7 +69,8 @@ namespace TzalemTmuna.Forms
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
             List<User> follow;
             if (mode == 0)

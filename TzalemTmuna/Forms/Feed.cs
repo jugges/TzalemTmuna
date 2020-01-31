@@ -48,7 +48,8 @@ namespace TzalemTmuna.Forms
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
             HandleTheme();
             udb = new UserDB();
@@ -120,25 +121,29 @@ namespace TzalemTmuna.Forms
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (udb.Find(txtSearch.Text))
+        {   if (txtSearch.Text != string.Empty)
             {
-                if (udb.GetCurrentRow()["username"].ToString() == LoggedInUser.login.Username)
+                if (udb.Find(txtSearch.Text))
                 {
-                    LoggedInUser.profile.Show();
-                    LoggedInUser.profile.redirectAfterClose = true;
-                    LoggedInUser.profile.RedirectHere += (s,args) => RefreshFeed();
+                    if (udb.GetCurrentRow()["username"].ToString() == LoggedInUser.login.Username)
+                    {
+                        LoggedInUser.profile.Show();
+                        LoggedInUser.profile.redirectAfterClose = true;
+                        LoggedInUser.profile.RedirectHere += (s, args) => RefreshFeed();
+                    }
+                    else
+                    {
+                        Profile newProfile = new Profile(new User(udb.GetCurrentRow()));
+                        newProfile.Show();
+                        newProfile.redirectAfterClose = true;
+                        newProfile.RedirectHere += (s, args) => RefreshFeed();
+                    }
                 }
                 else
-                {
-                    Profile newProfile = new Profile(new User(udb.GetCurrentRow()));
-                    newProfile.Show();
-                    newProfile.redirectAfterClose = true;
-                    newProfile.RedirectHere += (s, args) => RefreshFeed();
-                }
+                    MetroFramework.MetroMessageBox.Show(this,"User Not Found!","Searched TzalemTmuna For \""+txtSearch.Text+"\"",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show("User not found!");
+                MetroFramework.MetroMessageBox.Show(this, "Search TextBox is Empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void lblNotifications_Click(object sender, EventArgs e)

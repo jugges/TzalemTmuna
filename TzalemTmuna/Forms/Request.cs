@@ -29,7 +29,8 @@ namespace TzalemTmuna.Forms
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
             this.user = user;
             lblUsername.Text = user.Username;

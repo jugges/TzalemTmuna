@@ -19,14 +19,18 @@ namespace TzalemTmuna.Forms
 {
     public partial class Settings : MetroFramework.Forms.MetroForm
     {
+        bool changedTheme = false;
+        bool changedStyleColor = false;
         public Settings()
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
+            cbAccentColor.SelectedItem = Properties.Settings.Default.accentColor.ToString();
             tDarkMode.Checked = Properties.Settings.Default.darkMode;
             //Add handler only now so previous change won't pop up a messagebox
             tDarkMode.CheckedChanged += new EventHandler(tDarkMode_CheckedChanged);
@@ -44,13 +48,8 @@ namespace TzalemTmuna.Forms
 
         private void tDarkMode_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.darkMode = tDarkMode.Checked;
-            Properties.Settings.Default.Save();
-            if (MetroFramework.MetroMessageBox.Show(this, "A restart is required for changes to take place, do you wish to restart TzalemTmuna?", "Changing the theme", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Restart();
-                Environment.Exit(0);
-            }
+            //XOR
+            changedTheme = Properties.Settings.Default.darkMode ^ tDarkMode.Checked;
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -111,6 +110,58 @@ namespace TzalemTmuna.Forms
                 LoggedInUser.login.Reports.Remove(report);
                 //Report was deleted
                 grdMyReports.Rows.RemoveAt(grdMyReports.SelectedRows[0].Index);
+            }
+        }
+
+        private void cbAccentColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbAccentColor.SelectedItem)
+            {
+                case "Blue":
+                    cbAccentColor.BackColor = MetroFramework.MetroColors.Blue;
+                    break;
+                case "Lime":
+                    cbAccentColor.BackColor = MetroFramework.MetroColors.Lime;
+                    break;
+                case "Magenta":
+                    cbAccentColor.BackColor = MetroFramework.MetroColors.Magenta;
+                    break;
+                case "Teal":
+                    cbAccentColor.BackColor = MetroFramework.MetroColors.Teal;
+                    break;
+                case "Yellow":
+                    cbAccentColor.BackColor = MetroFramework.MetroColors.Yellow;
+                    break;
+            }
+            changedStyleColor = Properties.Settings.Default.accentColor.ToString() != cbAccentColor.SelectedItem.ToString();
+            /**
+             * Blue
+             * Lime 
+             * Magenta
+             * Teal
+             * Yellow
+            **/
+        }
+
+        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changedTheme||changedStyleColor)
+            {
+                if (changedTheme)
+                {
+                    Properties.Settings.Default.darkMode = tDarkMode.Checked;
+                }
+                if (changedStyleColor)
+                {
+                    //enum parser
+                    Properties.Settings.Default.accentColor = (MetroFramework.MetroColorStyle)System.Enum.Parse(typeof(MetroFramework.MetroColorStyle), cbAccentColor.SelectedItem.ToString());
+                }
+                Properties.Settings.Default.Save();
+                if (MetroFramework.MetroMessageBox.Show(this, "A restart is required for changes to take place, do you wish to restart TzalemTmuna?", "Changing the Theme", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Application.Restart();
+                    Environment.Exit(0);
+                }
             }
         }
     }

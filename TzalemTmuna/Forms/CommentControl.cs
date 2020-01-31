@@ -24,11 +24,11 @@ namespace TzalemTmuna.Forms
         public CommentControl(Comment comment)
         {
             InitializeComponent();
-
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
-                Theme = Statics.Theme.MetroThemeStyle
+                Theme = Statics.Theme.metroThemeStyle,
+                Style = Statics.Theme.metroColorStyle
             };
             this.comment = comment;
             lblUsername.Text = comment.Owner.Username;
