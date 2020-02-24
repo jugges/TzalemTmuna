@@ -164,5 +164,11 @@ namespace TzalemTmuna.Forms
                 }
             }
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            var changePassword = new ChangePassword();
+            changePassword.ShowDialog();
+        }
     }
 }

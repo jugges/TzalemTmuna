@@ -263,6 +263,13 @@ namespace TzalemTmuna.Entities
         {
 
         }
+
+        public void ChangePassword(string password, string salt)
+        {
+            this.password = password;
+            this.salt = salt;
+        }
+
         public void Populate(DataRow dr)
         {
             dr["username"] = username;

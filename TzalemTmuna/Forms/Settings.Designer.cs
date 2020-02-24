@@ -36,9 +36,15 @@ namespace TzalemTmuna.Forms
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tpMain = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblChangePassword = new MetroFramework.Controls.MetroLabel();
+            this.lblAccount = new MetroFramework.Controls.MetroLabel();
+            this.lblAccentColor = new MetroFramework.Controls.MetroLabel();
+            this.lblCustomize = new MetroFramework.Controls.MetroLabel();
             this.lblDarkMode = new MetroFramework.Controls.MetroLabel();
             this.cbAccentColor = new MetroFramework.Controls.MetroComboBox();
             this.tDarkMode = new MetroFramework.Controls.MetroToggle();
+            this.btnChangePassword = new MetroFramework.Controls.MetroButton();
+            this.tpAdmin = new MetroFramework.Controls.MetroTabPage();
             this.tpReports = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReport = new MetroFramework.Controls.MetroButton();
@@ -52,12 +58,6 @@ namespace TzalemTmuna.Forms
             this.closing_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tpAdmin = new MetroFramework.Controls.MetroTabPage();
-            this.lblAccentColor = new MetroFramework.Controls.MetroLabel();
-            this.lblCustomize = new MetroFramework.Controls.MetroLabel();
-            this.lblAccount = new MetroFramework.Controls.MetroLabel();
-            this.lblChangePassword = new MetroFramework.Controls.MetroLabel();
-            this.btnChangePassword = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -123,6 +123,58 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(787, 796);
             this.tableLayoutPanel2.TabIndex = 24;
             // 
+            // lblChangePassword
+            // 
+            this.lblChangePassword.AutoSize = true;
+            this.lblChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblChangePassword.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblChangePassword.Location = new System.Drawing.Point(3, 213);
+            this.lblChangePassword.Margin = new System.Windows.Forms.Padding(3);
+            this.lblChangePassword.Name = "lblChangePassword";
+            this.lblChangePassword.Size = new System.Drawing.Size(672, 580);
+            this.lblChangePassword.TabIndex = 29;
+            this.lblChangePassword.Text = "Change Password";
+            // 
+            // lblAccount
+            // 
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAccount.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblAccount.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAccount.Location = new System.Drawing.Point(3, 171);
+            this.lblAccount.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(672, 36);
+            this.lblAccount.TabIndex = 28;
+            this.lblAccount.Text = "Account";
+            this.lblAccount.UseStyleColors = true;
+            // 
+            // lblAccentColor
+            // 
+            this.lblAccentColor.AutoSize = true;
+            this.lblAccentColor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAccentColor.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblAccentColor.Location = new System.Drawing.Point(3, 87);
+            this.lblAccentColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAccentColor.Name = "lblAccentColor";
+            this.lblAccentColor.Size = new System.Drawing.Size(672, 36);
+            this.lblAccentColor.TabIndex = 26;
+            this.lblAccentColor.Text = "Accent color";
+            // 
+            // lblCustomize
+            // 
+            this.lblCustomize.AutoSize = true;
+            this.lblCustomize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCustomize.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblCustomize.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblCustomize.Location = new System.Drawing.Point(3, 3);
+            this.lblCustomize.Margin = new System.Windows.Forms.Padding(3);
+            this.lblCustomize.Name = "lblCustomize";
+            this.lblCustomize.Size = new System.Drawing.Size(672, 36);
+            this.lblCustomize.TabIndex = 24;
+            this.lblCustomize.Text = "Customize";
+            this.lblCustomize.UseStyleColors = true;
+            // 
             // lblDarkMode
             // 
             this.lblDarkMode.AutoSize = true;
@@ -170,6 +222,31 @@ namespace TzalemTmuna.Forms
             this.tDarkMode.TabIndex = 2;
             this.tDarkMode.Text = "On";
             this.tDarkMode.UseSelectable = true;
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnChangePassword.Location = new System.Drawing.Point(681, 213);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(103, 36);
+            this.btnChangePassword.TabIndex = 30;
+            this.btnChangePassword.Text = "Change";
+            this.btnChangePassword.UseSelectable = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
+            // tpAdmin
+            // 
+            this.tpAdmin.HorizontalScrollbarBarColor = true;
+            this.tpAdmin.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpAdmin.HorizontalScrollbarSize = 10;
+            this.tpAdmin.Location = new System.Drawing.Point(4, 38);
+            this.tpAdmin.Name = "tpAdmin";
+            this.tpAdmin.Size = new System.Drawing.Size(787, 796);
+            this.tpAdmin.TabIndex = 3;
+            this.tpAdmin.Text = "Admin";
+            this.tpAdmin.VerticalScrollbarBarColor = true;
+            this.tpAdmin.VerticalScrollbarHighlightOnWheel = false;
+            this.tpAdmin.VerticalScrollbarSize = 10;
             // 
             // tpReports
             // 
@@ -345,82 +422,6 @@ namespace TzalemTmuna.Forms
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // tpAdmin
-            // 
-            this.tpAdmin.HorizontalScrollbarBarColor = true;
-            this.tpAdmin.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpAdmin.HorizontalScrollbarSize = 10;
-            this.tpAdmin.Location = new System.Drawing.Point(4, 38);
-            this.tpAdmin.Name = "tpAdmin";
-            this.tpAdmin.Size = new System.Drawing.Size(787, 796);
-            this.tpAdmin.TabIndex = 3;
-            this.tpAdmin.Text = "Admin";
-            this.tpAdmin.VerticalScrollbarBarColor = true;
-            this.tpAdmin.VerticalScrollbarHighlightOnWheel = false;
-            this.tpAdmin.VerticalScrollbarSize = 10;
-            // 
-            // lblAccentColor
-            // 
-            this.lblAccentColor.AutoSize = true;
-            this.lblAccentColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAccentColor.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.lblAccentColor.Location = new System.Drawing.Point(3, 87);
-            this.lblAccentColor.Margin = new System.Windows.Forms.Padding(3);
-            this.lblAccentColor.Name = "lblAccentColor";
-            this.lblAccentColor.Size = new System.Drawing.Size(672, 36);
-            this.lblAccentColor.TabIndex = 26;
-            this.lblAccentColor.Text = "Accent color";
-            // 
-            // lblCustomize
-            // 
-            this.lblCustomize.AutoSize = true;
-            this.lblCustomize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCustomize.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.lblCustomize.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCustomize.Location = new System.Drawing.Point(3, 3);
-            this.lblCustomize.Margin = new System.Windows.Forms.Padding(3);
-            this.lblCustomize.Name = "lblCustomize";
-            this.lblCustomize.Size = new System.Drawing.Size(672, 36);
-            this.lblCustomize.TabIndex = 24;
-            this.lblCustomize.Text = "Customize";
-            this.lblCustomize.UseStyleColors = true;
-            // 
-            // lblAccount
-            // 
-            this.lblAccount.AutoSize = true;
-            this.lblAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAccount.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.lblAccount.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblAccount.Location = new System.Drawing.Point(3, 171);
-            this.lblAccount.Margin = new System.Windows.Forms.Padding(3);
-            this.lblAccount.Name = "lblAccount";
-            this.lblAccount.Size = new System.Drawing.Size(672, 36);
-            this.lblAccount.TabIndex = 28;
-            this.lblAccount.Text = "Account";
-            this.lblAccount.UseStyleColors = true;
-            // 
-            // lblChangePassword
-            // 
-            this.lblChangePassword.AutoSize = true;
-            this.lblChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblChangePassword.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.lblChangePassword.Location = new System.Drawing.Point(3, 213);
-            this.lblChangePassword.Margin = new System.Windows.Forms.Padding(3);
-            this.lblChangePassword.Name = "lblChangePassword";
-            this.lblChangePassword.Size = new System.Drawing.Size(672, 580);
-            this.lblChangePassword.TabIndex = 29;
-            this.lblChangePassword.Text = "Change Password";
-            // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnChangePassword.Location = new System.Drawing.Point(681, 213);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(103, 47);
-            this.btnChangePassword.TabIndex = 30;
-            this.btnChangePassword.Text = "Change";
-            this.btnChangePassword.UseSelectable = true;
             // 
             // Settings
             // 
