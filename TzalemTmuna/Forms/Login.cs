@@ -92,6 +92,7 @@ namespace TzalemTmuna.Forms
         private void Login_Shown(object sender, EventArgs e)
         {
             LoggedInUser.feed.Hide();
+            //  A few creds for login:
             //    nirgolan4,gayboy
             //    udirubin8,uduman
             //    dvir_derbi,12345dvir
@@ -115,6 +116,16 @@ namespace TzalemTmuna.Forms
             {
                 Application.Exit();
             }
+        }
+
+        private void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            var forgotPassword = new ForgotPassword();
+            forgotPassword.Location = Location;
+            forgotPassword.Show();
+            Hide();
+            forgotPassword.Closed += (s, args) => Location = forgotPassword.Location;
+            forgotPassword.Closed += (s, args) => Show();
         }
     }
 }

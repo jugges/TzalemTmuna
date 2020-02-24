@@ -70,5 +70,29 @@ namespace TzalemTmuna.Properties {
                 this["accentColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("changeme@email.com")]
+        public string emailForgotPassword {
+            get {
+                return ((string)(this["emailForgotPassword"]));
+            }
+            set {
+                this["emailForgotPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("changeme")]
+        public string passwordForgotPassword {
+            get {
+                return ((string)(this["passwordForgotPassword"]));
+            }
+            set {
+                this["passwordForgotPassword"] = value;
+            }
+        }
     }
 }

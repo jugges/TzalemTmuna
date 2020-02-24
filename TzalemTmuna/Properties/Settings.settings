@@ -14,5 +14,11 @@
     <Setting Name="accentColor" Type="MetroFramework.MetroColorStyle" Scope="User">
       <Value Profile="(Default)">Teal</Value>
     </Setting>
+    <Setting Name="emailForgotPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">changeme@email.com</Value>
+    </Setting>
+    <Setting Name="passwordForgotPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">changeme</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

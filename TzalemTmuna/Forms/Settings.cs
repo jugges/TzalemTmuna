@@ -143,7 +143,7 @@ namespace TzalemTmuna.Forms
             **/
         }
 
-        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
+        private void Settings_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (changedTheme||changedStyleColor)
             {

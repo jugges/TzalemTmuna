@@ -35,6 +35,8 @@ namespace TzalemTmuna.Forms
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.btnRegister = new MetroFramework.Controls.MetroLink();
             this.chkRememberMe = new MetroFramework.Controls.MetroCheckBox();
+            this.btnForgotPassword = new MetroFramework.Controls.MetroLink();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@ namespace TzalemTmuna.Forms
             // btnSubmit
             // 
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSubmit.Location = new System.Drawing.Point(12, 269);
+            this.btnSubmit.Location = new System.Drawing.Point(12, 290);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(332, 47);
             this.btnSubmit.TabIndex = 3;
@@ -130,9 +132,9 @@ namespace TzalemTmuna.Forms
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(286, 322);
+            this.btnRegister.Location = new System.Drawing.Point(187, 349);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(58, 15);
+            this.btnRegister.Size = new System.Drawing.Size(54, 15);
             this.btnRegister.TabIndex = 5;
             this.btnRegister.TabStop = false;
             this.btnRegister.Text = "Register";
@@ -145,7 +147,7 @@ namespace TzalemTmuna.Forms
             this.chkRememberMe.AutoSize = true;
             this.chkRememberMe.Checked = true;
             this.chkRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRememberMe.Location = new System.Drawing.Point(12, 322);
+            this.chkRememberMe.Location = new System.Drawing.Point(12, 269);
             this.chkRememberMe.Name = "chkRememberMe";
             this.chkRememberMe.Size = new System.Drawing.Size(101, 15);
             this.chkRememberMe.TabIndex = 4;
@@ -154,12 +156,37 @@ namespace TzalemTmuna.Forms
             this.chkRememberMe.UseSelectable = true;
             this.chkRememberMe.UseStyleColors = true;
             // 
+            // btnForgotPassword
+            // 
+            this.btnForgotPassword.Location = new System.Drawing.Point(245, 269);
+            this.btnForgotPassword.Name = "btnForgotPassword";
+            this.btnForgotPassword.Size = new System.Drawing.Size(99, 15);
+            this.btnForgotPassword.TabIndex = 6;
+            this.btnForgotPassword.TabStop = false;
+            this.btnForgotPassword.Text = "Forgot Password";
+            this.btnForgotPassword.UseCustomBackColor = true;
+            this.btnForgotPassword.UseSelectable = true;
+            this.btnForgotPassword.Click += new System.EventHandler(this.btnForgotPassword_Click);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(111, 349);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(78, 15);
+            this.metroLabel1.TabIndex = 7;
+            this.metroLabel1.Text = "Are you new?";
+            // 
             // Login
             // 
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 351);
+            this.ClientSize = new System.Drawing.Size(354, 386);
+            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.btnForgotPassword);
             this.Controls.Add(this.chkRememberMe);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
@@ -189,5 +216,7 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroLink btnRegister;
         private MetroFramework.Controls.MetroCheckBox chkRememberMe;
+        private MetroFramework.Controls.MetroLink btnForgotPassword;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }
