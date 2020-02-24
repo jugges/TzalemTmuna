@@ -34,14 +34,12 @@ namespace TzalemTmuna.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.tpCustomize = new MetroFramework.Controls.MetroTabPage();
+            this.tpMain = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDarkMode = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.cbAccentColor = new MetroFramework.Controls.MetroComboBox();
             this.tDarkMode = new MetroFramework.Controls.MetroToggle();
-            this.tpPassword = new MetroFramework.Controls.MetroTabPage();
-            this.tpMyReports = new MetroFramework.Controls.MetroTabPage();
+            this.tpReports = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReport = new MetroFramework.Controls.MetroButton();
             this.lblMyReports = new MetroFramework.Controls.MetroLabel();
@@ -55,10 +53,15 @@ namespace TzalemTmuna.Forms
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tpAdmin = new MetroFramework.Controls.MetroTabPage();
+            this.lblAccentColor = new MetroFramework.Controls.MetroLabel();
+            this.lblCustomize = new MetroFramework.Controls.MetroLabel();
+            this.lblAccount = new MetroFramework.Controls.MetroLabel();
+            this.lblChangePassword = new MetroFramework.Controls.MetroLabel();
+            this.btnChangePassword = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
-            this.tpCustomize.SuspendLayout();
+            this.tpMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tpMyReports.SuspendLayout();
+            this.tpReports.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).BeginInit();
             this.cmOptions.SuspendLayout();
@@ -66,10 +69,9 @@ namespace TzalemTmuna.Forms
             // 
             // metroTabControl1
             // 
-            this.metroTabControl1.Controls.Add(this.tpCustomize);
-            this.metroTabControl1.Controls.Add(this.tpPassword);
-            this.metroTabControl1.Controls.Add(this.tpMyReports);
+            this.metroTabControl1.Controls.Add(this.tpMain);
             this.metroTabControl1.Controls.Add(this.tpAdmin);
+            this.metroTabControl1.Controls.Add(this.tpReports);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
@@ -78,20 +80,20 @@ namespace TzalemTmuna.Forms
             this.metroTabControl1.TabIndex = 19;
             this.metroTabControl1.UseSelectable = true;
             // 
-            // tpCustomize
+            // tpMain
             // 
-            this.tpCustomize.Controls.Add(this.tableLayoutPanel2);
-            this.tpCustomize.HorizontalScrollbarBarColor = true;
-            this.tpCustomize.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpCustomize.HorizontalScrollbarSize = 10;
-            this.tpCustomize.Location = new System.Drawing.Point(4, 38);
-            this.tpCustomize.Name = "tpCustomize";
-            this.tpCustomize.Size = new System.Drawing.Size(787, 796);
-            this.tpCustomize.TabIndex = 2;
-            this.tpCustomize.Text = "Customize";
-            this.tpCustomize.VerticalScrollbarBarColor = true;
-            this.tpCustomize.VerticalScrollbarHighlightOnWheel = false;
-            this.tpCustomize.VerticalScrollbarSize = 10;
+            this.tpMain.Controls.Add(this.tableLayoutPanel2);
+            this.tpMain.HorizontalScrollbarBarColor = true;
+            this.tpMain.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpMain.HorizontalScrollbarSize = 10;
+            this.tpMain.Location = new System.Drawing.Point(4, 38);
+            this.tpMain.Name = "tpMain";
+            this.tpMain.Size = new System.Drawing.Size(787, 796);
+            this.tpMain.TabIndex = 2;
+            this.tpMain.Text = "Main";
+            this.tpMain.VerticalScrollbarBarColor = true;
+            this.tpMain.VerticalScrollbarHighlightOnWheel = false;
+            this.tpMain.VerticalScrollbarSize = 10;
             // 
             // tableLayoutPanel2
             // 
@@ -100,15 +102,22 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.15863F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.84137F));
-            this.tableLayoutPanel2.Controls.Add(this.lblDarkMode, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.metroLabel2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.cbAccentColor, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tDarkMode, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblChangePassword, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.lblAccount, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.lblAccentColor, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lblCustomize, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblDarkMode, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbAccentColor, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tDarkMode, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnChangePassword, 2, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(787, 796);
@@ -119,24 +128,12 @@ namespace TzalemTmuna.Forms
             this.lblDarkMode.AutoSize = true;
             this.lblDarkMode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDarkMode.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.lblDarkMode.Location = new System.Drawing.Point(3, 3);
+            this.lblDarkMode.Location = new System.Drawing.Point(3, 45);
             this.lblDarkMode.Margin = new System.Windows.Forms.Padding(3);
             this.lblDarkMode.Name = "lblDarkMode";
             this.lblDarkMode.Size = new System.Drawing.Size(672, 36);
-            this.lblDarkMode.TabIndex = 24;
+            this.lblDarkMode.TabIndex = 22;
             this.lblDarkMode.Text = "Dark mode";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 45);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(672, 36);
-            this.metroLabel2.TabIndex = 22;
-            this.metroLabel2.Text = "Accent color";
             // 
             // cbAccentColor
             // 
@@ -151,7 +148,7 @@ namespace TzalemTmuna.Forms
             "Magenta",
             "Teal",
             "Yellow"});
-            this.cbAccentColor.Location = new System.Drawing.Point(681, 48);
+            this.cbAccentColor.Location = new System.Drawing.Point(681, 90);
             this.cbAccentColor.Name = "cbAccentColor";
             this.cbAccentColor.Size = new System.Drawing.Size(103, 29);
             this.cbAccentColor.TabIndex = 25;
@@ -166,7 +163,7 @@ namespace TzalemTmuna.Forms
             this.tDarkMode.Checked = true;
             this.tDarkMode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tDarkMode.FontSize = MetroFramework.MetroLinkSize.Medium;
-            this.tDarkMode.Location = new System.Drawing.Point(681, 4);
+            this.tDarkMode.Location = new System.Drawing.Point(681, 46);
             this.tDarkMode.Margin = new System.Windows.Forms.Padding(1, 4, 1, 6);
             this.tDarkMode.Name = "tDarkMode";
             this.tDarkMode.Size = new System.Drawing.Size(103, 32);
@@ -174,34 +171,20 @@ namespace TzalemTmuna.Forms
             this.tDarkMode.Text = "On";
             this.tDarkMode.UseSelectable = true;
             // 
-            // tpPassword
+            // tpReports
             // 
-            this.tpPassword.HorizontalScrollbarBarColor = true;
-            this.tpPassword.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpPassword.HorizontalScrollbarSize = 10;
-            this.tpPassword.Location = new System.Drawing.Point(4, 38);
-            this.tpPassword.Name = "tpPassword";
-            this.tpPassword.Size = new System.Drawing.Size(787, 796);
-            this.tpPassword.TabIndex = 0;
-            this.tpPassword.Text = "Change Password";
-            this.tpPassword.VerticalScrollbarBarColor = true;
-            this.tpPassword.VerticalScrollbarHighlightOnWheel = false;
-            this.tpPassword.VerticalScrollbarSize = 10;
-            // 
-            // tpMyReports
-            // 
-            this.tpMyReports.Controls.Add(this.tableLayoutPanel1);
-            this.tpMyReports.HorizontalScrollbarBarColor = true;
-            this.tpMyReports.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpMyReports.HorizontalScrollbarSize = 10;
-            this.tpMyReports.Location = new System.Drawing.Point(4, 38);
-            this.tpMyReports.Name = "tpMyReports";
-            this.tpMyReports.Size = new System.Drawing.Size(787, 796);
-            this.tpMyReports.TabIndex = 1;
-            this.tpMyReports.Text = "My Reports";
-            this.tpMyReports.VerticalScrollbarBarColor = true;
-            this.tpMyReports.VerticalScrollbarHighlightOnWheel = false;
-            this.tpMyReports.VerticalScrollbarSize = 10;
+            this.tpReports.Controls.Add(this.tableLayoutPanel1);
+            this.tpReports.HorizontalScrollbarBarColor = true;
+            this.tpReports.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpReports.HorizontalScrollbarSize = 10;
+            this.tpReports.Location = new System.Drawing.Point(4, 38);
+            this.tpReports.Name = "tpReports";
+            this.tpReports.Size = new System.Drawing.Size(787, 796);
+            this.tpReports.TabIndex = 1;
+            this.tpReports.Text = "Reports";
+            this.tpReports.VerticalScrollbarBarColor = true;
+            this.tpReports.VerticalScrollbarHighlightOnWheel = false;
+            this.tpReports.VerticalScrollbarSize = 10;
             // 
             // tableLayoutPanel1
             // 
@@ -377,6 +360,68 @@ namespace TzalemTmuna.Forms
             this.tpAdmin.VerticalScrollbarHighlightOnWheel = false;
             this.tpAdmin.VerticalScrollbarSize = 10;
             // 
+            // lblAccentColor
+            // 
+            this.lblAccentColor.AutoSize = true;
+            this.lblAccentColor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAccentColor.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblAccentColor.Location = new System.Drawing.Point(3, 87);
+            this.lblAccentColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAccentColor.Name = "lblAccentColor";
+            this.lblAccentColor.Size = new System.Drawing.Size(672, 36);
+            this.lblAccentColor.TabIndex = 26;
+            this.lblAccentColor.Text = "Accent color";
+            // 
+            // lblCustomize
+            // 
+            this.lblCustomize.AutoSize = true;
+            this.lblCustomize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCustomize.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblCustomize.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblCustomize.Location = new System.Drawing.Point(3, 3);
+            this.lblCustomize.Margin = new System.Windows.Forms.Padding(3);
+            this.lblCustomize.Name = "lblCustomize";
+            this.lblCustomize.Size = new System.Drawing.Size(672, 36);
+            this.lblCustomize.TabIndex = 24;
+            this.lblCustomize.Text = "Customize";
+            this.lblCustomize.UseStyleColors = true;
+            // 
+            // lblAccount
+            // 
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAccount.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblAccount.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAccount.Location = new System.Drawing.Point(3, 171);
+            this.lblAccount.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(672, 36);
+            this.lblAccount.TabIndex = 28;
+            this.lblAccount.Text = "Account";
+            this.lblAccount.UseStyleColors = true;
+            // 
+            // lblChangePassword
+            // 
+            this.lblChangePassword.AutoSize = true;
+            this.lblChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblChangePassword.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblChangePassword.Location = new System.Drawing.Point(3, 213);
+            this.lblChangePassword.Margin = new System.Windows.Forms.Padding(3);
+            this.lblChangePassword.Name = "lblChangePassword";
+            this.lblChangePassword.Size = new System.Drawing.Size(672, 580);
+            this.lblChangePassword.TabIndex = 29;
+            this.lblChangePassword.Text = "Change Password";
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnChangePassword.Location = new System.Drawing.Point(681, 213);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(103, 47);
+            this.btnChangePassword.TabIndex = 30;
+            this.btnChangePassword.Text = "Change";
+            this.btnChangePassword.UseSelectable = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,10 +437,10 @@ namespace TzalemTmuna.Forms
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Settings_FormClosed);
             this.Load += new System.EventHandler(this.Settings_Load);
             this.metroTabControl1.ResumeLayout(false);
-            this.tpCustomize.ResumeLayout(false);
+            this.tpMain.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tpMyReports.ResumeLayout(false);
+            this.tpReports.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).EndInit();
@@ -406,9 +451,8 @@ namespace TzalemTmuna.Forms
 
         #endregion
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage tpPassword;
-        private MetroFramework.Controls.MetroTabPage tpMyReports;
-        private MetroFramework.Controls.MetroTabPage tpCustomize;
+        private MetroFramework.Controls.MetroTabPage tpReports;
+        private MetroFramework.Controls.MetroTabPage tpMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroLabel lblMyReports;
         private MetroFramework.Controls.MetroButton btnReport;
@@ -425,7 +469,11 @@ namespace TzalemTmuna.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private MetroFramework.Controls.MetroToggle tDarkMode;
         private MetroFramework.Controls.MetroLabel lblDarkMode;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroComboBox cbAccentColor;
+        private MetroFramework.Controls.MetroLabel lblAccentColor;
+        private MetroFramework.Controls.MetroLabel lblCustomize;
+        private MetroFramework.Controls.MetroLabel lblChangePassword;
+        private MetroFramework.Controls.MetroLabel lblAccount;
+        private MetroFramework.Controls.MetroButton btnChangePassword;
     }
 }

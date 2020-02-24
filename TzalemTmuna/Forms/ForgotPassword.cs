@@ -110,26 +110,31 @@ namespace TzalemTmuna.Forms
             {
                 if (TextTools.IsPassword(txtNewPassword.Text))
                 {
-                    //Change password in dataset
-                    EmailDB edb = new EmailDB();
-                    edb.Find(emailAddress);
-                    edb.GetCurrentRow()["salt"] = PasswordTools.GetSalt();
-                    edb.GetCurrentRow()["password"] = PasswordTools.HashSha256(txtNewPassword.Text, edb.GetCurrentRow()["salt"].ToString());
-                    //Add user to Database
-                    DAL.GetInstance().ExecuteNonQuery("UPDATE [users] SET [salt] = @salt, [password] = @password WHERE [email] = @email", new OleDbParameter[]
-                            {
+                    if (txtPasswordValidate.Text.Equals(txtNewPassword.Text))
+                    {
+                        //Change password in dataset
+                        EmailDB edb = new EmailDB();
+                        edb.Find(emailAddress);
+                        edb.GetCurrentRow()["salt"] = PasswordTools.GetSalt();
+                        edb.GetCurrentRow()["password"] = PasswordTools.HashSha256(txtNewPassword.Text, edb.GetCurrentRow()["salt"].ToString());
+                        //Add user to Database
+                        DAL.GetInstance().ExecuteNonQuery("UPDATE [users] SET [salt] = @salt, [password] = @password WHERE [email] = @email", new OleDbParameter[]
+                                {
                                     new OleDbParameter("@salt", edb.GetCurrentRow()["salt"].ToString()),
                                     new OleDbParameter("@password", edb.GetCurrentRow()["password"].ToString()),
                                     new OleDbParameter("@email", emailAddress)
-                            });
-                    MetroFramework.MetroMessageBox.Show(this, "New Password is set, login to your account with new set password.", "Password Changed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                                });
+                        MetroFramework.MetroMessageBox.Show(this, "New Password is set, login to your account with new set password.", "Password Changed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                        MetroFramework.MetroMessageBox.Show(this, "Passwords dont match!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MetroFramework.MetroMessageBox.Show(this, "New Password is not valid!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroFramework.MetroMessageBox.Show(this, "New Password is invalid!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MetroFramework.MetroMessageBox.Show(this, "Password Recovery Code is not valid!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroFramework.MetroMessageBox.Show(this, "Password Recovery Code is invalid!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

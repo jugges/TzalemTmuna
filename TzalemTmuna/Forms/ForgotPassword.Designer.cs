@@ -34,6 +34,7 @@ namespace TzalemTmuna.Forms
             this.txtPRC = new MetroFramework.Controls.MetroTextBox();
             this.txtNewPassword = new MetroFramework.Controls.MetroTextBox();
             this.btnChangePassword = new MetroFramework.Controls.MetroButton();
+            this.txtPasswordValidate = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // btnSendPRC
@@ -153,7 +154,7 @@ namespace TzalemTmuna.Forms
             // btnChangePassword
             // 
             this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnChangePassword.Location = new System.Drawing.Point(12, 275);
+            this.btnChangePassword.Location = new System.Drawing.Point(12, 328);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(332, 47);
             this.btnChangePassword.TabIndex = 10;
@@ -161,12 +162,48 @@ namespace TzalemTmuna.Forms
             this.btnChangePassword.UseSelectable = true;
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
+            // txtPasswordValidate
+            // 
+            // 
+            // 
+            // 
+            this.txtPasswordValidate.CustomButton.Image = null;
+            this.txtPasswordValidate.CustomButton.Location = new System.Drawing.Point(286, 1);
+            this.txtPasswordValidate.CustomButton.Name = "";
+            this.txtPasswordValidate.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtPasswordValidate.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPasswordValidate.CustomButton.TabIndex = 1;
+            this.txtPasswordValidate.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPasswordValidate.CustomButton.UseSelectable = true;
+            this.txtPasswordValidate.CustomButton.Visible = false;
+            this.txtPasswordValidate.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtPasswordValidate.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.txtPasswordValidate.Lines = new string[0];
+            this.txtPasswordValidate.Location = new System.Drawing.Point(12, 275);
+            this.txtPasswordValidate.MaxLength = 32767;
+            this.txtPasswordValidate.Name = "txtPasswordValidate";
+            this.txtPasswordValidate.PasswordChar = '●';
+            this.txtPasswordValidate.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPasswordValidate.SelectedText = "";
+            this.txtPasswordValidate.SelectionLength = 0;
+            this.txtPasswordValidate.SelectionStart = 0;
+            this.txtPasswordValidate.ShortcutsEnabled = true;
+            this.txtPasswordValidate.Size = new System.Drawing.Size(332, 47);
+            this.txtPasswordValidate.TabIndex = 11;
+            this.txtPasswordValidate.UseSelectable = true;
+            this.txtPasswordValidate.UseStyleColors = true;
+            this.txtPasswordValidate.UseSystemPasswordChar = true;
+            this.txtPasswordValidate.WaterMark = "Type Password again";
+            this.txtPasswordValidate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPasswordValidate.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // ForgotPassword
             // 
             this.AcceptButton = this.btnSendPRC;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 330);
+            this.ClientSize = new System.Drawing.Size(354, 385);
+            this.Controls.Add(this.txtPasswordValidate);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtPRC);
@@ -191,5 +228,6 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroTextBox txtPRC;
         private MetroFramework.Controls.MetroTextBox txtNewPassword;
         private MetroFramework.Controls.MetroButton btnChangePassword;
+        private MetroFramework.Controls.MetroTextBox txtPasswordValidate;
     }
 }
