@@ -36,35 +36,34 @@ namespace TzalemTmuna.Forms
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tpMain = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblChangePassword = new MetroFramework.Controls.MetroLabel();
             this.lblAccount = new MetroFramework.Controls.MetroLabel();
             this.lblAccentColor = new MetroFramework.Controls.MetroLabel();
             this.lblCustomize = new MetroFramework.Controls.MetroLabel();
             this.lblDarkMode = new MetroFramework.Controls.MetroLabel();
             this.cbAccentColor = new MetroFramework.Controls.MetroComboBox();
             this.tDarkMode = new MetroFramework.Controls.MetroToggle();
-            this.btnChangePassword = new MetroFramework.Controls.MetroButton();
             this.tpAdmin = new MetroFramework.Controls.MetroTabPage();
             this.tpReports = new MetroFramework.Controls.MetroTabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnReport = new MetroFramework.Controls.MetroButton();
-            this.lblMyReports = new MetroFramework.Controls.MetroLabel();
-            this.grdMyReports = new MetroFramework.Controls.MetroGrid();
-            this.report_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.post_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.post = new System.Windows.Forms.DataGridViewImageColumn();
-            this.report_text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.closing_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChangePassword = new MetroFramework.Controls.MetroButton();
+            this.lblChangePassword = new MetroFramework.Controls.MetroLabel();
+            this.btnReport = new MetroFramework.Controls.MetroButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.closing_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.report_text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.post = new System.Windows.Forms.DataGridViewImageColumn();
+            this.post_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.report_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grdMyReports = new MetroFramework.Controls.MetroGrid();
             this.metroTabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tpReports.SuspendLayout();
+            this.cmOptions.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).BeginInit();
-            this.cmOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -75,7 +74,7 @@ namespace TzalemTmuna.Forms
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(795, 838);
             this.metroTabControl1.TabIndex = 19;
             this.metroTabControl1.UseSelectable = true;
@@ -117,23 +116,11 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(787, 796);
             this.tableLayoutPanel2.TabIndex = 24;
-            // 
-            // lblChangePassword
-            // 
-            this.lblChangePassword.AutoSize = true;
-            this.lblChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblChangePassword.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.lblChangePassword.Location = new System.Drawing.Point(3, 213);
-            this.lblChangePassword.Margin = new System.Windows.Forms.Padding(3);
-            this.lblChangePassword.Name = "lblChangePassword";
-            this.lblChangePassword.Size = new System.Drawing.Size(672, 580);
-            this.lblChangePassword.TabIndex = 29;
-            this.lblChangePassword.Text = "Change Password";
             // 
             // lblAccount
             // 
@@ -141,7 +128,7 @@ namespace TzalemTmuna.Forms
             this.lblAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAccount.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.lblAccount.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblAccount.Location = new System.Drawing.Point(3, 171);
+            this.lblAccount.Location = new System.Drawing.Point(3, 150);
             this.lblAccount.Margin = new System.Windows.Forms.Padding(3);
             this.lblAccount.Name = "lblAccount";
             this.lblAccount.Size = new System.Drawing.Size(672, 36);
@@ -223,17 +210,6 @@ namespace TzalemTmuna.Forms
             this.tDarkMode.Text = "On";
             this.tDarkMode.UseSelectable = true;
             // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnChangePassword.Location = new System.Drawing.Point(681, 213);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(103, 36);
-            this.btnChangePassword.TabIndex = 30;
-            this.btnChangePassword.Text = "Change";
-            this.btnChangePassword.UseSelectable = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
-            // 
             // tpAdmin
             // 
             this.tpAdmin.HorizontalScrollbarBarColor = true;
@@ -263,23 +239,42 @@ namespace TzalemTmuna.Forms
             this.tpReports.VerticalScrollbarHighlightOnWheel = false;
             this.tpReports.VerticalScrollbarSize = 10;
             // 
-            // tableLayoutPanel1
+            // cmOptions
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.btnReport, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblMyReports, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.grdMyReports, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 796);
-            this.tableLayoutPanel1.TabIndex = 10;
+            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.cmOptions.Name = "cmOptions";
+            this.cmOptions.Size = new System.Drawing.Size(108, 26);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnChangePassword.Location = new System.Drawing.Point(681, 192);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(103, 36);
+            this.btnChangePassword.TabIndex = 30;
+            this.btnChangePassword.Text = "Change";
+            this.btnChangePassword.UseSelectable = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
+            // lblChangePassword
+            // 
+            this.lblChangePassword.AutoSize = true;
+            this.lblChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblChangePassword.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.lblChangePassword.Location = new System.Drawing.Point(3, 192);
+            this.lblChangePassword.Margin = new System.Windows.Forms.Padding(3);
+            this.lblChangePassword.Name = "lblChangePassword";
+            this.lblChangePassword.Size = new System.Drawing.Size(672, 601);
+            this.lblChangePassword.TabIndex = 29;
+            this.lblChangePassword.Text = "Change Password";
             // 
             // btnReport
             // 
@@ -295,16 +290,66 @@ namespace TzalemTmuna.Forms
             this.btnReport.UseSelectable = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
-            // lblMyReports
+            // tableLayoutPanel1
             // 
-            this.lblMyReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblMyReports.AutoSize = true;
-            this.lblMyReports.Location = new System.Drawing.Point(3, 3);
-            this.lblMyReports.Margin = new System.Windows.Forms.Padding(3);
-            this.lblMyReports.Name = "lblMyReports";
-            this.lblMyReports.Size = new System.Drawing.Size(80, 19);
-            this.lblMyReports.TabIndex = 21;
-            this.lblMyReports.Text = "My Reports:";
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnReport, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.grdMyReports, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 796);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // closing_date
+            // 
+            this.closing_date.HeaderText = "Closing Date";
+            this.closing_date.Name = "closing_date";
+            this.closing_date.ReadOnly = true;
+            this.closing_date.Width = 88;
+            // 
+            // creation_date
+            // 
+            this.creation_date.HeaderText = "Creation Date";
+            this.creation_date.Name = "creation_date";
+            this.creation_date.ReadOnly = true;
+            this.creation_date.Width = 93;
+            // 
+            // report_text
+            // 
+            this.report_text.HeaderText = "Report Body";
+            this.report_text.Name = "report_text";
+            this.report_text.ReadOnly = true;
+            this.report_text.Width = 86;
+            // 
+            // post
+            // 
+            this.post.HeaderText = "Post Reported";
+            this.post.Name = "post";
+            this.post.ReadOnly = true;
+            this.post.Width = 75;
+            // 
+            // post_id
+            // 
+            this.post_id.HeaderText = "PostId";
+            this.post_id.Name = "post_id";
+            this.post_id.ReadOnly = true;
+            this.post_id.Visible = false;
+            this.post_id.Width = 62;
+            // 
+            // report_id
+            // 
+            this.report_id.HeaderText = "ReportId";
+            this.report_id.Name = "report_id";
+            this.report_id.ReadOnly = true;
+            this.report_id.Visible = false;
+            this.report_id.Width = 75;
             // 
             // grdMyReports
             // 
@@ -346,7 +391,7 @@ namespace TzalemTmuna.Forms
             this.grdMyReports.EnableHeadersVisualStyles = false;
             this.grdMyReports.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.grdMyReports.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grdMyReports.Location = new System.Drawing.Point(3, 28);
+            this.grdMyReports.Location = new System.Drawing.Point(3, 3);
             this.grdMyReports.MultiSelect = false;
             this.grdMyReports.Name = "grdMyReports";
             this.grdMyReports.ReadOnly = true;
@@ -361,67 +406,9 @@ namespace TzalemTmuna.Forms
             this.grdMyReports.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdMyReports.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.grdMyReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdMyReports.Size = new System.Drawing.Size(781, 712);
+            this.grdMyReports.Size = new System.Drawing.Size(781, 737);
             this.grdMyReports.TabIndex = 22;
             this.grdMyReports.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdMyReports_CellMouseDoubleClick);
-            // 
-            // report_id
-            // 
-            this.report_id.HeaderText = "ReportId";
-            this.report_id.Name = "report_id";
-            this.report_id.ReadOnly = true;
-            this.report_id.Visible = false;
-            this.report_id.Width = 75;
-            // 
-            // post_id
-            // 
-            this.post_id.HeaderText = "PostId";
-            this.post_id.Name = "post_id";
-            this.post_id.ReadOnly = true;
-            this.post_id.Visible = false;
-            this.post_id.Width = 62;
-            // 
-            // post
-            // 
-            this.post.HeaderText = "Post Reported";
-            this.post.Name = "post";
-            this.post.ReadOnly = true;
-            this.post.Width = 75;
-            // 
-            // report_text
-            // 
-            this.report_text.HeaderText = "Report Body";
-            this.report_text.Name = "report_text";
-            this.report_text.ReadOnly = true;
-            this.report_text.Width = 86;
-            // 
-            // creation_date
-            // 
-            this.creation_date.HeaderText = "Creation Date";
-            this.creation_date.Name = "creation_date";
-            this.creation_date.ReadOnly = true;
-            this.creation_date.Width = 93;
-            // 
-            // closing_date
-            // 
-            this.closing_date.HeaderText = "Closing Date";
-            this.closing_date.Name = "closing_date";
-            this.closing_date.ReadOnly = true;
-            this.closing_date.Width = 88;
-            // 
-            // cmOptions
-            // 
-            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem});
-            this.cmOptions.Name = "cmOptions";
-            this.cmOptions.Size = new System.Drawing.Size(108, 26);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // Settings
             // 
@@ -442,10 +429,9 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tpReports.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).EndInit();
             this.cmOptions.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdMyReports)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,16 +440,6 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage tpReports;
         private MetroFramework.Controls.MetroTabPage tpMain;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private MetroFramework.Controls.MetroLabel lblMyReports;
-        private MetroFramework.Controls.MetroButton btnReport;
-        private MetroFramework.Controls.MetroGrid grdMyReports;
-        private System.Windows.Forms.DataGridViewTextBoxColumn report_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn post_id;
-        private System.Windows.Forms.DataGridViewImageColumn post;
-        private System.Windows.Forms.DataGridViewTextBoxColumn report_text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creation_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn closing_date;
         private MetroFramework.Controls.MetroContextMenu cmOptions;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private MetroFramework.Controls.MetroTabPage tpAdmin;
@@ -473,8 +449,17 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroComboBox cbAccentColor;
         private MetroFramework.Controls.MetroLabel lblAccentColor;
         private MetroFramework.Controls.MetroLabel lblCustomize;
-        private MetroFramework.Controls.MetroLabel lblChangePassword;
         private MetroFramework.Controls.MetroLabel lblAccount;
+        private MetroFramework.Controls.MetroLabel lblChangePassword;
         private MetroFramework.Controls.MetroButton btnChangePassword;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MetroFramework.Controls.MetroButton btnReport;
+        private MetroFramework.Controls.MetroGrid grdMyReports;
+        private System.Windows.Forms.DataGridViewTextBoxColumn report_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn post_id;
+        private System.Windows.Forms.DataGridViewImageColumn post;
+        private System.Windows.Forms.DataGridViewTextBoxColumn report_text;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creation_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn closing_date;
     }
 }

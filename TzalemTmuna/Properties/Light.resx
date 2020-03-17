@@ -121,6 +121,9 @@
   <data name="lightAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightAdmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lightBan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightBan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lightComment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,5 +153,8 @@
   </data>
   <data name="lightUpload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightUpload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lightVerified" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightVerified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -69,6 +69,7 @@
     <Compile Include="DB\RequestsDB.cs" />
     <Compile Include="DB\FollowingDB.cs" />
     <Compile Include="DB\EmailDB.cs" />
+    <Compile Include="DB\UserDB.cs" />
     <Compile Include="Entities\Report.cs" />
     <Compile Include="Entities\LoginUser.cs" />
     <Compile Include="Entities\Post.cs" />
@@ -197,7 +198,6 @@
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="DB\GeneralDB.cs" />
     <Compile Include="Entities\IEntity.cs" />
-    <Compile Include="DB\UserDB.cs" />
     <Compile Include="Forms\ProfileThumbnail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -367,6 +367,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lightLikeFilled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightBan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkBan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightVerified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\darkVerified.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

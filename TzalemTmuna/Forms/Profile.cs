@@ -22,21 +22,7 @@ namespace TzalemTmuna.Forms
         public bool isMainProfile;
         public bool redirectAfterClose;
         public User user;
-        private bool needsRefresh=false;
-
-        private void HandleTheme()
-        {
-            if (Theme == MetroFramework.MetroThemeStyle.Dark)
-            {
-                btnUpload.Image = Properties.Dark.darkUpload;
-                pbAdmin.Image = Properties.Dark.darkAdmin;
-            }
-            else
-            {
-                btnUpload.Image = Properties.Light.lightUpload;
-                pbAdmin.Image = Properties.Light.lightAdmin;
-            }
-        }
+        private bool needsRefresh = false;
 
         //login's profile
         public Profile()
@@ -48,11 +34,28 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.metroThemeStyle,
                 Style = Statics.Theme.metroColorStyle
             };
-            HandleTheme();
-            if (!LoggedInUser.login.is_admin)
+            btnUpload.Image =
+                Theme == MetroFramework.MetroThemeStyle.Dark
+                ? Properties.Dark.darkUpload : Properties.Light.lightUpload;
+            //Check whether I show special badge or dispose badge picture box
+            if (LoggedInUser.login.is_admin)
             {
-                Controls.Remove(pbAdmin);
-                pbAdmin.Dispose();
+                new ToolTip().SetToolTip(pbBadge, "Administrator");
+                pbBadge.Image =
+                    Theme == MetroFramework.MetroThemeStyle.Dark
+                    ? Properties.Dark.darkAdmin : Properties.Light.lightAdmin;
+            }
+            else if (LoggedInUser.login.is_verified)
+            {
+                new ToolTip().SetToolTip(pbBadge, "Verified User");
+                pbBadge.Image =
+                    Theme == MetroFramework.MetroThemeStyle.Dark
+                    ? Properties.Dark.darkVerified : Properties.Light.lightVerified;
+            }
+            else
+            {
+                Controls.Remove(pbBadge);
+                pbBadge.Dispose();
             }
             isMainProfile = true;
             ProfilePicture.BackColor = BackColor;
@@ -104,11 +107,32 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.metroThemeStyle,
                 Style = Statics.Theme.metroColorStyle
             };
-            HandleTheme();
-            if (!user.is_admin)
+            //Check whether I show special badge or dispose badge picture box
+            if (user.is_admin)
             {
-                Controls.Remove(pbAdmin);
-                pbAdmin.Dispose();
+                new ToolTip().SetToolTip(pbBadge, "Administrator");
+                pbBadge.Image =
+                    Theme == MetroFramework.MetroThemeStyle.Dark
+                    ? Properties.Dark.darkAdmin : Properties.Light.lightAdmin;
+            }
+            else if (user.Ban_text != string.Empty)
+            {
+                new ToolTip().SetToolTip(pbBadge, user.Ban_text);
+                pbBadge.Image =
+                    Theme == MetroFramework.MetroThemeStyle.Dark
+                    ? Properties.Dark.darkBan : Properties.Light.lightBan;
+            }
+            else if (user.is_verified)
+            {
+                new ToolTip().SetToolTip(pbBadge, "Verified User");
+                pbBadge.Image =
+                    Theme == MetroFramework.MetroThemeStyle.Dark
+                    ? Properties.Dark.darkVerified : Properties.Light.lightVerified;
+            }
+            else
+            {
+                Controls.Remove(pbBadge);
+                pbBadge.Dispose();
             }
             isMainProfile = false;
             this.user = user;
@@ -339,8 +363,8 @@ namespace TzalemTmuna.Forms
 
         private void Profile_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(redirectAfterClose)
-                RedirectHere(sender,e);
+            if (redirectAfterClose)
+                RedirectHere(sender, e);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -382,7 +406,7 @@ namespace TzalemTmuna.Forms
         private void Profile_VisibleChanged(object sender, EventArgs e)
         {
             //Refresh followers every hide & show
-            if(needsRefresh)
+            if (needsRefresh)
             {
                 needsRefresh = false;
                 lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();

@@ -73,6 +73,16 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lightBan {
+            get {
+                object obj = ResourceManager.GetObject("lightBan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightComment {
             get {
                 object obj = ResourceManager.GetObject("lightComment", resourceCulture);
@@ -166,6 +176,16 @@ namespace TzalemTmuna.Properties {
         internal static System.Drawing.Bitmap lightUpload {
             get {
                 object obj = ResourceManager.GetObject("lightUpload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightVerified {
+            get {
+                object obj = ResourceManager.GetObject("lightVerified", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

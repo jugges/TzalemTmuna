@@ -18,11 +18,13 @@ namespace TzalemTmuna.Entities
         private string biography;
         public bool is_private;
         public bool is_admin;
+        public bool is_verified;
         private string external_url;
         private List<User> following;
         private List<User> followers;
         private List<Post> posts;
         private List<Report> reports;
+        private string ban_text;
 
         public string Username
         {
@@ -153,6 +155,14 @@ namespace TzalemTmuna.Entities
             }
         }
 
+        public string Ban_text
+        {
+            get
+            {
+                return ban_text;
+            }
+        }
+
         public User(DataRow dr)
         {
             username = dr["username"].ToString();
@@ -161,7 +171,9 @@ namespace TzalemTmuna.Entities
             biography = dr["biography"].ToString();
             is_private = Convert.ToBoolean(dr["is_private"]);
             is_admin = Convert.ToBoolean(dr["is_admin"]);
+            is_verified = Convert.ToBoolean(dr["is_verified"]);
             external_url = dr["external_url"].ToString();
+            ban_text = dr["ban_text"].ToString();
         }
         public User(LoginUser login)
         {
@@ -171,7 +183,10 @@ namespace TzalemTmuna.Entities
             biography = login.Biography;
             is_private = login.is_private;
             is_admin = login.is_admin;
+            is_verified = login.is_verified;
             external_url = login.External_url;
+            //ban_text is not needed while converting LoginUser to User
+            //because login cannot exist while being banned
         }
         public User()
         {
@@ -185,7 +200,9 @@ namespace TzalemTmuna.Entities
             dr["biography"] = biography;
             dr["is_private"] = is_private;
             dr["is_admin"] = is_admin;
+            dr["is_verified"] = is_verified;
             dr["external_url"] = external_url;
+            dr["ban_text"] = ban_text;
         }
     }
 }

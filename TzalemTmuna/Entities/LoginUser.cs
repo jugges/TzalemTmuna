@@ -20,6 +20,7 @@ namespace TzalemTmuna.Entities
         private string biography;
         public bool is_private;
         public bool is_admin;
+        public bool is_verified;
         private string external_url;
         private List<User> following;
         private List<User> followers;
@@ -226,6 +227,7 @@ namespace TzalemTmuna.Entities
             return feedPosts;
         }
 
+        //Used only for login procedures
         public string GetBanText()
         {
             //Used to check if user is banned
@@ -244,6 +246,7 @@ namespace TzalemTmuna.Entities
             biography = dr["biography"].ToString();
             is_private = Convert.ToBoolean(dr["is_private"]);
             is_admin = Convert.ToBoolean(dr["is_admin"]);
+            is_verified = Convert.ToBoolean(dr["is_verified"]);
             external_url = dr["external_url"].ToString();
         }
         public LoginUser(string username, string email, string password)
@@ -280,6 +283,7 @@ namespace TzalemTmuna.Entities
             dr["biography"] = biography;
             dr["is_private"] = is_private;
             dr["is_admin"] = is_admin;
+            dr["is_verified"] = is_verified;
             dr["external_url"] = external_url;
         }
     }
