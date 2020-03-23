@@ -148,7 +148,8 @@ namespace TzalemTmuna.Forms
 
         private void lblNotifications_Click(object sender, EventArgs e)
         {
-            new Followers(2).ShowDialog();
+            //new Followers(2).ShowDialog();
+            new Alerts().ShowDialog();
             RefreshFeed();
         }
 

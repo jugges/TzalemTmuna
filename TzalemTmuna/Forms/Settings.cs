@@ -58,6 +58,31 @@ namespace TzalemTmuna.Forms
             {
                 AddReportToGrid(x);
             }
+            ReportDB rdb = new ReportDB();
+            foreach (Report x in rdb.GetReports())
+            {
+                //Is graph empty?
+                //OR
+                //Is last point not plotted on the same date as this report's date?
+                if (chart1.Series[0].Points.Count == 0 || DateTime.FromOADate(chart1.Series[0].Points.Last().XValue) != x.Creation_date.Date)
+                {
+                    chart1.Series[0].Points.AddXY(x.Creation_date.Date, 1);
+                }
+                else
+                {
+                    
+                    chart1.Series[0].Points.Last().YValues[0] += 1;
+                }
+                if (x.Closing_date != DateTime.MinValue)
+                    if (chart1.Series[1].Points.Count == 0 || DateTime.FromOADate(chart1.Series[1].Points.Last().XValue) != x.Closing_date.Date)
+                    {
+                        chart1.Series[1].Points.AddXY(x.Closing_date.Date, 1);
+                    }
+                    else
+                    {
+                        chart1.Series[1].Points.Last().YValues[0] += 1;
+                    }
+            }
         }
 
         private void AddReportToGrid(Report x)
@@ -145,7 +170,7 @@ namespace TzalemTmuna.Forms
 
         private void Settings_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (changedTheme||changedStyleColor)
+            if (changedTheme || changedStyleColor)
             {
                 if (changedTheme)
                 {

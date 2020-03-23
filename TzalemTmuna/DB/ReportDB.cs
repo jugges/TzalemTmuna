@@ -13,18 +13,24 @@ namespace TzalemTmuna.DB
     {
         public ReportDB() : base("reports", "report_id") { }
 
+        public List<Report> GetReports()
+        {
+            var reports = new List<Report>();
+            foreach (DataRow dr in table.Rows)
+            {
+                reports.Add(new Report(dr));
+            }
+            return reports;
+        }
+
         public List<Report> GetReports(int post_id)
         {
             var reports = new List<Report>();
-            var udb = new UserDB();
             foreach (DataRow dr in table.Rows)
             {
                 if (dr["post_id"].Equals(post_id))
                 {
-                    if (udb.Find(dr["owner"]))
-                        reports.Add(new Report(dr));
-                    else
-                        throw new Exception("Report owner was not found in users database!");
+                    reports.Add(new Report(dr));
                 }
             }
             return reports;
@@ -33,15 +39,11 @@ namespace TzalemTmuna.DB
         public List<Report> GetReports(string username)
         {
             var reports = new List<Report>();
-            var udb = new UserDB();
             foreach (DataRow dr in table.Rows)
             {
                 if (dr["owner"].Equals(username))
                 {
-                    if (udb.Find(username))
-                        reports.Add(new Report(dr));
-                    else
-                        throw new Exception("Report owner was not found in users database!");
+                    reports.Add(new Report(dr));
                 }
             }
             return reports;

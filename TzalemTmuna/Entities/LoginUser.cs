@@ -28,6 +28,7 @@ namespace TzalemTmuna.Entities
         private List<User> sentRequests;
         private List<Post> posts;
         private List<Report> reports;
+        private List<Alert> alerts;
 
         public string Username
         {
@@ -208,6 +209,21 @@ namespace TzalemTmuna.Entities
                     var rdb = new ReportDB();
                     reports = rdb.GetReports(username);
                     return reports;
+                }
+            }
+        }
+
+        public List<Alert> Alerts
+        {
+            get
+            {
+                if (alerts != null)
+                    return alerts;
+                else
+                {
+                    var adb = new AlertDB();
+                    alerts = adb.GetAlerts(username);
+                    return alerts;
                 }
             }
         }

@@ -102,14 +102,14 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -131,7 +131,7 @@
             // 
             // 
             this.txtText.CustomButton.Image = null;
-            this.txtText.CustomButton.Location = new System.Drawing.Point(81, 1);
+            this.txtText.CustomButton.Location = new System.Drawing.Point(14, 1);
             this.txtText.CustomButton.Name = "";
             this.txtText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -168,9 +168,9 @@
             this.btnEdit.FontSize = MetroFramework.MetroLabelSize.Extreme;
             this.btnEdit.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnEdit.Location = new System.Drawing.Point(199, 0);
+            this.btnEdit.Location = new System.Drawing.Point(190, 0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(43, 48);
+            this.btnEdit.Size = new System.Drawing.Size(52, 48);
             this.btnEdit.TabIndex = 35;
             this.btnEdit.Text = "✅";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

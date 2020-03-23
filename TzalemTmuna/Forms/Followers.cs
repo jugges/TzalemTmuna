@@ -50,7 +50,7 @@ namespace TzalemTmuna.Forms
                     y.Dock = DockStyle.Top;
                 }
             }
-            else
+            else //mode == 2
             {
                 Text = "Follow Requests";
                 foreach (User x in LoggedInUser.login.ReceivedRequests)
