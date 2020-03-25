@@ -73,6 +73,7 @@
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="DB\UserDB.cs" />
     <Compile Include="Entities\Alert.cs" />
+    <Compile Include="Utilities\IMouseBoundable.cs" />
     <Compile Include="Entities\Report.cs" />
     <Compile Include="Entities\LoginUser.cs" />
     <Compile Include="Entities\Post.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="ColorPallet.cs" />
+    <Compile Include="Utilities\CustomMouseBoundsChecker.cs" />
     <Compile Include="Utilities\FileTools.cs" />
     <Compile Include="Utilities\PasswordTools.cs" />
     <Compile Include="Utilities\ImageTools.cs" />
@@ -402,7 +404,10 @@
     <None Include="Resources\darkVerified.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\baseline_notifications_white_36dp.png" />
+    <None Include="Resources\darkAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightAlert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

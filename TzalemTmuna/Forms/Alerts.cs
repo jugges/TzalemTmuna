@@ -19,6 +19,23 @@ namespace TzalemTmuna.Forms
 {
     public partial class Alerts : MetroFramework.Forms.MetroForm
     {
+        List<IMouseBoundable> alertControls;
+        private CustomMouseBoundsChecker mouseBounds;
+        protected override void OnLoad(EventArgs e)
+        {
+            //Add mousebound check message filter on load
+            Application.AddMessageFilter(mouseBounds);
+
+            base.OnLoad(e);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            //Remove mousebound check message filter on load
+            Application.RemoveMessageFilter(mouseBounds);
+
+            base.OnClosing(e);
+        }
         public Alerts()
         {
             InitializeComponent();
@@ -28,12 +45,18 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.metroThemeStyle,
                 Style = Statics.Theme.metroColorStyle
             };
+
+            //List for CommentControls made by Login to pass MouseBounds
+            alertControls = new List<IMouseBoundable>();
+
             foreach (Alert x in LoggedInUser.login.Alerts)
             {
                 var y = new AlertItem(x);
                 metroPanel.Controls.Add(y);
                 y.Dock = DockStyle.Top;
+                alertControls.Add(y);
             }
+
             int followRequestCount = LoggedInUser.login.ReceivedRequests.Count;
             if (followRequestCount > 0)
             {
@@ -41,6 +64,11 @@ namespace TzalemTmuna.Forms
                 metroPanel.Controls.Add(followRequestsAlert);
                 followRequestsAlert.Dock = DockStyle.Top;
             }
+            #region MouseBounds Handler
+            //if (loginCommentControls.Count != 0)
+            mouseBounds = new CustomMouseBoundsChecker(alertControls);
+
+            #endregion
         }
     }
 }

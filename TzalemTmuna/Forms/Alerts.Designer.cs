@@ -62,7 +62,7 @@ namespace TzalemTmuna.Forms
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
-            this.Text = "Alerts";
+            this.Text = "Notifications";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.ResumeLayout(false);
 

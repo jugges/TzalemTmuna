@@ -33,12 +33,14 @@ namespace TzalemTmuna.Forms
                 btnSearch.BackgroundImage = Properties.Dark.darkSearch;
                 btnProfile.BackgroundImage = Properties.Dark.darkProfile;
                 btnSettings.BackgroundImage = Properties.Dark.darkSettings;
+                btnAlert.BackgroundImage = Properties.Dark.darkAlert;
             }
             else
             {
                 btnSearch.BackgroundImage = Properties.Light.lightSearch;
                 btnProfile.BackgroundImage = Properties.Light.lightProfile;
                 btnSettings.BackgroundImage = Properties.Light.lightSettings;
+                btnAlert.BackgroundImage = Properties.Light.lightAlert;
             }
         }
 
@@ -65,14 +67,17 @@ namespace TzalemTmuna.Forms
                 flowLayoutPanel1.VerticalScroll.Maximum += thumbnail.Height;
             }
 
-            if (LoggedInUser.login.ReceivedRequests.Count == 0)
+            int notificationCount = LoggedInUser.login.ReceivedRequests.Count > 0 ? 1 : 0;
+            notificationCount += LoggedInUser.login.Alerts.Count;
+
+            if (notificationCount == 0)
             {
                 lblNotifications.Hide();
             }
             else
             {
                 lblNotifications.Show();
-                lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
+                lblNotifications.Text = notificationCount.ToString();
             }
         }
 
@@ -87,14 +92,17 @@ namespace TzalemTmuna.Forms
                 flowLayoutPanel1.VerticalScroll.Maximum += thumbnail.Height;
             }
 
-            if (LoggedInUser.login.ReceivedRequests.Count == 0)
+            int notificationCount = LoggedInUser.login.ReceivedRequests.Count > 0 ? 1 : 0;
+            notificationCount += LoggedInUser.login.Alerts.Count;
+
+            if (notificationCount == 0)
             {
                 lblNotifications.Hide();
             }
             else
             {
                 lblNotifications.Show();
-                lblNotifications.Text = LoggedInUser.login.ReceivedRequests.Count.ToString();
+                lblNotifications.Text = notificationCount.ToString();
             }
         }
         private void flowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)

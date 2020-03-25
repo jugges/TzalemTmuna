@@ -14,7 +14,7 @@ using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
-    public partial class CommentControl : MetroFramework.Controls.MetroUserControl
+    public partial class CommentControl : MetroFramework.Controls.MetroUserControl,IMouseBoundable
     {
         Comment comment;
         bool editMode = false;

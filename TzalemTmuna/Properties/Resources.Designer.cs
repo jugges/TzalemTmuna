@@ -63,16 +63,6 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap baseline_notifications_white_36dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_notifications_white_36dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap emptyprofilepicture {
             get {
                 object obj = ResourceManager.GetObject("emptyprofilepicture", resourceCulture);

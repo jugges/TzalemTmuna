@@ -88,8 +88,8 @@ namespace TzalemTmuna.Forms
             Profile newProfile = new Profile(user);
             newProfile.Show();
             followers.Close();
-            newProfile.RedirectHere += (s, args) => LoggedInUser.profile.Show();
-            newProfile.redirectAfterClose=true;
+            //newProfile.RedirectHere += (s, args) => LoggedInUser.profile.Show();
+            //newProfile.redirectAfterClose=true;
         }
     }
 }
