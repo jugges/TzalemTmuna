@@ -17,6 +17,7 @@ namespace TzalemTmuna.Forms
     public partial class CommentControl : MetroFramework.Controls.MetroUserControl
     {
         Comment comment;
+        bool editMode = false;
         public CommentControl()
         {
             InitializeComponent();
@@ -47,7 +48,8 @@ namespace TzalemTmuna.Forms
 
         public void ToggleMenu()
         {
-            btnMenu.Visible = !btnMenu.Visible;
+            if(!editMode)
+                btnMenu.Visible = !btnMenu.Visible;
         }
 
         private void OpenProfile(object sender, EventArgs e)
@@ -99,6 +101,7 @@ namespace TzalemTmuna.Forms
             btnEdit.Show();
             //Disable options menu
             btnMenu.Enabled = false;
+            editMode = true;
             //Hide text label
             lblText.Hide();
         }
@@ -122,6 +125,8 @@ namespace TzalemTmuna.Forms
             txtText.Hide();
             btnEdit.Hide();
             lblText.Show();
+            editMode = false;
+            btnMenu.Visible = true;
         }
 
         //DELETED: Now using autoSize with minSize

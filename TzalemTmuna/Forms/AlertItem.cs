@@ -11,6 +11,7 @@ using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.DB;
 using TzalemTmuna.Statics;
+using TzalemTmuna.Utilities;
 
 namespace TzalemTmuna.Forms
 {
@@ -31,8 +32,19 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.metroThemeStyle,
                 Style = Statics.Theme.metroColorStyle
             };
-            lblAlertText.Text = requestCount>1?$"You have {requestCount} new follow requests!":"You have a new follow request!";
-
+            //lblAlertText.Text = requestCount>1?$"You have {requestCount} new follow requests!":"You have a new follow request!";
+            if (requestCount > 1)
+            {
+                lblAlertText.Text = $"You have {requestCount} new follow requests!";
+                pbSecond.Image = FileTools.getProfilePicture(LoggedInUser.login.ReceivedRequests[0].Username);
+                pbMain.Image = FileTools.getProfilePicture(LoggedInUser.login.ReceivedRequests[1].Username);
+            } else
+            {
+                Controls.Remove(pbSecond);
+                pbSecond.Dispose();
+                pbMain.Image = FileTools.getProfilePicture(LoggedInUser.login.ReceivedRequests[0].Username);
+                lblAlertText.Text = "You have a new follow request!";
+            }
         }
         //Show a custom alert
         public AlertItem(Alert alert)
@@ -44,26 +56,16 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.metroThemeStyle,
                 Style = Statics.Theme.metroColorStyle
             };
+            Controls.Remove(pbSecond);
+            pbSecond.Dispose();
             lblAlertText.Text = alert.Alert_text;
             alert_id = alert.Alert_id;
         }
-
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             var adb = new AlertDB();
             adb.RemoveAlert(alert_id);
             this.Parent.Controls.Remove(this);
-        }
-
-        private void AlertItem_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

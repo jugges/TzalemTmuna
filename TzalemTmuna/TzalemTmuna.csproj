@@ -60,9 +60,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TzalemTmuna">
-      <HintPath>obj\Debug\TzalemTmuna.exe</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DAL.cs" />
