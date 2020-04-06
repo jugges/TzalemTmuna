@@ -35,9 +35,9 @@
             this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.txtText = new MetroFramework.Controls.MetroTextBox();
             this.btnEdit = new MetroFramework.Controls.MetroLabel();
+            this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.cmOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -113,18 +113,6 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
-            // ProfilePicture
-            // 
-            this.ProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
-            this.ProfilePicture.Location = new System.Drawing.Point(10, 8);
-            this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(32, 32);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ProfilePicture.TabIndex = 0;
-            this.ProfilePicture.TabStop = false;
-            this.ProfilePicture.Click += new System.EventHandler(this.OpenProfile);
-            // 
             // txtText
             // 
             // 
@@ -178,6 +166,18 @@
             this.btnEdit.UseCustomForeColor = true;
             this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // ProfilePicture
+            // 
+            this.ProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProfilePicture.Image = global::TzalemTmuna.Properties.Resources.emptyprofilepicture;
+            this.ProfilePicture.Location = new System.Drawing.Point(10, 8);
+            this.ProfilePicture.Name = "ProfilePicture";
+            this.ProfilePicture.Size = new System.Drawing.Size(32, 32);
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProfilePicture.TabIndex = 0;
+            this.ProfilePicture.TabStop = false;
+            this.ProfilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
             // CommentControl
             // 

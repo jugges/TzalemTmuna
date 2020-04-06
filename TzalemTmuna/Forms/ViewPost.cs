@@ -56,6 +56,7 @@ namespace TzalemTmuna.Forms
         public ViewPost(Post post)
         {
             InitializeComponent();
+            Text = post.Owner.Username + "'s Post";
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
@@ -297,14 +298,22 @@ namespace TzalemTmuna.Forms
             if (MetroFramework.MetroMessageBox.Show(this, "Confirm deletion of post \"" + post.Post_text + "\"", "Delete Post", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 new PostDB().RemovePost(post.Post_id);
+                //Call to remove comments
+                new CommentDB().RemoveComments(post.Post_id);
+                //Call to remove likes
+                new LikeDB().RemoveLikes(post.Post_id);
                 LoggedInUser.login.Posts.Remove(post);
                 LoggedInUser.profile.CleanThumbnailContainer();
                 LoggedInUser.profile.LoadPostThumbnails();
 
                 //Send alert about deleted post to comment holders
-                foreach (Comment x in post.Comments)
+                if (post.Comments.Count > 0)
                 {
-
+                    var adb = new AlertDB();
+                    foreach (Comment x in post.Comments)
+                    {
+                        adb.NewAlert($"{LoggedInUser.login.Username} deleted a post\n\ryou commented on", x.Owner);
+                    }
                 }
 
                 Close();

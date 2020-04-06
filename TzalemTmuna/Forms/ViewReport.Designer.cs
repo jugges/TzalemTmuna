@@ -44,7 +44,7 @@ namespace TzalemTmuna.Forms
             this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(23, 60);
+            this.lblUsername.Location = new System.Drawing.Point(23, 49);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(71, 19);
             this.lblUsername.TabIndex = 29;
@@ -102,7 +102,7 @@ namespace TzalemTmuna.Forms
             this.lblClosingDate.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblClosingDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblClosingDate.ForeColor = System.Drawing.Color.White;
-            this.lblClosingDate.Location = new System.Drawing.Point(82, 41);
+            this.lblClosingDate.Location = new System.Drawing.Point(82, 30);
             this.lblClosingDate.Name = "lblClosingDate";
             this.lblClosingDate.Size = new System.Drawing.Size(141, 19);
             this.lblClosingDate.TabIndex = 32;
@@ -115,7 +115,7 @@ namespace TzalemTmuna.Forms
             this.lblOpeningDate.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblOpeningDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblOpeningDate.ForeColor = System.Drawing.Color.White;
-            this.lblOpeningDate.Location = new System.Drawing.Point(82, 22);
+            this.lblOpeningDate.Location = new System.Drawing.Point(82, 11);
             this.lblOpeningDate.Name = "lblOpeningDate";
             this.lblOpeningDate.Size = new System.Drawing.Size(141, 19);
             this.lblOpeningDate.TabIndex = 33;
@@ -128,7 +128,7 @@ namespace TzalemTmuna.Forms
             this.lblOpened.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblOpened.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblOpened.ForeColor = System.Drawing.Color.White;
-            this.lblOpened.Location = new System.Drawing.Point(23, 22);
+            this.lblOpened.Location = new System.Drawing.Point(23, 11);
             this.lblOpened.Name = "lblOpened";
             this.lblOpened.Size = new System.Drawing.Size(61, 19);
             this.lblOpened.TabIndex = 34;
@@ -141,7 +141,7 @@ namespace TzalemTmuna.Forms
             this.lblClosed.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblClosed.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblClosed.ForeColor = System.Drawing.Color.White;
-            this.lblClosed.Location = new System.Drawing.Point(23, 41);
+            this.lblClosed.Location = new System.Drawing.Point(23, 30);
             this.lblClosed.Name = "lblClosed";
             this.lblClosed.Size = new System.Drawing.Size(53, 19);
             this.lblClosed.TabIndex = 35;
@@ -160,11 +160,15 @@ namespace TzalemTmuna.Forms
             this.Controls.Add(this.btnAction);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtText);
+            this.DisplayHeader = false;
+            this.Icon = global::TzalemTmuna.Properties.Resources.tico;
             this.MaximizeBox = false;
             this.Name = "ViewReport";
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
+            this.Text = "View Report";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.ResumeLayout(false);
             this.PerformLayout();

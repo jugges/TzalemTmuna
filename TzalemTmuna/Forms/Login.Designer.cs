@@ -181,6 +181,7 @@ namespace TzalemTmuna.Forms
             // 
             // Login
             // 
+            this.Icon = Properties.Resources.tico;
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

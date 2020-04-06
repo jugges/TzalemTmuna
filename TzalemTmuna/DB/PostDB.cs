@@ -54,10 +54,6 @@ namespace TzalemTmuna.DB
                 {
                     //delete the post image
                     Utilities.FileTools.deletePost(dr["owner"].ToString(), post_id);
-                    //Call to remove comments
-                    new CommentDB().RemoveComments(post_id);
-                    //Call to remove likes
-                    new LikeDB().RemoveLikes(post_id);
                     //delete row from table
                     DeleteRow(dr);
                     break;

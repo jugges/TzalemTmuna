@@ -35,6 +35,9 @@
   <PropertyGroup>
     <StartupObject>TzalemTmuna.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\tico.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -243,12 +246,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Alerts.resx">
       <DependentUpon>Alerts.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlertItem.resx">
       <DependentUpon>AlertItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
@@ -408,6 +414,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lightAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tico.ico" />
+    <Content Include="tzalemtmunaicon2_T8a_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

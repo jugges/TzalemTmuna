@@ -101,5 +101,14 @@ namespace TzalemTmuna.Forms
                 this.Parent.Controls.Remove(this);
             }
         }
+
+        private void AlertItem_ParentChanged(object sender, EventArgs e)
+        {
+            if (Parent != null)
+            {
+                MinimumSize = new Size(Parent.Width, MinimumSize.Height);
+                Width = Parent.Width;
+            }
+        }
     }
 }

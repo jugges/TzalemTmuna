@@ -28,7 +28,7 @@ namespace TzalemTmuna.Forms
 
         private void HandleTheme()
         {
-            if(Theme==MetroFramework.MetroThemeStyle.Dark)
+            if (Theme==MetroFramework.MetroThemeStyle.Dark)
             {
                 btnSearch.BackgroundImage = Properties.Dark.darkSearch;
                 btnProfile.BackgroundImage = Properties.Dark.darkProfile;

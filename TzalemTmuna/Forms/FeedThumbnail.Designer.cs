@@ -36,6 +36,7 @@
             this.lblLatestComment = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pbLike = new System.Windows.Forms.PictureBox();
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,16 +45,15 @@
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
-            this.pbLike = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             this.panel1.SuspendLayout();
             this.cmOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 520F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(520, 719);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(520, 746);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // pb
@@ -97,7 +97,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 577);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(514, 139);
+            this.panel2.Size = new System.Drawing.Size(514, 166);
             this.panel2.TabIndex = 5;
             // 
             // lblComments
@@ -159,6 +159,18 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.panel3.Size = new System.Drawing.Size(514, 24);
             this.panel3.TabIndex = 28;
+            // 
+            // pbLike
+            // 
+            this.pbLike.BackColor = System.Drawing.Color.Transparent;
+            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbLike.Location = new System.Drawing.Point(44, 0);
+            this.pbLike.Name = "pbLike";
+            this.pbLike.Size = new System.Drawing.Size(24, 24);
+            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLike.TabIndex = 31;
+            this.pbLike.TabStop = false;
             // 
             // pbComment
             // 
@@ -263,36 +275,24 @@
             this.profilePicture.TabStop = false;
             this.profilePicture.Click += new System.EventHandler(this.OpenProfile);
             // 
-            // pbLike
-            // 
-            this.pbLike.BackColor = System.Drawing.Color.Transparent;
-            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLike.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLike.Location = new System.Drawing.Point(44, 0);
-            this.pbLike.Name = "pbLike";
-            this.pbLike.Size = new System.Drawing.Size(24, 24);
-            this.pbLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLike.TabIndex = 31;
-            this.pbLike.TabStop = false;
-            // 
             // FeedThumbnail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FeedThumbnail";
-            this.Size = new System.Drawing.Size(520, 719);
+            this.Size = new System.Drawing.Size(520, 746);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.cmOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLike)).EndInit();
             this.ResumeLayout(false);
 
         }

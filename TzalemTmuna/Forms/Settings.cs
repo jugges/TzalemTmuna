@@ -91,8 +91,15 @@ namespace TzalemTmuna.Forms
             string closing_date = x.Closing_date == DateTime.MinValue ? string.Empty : x.Closing_date.ToString("MM/dd/yyyy HH:mm:ss");
             if (x.Post_id != -1)
             {
-                reportedPost = ImageTools.ResizeImage(FileTools.getPost(x.Post_id), 150, 150);
-                grdMyReports.Rows.Add(x.Report_id, x.Post_id, reportedPost, x.Report_text, x.Creation_date, closing_date);
+                try
+                {
+                    reportedPost = ImageTools.ResizeImage(FileTools.getPost(x.Post_id), 150, 150);
+                    grdMyReports.Rows.Add(x.Report_id, x.Post_id, reportedPost, x.Report_text, x.Creation_date, closing_date);
+                }
+                catch
+                {
+
+                }
             }
             else
             {

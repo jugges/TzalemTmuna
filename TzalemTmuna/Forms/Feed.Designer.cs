@@ -35,11 +35,11 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSettings = new MetroFramework.Controls.MetroButton();
+            this.lblNotifications = new MetroFramework.Controls.MetroLabel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnSearch = new MetroFramework.Controls.MetroButton();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
-            this.btnSettings = new MetroFramework.Controls.MetroButton();
-            this.lblNotifications = new MetroFramework.Controls.MetroLabel();
             this.btnProfile = new MetroFramework.Controls.MetroButton();
             this.btnAlert = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
@@ -55,12 +55,12 @@ namespace TzalemTmuna.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 30);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(903, 810);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(903, 840);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -69,9 +69,9 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(191, 84);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(191, 87);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(520, 723);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(520, 750);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseWheel);
@@ -86,10 +86,34 @@ namespace TzalemTmuna.Forms
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnProfile);
             this.panel1.Controls.Add(this.btnAlert);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(897, 75);
             this.panel1.TabIndex = 6;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSettings.Location = new System.Drawing.Point(839, 22);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(48, 45);
+            this.btnSettings.TabIndex = 13;
+            this.btnSettings.UseSelectable = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // lblNotifications
+            // 
+            this.lblNotifications.AutoSize = true;
+            this.lblNotifications.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblNotifications.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblNotifications.Location = new System.Drawing.Point(821, 8);
+            this.lblNotifications.Name = "lblNotifications";
+            this.lblNotifications.Size = new System.Drawing.Size(21, 25);
+            this.lblNotifications.TabIndex = 3;
+            this.lblNotifications.Text = "2";
+            this.lblNotifications.UseStyleColors = true;
+            this.lblNotifications.Click += new System.EventHandler(this.lblNotifications_Click);
             // 
             // pbLogo
             // 
@@ -148,30 +172,6 @@ namespace TzalemTmuna.Forms
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // btnSettings
-            // 
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSettings.Location = new System.Drawing.Point(839, 22);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(48, 45);
-            this.btnSettings.TabIndex = 13;
-            this.btnSettings.UseSelectable = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // lblNotifications
-            // 
-            this.lblNotifications.AutoSize = true;
-            this.lblNotifications.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblNotifications.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblNotifications.Location = new System.Drawing.Point(821, 8);
-            this.lblNotifications.Name = "lblNotifications";
-            this.lblNotifications.Size = new System.Drawing.Size(21, 25);
-            this.lblNotifications.TabIndex = 3;
-            this.lblNotifications.Text = "2";
-            this.lblNotifications.UseStyleColors = true;
-            this.lblNotifications.Click += new System.EventHandler(this.lblNotifications_Click);
-            // 
             // btnProfile
             // 
             this.btnProfile.AccessibleName = "Profile";
@@ -202,9 +202,13 @@ namespace TzalemTmuna.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 890);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DisplayHeader = false;
+            this.Icon = global::TzalemTmuna.Properties.Resources.tico;
             this.Name = "Feed";
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
+            this.Text = "TzalemTmuna";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

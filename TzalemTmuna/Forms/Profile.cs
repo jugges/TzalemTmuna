@@ -28,6 +28,7 @@ namespace TzalemTmuna.Forms
         public Profile()
         {
             InitializeComponent();
+            Text = "My Profile";
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
@@ -101,6 +102,7 @@ namespace TzalemTmuna.Forms
         public Profile(User user)
         {
             InitializeComponent();
+            Text = user.Username+"'s Profile";
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,

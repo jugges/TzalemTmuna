@@ -39,11 +39,11 @@ namespace TzalemTmuna.Forms
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.pbLike = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
-            this.lblText = new MetroFramework.Controls.MetroLabel();
-            this.lblUsername = new MetroFramework.Controls.MetroLabel();
-            this.lblComments = new MetroFramework.Controls.MetroLabel();
             this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
+            this.lblComments = new MetroFramework.Controls.MetroLabel();
+            this.lblText = new MetroFramework.Controls.MetroLabel();
+            this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -215,48 +215,6 @@ namespace TzalemTmuna.Forms
             this.lblLikes.UseCustomBackColor = true;
             this.lblLikes.UseCustomForeColor = true;
             // 
-            // lblText
-            // 
-            this.lblText.AutoSize = true;
-            this.lblText.BackColor = System.Drawing.Color.Transparent;
-            this.lblText.Enabled = false;
-            this.lblText.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblText.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblText.Location = new System.Drawing.Point(716, 48);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(40, 25);
-            this.lblText.TabIndex = 26;
-            this.lblText.Text = "Text";
-            this.lblText.UseCustomBackColor = true;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(716, 25);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(71, 19);
-            this.lblUsername.TabIndex = 29;
-            this.lblUsername.Text = "Username";
-            this.lblUsername.UseCustomBackColor = true;
-            this.lblUsername.Click += new System.EventHandler(this.OpenProfile);
-            // 
-            // lblComments
-            // 
-            this.lblComments.AutoSize = true;
-            this.lblComments.BackColor = System.Drawing.Color.Transparent;
-            this.lblComments.Enabled = false;
-            this.lblComments.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblComments.Location = new System.Drawing.Point(656, 82);
-            this.lblComments.Name = "lblComments";
-            this.lblComments.Size = new System.Drawing.Size(86, 19);
-            this.lblComments.TabIndex = 33;
-            this.lblComments.Text = "15 comments";
-            this.lblComments.UseCustomBackColor = true;
-            this.lblComments.UseCustomForeColor = true;
-            // 
             // profilePicture
             // 
             this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -278,20 +236,63 @@ namespace TzalemTmuna.Forms
             this.pbPhoto.TabStop = false;
             this.pbPhoto.DoubleClick += new System.EventHandler(this.Like);
             // 
+            // lblComments
+            // 
+            this.lblComments.AutoSize = true;
+            this.lblComments.BackColor = System.Drawing.Color.Transparent;
+            this.lblComments.Enabled = false;
+            this.lblComments.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblComments.Location = new System.Drawing.Point(653, 82);
+            this.lblComments.Name = "lblComments";
+            this.lblComments.Size = new System.Drawing.Size(86, 19);
+            this.lblComments.TabIndex = 36;
+            this.lblComments.Text = "15 comments";
+            this.lblComments.UseCustomBackColor = true;
+            this.lblComments.UseCustomForeColor = true;
+            // 
+            // lblText
+            // 
+            this.lblText.AutoSize = true;
+            this.lblText.BackColor = System.Drawing.Color.Transparent;
+            this.lblText.Enabled = false;
+            this.lblText.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblText.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblText.Location = new System.Drawing.Point(713, 48);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(40, 25);
+            this.lblText.TabIndex = 34;
+            this.lblText.Text = "Text";
+            this.lblText.UseCustomBackColor = true;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Location = new System.Drawing.Point(713, 25);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(71, 19);
+            this.lblUsername.TabIndex = 35;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.UseCustomBackColor = true;
+            // 
             // ViewPost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 640);
-            this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.lblComments);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pbPhoto);
+            this.DisplayHeader = false;
+            this.Icon = global::TzalemTmuna.Properties.Resources.tico;
             this.MaximizeBox = false;
             this.Name = "ViewPost";
-            this.Padding = new System.Windows.Forms.Padding(20, 60, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 0, 0);
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
@@ -315,17 +316,17 @@ namespace TzalemTmuna.Forms
         private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ProfilePicture profilePicture;
-        private MetroFramework.Controls.MetroLabel lblText;
-        private MetroFramework.Controls.MetroLabel lblUsername;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private MetroFramework.Controls.MetroButton btnSubmit;
         private MetroFramework.Controls.MetroTextBox txtCommentText;
-        private MetroFramework.Controls.MetroLabel lblComments;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.PictureBox pbOption;
         private System.Windows.Forms.PictureBox pbComment;
         private System.Windows.Forms.PictureBox pbLike;
         private MetroFramework.Controls.MetroLabel lblLikes;
+        private MetroFramework.Controls.MetroLabel lblComments;
+        private MetroFramework.Controls.MetroLabel lblText;
+        private MetroFramework.Controls.MetroLabel lblUsername;
     }
 }

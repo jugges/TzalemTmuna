@@ -92,13 +92,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.lblAlertText);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.pbSecond);
             this.Controls.Add(this.pbMain);
-            this.MinimumSize = new System.Drawing.Size(297, 48);
+            this.MinimumSize = new System.Drawing.Size(299, 53);
             this.Name = "AlertItem";
             this.Size = new System.Drawing.Size(299, 53);
+            this.ParentChanged += new System.EventHandler(this.AlertItem_ParentChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSecond)).EndInit();
             this.ResumeLayout(false);
