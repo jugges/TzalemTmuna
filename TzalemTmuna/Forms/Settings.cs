@@ -52,61 +52,6 @@ namespace TzalemTmuna.Forms
             changedTheme = Properties.Settings.Default.darkMode ^ tDarkMode.Checked;
         }
 
-        private void Settings_Load(object sender, EventArgs e)
-        {
-            foreach (Report x in LoggedInUser.login.Reports)
-            {
-                AddReportToGrid(x);
-            }
-            ReportDB rdb = new ReportDB();
-            foreach (Report x in rdb.GetReports())
-            {
-                //Is graph empty?
-                //OR
-                //Is last point not plotted on the same date as this report's date?
-                if (chart1.Series[0].Points.Count == 0 || DateTime.FromOADate(chart1.Series[0].Points.Last().XValue) != x.Creation_date.Date)
-                {
-                    chart1.Series[0].Points.AddXY(x.Creation_date.Date, 1);
-                }
-                else
-                {
-                    
-                    chart1.Series[0].Points.Last().YValues[0] += 1;
-                }
-                if (x.Closing_date != DateTime.MinValue)
-                    if (chart1.Series[1].Points.Count == 0 || DateTime.FromOADate(chart1.Series[1].Points.Last().XValue) != x.Closing_date.Date)
-                    {
-                        chart1.Series[1].Points.AddXY(x.Closing_date.Date, 1);
-                    }
-                    else
-                    {
-                        chart1.Series[1].Points.Last().YValues[0] += 1;
-                    }
-            }
-        }
-
-        private void AddReportToGrid(Report x)
-        {
-            Bitmap reportedPost;
-            string closing_date = x.Closing_date == DateTime.MinValue ? string.Empty : x.Closing_date.ToString("MM/dd/yyyy HH:mm:ss");
-            if (x.Post_id != -1)
-            {
-                try
-                {
-                    reportedPost = ImageTools.ResizeImage(FileTools.getPost(x.Post_id), 150, 150);
-                    grdMyReports.Rows.Add(x.Report_id, x.Post_id, reportedPost, x.Report_text, x.Creation_date, closing_date);
-                }
-                catch
-                {
-
-                }
-            }
-            else
-            {
-                grdMyReports.Rows.Add(x.Report_id, x.Post_id, null, x.Report_text, x.Creation_date, closing_date);
-            }
-        }
-
         private void btnReport_Click(object sender, EventArgs e)
         {
             if (new NewReport().ShowDialog() == DialogResult.OK)
@@ -115,9 +60,29 @@ namespace TzalemTmuna.Forms
             }
         }
 
+        private void AddReportToGrid(Report x)
+        {
+            string closing_date = x.Closing_date == DateTime.MinValue ? string.Empty : x.Closing_date.ToString("MM/dd/yyyy HH:mm:ss");
+            
+            //Warning, ternary heaven (or dare I say hell) below...
+            grdMyReports.Rows.Add(x.Report_id, x.Content_type, x.Content_id,
+                (x.Content_type == 0 ?
+                    (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ?
+                    Properties.Light.lightNoContentReport : Properties.Dark.darkNoContentReport
+                    ) : 
+                        (x.Content_type == 1 ? 
+                        ImageTools.ResizeImage(FileTools.getPost(int.Parse(x.Content_id)), 96, 96) : 
+                            (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ? 
+                            Properties.Light.lightCommentReport : Properties.Dark.darkCommentReport
+                            )
+                        )
+                ), x.Report_text, x.Creation_date, closing_date
+            );
+        }
+
         private void grdMyReports_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 3)
             {
                 if (grdMyReports.Rows[e.RowIndex].Cells[1].Value.ToString() != "-1")
                 {
@@ -201,6 +166,15 @@ namespace TzalemTmuna.Forms
         {
             var changePassword = new ChangePassword();
             changePassword.ShowDialog();
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            //Load my reports page
+            foreach (Report x in LoggedInUser.login.Reports)
+            {
+                AddReportToGrid(x);
+            }
         }
     }
 }

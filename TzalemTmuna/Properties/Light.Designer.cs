@@ -103,6 +103,16 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lightCommentReport {
+            get {
+                object obj = ResourceManager.GetObject("lightCommentReport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightDelete {
             get {
                 object obj = ResourceManager.GetObject("lightDelete", resourceCulture);
@@ -136,6 +146,16 @@ namespace TzalemTmuna.Properties {
         internal static System.Drawing.Bitmap lightLikeFilled {
             get {
                 object obj = ResourceManager.GetObject("lightLikeFilled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightNoContentReport {
+            get {
+                object obj = ResourceManager.GetObject("lightNoContentReport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +206,16 @@ namespace TzalemTmuna.Properties {
         internal static System.Drawing.Bitmap lightUpload {
             get {
                 object obj = ResourceManager.GetObject("lightUpload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightUser {
+            get {
+                object obj = ResourceManager.GetObject("lightUser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -36,17 +36,18 @@ namespace TzalemTmuna.Forms
             this.lblOpeningDate = new MetroFramework.Controls.MetroLabel();
             this.lblOpened = new MetroFramework.Controls.MetroLabel();
             this.lblClosed = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblUsername.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(23, 49);
+            this.lblUsername.Location = new System.Drawing.Point(103, 55);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(71, 19);
+            this.lblUsername.Size = new System.Drawing.Size(76, 19);
             this.lblUsername.TabIndex = 29;
             this.lblUsername.Text = "Username";
             this.lblUsername.UseCustomBackColor = true;
@@ -56,7 +57,7 @@ namespace TzalemTmuna.Forms
             // 
             this.btnAction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAction.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAction.Location = new System.Drawing.Point(23, 253);
+            this.btnAction.Location = new System.Drawing.Point(23, 258);
             this.btnAction.Name = "btnAction";
             this.btnAction.Size = new System.Drawing.Size(334, 47);
             this.btnAction.TabIndex = 30;
@@ -102,7 +103,7 @@ namespace TzalemTmuna.Forms
             this.lblClosingDate.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblClosingDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblClosingDate.ForeColor = System.Drawing.Color.White;
-            this.lblClosingDate.Location = new System.Drawing.Point(82, 30);
+            this.lblClosingDate.Location = new System.Drawing.Point(103, 36);
             this.lblClosingDate.Name = "lblClosingDate";
             this.lblClosingDate.Size = new System.Drawing.Size(141, 19);
             this.lblClosingDate.TabIndex = 32;
@@ -115,7 +116,7 @@ namespace TzalemTmuna.Forms
             this.lblOpeningDate.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblOpeningDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblOpeningDate.ForeColor = System.Drawing.Color.White;
-            this.lblOpeningDate.Location = new System.Drawing.Point(82, 11);
+            this.lblOpeningDate.Location = new System.Drawing.Point(103, 17);
             this.lblOpeningDate.Name = "lblOpeningDate";
             this.lblOpeningDate.Size = new System.Drawing.Size(141, 19);
             this.lblOpeningDate.TabIndex = 33;
@@ -128,7 +129,7 @@ namespace TzalemTmuna.Forms
             this.lblOpened.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblOpened.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblOpened.ForeColor = System.Drawing.Color.White;
-            this.lblOpened.Location = new System.Drawing.Point(23, 11);
+            this.lblOpened.Location = new System.Drawing.Point(23, 17);
             this.lblOpened.Name = "lblOpened";
             this.lblOpened.Size = new System.Drawing.Size(61, 19);
             this.lblOpened.TabIndex = 34;
@@ -141,18 +142,32 @@ namespace TzalemTmuna.Forms
             this.lblClosed.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblClosed.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblClosed.ForeColor = System.Drawing.Color.White;
-            this.lblClosed.Location = new System.Drawing.Point(23, 30);
+            this.lblClosed.Location = new System.Drawing.Point(23, 36);
             this.lblClosed.Name = "lblClosed";
             this.lblClosed.Size = new System.Drawing.Size(53, 19);
             this.lblClosed.TabIndex = 35;
             this.lblClosed.Text = "Closed:";
             this.lblClosed.UseCustomBackColor = true;
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.ForeColor = System.Drawing.Color.White;
+            this.metroLabel1.Location = new System.Drawing.Point(23, 55);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel1.TabIndex = 36;
+            this.metroLabel1.Text = "Username:";
+            this.metroLabel1.UseCustomBackColor = true;
+            // 
             // ViewReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 323);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.lblClosed);
             this.Controls.Add(this.lblOpened);
             this.Controls.Add(this.lblOpeningDate);
@@ -183,5 +198,6 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroLabel lblOpeningDate;
         private MetroFramework.Controls.MetroLabel lblOpened;
         private MetroFramework.Controls.MetroLabel lblClosed;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

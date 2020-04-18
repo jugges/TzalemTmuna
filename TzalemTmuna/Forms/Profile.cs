@@ -35,6 +35,8 @@ namespace TzalemTmuna.Forms
                 Theme = Statics.Theme.metroThemeStyle,
                 Style = Statics.Theme.metroColorStyle
             };
+            Controls.Remove(btnMenu);
+            btnMenu.Dispose();
             btnUpload.Image =
                 Theme == MetroFramework.MetroThemeStyle.Dark
                 ? Properties.Dark.darkUpload : Properties.Light.lightUpload;
@@ -71,15 +73,6 @@ namespace TzalemTmuna.Forms
             lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
             lblPosts.Text = LoggedInUser.login.Posts.Count.ToString();
-            //
-            // REMOVED RECEIVED REQUESTS BUTTON FROM THE PROFILE BCZ IT LOOKS BETTER IN THE FEED
-            //
-            //if (LoggedInUser.login.ReceivedRequests.Count == 0)
-            //{
-            //    btnFollowRequests.Hide();
-            //}
-            Controls.Remove(btnFollowRequests);
-            btnFollowRequests.Dispose();
 
             btnOption.Text = "Edit Profile";
             LoadPostThumbnails();
@@ -150,8 +143,6 @@ namespace TzalemTmuna.Forms
             lblFollowers.Text = user.Followers.Count.ToString();
             lblFollowing.Text = user.Following.Count.ToString();
             lblPosts.Text = user.Posts.Count.ToString();
-            Controls.Remove(btnFollowRequests);
-            btnFollowRequests.Dispose();
             Controls.Remove(btnLogout);
             btnLogout.Dispose();
             Controls.Remove(btnUpload);
@@ -270,9 +261,6 @@ namespace TzalemTmuna.Forms
                 //Refresh following
                 lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
                 lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
-                if (Mode == 2)
-                    if (LoggedInUser.login.ReceivedRequests.Count == 0)
-                        btnFollowRequests.Hide();
             }
             else
             {
@@ -280,17 +268,6 @@ namespace TzalemTmuna.Forms
                 //Refresh following
                 lblFollowing.Text = user.Following.Count.ToString();
                 lblFollowers.Text = user.Followers.Count.ToString();
-            }
-        }
-
-        public void RefreshFollowRequests()
-        {
-            if (isMainProfile)
-            {
-                if (!btnFollowRequests.Visible && LoggedInUser.login.ReceivedRequests.Count != 0)
-                {
-                    btnFollowRequests.Show();
-                }
             }
         }
 
@@ -414,6 +391,16 @@ namespace TzalemTmuna.Forms
                 lblFollowing.Text = LoggedInUser.login.Following.Count.ToString();
                 lblFollowers.Text = LoggedInUser.login.Followers.Count.ToString();
             }
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            btnMenu.ContextMenuStrip.Show(btnMenu, new Point(0, btnMenu.Height));
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new NewReport(3, user.Username).ShowDialog();
         }
     }
 }

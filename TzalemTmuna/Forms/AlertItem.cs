@@ -42,7 +42,8 @@ namespace TzalemTmuna.Forms
                 lblAlertText.Text = $"You have {requestCount} new follow requests!";
                 pbSecond.Image = FileTools.getProfilePicture(LoggedInUser.login.ReceivedRequests[0].Username);
                 pbMain.Image = FileTools.getProfilePicture(LoggedInUser.login.ReceivedRequests[1].Username);
-            } else
+            }
+            else
             {
                 Controls.Remove(pbSecond);
                 pbSecond.Dispose();
@@ -68,13 +69,21 @@ namespace TzalemTmuna.Forms
 
         public void ToggleMenu()
         {
-           btnRemove.Visible = !btnRemove.Visible;
+            btnRemove.Visible = !btnRemove.Visible;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             var adb = new AlertDB();
             adb.RemoveAlert(alert_id);
+            foreach (Alert a in LoggedInUser.login.Alerts)
+            {
+                if(a.Alert_id == alert_id)
+                {
+                    LoggedInUser.login.Alerts.Remove(a);
+                    break;
+                }
+            }
             this.Parent.Controls.Remove(this);
         }
 

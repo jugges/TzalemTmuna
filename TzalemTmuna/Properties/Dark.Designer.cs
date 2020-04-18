@@ -103,6 +103,16 @@ namespace TzalemTmuna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap darkCommentReport {
+            get {
+                object obj = ResourceManager.GetObject("darkCommentReport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap darkDelete {
             get {
                 object obj = ResourceManager.GetObject("darkDelete", resourceCulture);
@@ -136,6 +146,16 @@ namespace TzalemTmuna.Properties {
         internal static System.Drawing.Bitmap darkLikeFilled {
             get {
                 object obj = ResourceManager.GetObject("darkLikeFilled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkNoContentReport {
+            get {
+                object obj = ResourceManager.GetObject("darkNoContentReport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +206,16 @@ namespace TzalemTmuna.Properties {
         internal static System.Drawing.Bitmap darkUpload {
             get {
                 object obj = ResourceManager.GetObject("darkUpload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkUser {
+            get {
+                object obj = ResourceManager.GetObject("darkUser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -163,7 +163,10 @@ namespace TzalemTmuna.Forms
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            new Settings().ShowDialog();
+            if (LoggedInUser.login.is_admin)
+                new SettingsAdmin().ShowDialog();
+            else
+                new Settings().ShowDialog();
         }
     }
 }

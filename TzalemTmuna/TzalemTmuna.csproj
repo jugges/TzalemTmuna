@@ -76,6 +76,18 @@
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="DB\UserDB.cs" />
     <Compile Include="Entities\Alert.cs" />
+    <Compile Include="Forms\CloseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CloseReport.Designer.cs">
+      <DependentUpon>CloseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsAdmin.Designer.cs">
+      <DependentUpon>SettingsAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\IMouseBoundable.cs" />
     <Compile Include="Entities\Report.cs" />
     <Compile Include="Entities\LoginUser.cs" />
@@ -259,6 +271,12 @@
     <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CloseReport.resx">
+      <DependentUpon>CloseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsAdmin.resx">
+      <DependentUpon>SettingsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +435,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tico.ico" />
+    <None Include="Resources\lightCommentReport.png" />
+    <None Include="Resources\lightNoContentReport.png" />
+    <None Include="Resources\darkCommentReport.png" />
+    <None Include="Resources\darkNoContentReport.png" />
+    <None Include="Resources\lightUser.png" />
+    <None Include="Resources\darkUser.png" />
     <Content Include="tzalemtmunaicon2_T8a_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

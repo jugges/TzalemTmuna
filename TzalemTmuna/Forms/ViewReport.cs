@@ -88,9 +88,11 @@ namespace TzalemTmuna.Forms
 
         private void CloseReport(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Confirm closing of report \"" + report.Report_text + "\"", "Close Report", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var cr = new CloseReport(report);
+            if(cr.ShowDialog() == DialogResult.OK)
             {
-                new ReportDB().CloseReport(report.Report_id);
+                //Report was closed
+                DialogResult = DialogResult.OK;
                 Close();
             }
         }

@@ -14,7 +14,8 @@ namespace TzalemTmuna.Forms
 {
     public partial class NewReport : MetroFramework.Forms.MetroForm
     {
-        int postId = -1;
+        string content_id;
+        int content_type = 0;
         public NewReport()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace TzalemTmuna.Forms
                 Style = Statics.Theme.metroColorStyle
             };
         }
-        public NewReport(int postId)
+        public NewReport(int content_type, string content_id)
         {
             InitializeComponent();
             StyleManager = new MetroFramework.Components.MetroStyleManager
@@ -35,8 +36,21 @@ namespace TzalemTmuna.Forms
                 Style = Statics.Theme.metroColorStyle
             };
 
-            lblReportType.Text = "Describe what's inappropriate about this post:";
-            this.postId = postId;
+            this.content_id = content_id;
+            this.content_type = content_type;
+
+            string name = "post";
+            switch (content_type)
+            {
+                case 2:
+                    name = "comment";
+                    break;
+                case 3:
+                    name = "user";
+                    break;
+            }
+
+            lblReportType.Text = ($"Describe what's inappropriate about this "+name+":");
         }
 
         private void SubmitReport(object sender, EventArgs e)
@@ -44,12 +58,15 @@ namespace TzalemTmuna.Forms
             if (TextTools.StripWhitespace(txtText.Text) != string.Empty)
             {
                 bool alreadyReported = false;
-                foreach (Report x in LoggedInUser.login.Reports)
+                if (content_type != 0)
                 {
-                    if (x.Post_id != -1 && x.Post_id == postId)
+                    foreach (Report x in LoggedInUser.login.Reports)
                     {
-                        alreadyReported = true;
-                        break;
+                        if (x.Content_id == content_id && x.Content_type == content_type)
+                        {
+                            alreadyReported = true;
+                            break;
+                        }
                     }
                 }
                 if (!alreadyReported)
@@ -58,19 +75,43 @@ namespace TzalemTmuna.Forms
                     {
                         DateTime creation_date = DateTime.Now;
                         //Add Report to Database
-                        DAL.GetInstance().ExecuteNonQuery("INSERT INTO reports " +
-                            "([post_id], [report_text], [owner], [creation_date]) " +
-                            "VALUES(@post_id, @report_text, @owner, @creation_date)", new OleDbParameter[]
-                            {
-                                    new OleDbParameter("@post_id", postId),
+                        if (content_type == 0) //No content
+                        {
+                            DAL.GetInstance().ExecuteNonQuery("INSERT INTO reports " +
+                                "([content_type], [report_text], [owner], [creation_date]) " +
+                                "VALUES(@content_type, @report_text, @owner, @creation_date)", new OleDbParameter[]
+                                {
+                                    new OleDbParameter("@content_type", 0),
                                     new OleDbParameter("@report_text", txtText.Text),
                                     new OleDbParameter("@owner", LoggedInUser.login.Username),
                                     new OleDbParameter("@creation_date", creation_date.ToString("MM/dd/yyyy HH:mm:ss"))
-                            });
+                                });
+                        }
+                        else //Content
+                        {
+                            DAL.GetInstance().ExecuteNonQuery("INSERT INTO reports " +
+                                "([content_type] ,[content_id], [report_text], [owner], [creation_date]) " +
+                                "VALUES(@content_type ,@content_id, @report_text, @owner, @creation_date)", new OleDbParameter[]
+                                {
+                                    new OleDbParameter("@content_type", content_type),
+                                    new OleDbParameter("@content_id", content_id),
+                                    new OleDbParameter("@report_text", txtText.Text),
+                                    new OleDbParameter("@owner", LoggedInUser.login.Username),
+                                    new OleDbParameter("@creation_date", creation_date.ToString("MM/dd/yyyy HH:mm:ss"))
+                                });
+                        }
                         //Retrieve AutoNumber report_id from Database
                         int report_id = (int)DAL.GetInstance().ExecuteScalarQuery("SELECT [report_id] FROM reports ORDER BY [report_id] DESC");
                         //Create report object
-                        var report = new Report(report_id, postId, txtText.Text, new User(LoggedInUser.login), creation_date);
+                        Report report;
+                        if (content_type == 0) //No content
+                        {
+                            report = new Report(report_id, txtText.Text, new User(LoggedInUser.login), creation_date);
+                        }
+                        else //Content
+                        {
+                            report = new Report(report_id, content_type, content_id, txtText.Text, new User(LoggedInUser.login), creation_date);
+                        }
                         //Add report to DataSet
                         new ReportDB().AddRow(report);
                         //Add report to users's report list
@@ -82,7 +123,7 @@ namespace TzalemTmuna.Forms
                 }
                 else
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "You already reported this post, to create a new report for this post delete your previous report!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                    if (MetroFramework.MetroMessageBox.Show(this, $"You have already reported this {(content_type == 1 ? "post" : (content_type == 2 ? "comment" : "user"))}. to create a new report, please delete your previous report!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                     {
                         Close();
                     }

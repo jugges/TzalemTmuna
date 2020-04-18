@@ -12,6 +12,17 @@ namespace TzalemTmuna.DB
     public class CommentDB : GeneralDB
     {
         public CommentDB(): base("comments", "comment_id") { }
+        public Comment GetComment(int comment_id)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr[primaryKey].Equals(comment_id))
+                {
+                    return new Comment(dr);
+                }
+            }
+            throw new Exception("comment_id not found!");
+        }
         public List<Comment> GetComments(int post_id)
         {
             var comments = new List<Comment>();

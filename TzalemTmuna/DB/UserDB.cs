@@ -15,6 +15,18 @@ namespace TzalemTmuna.DB
         {
             return base.GetCurrentRow();
         }
+        
+        public User GetUser(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr[primaryKey].Equals(username))
+                {
+                    return new User(dr);
+                }
+            }
+            throw new Exception("username not found!");
+        }
 
         public string[] GetUsernameList()
         {

@@ -14,7 +14,7 @@ using TzalemTmuna.Statics;
 
 namespace TzalemTmuna.Forms
 {
-    public partial class CommentControl : MetroFramework.Controls.MetroUserControl,IMouseBoundable
+    public partial class CommentControl : MetroFramework.Controls.MetroUserControl, IMouseBoundable
     {
         Comment comment;
         bool editMode = false;
@@ -39,16 +39,13 @@ namespace TzalemTmuna.Forms
             {
                 ProfilePicture.Image = pic;
             }
-            if (comment.Owner.Username != LoggedInUser.login.Username)
-            {
-                Controls.Remove(btnMenu);
-                btnMenu.Dispose();
-            }
+
+            btnMenu.ContextMenuStrip = comment.Owner.Username == LoggedInUser.login.Username ? cmOptionsOwner : cmOptions;
         }
 
         public void ToggleMenu()
         {
-            if(!editMode)
+            if (!editMode)
                 btnMenu.Visible = !btnMenu.Visible;
         }
 
@@ -81,7 +78,7 @@ namespace TzalemTmuna.Forms
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(ParentForm, "Confirm deletion of comment \"" + comment.Comment_text + "\"", "Delete Comment", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(ParentForm, "Confirm deletion of comment \"" + comment.Comment_text + "\"", "Delete Comment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 new CommentDB().RemoveComment(comment.Comment_id);
                 ((ViewPost)ParentForm).RemoveComment(comment.Comment_id, this);
@@ -95,7 +92,7 @@ namespace TzalemTmuna.Forms
             //Show textbox
             txtText.Text = comment.Comment_text;
             //8 is the difference between default textbox and label sizee, makes the text clear and not cropped
-            txtText.Size = new Size(lblText.Width+8, lblText.Height+8);
+            txtText.Size = new Size(lblText.Width + 8, lblText.Height + 8);
             txtText.Show();
             //Show confirm edit button
             btnEdit.Show();
@@ -109,7 +106,7 @@ namespace TzalemTmuna.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             //If new text is only whitespace or empty -> delete comment
-            if (TextTools.StripWhitespace(txtText.Text)==string.Empty)
+            if (TextTools.StripWhitespace(txtText.Text) == string.Empty)
             {
                 removeToolStripMenuItem_Click(sender, e);
             }
@@ -127,6 +124,11 @@ namespace TzalemTmuna.Forms
             lblText.Show();
             editMode = false;
             btnMenu.Visible = true;
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new NewReport(2, comment.Comment_id.ToString()).ShowDialog();
         }
 
         //DELETED: Now using autoSize with minSize

@@ -13,7 +13,8 @@ namespace TzalemTmuna.Entities
         private int report_id;
         private string report_text;
         private User owner;
-        private int post_id; //if post_id==-1 then the report doesn't deal with a post
+        private int content_type; //0: no content, 1: post, 2: comment, 3: user
+        private string content_id;
         private DateTime creation_date;
         private DateTime closing_date;
 
@@ -40,11 +41,18 @@ namespace TzalemTmuna.Entities
                 return report_id;
             }
         }
-        public int Post_id
+        public int Content_type
         {
             get
             {
-                return post_id;
+                return content_type;
+            }
+        }
+        public string Content_id
+        {
+            get
+            {
+                return content_id;
             }
         }
         public User Owner
@@ -77,17 +85,28 @@ namespace TzalemTmuna.Entities
             UserDB udb = new UserDB();
             report_id = (int)dr["report_id"];
             report_text = dr["report_text"].ToString();
-            post_id = (int)dr["post_id"];
+            content_type = (int)dr["content_type"];
+            if (content_type!=0) // no content = no content id
+                content_id = dr["content_id"].ToString();
             udb.Find(dr["owner"]);
             owner = new User(udb.GetCurrentRow());
             creation_date = (DateTime)dr["creation_date"];
             if (dr["closing_date"].ToString() != string.Empty)
                 closing_date = (DateTime)dr["closing_date"];
         }
-        public Report(int report_id, int post_id, string report_text, User owner, DateTime creation_date)
+        public Report(int report_id, int content_type, string content_id, string report_text, User owner, DateTime creation_date)
         {
             this.report_id = report_id;
-            this.post_id = post_id;
+            this.content_type = content_type;
+            this.content_id = content_id;
+            Report_text = report_text;
+            this.creation_date = creation_date;
+            this.owner = owner;
+        }
+        public Report(int report_id, string report_text, User owner, DateTime creation_date)
+        {
+            this.report_id = report_id;
+            content_type = 0;
             Report_text = report_text;
             this.creation_date = creation_date;
             this.owner = owner;
@@ -96,7 +115,8 @@ namespace TzalemTmuna.Entities
         {
             dr["report_id"] = report_id;
             dr["report_text"] = report_text;
-            dr["post_id"] = post_id;
+            dr["content_type"] = content_type;
+            dr["content_id"] = content_id;
             dr["owner"] = owner.Username;
             dr["creation_date"] = creation_date;
             if(closing_date!=null)

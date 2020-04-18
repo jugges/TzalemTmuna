@@ -32,12 +32,15 @@
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.lblText = new MetroFramework.Controls.MetroLabel();
             this.btnMenu = new MetroFramework.Controls.MetroLabel();
-            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.cmOptionsOwner = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtText = new MetroFramework.Controls.MetroTextBox();
             this.btnEdit = new MetroFramework.Controls.MetroLabel();
+            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.cmOptionsOwner.SuspendLayout();
             this.cmOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +77,6 @@
             // btnMenu
             // 
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.ContextMenuStrip = this.cmOptions;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
@@ -91,25 +93,25 @@
             this.btnMenu.Visible = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // cmOptions
+            // cmOptionsOwner
             // 
-            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmOptionsOwner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
             this.removeToolStripMenuItem});
-            this.cmOptions.Name = "cmOptions";
-            this.cmOptions.Size = new System.Drawing.Size(118, 48);
+            this.cmOptionsOwner.Name = "cmOptions";
+            this.cmOptionsOwner.Size = new System.Drawing.Size(181, 70);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -167,6 +169,20 @@
             this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // cmOptions
+            // 
+            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportToolStripMenuItem});
+            this.cmOptions.Name = "cmOptions";
+            this.cmOptions.Size = new System.Drawing.Size(110, 26);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.reportToolStripMenuItem.Text = "Report";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
+            // 
             // ProfilePicture
             // 
             this.ProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -196,6 +212,7 @@
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.Size = new System.Drawing.Size(290, 48);
             this.ParentChanged += new System.EventHandler(this.CommentControl_ParentChanged);
+            this.cmOptionsOwner.ResumeLayout(false);
             this.cmOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
@@ -209,10 +226,12 @@
         private MetroFramework.Controls.MetroLabel lblUsername;
         private MetroFramework.Controls.MetroLabel lblText;
         private MetroFramework.Controls.MetroLabel btnMenu;
-        private MetroFramework.Controls.MetroContextMenu cmOptions;
+        private MetroFramework.Controls.MetroContextMenu cmOptionsOwner;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private MetroFramework.Controls.MetroTextBox txtText;
         private MetroFramework.Controls.MetroLabel btnEdit;
+        private MetroFramework.Controls.MetroContextMenu cmOptions;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
     }
 }

@@ -118,16 +118,14 @@ namespace TzalemTmuna.Forms
                 }
             }
 
-            //List for CommentControls made by Login to pass MouseBounds
+            //List for CommentControls to pass MouseBounds
             loginCommentControls = new List<IMouseBoundable>();
 
             foreach (Comment x in post.Comments)
             {
                 var commentControl = new CommentControl(x);
                 flowLayoutPanel1.Controls.Add(commentControl);
-                //Is comment made by Login?
-                if (x.Owner.Username == LoggedInUser.login.Username)
-                    loginCommentControls.Add(commentControl);
+                loginCommentControls.Add(commentControl);
             }
 
             //Count comments and likes
@@ -322,7 +320,7 @@ namespace TzalemTmuna.Forms
 
         private void ReportPost(object sender, EventArgs e)
         {
-            new NewReport(post.Post_id).ShowDialog();
+            new NewReport(1, post.Post_id.ToString()).ShowDialog();
         }
     }
 }

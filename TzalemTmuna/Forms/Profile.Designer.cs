@@ -29,6 +29,7 @@ namespace TzalemTmuna.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblName = new MetroFramework.Controls.MetroLabel();
@@ -45,22 +46,25 @@ namespace TzalemTmuna.Forms
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.pbBadge = new System.Windows.Forms.PictureBox();
             this.btnOption = new MetroFramework.Controls.MetroButton();
-            this.btnFollowRequests = new MetroFramework.Controls.MetroButton();
             this.btnLogout = new MetroFramework.Controls.MetroButton();
+            this.btnMenu = new MetroFramework.Controls.MetroLabel();
+            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUpload = new System.Windows.Forms.PictureBox();
             this.ProfilePicture = new TzalemTmuna.Forms.ProfilePicture();
+            this.btnUpload = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBadge)).BeginInit();
+            this.cmOptions.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -253,8 +257,8 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel1.Controls.Add(this.lblUsername);
             this.flowLayoutPanel1.Controls.Add(this.pbBadge);
             this.flowLayoutPanel1.Controls.Add(this.btnOption);
-            this.flowLayoutPanel1.Controls.Add(this.btnFollowRequests);
             this.flowLayoutPanel1.Controls.Add(this.btnLogout);
+            this.flowLayoutPanel1.Controls.Add(this.btnMenu);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -308,27 +312,12 @@ namespace TzalemTmuna.Forms
             this.btnOption.UseSelectable = true;
             this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
-            // btnFollowRequests
-            // 
-            this.btnFollowRequests.AutoSize = true;
-            this.btnFollowRequests.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnFollowRequests.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFollowRequests.Location = new System.Drawing.Point(238, 10);
-            this.btnFollowRequests.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.btnFollowRequests.Name = "btnFollowRequests";
-            this.btnFollowRequests.Size = new System.Drawing.Size(95, 24);
-            this.btnFollowRequests.TabIndex = 26;
-            this.btnFollowRequests.TabStop = false;
-            this.btnFollowRequests.Text = "Follow Requests";
-            this.btnFollowRequests.UseSelectable = true;
-            this.btnFollowRequests.Click += new System.EventHandler(this.btnFollowRequests_Click);
-            // 
             // btnLogout
             // 
             this.btnLogout.AutoSize = true;
             this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLogout.Location = new System.Drawing.Point(339, 10);
+            this.btnLogout.Location = new System.Drawing.Point(238, 10);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(50, 24);
@@ -337,6 +326,39 @@ namespace TzalemTmuna.Forms
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseSelectable = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.ContextMenuStrip = this.cmOptions;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMenu.Location = new System.Drawing.Point(294, 0);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(38, 37);
+            this.btnMenu.TabIndex = 39;
+            this.btnMenu.Text = "☰";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenu.UseCustomBackColor = true;
+            this.btnMenu.UseCustomForeColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // cmOptions
+            // 
+            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportToolStripMenuItem});
+            this.cmOptions.Name = "cmOptions";
+            this.cmOptions.Size = new System.Drawing.Size(110, 26);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.reportToolStripMenuItem.Text = "Report";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // flowLayoutPanel4
             // 
@@ -372,17 +394,6 @@ namespace TzalemTmuna.Forms
             this.panel1.Size = new System.Drawing.Size(789, 264);
             this.panel1.TabIndex = 18;
             // 
-            // btnUpload
-            // 
-            this.btnUpload.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUpload.Location = new System.Drawing.Point(20, 848);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(795, 50);
-            this.btnUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnUpload.TabIndex = 18;
-            this.btnUpload.TabStop = false;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
             // ProfilePicture
             // 
             this.ProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -393,6 +404,17 @@ namespace TzalemTmuna.Forms
             this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 14;
             this.ProfilePicture.TabStop = false;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnUpload.Location = new System.Drawing.Point(20, 848);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(795, 50);
+            this.btnUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnUpload.TabIndex = 18;
+            this.btnUpload.TabStop = false;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // Profile
             // 
@@ -419,10 +441,11 @@ namespace TzalemTmuna.Forms
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBadge)).EndInit();
+            this.cmOptions.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,11 +468,13 @@ namespace TzalemTmuna.Forms
         private MetroFramework.Controls.MetroLink lblFollowers;
         private MetroFramework.Controls.MetroLink lblFollowing;
         private MetroFramework.Controls.MetroLink lblFollowingText;
-        private MetroFramework.Controls.MetroButton btnFollowRequests;
         private MetroFramework.Controls.MetroButton btnLogout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnUpload;
         private System.Windows.Forms.PictureBox pbBadge;
+        private MetroFramework.Controls.MetroLabel btnMenu;
+        private MetroFramework.Controls.MetroContextMenu cmOptions;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
     }
 }

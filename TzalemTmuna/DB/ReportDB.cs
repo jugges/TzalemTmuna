@@ -23,12 +23,12 @@ namespace TzalemTmuna.DB
             return reports;
         }
 
-        public List<Report> GetReports(int post_id)
+        public List<Report> GetReports(int content_type, int content_id)
         {
             var reports = new List<Report>();
             foreach (DataRow dr in table.Rows)
             {
-                if (dr["post_id"].Equals(post_id))
+                if (dr["content_id"].Equals(content_id) && dr["content_type"].Equals(content_type))
                 {
                     reports.Add(new Report(dr));
                 }
@@ -80,7 +80,7 @@ namespace TzalemTmuna.DB
             {
                 if (dr[primaryKey].Equals(report_id))
                 {
-                    dr["closing_date"] = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                    dr["closing_date"] = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     break;
                 }
             }
