@@ -21,6 +21,7 @@ namespace TzalemTmuna.Forms
     {
         bool changedTheme = false;
         bool changedStyleColor = false;
+        bool banUser = true;
         public SettingsAdmin()
         {
             InitializeComponent();
@@ -59,24 +60,57 @@ namespace TzalemTmuna.Forms
                 Report report = new ReportDB().GetReport((int)grdReports.Rows[e.RowIndex].Cells[0].Value);
                 if (e.ColumnIndex == 1)
                 {
-                    if (report.Owner.Username == LoggedInUser.login.Username)
-                        LoggedInUser.profile.Show();
-                    else
-                        new Profile(report.Owner).ShowDialog();
+                    //Show users tab
+                    metroTabControl1.SelectTab(1);
+                    foreach (DataGridViewRow r in grdUsers.Rows)
+                    {
+                        if (r.Cells[0].Value.ToString() == report.Owner.Username)
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                    }
                 }
                 else if (e.ColumnIndex == 5 && report.Content_type != 0) //Clicked content and report has content
                 {
                     if (report.Content_type == 1)
                     {
-                        new ViewPost(new PostDB().GetPost(int.Parse(report.Content_id))).ShowDialog();
+                        //Show posts tab
+                        metroTabControl1.SelectTab(2);
+                        foreach (DataGridViewRow r in grdPosts.Rows)
+                        {
+                            if (r.Cells[0].Value.ToString() == report.Content_id)
+                            {
+                                r.Selected = true;
+                                break;
+                            }
+                        }
                     }
                     else if (report.Content_type == 2)
                     {
-                        new ViewPost(new PostDB().GetPost(new CommentDB().GetComment(int.Parse(report.Content_id)).Post_id)).ShowDialog();
+                        //Show comments tab
+                        metroTabControl1.SelectTab(3);
+                        foreach (DataGridViewRow r in grdComments.Rows)
+                        {
+                            if (r.Cells[0].Value.ToString() == report.Content_id)
+                            {
+                                r.Selected = true;
+                                break;
+                            }
+                        }
                     }
                     else
                     {
-                        new Profile(new UserDB().GetUser(report.Content_id)).ShowDialog();
+                        //Show users tab
+                        metroTabControl1.SelectTab(1);
+                        foreach (DataGridViewRow r in grdUsers.Rows)
+                        {
+                            if (r.Cells[0].Value.ToString() == report.Content_id)
+                            {
+                                r.Selected = true;
+                                break;
+                            }
+                        }
                     }
                 }
                 else
@@ -96,7 +130,7 @@ namespace TzalemTmuna.Forms
             if (grdReports.Rows[grdReports.SelectedRows[0].Index].Cells[4].Value.ToString() == string.Empty)
             {
                 Report report = new ReportDB().GetReport(int.Parse(grdReports.Rows[grdReports.SelectedRows[0].Index].Cells[0].Value.ToString()));
-                if (new CloseReport(report).ShowDialog() == DialogResult.OK)
+                if (new AdminRemoveForm(report).ShowDialog() == DialogResult.OK)
                 {
                     //Update report in grid to closed
                     report = new ReportDB().GetReport(report.Report_id);
@@ -208,7 +242,7 @@ namespace TzalemTmuna.Forms
                         ) :
                             (x.Content_type == 1 ?
                             ImageTools.ResizeImage(FileTools.getPost(int.Parse(x.Content_id)), 96, 96) :
-                                (x.Content_type == 2 ? 
+                                (x.Content_type == 2 ?
                                     (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ?
                                        Properties.Light.lightCommentReport : Properties.Dark.darkCommentReport
                                     ) :
@@ -221,10 +255,150 @@ namespace TzalemTmuna.Forms
                 );
             }
 
-            //Load posts page
-
             //Load users page
+            var udb = new UserDB();
+            foreach (User u in udb.GetUsers())
+            {
+                grdUsers.Rows.Add(u.Username, u.Email, u.Full_name, u.is_private, u.is_admin, u.is_verified, u.Ban_text);
+            }
 
+            //Load posts page
+            var pdb = new PostDB();
+            foreach (Post p in pdb.GetPosts())
+            {
+                grdPosts.Rows.Add(p.Post_id, p.Owner.Username, p.Post_text, ImageTools.ResizeImage(FileTools.getPost(p.Post_id), 96, 96));
+            }
+
+            //Load comments page
+            var cdb = new CommentDB();
+            foreach (Comment c in cdb.GetComments())
+            {
+                grdComments.Rows.Add(c.Comment_id, c.Owner.Username, c.Comment_text, c.Post_id);
+            }
+        }
+
+        private void grdUsers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var user = new UserDB().GetUser(grdUsers.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (user.Username == LoggedInUser.login.Username)
+                    LoggedInUser.profile.Show();
+                else
+                    new Profile(user).ShowDialog();
+            }
+        }
+
+        private void grdPosts_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var post = new PostDB().GetPost((int)grdPosts.Rows[e.RowIndex].Cells[0].Value);
+                if (e.ColumnIndex == 1)
+                {
+                    //Show users tab
+                    metroTabControl1.SelectTab(1);
+                    foreach (DataGridViewRow r in grdUsers.Rows)
+                    {
+                        if (r.Cells[0].Value.ToString() == post.Owner.Username)
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    new ViewPost(post).ShowDialog();
+                }
+            }
+        }
+
+        private void grdComments_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var comment = new CommentDB().GetComment((int)grdComments.Rows[e.RowIndex].Cells[0].Value);
+                if (e.ColumnIndex == 1)
+                {
+                    //Show users tab
+                    metroTabControl1.SelectTab(1);
+                    foreach (DataGridViewRow r in grdUsers.Rows)
+                    {
+                        if (r.Cells[0].Value.ToString() == comment.Owner.Username)
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                    }
+                }
+                else if (e.ColumnIndex == 3)
+                {
+                    //Show posts tab
+                    metroTabControl1.SelectTab(2);
+                    foreach (DataGridViewRow r in grdPosts.Rows)
+                    {
+                        if ((int)r.Cells[0].Value == comment.Post_id)
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    new ViewPost(new PostDB().GetPost(comment.Post_id)).ShowDialog();
+                }
+            }
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Selected post tab
+            if (metroTabControl1.SelectedIndex == 2)
+            {
+                Post post = new PostDB().GetPost((int)(grdPosts.Rows[grdPosts.SelectedRows[0].Index].Cells[0].Value));
+                if (new AdminRemoveForm(post).ShowDialog() == DialogResult.OK)
+                {
+                    //Remove post in grid
+                    grdPosts.Rows.Remove(grdPosts.Rows[grdPosts.SelectedRows[0].Index]);
+                }
+            }
+            // Selected comments tab
+            else
+            {
+                Comment comment = new CommentDB().GetComment((int)(grdComments.Rows[grdComments.SelectedRows[0].Index].Cells[0].Value));
+                if (new AdminRemoveForm(comment).ShowDialog() == DialogResult.OK)
+                {
+                    //Remove comment in grid
+                    grdComments.Rows.Remove(grdComments.Rows[grdComments.SelectedRows[0].Index]);
+                }
+            }
+        }
+
+        private void cmUsers_Opening(object sender, CancelEventArgs e)
+        {
+            if(grdUsers.Rows[grdUsers.SelectedRows[0].Index].Cells[6].Value.ToString() == "")
+            {
+                banUser = true;
+                userActionToolStripMenuItem.Text = "Ban";
+            }
+            else
+            {
+                banUser = false;
+                userActionToolStripMenuItem.Text = "Unban";
+            }
+        }
+
+        private void userActionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User user = new UserDB().GetUser(grdUsers.Rows[grdUsers.SelectedRows[0].Index].Cells[0].Value.ToString());
+            if (new AdminRemoveForm(user,banUser).ShowDialog() == DialogResult.OK)
+            {
+                //Update user ban_text in grid
+                user = new UserDB().GetUser(user.Username);
+                grdUsers.Rows[grdUsers.SelectedRows[0].Index].Cells[6].Value = user.Ban_text;
+            }
         }
     }
 }

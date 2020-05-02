@@ -11,6 +11,15 @@ namespace TzalemTmuna.DB
     public class PostDB : GeneralDB
     {
         public PostDB() : base("posts", "post_id") { }
+        public List<Post> GetPosts()
+        {
+            var posts = new List<Post>();
+            foreach (DataRow dr in table.Rows)
+            {
+                posts.Add(new Post(dr));
+            }
+            return posts;
+        }
         public List<Post> GetPosts(string username)
         {
             var posts = new List<Post>();
@@ -23,13 +32,13 @@ namespace TzalemTmuna.DB
             }
             return posts;
         }
-        public Post GetPost(string username,int post_number)
+        public Post GetPost(string username, int post_number)
         {
             foreach (DataRow dr in table.Rows)
             {
                 if (dr["owner"].Equals(username))
                 {
-                    if(dr["post_number"].Equals(post_number))
+                    if (dr["post_number"].Equals(post_number))
                         return new Post(dr);
                 }
             }
@@ -52,8 +61,10 @@ namespace TzalemTmuna.DB
             {
                 if (dr[primaryKey].Equals(post_id))
                 {
+                    //delete comments on post
+                    new CommentDB().RemoveComments(post_id);
                     //delete the post image
-                    Utilities.FileTools.deletePost(dr["owner"].ToString(), post_id);
+                    Utilities.FileTools.deletePost(dr["owner"].ToString(), (int)dr["post_number"]);
                     //delete row from table
                     DeleteRow(dr);
                     break;
@@ -61,9 +72,25 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
+        public void RemovePosts(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["owner"].Equals(username))
+                {
+                    //delete comments on post
+                    new CommentDB().RemoveComments((int)dr["post_id"]);
+                    //delete the post image
+                    Utilities.FileTools.deletePost(username, (int)dr["post_number"]);
+                    //delete row from table
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
         public void AddPost(LoginUser login, string post_text)
         {
-            table.Rows.Add(post_text, login.Username, login.Posts.Count+1);
+            table.Rows.Add(post_text, login.Username, login.Posts.Count + 1);
             Save();
         }
         public void EditPost(string post_text, int post_id)

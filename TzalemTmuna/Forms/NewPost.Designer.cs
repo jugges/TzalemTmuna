@@ -183,6 +183,7 @@ namespace TzalemTmuna.Forms
             // 
             this.tbCropZ.BackColor = System.Drawing.Color.Transparent;
             this.tbCropZ.Location = new System.Drawing.Point(353, 59);
+            this.tbCropZ.Maximum = 200;
             this.tbCropZ.Minimum = 10;
             this.tbCropZ.Name = "tbCropZ";
             this.tbCropZ.Size = new System.Drawing.Size(75, 23);
@@ -215,7 +216,6 @@ namespace TzalemTmuna.Forms
             // 
             // NewPost
             // 
-            this.Icon = Properties.Resources.tico;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 522);
@@ -231,6 +231,7 @@ namespace TzalemTmuna.Forms
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblSelectPhoto);
             this.Controls.Add(this.pbPhoto);
+            this.Icon = global::TzalemTmuna.Properties.Resources.tico;
             this.MaximizeBox = false;
             this.Name = "NewPost";
             this.Resizable = false;

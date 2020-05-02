@@ -88,7 +88,7 @@ namespace TzalemTmuna.Forms
 
         private void CloseReport(object sender, EventArgs e)
         {
-            var cr = new CloseReport(report);
+            var cr = new AdminRemoveForm(report);
             if(cr.ShowDialog() == DialogResult.OK)
             {
                 //Report was closed

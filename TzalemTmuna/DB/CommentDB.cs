@@ -12,6 +12,15 @@ namespace TzalemTmuna.DB
     public class CommentDB : GeneralDB
     {
         public CommentDB(): base("comments", "comment_id") { }
+        public List<Comment> GetComments()
+        {
+            var comment = new List<Comment>();
+            foreach (DataRow dr in table.Rows)
+            {
+                comment.Add(new Comment(dr));
+            }
+            return comment;
+        }
         public Comment GetComment(int comment_id)
         {
             foreach (DataRow dr in table.Rows)
@@ -45,6 +54,18 @@ namespace TzalemTmuna.DB
             {
                 if (dr["post_id"].Equals(post_id))
                 {
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
+        public void RemoveComments(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["owner"].Equals(username))
+                {
+                    //delete row from table
                     DeleteRow(dr);
                 }
             }

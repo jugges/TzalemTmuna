@@ -28,6 +28,16 @@ namespace TzalemTmuna.DB
             throw new Exception("username not found!");
         }
 
+        public List<User> GetUsers()
+        {
+            var users = new List<User>();
+            foreach (DataRow dr in table.Rows)
+            {
+                users.Add(new User(dr));
+            }
+            return users;
+        }
+
         public string[] GetUsernameList()
         {
             var list = new string[table.Rows.Count];
@@ -36,6 +46,19 @@ namespace TzalemTmuna.DB
                 list[i]=table.Rows[i]["username"].ToString();
             }
             return list;
+        }
+        //Used for un/banning
+        public void ActionUser(string username, string reason)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr[primaryKey].Equals(username))
+                {
+                    dr["ban_text"] = reason;
+                    break;
+                }
+            }
+            Save();
         }
     }
 }

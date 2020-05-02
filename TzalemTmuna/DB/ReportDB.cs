@@ -73,6 +73,17 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
+        public void RemoveReports(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["owner"].Equals(username))
+                {
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
         public void CloseReport(int report_id)
         {
             //A closed report means it was dealt with by an admin

@@ -153,5 +153,17 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
+        public void RemoveFollowings(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["follower"].Equals(username) || dr["following"].Equals(username))
+                {
+                    //delete row from table
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace TzalemTmuna.Forms
 {
-    partial class CloseReport
+    partial class AdminRemoveForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace TzalemTmuna.Forms
         {
             this.btnSubmit = new MetroFramework.Controls.MetroButton();
             this.txtText = new MetroFramework.Controls.MetroTextBox();
-            this.lblReportType = new MetroFramework.Controls.MetroLabel();
+            this.lblReason = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // btnSubmit
@@ -44,7 +44,6 @@ namespace TzalemTmuna.Forms
             this.btnSubmit.TabIndex = 30;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseSelectable = true;
-            this.btnSubmit.Click += new System.EventHandler(this.Close);
             // 
             // txtText
             // 
@@ -78,30 +77,30 @@ namespace TzalemTmuna.Forms
             this.txtText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // lblReportType
+            // lblReason
             // 
-            this.lblReportType.AutoSize = true;
-            this.lblReportType.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblReportType.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblReportType.ForeColor = System.Drawing.Color.White;
-            this.lblReportType.Location = new System.Drawing.Point(23, 60);
-            this.lblReportType.Name = "lblReportType";
-            this.lblReportType.Size = new System.Drawing.Size(189, 19);
-            this.lblReportType.TabIndex = 32;
-            this.lblReportType.Text = "How was the issue dealt with:";
-            this.lblReportType.UseCustomBackColor = true;
+            this.lblReason.AutoSize = true;
+            this.lblReason.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblReason.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblReason.ForeColor = System.Drawing.Color.White;
+            this.lblReason.Location = new System.Drawing.Point(23, 60);
+            this.lblReason.Name = "lblReason";
+            this.lblReason.Size = new System.Drawing.Size(189, 19);
+            this.lblReason.TabIndex = 32;
+            this.lblReason.Text = "How was the issue dealt with:";
+            this.lblReason.UseCustomBackColor = true;
             // 
-            // CloseReport
+            // AdminRemoveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 323);
-            this.Controls.Add(this.lblReportType);
+            this.Controls.Add(this.lblReason);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtText);
             this.Icon = global::TzalemTmuna.Properties.Resources.tico;
             this.MaximizeBox = false;
-            this.Name = "CloseReport";
+            this.Name = "AdminRemoveForm";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
@@ -115,6 +114,6 @@ namespace TzalemTmuna.Forms
         #endregion
         private MetroFramework.Controls.MetroButton btnSubmit;
         private MetroFramework.Controls.MetroTextBox txtText;
-        private MetroFramework.Controls.MetroLabel lblReportType;
+        private MetroFramework.Controls.MetroLabel lblReason;
     }
 }

@@ -40,6 +40,18 @@ namespace TzalemTmuna.DB
             }
             Save();
         }
+        public void RemoveLikes(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["owner"].Equals(username))
+                {
+                    //delete row from table
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
         public void Unlike(Post post)
         {
             foreach (DataRow dr in table.Rows)

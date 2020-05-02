@@ -76,11 +76,11 @@
     <Compile Include="DB\EmailDB.cs" />
     <Compile Include="DB\UserDB.cs" />
     <Compile Include="Entities\Alert.cs" />
-    <Compile Include="Forms\CloseReport.cs">
+    <Compile Include="Forms\AdminRemoveForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CloseReport.Designer.cs">
-      <DependentUpon>CloseReport.cs</DependentUpon>
+    <Compile Include="Forms\AdminRemoveForm.Designer.cs">
+      <DependentUpon>AdminRemoveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SettingsAdmin.cs">
       <SubType>Form</SubType>
@@ -271,8 +271,8 @@
     <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CloseReport.resx">
-      <DependentUpon>CloseReport.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdminRemoveForm.resx">
+      <DependentUpon>AdminRemoveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsAdmin.resx">
       <DependentUpon>SettingsAdmin.cs</DependentUpon>

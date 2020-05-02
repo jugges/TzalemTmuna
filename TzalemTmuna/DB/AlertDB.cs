@@ -41,6 +41,19 @@ namespace TzalemTmuna.DB
             Save();
         }
 
+        public void RemoveAlerts(string username)
+        {
+            foreach (DataRow dr in table.Rows)
+            {
+                if (dr["recipient"].Equals(username))
+                {
+                    //delete row from table
+                    DeleteRow(dr);
+                }
+            }
+            Save();
+        }
+
         public void NewAlert(string alert_text, User recipient)
         {
             //Add new alert to Database
