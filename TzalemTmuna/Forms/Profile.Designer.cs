@@ -351,14 +351,13 @@ namespace TzalemTmuna.Forms
             this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reportToolStripMenuItem});
             this.cmOptions.Name = "cmOptions";
-            this.cmOptions.Size = new System.Drawing.Size(110, 26);
+            this.cmOptions.Size = new System.Drawing.Size(181, 48);
             // 
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reportToolStripMenuItem.Text = "Report";
-            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // flowLayoutPanel4
             // 

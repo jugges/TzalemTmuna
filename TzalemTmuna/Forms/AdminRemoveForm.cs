@@ -9,6 +9,8 @@ using TzalemTmuna.Utilities;
 using TzalemTmuna.Entities;
 using TzalemTmuna.Data;
 using TzalemTmuna.Statics;
+using System.Threading;
+using System.Globalization;
 
 namespace TzalemTmuna.Forms
 {
@@ -34,7 +36,7 @@ namespace TzalemTmuna.Forms
                 Style = Statics.Theme.metroColorStyle
             };
 
-            btnSubmit.Click += (sender,e) => CloseReport(sender,e,report);
+            btnSubmit.Click += (sender, e) => CloseReport(sender, e, report);
         }
 
         public AdminRemoveForm(Post post)
@@ -49,7 +51,7 @@ namespace TzalemTmuna.Forms
 
             Text = "Remove Post";
             lblReason.Text = "The reason for removing this post:";
-            btnSubmit.Click += (sender,e) => RemovePost(sender,e,post);
+            btnSubmit.Click += (sender, e) => RemovePost(sender, e, post);
         }
 
         public AdminRemoveForm(Comment comment)
@@ -78,7 +80,7 @@ namespace TzalemTmuna.Forms
             };
 
             Text = ban ? "Ban User" : "Unban User";
-            lblReason.Text = $"The reason for {(ban?"":"un")}banning this user:";
+            lblReason.Text = $"The reason for {(ban ? "" : "un")}banning this user:";
             btnSubmit.Click += (sender, e) => UserAction(sender, e, user, ban);
         }
 
@@ -149,14 +151,17 @@ namespace TzalemTmuna.Forms
         {
             if (TextTools.StripWhitespace(txtText.Text) != string.Empty)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, $"Confirm {(ban ? "":"un")}banning of user \"" + user.Username + "\"", $"{(ban ? "Ban":"Unban")} User", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, $"Confirm {(ban ? "" : "un")}banning of user \"" + user.Username + "\"", $"{(ban ? "Ban" : "Unban")} User", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    new UserDB().ActionUser(user.Username,ban?txtText.Text:"");
+                    new UserDB().ActionUser(user.Username, ban ? txtText.Text : "");
                     if (!ban)
                         new AlertDB().NewAlert($"You were unbanned by an admin:\n\r\"{txtText.Text}\"", user);
                     //remove banned user's posts and comments
                     else
                     {
+                        //Below is a nice trick for making sure exceptions are in English and not in borken Hebrew
+                        //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
                         //Clear DB from this user's deeds
                         new PostDB().RemovePosts(user.Username);
                         new CommentDB().RemoveComments(user.Username);

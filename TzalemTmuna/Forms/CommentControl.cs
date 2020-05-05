@@ -40,7 +40,22 @@ namespace TzalemTmuna.Forms
                 ProfilePicture.Image = pic;
             }
 
-            btnMenu.ContextMenuStrip = comment.Owner.Username == LoggedInUser.login.Username ? cmOptionsOwner : cmOptions;
+            if (comment.Owner.Username != LoggedInUser.login.Username)
+            {
+                btnMenu.ContextMenuStrip = cmOptions;
+
+                if (LoggedInUser.login.is_admin)
+                {
+                    reportToolStripMenuItem.Text = "Remove";
+                    reportToolStripMenuItem.Click += (sender, e) => new AdminRemoveForm(comment).ShowDialog();
+                }
+                else
+                    reportToolStripMenuItem.Click += new EventHandler(reportToolStripMenuItem_Click);
+            }
+            else
+            {
+                btnMenu.ContextMenuStrip = cmOptionsOwner;
+            }
         }
 
         public void ToggleMenu()

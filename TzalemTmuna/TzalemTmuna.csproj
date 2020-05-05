@@ -441,6 +441,7 @@
     <None Include="Resources\darkNoContentReport.png" />
     <None Include="Resources\lightUser.png" />
     <None Include="Resources\darkUser.png" />
+    <None Include="Resources\ImageRemoved.jpg" />
     <Content Include="tzalemtmunaicon2_T8a_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

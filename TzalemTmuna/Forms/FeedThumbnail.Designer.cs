@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,9 +39,6 @@
             this.pbComment = new System.Windows.Forms.PictureBox();
             this.lblLikes = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMenu = new MetroFramework.Controls.MetroLabel();
-            this.cmOptions = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.profilePicture = new TzalemTmuna.Forms.ProfilePicture();
             this.tableLayoutPanel1.SuspendLayout();
@@ -52,7 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).BeginInit();
             this.panel1.SuspendLayout();
-            this.cmOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -204,7 +199,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnMenu);
             this.panel1.Controls.Add(this.lblUsername);
             this.panel1.Controls.Add(this.profilePicture);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -212,38 +206,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(514, 48);
             this.panel1.TabIndex = 4;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.AutoSize = true;
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.ContextMenuStrip = this.cmOptions;
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.FontSize = MetroFramework.MetroLabelSize.Extreme;
-            this.btnMenu.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnMenu.Location = new System.Drawing.Point(473, 6);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(38, 36);
-            this.btnMenu.TabIndex = 31;
-            this.btnMenu.Text = "☰";
-            this.btnMenu.UseCustomBackColor = true;
-            this.btnMenu.UseCustomForeColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // cmOptions
-            // 
-            this.cmOptions.BackColor = System.Drawing.SystemColors.Control;
-            this.cmOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportToolStripMenuItem});
-            this.cmOptions.Name = "cmOptions";
-            this.cmOptions.Size = new System.Drawing.Size(110, 26);
-            // 
-            // reportToolStripMenuItem
-            // 
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
-            this.reportToolStripMenuItem.Text = "Report";
             // 
             // lblUsername
             // 
@@ -291,7 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbComment)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.cmOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
@@ -308,10 +269,7 @@
         private System.Windows.Forms.PictureBox pbComment;
         private MetroFramework.Controls.MetroLabel lblLikes;
         private MetroFramework.Controls.MetroLabel lblText;
-        private MetroFramework.Controls.MetroLabel btnMenu;
         private MetroFramework.Controls.MetroLabel lblLatestComment;
-        private MetroFramework.Controls.MetroContextMenu cmOptions;
-        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private MetroFramework.Controls.MetroLabel lblComments;
         private System.Windows.Forms.PictureBox pbLike;
     }

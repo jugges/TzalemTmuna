@@ -61,12 +61,12 @@ namespace TzalemTmuna.DB
         }
         public void RemoveComments(string username)
         {
-            foreach (DataRow dr in table.Rows)
+            for (int i = 0; i < table.Rows.Count; i++)
             {
-                if (dr["owner"].Equals(username))
+                if (table.Rows[i]["owner"].Equals(username))
                 {
                     //delete row from table
-                    DeleteRow(dr);
+                    DeleteRow(table.Rows[i]);
                 }
             }
             Save();

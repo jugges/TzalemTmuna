@@ -54,9 +54,10 @@ namespace TzalemTmuna.Utilities
                 int post_number = p.Post_number;
                 return getPost(username, post_number);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                //Image not found
+                return Properties.Resources.ImageRemoved;
             }
         }
 

@@ -42,7 +42,7 @@ namespace TzalemTmuna.Forms
             this.metroPanel.HorizontalScrollbarSize = 10;
             this.metroPanel.Location = new System.Drawing.Point(20, 60);
             this.metroPanel.Name = "metroPanel";
-            this.metroPanel.Size = new System.Drawing.Size(297, 286);
+            this.metroPanel.Size = new System.Drawing.Size(378, 286);
             this.metroPanel.TabIndex = 1;
             this.metroPanel.UseCustomBackColor = true;
             this.metroPanel.VerticalScrollbar = true;
@@ -52,11 +52,11 @@ namespace TzalemTmuna.Forms
             // 
             // Alerts
             // 
-            this.Icon = Properties.Resources.tico;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 366);
+            this.ClientSize = new System.Drawing.Size(418, 366);
             this.Controls.Add(this.metroPanel);
+            this.Icon = global::TzalemTmuna.Properties.Resources.tico;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Alerts";

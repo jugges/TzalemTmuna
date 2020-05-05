@@ -63,37 +63,74 @@ namespace TzalemTmuna.Forms
         private void AddReportToGrid(Report x)
         {
             string closing_date = x.Closing_date == DateTime.MinValue ? string.Empty : x.Closing_date.ToString("MM/dd/yyyy HH:mm:ss");
-            
+
             //Warning, ternary heaven (or dare I say hell) below...
             grdMyReports.Rows.Add(x.Report_id, x.Content_type, x.Content_id,
                 (x.Content_type == 0 ?
                     (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ?
                     Properties.Light.lightNoContentReport : Properties.Dark.darkNoContentReport
-                    ) : 
-                        (x.Content_type == 1 ? 
-                        ImageTools.ResizeImage(FileTools.getPost(int.Parse(x.Content_id)), 96, 96) : 
-                            (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ? 
-                            Properties.Light.lightCommentReport : Properties.Dark.darkCommentReport
+                    ) :
+                        (x.Content_type == 1 ?
+                        ImageTools.ResizeImage(FileTools.getPost(int.Parse(x.Content_id)), 96, 96) :
+                            (x.Content_type == 2 ?
+                                (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ?
+                                   Properties.Light.lightCommentReport : Properties.Dark.darkCommentReport
+                                ) :
+                                    (Statics.Theme.metroThemeStyle == MetroFramework.MetroThemeStyle.Light ?
+                                    Properties.Light.lightUser : Properties.Dark.darkUser
+                                    )
                             )
                         )
-                ), x.Report_text, x.Creation_date, closing_date
+                ), x.Report_text, x.Creation_date, x.Closing_date
             );
         }
 
         private void grdMyReports_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.RowIndex != -1) // If clicked on a report and not on header
             {
-                if (grdMyReports.Rows[e.RowIndex].Cells[1].Value.ToString() != "-1")
+                Report report = new ReportDB().GetReport((int)grdMyReports.Rows[e.RowIndex].Cells[0].Value);
+                if (e.ColumnIndex == 3 && report.Content_type != 0) //Clicked content and report has content
                 {
-                    new ViewPost(new PostDB().GetPost(int.Parse(grdMyReports.Rows[e.RowIndex].Cells[1].Value.ToString()))).ShowDialog();
+                    if (report.Content_type == 1)
+                    {
+                        //Show Post
+                        try
+                        {
+                            new ViewPost(new PostDB().GetPost(int.Parse(report.Content_id))).ShowDialog();
+                        }
+                        catch
+                        {
+                            MetroFramework.MetroMessageBox.Show(this, "The post you are trying to view is removed...", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else if (report.Content_type == 2)
+                    {
+                        //Show Comment
+                        try
+                        {
+                            new ViewPost(new PostDB().GetPost(new CommentDB().GetComment(int.Parse(report.Content_id)).Post_id)).ShowDialog();
+                        }
+                        catch
+                        {
+                            MetroFramework.MetroMessageBox.Show(this, "The comment you are trying to view is removed...", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        //Show User
+                        new Profile(new UserDB().GetUser(report.Content_id)).ShowDialog();
+                    }
                 }
-            }
-            else
-            {
-                if (new ViewReport(new ReportDB().GetReport(int.Parse(grdMyReports.Rows[e.RowIndex].Cells[0].Value.ToString()))).ShowDialog() == DialogResult.OK)
+                else
                 {
-                    grdMyReports.Rows.RemoveAt(e.RowIndex);
+                    if (new ViewReport(report).ShowDialog() == DialogResult.OK)
+                    {
+                        new ReportDB().RemoveReport(report.Report_id);
+                        LoggedInUser.login.Reports.Remove(report);
+                        //Report was deleted
+                        grdMyReports.Rows.RemoveAt(grdMyReports.SelectedRows[0].Index);
+                    }
                 }
             }
         }

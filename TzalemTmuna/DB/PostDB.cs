@@ -74,16 +74,16 @@ namespace TzalemTmuna.DB
         }
         public void RemovePosts(string username)
         {
-            foreach (DataRow dr in table.Rows)
+            for (int i = 0; i < table.Rows.Count; i++)
             {
-                if (dr["owner"].Equals(username))
+                if (table.Rows[i]["owner"].Equals(username))
                 {
                     //delete comments on post
-                    new CommentDB().RemoveComments((int)dr["post_id"]);
+                    new CommentDB().RemoveComments((int)table.Rows[i]["post_id"]);
                     //delete the post image
-                    Utilities.FileTools.deletePost(username, (int)dr["post_number"]);
+                    Utilities.FileTools.deletePost(username, (int)table.Rows[i]["post_number"]);
                     //delete row from table
-                    DeleteRow(dr);
+                    DeleteRow(table.Rows[i]);
                 }
             }
             Save();

@@ -95,7 +95,7 @@ namespace TzalemTmuna.Forms
         public Profile(User user)
         {
             InitializeComponent();
-            Text = user.Username+"'s Profile";
+            Text = user.Username + "'s Profile";
             StyleManager = new MetroFramework.Components.MetroStyleManager
             {
                 Owner = this,
@@ -129,6 +129,15 @@ namespace TzalemTmuna.Forms
                 Controls.Remove(pbBadge);
                 pbBadge.Dispose();
             }
+
+            if (LoggedInUser.login.is_admin && !user.is_admin)
+            {
+                reportToolStripMenuItem.Text = user.Ban_text == "" ? "Ban" : "Unban";
+                reportToolStripMenuItem.Click += (sender, e) => new AdminRemoveForm(user, user.Ban_text == "").ShowDialog();
+            }
+            else
+                reportToolStripMenuItem.Click += new EventHandler(reportToolStripMenuItem_Click);
+
             isMainProfile = false;
             this.user = user;
             ProfilePicture.BackColor = BackColor;
@@ -370,7 +379,8 @@ namespace TzalemTmuna.Forms
 
         private void lblWebsite_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(lblWebsite.Text);
+            if (lblWebsite.Text != "")
+                System.Diagnostics.Process.Start(lblWebsite.Text);
         }
 
         private void btnUpload_Click(object sender, EventArgs e)

@@ -65,6 +65,7 @@ namespace TzalemTmuna.Forms
             pbSecond.Dispose();
             lblAlertText.Text = alert.Alert_text;
             alert_id = alert.Alert_id;
+            pbMain.Image = Theme == MetroFramework.MetroThemeStyle.Dark ? Properties.Dark.darkAlert : Properties.Light.lightAlert;
         }
 
         public void ToggleMenu()

@@ -55,6 +55,9 @@ namespace TzalemTmuna.Utilities
         /// <returns>The resized image.</returns>
         public static Bitmap ResizeImage(Bitmap image, int width, int height)
         {
+            if (image == null)
+                return null;
+
             var destRect = new Rectangle(0, 0, width, height);
             var destImage = new Bitmap(width, height);
 
@@ -80,7 +83,7 @@ namespace TzalemTmuna.Utilities
 
         public static Bitmap CropImage(Bitmap image, int width, int height, int cropX, int cropY, int posX, int posY)
         {
-            Rectangle cropRect = new Rectangle(cropX, cropY, width,height);
+            Rectangle cropRect = new Rectangle(cropX, cropY, width, height);
             Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
 
             using (Graphics g = Graphics.FromImage(target))

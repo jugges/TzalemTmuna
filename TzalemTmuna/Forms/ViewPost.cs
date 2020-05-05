@@ -66,10 +66,14 @@ namespace TzalemTmuna.Forms
             HandleTheme();
             //Check if login's post
             propertyOfLogin = post.Owner.Username == LoggedInUser.login.Username;
-            if (propertyOfLogin)
+            // If login's post or login is an admin
+            if (propertyOfLogin || LoggedInUser.login.is_admin)
             {
                 //Delete
-                pbOption.Click += new EventHandler(DeletePost);
+                if (propertyOfLogin)
+                    pbOption.Click += new EventHandler(DeletePost);
+                else
+                    pbOption.Click += (sender,e) => new AdminRemoveForm(post).ShowDialog();
                 if (Theme == MetroFramework.MetroThemeStyle.Dark)
                 {
                     pbOption.Image = Properties.Dark.darkDelete;

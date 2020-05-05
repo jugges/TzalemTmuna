@@ -139,11 +139,6 @@ namespace TzalemTmuna.Forms
             Like();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            btnMenu.ContextMenuStrip.Show(btnMenu, new Point(0, btnMenu.Height));
-        }
-
         private void OpenProfile(object sender, EventArgs e)
         {
             if (post.Owner.Username == LoggedInUser.login.Username)

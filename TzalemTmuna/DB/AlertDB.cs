@@ -43,12 +43,14 @@ namespace TzalemTmuna.DB
 
         public void RemoveAlerts(string username)
         {
-            foreach (DataRow dr in table.Rows)
+            // Using a foreach is problematic while trying to alter the collection being iterated ):
+            // Raising a 'Collection was modified; enumeration operation might not execute.'
+            for (int i=0; i<table.Rows.Count; i++)
             {
-                if (dr["recipient"].Equals(username))
+                if (table.Rows[i]["recipient"].Equals(username))
                 {
                     //delete row from table
-                    DeleteRow(dr);
+                    DeleteRow(table.Rows[i]);
                 }
             }
             Save();
