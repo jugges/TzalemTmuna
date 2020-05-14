@@ -102,6 +102,8 @@ namespace TzalemTmuna.Forms
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmReports = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.btnPrintableReports = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -133,7 +135,7 @@ namespace TzalemTmuna.Forms
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1192, 838);
             this.metroTabControl1.TabIndex = 19;
             this.metroTabControl1.UseSelectable = true;
@@ -156,23 +158,27 @@ namespace TzalemTmuna.Forms
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.15863F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.84137F));
+            this.tableLayoutPanel2.Controls.Add(this.metroLabel5, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.lblChangePassword, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.lblAccount, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.lblAccentColor, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.lblCustomize, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblDarkMode, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.cbAccentColor, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tDarkMode, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnChangePassword, 2, 5);
+            this.tableLayoutPanel2.Controls.Add(this.cbAccentColor, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tDarkMode, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnChangePassword, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.btnPrintableReports, 1, 7);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowCount = 9;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
@@ -189,7 +195,7 @@ namespace TzalemTmuna.Forms
             this.lblChangePassword.Location = new System.Drawing.Point(3, 192);
             this.lblChangePassword.Margin = new System.Windows.Forms.Padding(3);
             this.lblChangePassword.Name = "lblChangePassword";
-            this.lblChangePassword.Size = new System.Drawing.Size(1014, 601);
+            this.lblChangePassword.Size = new System.Drawing.Size(1014, 36);
             this.lblChangePassword.TabIndex = 29;
             this.lblChangePassword.Text = "Change Password";
             // 
@@ -283,10 +289,11 @@ namespace TzalemTmuna.Forms
             // 
             // btnChangePassword
             // 
+            this.btnChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnChangePassword.Location = new System.Drawing.Point(1023, 192);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(103, 36);
+            this.btnChangePassword.Size = new System.Drawing.Size(158, 36);
             this.btnChangePassword.TabIndex = 30;
             this.btnChangePassword.Text = "Change";
             this.btnChangePassword.UseSelectable = true;
@@ -445,13 +452,13 @@ namespace TzalemTmuna.Forms
             this.cmUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userActionToolStripMenuItem});
             this.cmUsers.Name = "cmOptions";
-            this.cmUsers.Size = new System.Drawing.Size(181, 48);
+            this.cmUsers.Size = new System.Drawing.Size(95, 26);
             this.cmUsers.Opening += new System.ComponentModel.CancelEventHandler(this.cmUsers_Opening);
             // 
             // userActionToolStripMenuItem
             // 
             this.userActionToolStripMenuItem.Name = "userActionToolStripMenuItem";
-            this.userActionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userActionToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.userActionToolStripMenuItem.Text = "Ban";
             this.userActionToolStripMenuItem.Click += new System.EventHandler(this.userActionToolStripMenuItem_Click);
             // 
@@ -912,6 +919,32 @@ namespace TzalemTmuna.Forms
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Extreme;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.Location = new System.Drawing.Point(3, 255);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(1014, 36);
+            this.metroLabel5.TabIndex = 31;
+            this.metroLabel5.Text = "Printable Reports";
+            this.metroLabel5.UseStyleColors = true;
+            // 
+            // btnPrintableReports
+            // 
+            this.btnPrintableReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintableReports.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnPrintableReports.Location = new System.Drawing.Point(1023, 255);
+            this.btnPrintableReports.Name = "btnPrintableReports";
+            this.btnPrintableReports.Size = new System.Drawing.Size(158, 36);
+            this.btnPrintableReports.TabIndex = 32;
+            this.btnPrintableReports.Text = "Open";
+            this.btnPrintableReports.UseSelectable = true;
+            this.btnPrintableReports.Click += new System.EventHandler(this.btnPrintableReports_Click);
+            // 
             // SettingsAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1012,5 +1045,7 @@ namespace TzalemTmuna.Forms
         private System.Windows.Forms.ToolStripMenuItem userActionToolStripMenuItem;
         private MetroFramework.Controls.MetroContextMenu cmPostsComments;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroButton btnPrintableReports;
     }
 }

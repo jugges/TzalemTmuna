@@ -32,8 +32,50 @@ namespace TzalemTmuna.Forms
 
         private void PrintableReports_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'tzalemtmunaDataSet.reports' table. You can move, or remove it, as needed.
+            reportsTableAdapter.Fill(tzalemtmunaDataSet.reports);
+            usersTableAdapter.Fill(tzalemtmunaDataSet.users);
+            postsTableAdapter.Fill(tzalemtmunaDataSet.posts);
+            commentsTableAdapter.Fill(tzalemtmunaDataSet.comments);
+            reportViewer1.RefreshReport();
+            reportViewer2.RefreshReport();
+            reportViewer3.RefreshReport();
+            reportViewer4.RefreshReport();
+        }
 
-            this.reportViewer1.RefreshReport();
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnFilterReports_Click(object sender, EventArgs e)
+        {
+            string owner = TextTools.StripWhitespace(txtFilterReports.Text);
+            if (owner == string.Empty)
+                reportsTableAdapter.Fill(tzalemtmunaDataSet.reports);
+            else
+                reportsTableAdapter.FillBy(tzalemtmunaDataSet.reports, owner);
+            reportViewer1.RefreshReport();
+        }
+
+        private void btnFilterPosts_Click(object sender, EventArgs e)
+        {
+            string owner = TextTools.StripWhitespace(txtFilterPosts.Text);
+            if (owner == string.Empty)
+                postsTableAdapter.Fill(tzalemtmunaDataSet.posts);
+            else
+                postsTableAdapter.FillBy(tzalemtmunaDataSet.posts, owner);
+            reportViewer3.RefreshReport();
+        }
+
+        private void btnFilterComments_Click(object sender, EventArgs e)
+        {
+            string owner = TextTools.StripWhitespace(txtFilterComments.Text);
+            if (owner == string.Empty)
+                commentsTableAdapter.Fill(tzalemtmunaDataSet.comments);
+            else
+                commentsTableAdapter.FillBy(tzalemtmunaDataSet.comments, owner);
+            reportViewer4.RefreshReport();
         }
     }
 }

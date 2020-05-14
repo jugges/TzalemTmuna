@@ -15,15 +15,13 @@ namespace TzalemTmuna.Utilities
     {
         public static void CreateProfile(string username)
         {
-            string path = Directory.GetCurrentDirectory();
-            path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+            string path = "Users\\";
             Directory.CreateDirectory(path + username);
         }
 
         public static void ChangeUsername(string oldUsername, string newUsername)
         {
-            string path = Directory.GetCurrentDirectory();
-            path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+            string path = "Users\\";
             Directory.Move(path + oldUsername, path + newUsername);
         }
 
@@ -31,8 +29,7 @@ namespace TzalemTmuna.Utilities
         {
             try
             {
-                string path = Directory.GetCurrentDirectory();
-                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+                string path = "Users\\";
                 path += username + "\\" + post_number + ".jpg";
                 using (var bmpTemp = new Bitmap(path))
                 {
@@ -82,8 +79,7 @@ namespace TzalemTmuna.Utilities
         {
             try
             {
-                string path = Directory.GetCurrentDirectory();
-                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+                string path = "Users\\";
                 path += username + "\\" + post_number + ".jpg";
                 File.Delete(path);
             }
@@ -95,8 +91,7 @@ namespace TzalemTmuna.Utilities
 
         public static void savePost(string username, int post_number, Bitmap pic)
         {
-            string path = Directory.GetCurrentDirectory();
-            path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+            string path = "Users\\";
             path += username + "\\" + post_number + ".jpg";
             pic.Save(path);
         }
@@ -104,8 +99,7 @@ namespace TzalemTmuna.Utilities
         {
             try
             {
-                string path = Directory.GetCurrentDirectory();
-                path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+                string path = "Users\\";
                 path += username + "\\profilepicture.jpg";
                 using (var bmpTemp = new Bitmap(path))
                 {
@@ -137,8 +131,7 @@ namespace TzalemTmuna.Utilities
 
         public static void saveProfilePicture(string username, Bitmap pic)
         {
-            string path = Directory.GetCurrentDirectory();
-            path = path.Substring(0, path.IndexOf("\\bin")) + "\\Users\\";
+            string path = "Users\\";
             path += username + "\\profilepicture.jpg";
             File.Delete(path);
             pic.Save(path);

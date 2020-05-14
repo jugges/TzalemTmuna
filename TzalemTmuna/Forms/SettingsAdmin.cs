@@ -400,5 +400,10 @@ namespace TzalemTmuna.Forms
                 grdUsers.Rows[grdUsers.SelectedRows[0].Index].Cells[6].Value = user.Ban_text;
             }
         }
+
+        private void btnPrintableReports_Click(object sender, EventArgs e)
+        {
+            new PrintableReports().ShowDialog();
+        }
     }
 }
