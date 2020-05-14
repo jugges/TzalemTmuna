@@ -349,9 +349,12 @@
     <EmbeddedResource Include="Forms\ProfileThumbnail.resx">
       <DependentUpon>ProfileThumbnail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintableReports\commentsAndPostsPrintableReport.rdlc" />
     <EmbeddedResource Include="PrintableReports\commentsPrintableReport.rdlc" />
+    <EmbeddedResource Include="PrintableReports\postsAndLikesPrintableReport.rdlc" />
     <EmbeddedResource Include="PrintableReports\postsPrintableReport.rdlc" />
     <EmbeddedResource Include="PrintableReports\reportsPrintableReport.rdlc" />
+    <EmbeddedResource Include="PrintableReports\usersAndReportsPrintableReport.rdlc" />
     <EmbeddedResource Include="PrintableReports\usersPrintableReport.rdlc" />
     <EmbeddedResource Include="Properties\Light.resx">
       <Generator>ResXFileCodeGenerator</Generator>

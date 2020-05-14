@@ -2,7 +2,7 @@
 <xs:schema id="tzalemtmunaDataSet" targetNamespace="http://tempuri.org/tzalemtmunaDataSet.xsd" xmlns:mstns="http://tempuri.org/tzalemtmunaDataSet.xsd" xmlns="http://tempuri.org/tzalemtmunaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="tzalemtmunaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="tzalemtmunaConnectionString (Settings)" PropertyReference="ApplicationSettings.TzalemTmuna.Properties.Settings.GlobalReference.Default.tzalemtmunaConnectionString" Provider="System.Data.OleDb" />
         </Connections>
@@ -541,6 +541,74 @@ WHERE        (owner = ?)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="usersAndReportsTableAdapter" GeneratorDataComponentClassName="usersAndReportsTableAdapter" Name="usersAndReports" UserDataComponentName="usersAndReportsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tzalemtmunaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        users.username, users.email, users.full_name, users.is_private, users.is_admin, users.is_verified, users.ban_text, reports.report_text, reports.content_type, reports.content_id
+FROM            (users INNER JOIN
+                         reports ON users.username = reports.owner)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="full_name" DataSetColumn="full_name" />
+              <Mapping SourceColumn="is_private" DataSetColumn="is_private" />
+              <Mapping SourceColumn="is_admin" DataSetColumn="is_admin" />
+              <Mapping SourceColumn="is_verified" DataSetColumn="is_verified" />
+              <Mapping SourceColumn="ban_text" DataSetColumn="ban_text" />
+              <Mapping SourceColumn="report_text" DataSetColumn="report_text" />
+              <Mapping SourceColumn="content_type" DataSetColumn="content_type" />
+              <Mapping SourceColumn="content_id" DataSetColumn="content_id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="postsAndLikesTableAdapter" GeneratorDataComponentClassName="postsAndLikesTableAdapter" Name="postsAndLikes" UserDataComponentName="postsAndLikesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tzalemtmunaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        posts.owner AS post_owner, posts.post_text, likes.owner AS like_owner
+FROM            (posts INNER JOIN
+                         likes ON posts.post_id = likes.post_id)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="post_owner" DataSetColumn="post_owner" />
+              <Mapping SourceColumn="post_text" DataSetColumn="post_text" />
+              <Mapping SourceColumn="like_owner" DataSetColumn="like_owner" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="commentsAndPostsTableAdapter" GeneratorDataComponentClassName="commentsAndPostsTableAdapter" Name="commentsAndPosts" UserDataComponentName="commentsAndPostsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tzalemtmunaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        comments.owner AS comment_owner, comments.comment_text, posts.owner AS post_owner, posts.post_text
+FROM            (comments INNER JOIN
+                         posts ON comments.post_id = posts.post_id)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="comment_owner" DataSetColumn="comment_owner" />
+              <Mapping SourceColumn="comment_text" DataSetColumn="comment_text" />
+              <Mapping SourceColumn="post_owner" DataSetColumn="post_owner" />
+              <Mapping SourceColumn="post_text" DataSetColumn="post_text" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -755,6 +823,119 @@ WHERE        (owner = ?)</CommandText>
               <xs:element name="is_admin" msprop:Generator_ColumnVarNameInTable="columnis_admin" msprop:Generator_ColumnPropNameInRow="is_admin" msprop:Generator_ColumnPropNameInTable="is_adminColumn" msprop:Generator_UserColumnName="is_admin" type="xs:boolean" minOccurs="0" />
               <xs:element name="is_verified" msprop:Generator_ColumnVarNameInTable="columnis_verified" msprop:Generator_ColumnPropNameInRow="is_verified" msprop:Generator_ColumnPropNameInTable="is_verifiedColumn" msprop:Generator_UserColumnName="is_verified" type="xs:boolean" minOccurs="0" />
               <xs:element name="ban_text" msprop:Generator_ColumnVarNameInTable="columnban_text" msprop:Generator_ColumnPropNameInRow="ban_text" msprop:Generator_ColumnPropNameInTable="ban_textColumn" msprop:Generator_UserColumnName="ban_text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usersAndReports" msprop:Generator_TableClassName="usersAndReportsDataTable" msprop:Generator_TableVarName="tableusersAndReports" msprop:Generator_TablePropName="usersAndReports" msprop:Generator_RowDeletingName="usersAndReportsRowDeleting" msprop:Generator_RowChangingName="usersAndReportsRowChanging" msprop:Generator_RowEvHandlerName="usersAndReportsRowChangeEventHandler" msprop:Generator_RowDeletedName="usersAndReportsRowDeleted" msprop:Generator_UserTableName="usersAndReports" msprop:Generator_RowChangedName="usersAndReportsRowChanged" msprop:Generator_RowEvArgName="usersAndReportsRowChangeEvent" msprop:Generator_RowClassName="usersAndReportsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="full_name" msprop:Generator_ColumnVarNameInTable="columnfull_name" msprop:Generator_ColumnPropNameInRow="full_name" msprop:Generator_ColumnPropNameInTable="full_nameColumn" msprop:Generator_UserColumnName="full_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="is_private" msprop:Generator_ColumnVarNameInTable="columnis_private" msprop:Generator_ColumnPropNameInRow="is_private" msprop:Generator_ColumnPropNameInTable="is_privateColumn" msprop:Generator_UserColumnName="is_private" type="xs:boolean" minOccurs="0" />
+              <xs:element name="is_admin" msprop:Generator_ColumnVarNameInTable="columnis_admin" msprop:Generator_ColumnPropNameInRow="is_admin" msprop:Generator_ColumnPropNameInTable="is_adminColumn" msprop:Generator_UserColumnName="is_admin" type="xs:boolean" minOccurs="0" />
+              <xs:element name="is_verified" msprop:Generator_ColumnVarNameInTable="columnis_verified" msprop:Generator_ColumnPropNameInRow="is_verified" msprop:Generator_ColumnPropNameInTable="is_verifiedColumn" msprop:Generator_UserColumnName="is_verified" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ban_text" msprop:Generator_ColumnVarNameInTable="columnban_text" msprop:Generator_ColumnPropNameInRow="ban_text" msprop:Generator_ColumnPropNameInTable="ban_textColumn" msprop:Generator_UserColumnName="ban_text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="report_text" msprop:Generator_ColumnVarNameInTable="columnreport_text" msprop:Generator_ColumnPropNameInRow="report_text" msprop:Generator_ColumnPropNameInTable="report_textColumn" msprop:Generator_UserColumnName="report_text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="content_type" msprop:Generator_ColumnVarNameInTable="columncontent_type" msprop:Generator_ColumnPropNameInRow="content_type" msprop:Generator_ColumnPropNameInTable="content_typeColumn" msprop:Generator_UserColumnName="content_type" type="xs:int" minOccurs="0" />
+              <xs:element name="content_id" msprop:Generator_ColumnVarNameInTable="columncontent_id" msprop:Generator_ColumnPropNameInRow="content_id" msprop:Generator_ColumnPropNameInTable="content_idColumn" msprop:Generator_UserColumnName="content_id" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="postsAndLikes" msprop:Generator_TableClassName="postsAndLikesDataTable" msprop:Generator_TableVarName="tablepostsAndLikes" msprop:Generator_TablePropName="postsAndLikes" msprop:Generator_RowDeletingName="postsAndLikesRowDeleting" msprop:Generator_RowChangingName="postsAndLikesRowChanging" msprop:Generator_RowEvHandlerName="postsAndLikesRowChangeEventHandler" msprop:Generator_RowDeletedName="postsAndLikesRowDeleted" msprop:Generator_UserTableName="postsAndLikes" msprop:Generator_RowChangedName="postsAndLikesRowChanged" msprop:Generator_RowEvArgName="postsAndLikesRowChangeEvent" msprop:Generator_RowClassName="postsAndLikesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="post_owner" msprop:Generator_ColumnVarNameInTable="columnpost_owner" msprop:Generator_ColumnPropNameInRow="post_owner" msprop:Generator_ColumnPropNameInTable="post_ownerColumn" msprop:Generator_UserColumnName="post_owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="post_text" msprop:Generator_ColumnVarNameInTable="columnpost_text" msprop:Generator_ColumnPropNameInRow="post_text" msprop:Generator_ColumnPropNameInTable="post_textColumn" msprop:Generator_UserColumnName="post_text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="like_owner" msprop:Generator_ColumnVarNameInTable="columnlike_owner" msprop:Generator_ColumnPropNameInRow="like_owner" msprop:Generator_ColumnPropNameInTable="like_ownerColumn" msprop:Generator_UserColumnName="like_owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="commentsAndPosts" msprop:Generator_TableClassName="commentsAndPostsDataTable" msprop:Generator_TableVarName="tablecommentsAndPosts" msprop:Generator_TablePropName="commentsAndPosts" msprop:Generator_RowDeletingName="commentsAndPostsRowDeleting" msprop:Generator_RowChangingName="commentsAndPostsRowChanging" msprop:Generator_RowEvHandlerName="commentsAndPostsRowChangeEventHandler" msprop:Generator_RowDeletedName="commentsAndPostsRowDeleted" msprop:Generator_UserTableName="commentsAndPosts" msprop:Generator_RowChangedName="commentsAndPostsRowChanged" msprop:Generator_RowEvArgName="commentsAndPostsRowChangeEvent" msprop:Generator_RowClassName="commentsAndPostsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="comment_owner" msprop:Generator_ColumnVarNameInTable="columncomment_owner" msprop:Generator_ColumnPropNameInRow="comment_owner" msprop:Generator_ColumnPropNameInTable="comment_ownerColumn" msprop:Generator_UserColumnName="comment_owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="comment_text" msprop:Generator_ColumnVarNameInTable="columncomment_text" msprop:Generator_ColumnPropNameInRow="comment_text" msprop:Generator_ColumnPropNameInTable="comment_textColumn" msprop:Generator_UserColumnName="comment_text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="post_owner" msprop:Generator_ColumnVarNameInTable="columnpost_owner" msprop:Generator_ColumnPropNameInRow="post_owner" msprop:Generator_ColumnPropNameInTable="post_ownerColumn" msprop:Generator_UserColumnName="post_owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="post_text" msprop:Generator_ColumnVarNameInTable="columnpost_text" msprop:Generator_ColumnPropNameInRow="post_text" msprop:Generator_ColumnPropNameInTable="post_textColumn" msprop:Generator_UserColumnName="post_text" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

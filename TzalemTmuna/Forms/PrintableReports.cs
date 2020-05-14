@@ -32,20 +32,20 @@ namespace TzalemTmuna.Forms
 
         private void PrintableReports_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'tzalemtmunaDataSet.reports' table. You can move, or remove it, as needed.
             reportsTableAdapter.Fill(tzalemtmunaDataSet.reports);
             usersTableAdapter.Fill(tzalemtmunaDataSet.users);
             postsTableAdapter.Fill(tzalemtmunaDataSet.posts);
             commentsTableAdapter.Fill(tzalemtmunaDataSet.comments);
+            usersAndReportsTableAdapter.Fill(tzalemtmunaDataSet.usersAndReports);
+            commentsAndPostsTableAdapter.Fill(tzalemtmunaDataSet.commentsAndPosts);
+            postsAndLikesTableAdapter.Fill(tzalemtmunaDataSet.postsAndLikes);
             reportViewer1.RefreshReport();
             reportViewer2.RefreshReport();
             reportViewer3.RefreshReport();
             reportViewer4.RefreshReport();
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            reportViewer5.RefreshReport();
+            reportViewer6.RefreshReport();
+            reportViewer7.RefreshReport();
         }
 
         private void btnFilterReports_Click(object sender, EventArgs e)
