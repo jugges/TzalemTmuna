@@ -279,7 +279,8 @@ namespace TzalemTmuna.Forms
                 new CommentDB().AddRow(comment);
                 //Add comment to post's comment list
                 post.Comments.Add(comment);
-
+                //Send alert to post owner
+                new AlertDB().NewAlert($"{LoggedInUser.login.Username} commented:\n\r\"{comment.Comment_text}\"\n\ron your post titled:\n\r\"{post.Post_text}\"", post.Owner);
                 var commentControl = new CommentControl(comment);
                 //Add comment to flowLayoutPanel
                 flowLayoutPanel1.Controls.Add(commentControl);
